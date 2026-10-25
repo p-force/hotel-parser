@@ -11,9 +11,13 @@ import (
 func main() {
 	loc, err := time.LoadLocation("Europe/Moscow")
 	if err != nil {
-		loc = time.Local
+		loc = time.FixedZone("UTC+3", 3*60*60)
 	}
 
 	slog.SetDefault(logger.New(os.Stdout, loc))
+
+	if err != nil {
+		slog.Warn("failed to load Europe/Moscow timezone", "error", err)
+	}
 	slog.Info("hotel-parser started")
 }
