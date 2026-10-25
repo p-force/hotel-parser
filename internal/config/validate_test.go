@@ -1,4 +1,3 @@
-
 package config
 
 import (
@@ -42,8 +41,8 @@ func TestConfigValidate(t *testing.T) {
 		wantErr string
 	}{
 		{
-			name:    "valid config",
-			mutate:  func(*Config) {},
+			name:   "valid config",
+			mutate: func(*Config) {},
 		},
 		{
 			name: "missing hotel id",
