@@ -1,0 +1,45 @@
+
+{
+  "id": "arena33",
+  "name": "Апарт-отель Arena33",
+  "type": "apart_hotel",
+  "role": "own",
+  "timezone": "Europe/Moscow",
+  "source": {
+    "type": "bnovo",
+    "base_url": "https://reservationsteps.ru",
+    "property_id": "7f3f84ae-1f13-419f-af60-ae782d454666"
+  },
+  "inventory": {
+    "total_rooms": 19,
+    "source": "manager_confirmed",
+    "categories": [
+      {
+        "id": "stadium",
+        "name": "Stadium",
+        "source_room_id": "561429",
+        "total_rooms": 10
+      },
+      {
+        "id": "garden",
+        "name": "Garden",
+        "source_room_id": "459946",
+        "total_rooms": 4
+      },
+      {
+        "id": "premium",
+        "name": "Premium",
+        "source_room_id": "639687",
+        "total_rooms": 5
+      }
+    ]
+  },
+  "collection": {
+    "enabled": true,
+    "days_ahead": 60,
+    "adults": 2,
+    "children_ages": [],
+    "rooms": 1,
+    "nights": [1, 2, 3]
+  }
+}
