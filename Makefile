@@ -1,4 +1,5 @@
-.PHONY: run build test fmt vet tidy
+
+.PHONY: run build test test-race fmt fmt-check vet tidy check
 
 run:
 	go run ./cmd/hotel-parser
@@ -10,8 +11,15 @@ build:
 test:
 	go test ./...
 
+test-race:
+	go test -race -count=1 ./...
+
 fmt:
 	gofmt -w .
+
+fmt-check:
+	@test -z "$$(gofmt -l $$(git ls-files '*.go'))" || \
+	(echo "Go files are not formatted"; exit 1)
 
 vet:
 	go vet ./...
@@ -19,4 +27,4 @@ vet:
 tidy:
 	go mod tidy
 
-check: fmt vet test
+check: fmt-check vet test-race build

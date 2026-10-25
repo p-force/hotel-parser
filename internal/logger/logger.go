@@ -22,7 +22,7 @@ type PrettyHandler struct {
 
 func New(w io.Writer, loc *time.Location) *slog.Logger {
 	if loc == nil {
-		loc = time.Local
+		loc = time.FixedZone("UTC+3", 3*60*60)
 	}
 
 	return slog.New(&PrettyHandler{
