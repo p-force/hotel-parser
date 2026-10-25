@@ -58,7 +58,7 @@ func (h *PrettyHandler) Handle(_ context.Context, r slog.Record) error {
 	}
 
 	for _, a := range h.attrs {
-		writeAttr(a, h.groups)
+		writeAttr(a, nil)
 	}
 
 	r.Attrs(func(a slog.Attr) bool {
@@ -77,7 +77,20 @@ func (h *PrettyHandler) Handle(_ context.Context, r slog.Record) error {
 
 func (h *PrettyHandler) WithAttrs(attrs []slog.Attr) slog.Handler {
 	clone := *h
-	clone.attrs = append(append([]slog.Attr(nil), h.attrs...), attrs...)
+	clone.attrs = append([]slog.Attr(nil), h.attrs...)
+
+	for _, a := range attrs {
+		key := strings.Join(
+			append(append([]string(nil), h.groups...), a.Key),
+			".",
+		)
+
+		clone.attrs = append(clone.attrs, slog.Attr{
+			Key:   key,
+			Value: a.Value,
+		})
+	}
+
 	return &clone
 }
 
