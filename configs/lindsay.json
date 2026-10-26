@@ -1,6 +1,6 @@
 {
   "id": "lindsay",
-  "name": "Lindsay",
+  "name": "мини отель Линдсей",
   "type": "hotel",
   "role": "competitor",
   "timezone": "Europe/Moscow",
@@ -41,23 +41,23 @@
         "id": "standard_twin",
         "name": "стандарт с двумя раздельными кроватями",
         "source_room_id": "188501",
-        "total_rooms": null
+        "total_rooms": 1
       },
       {
         "id": "economy_private_bathroom",
         "name": "эконом с раздельными кроватями и собственной ванной комнатой",
         "source_room_id": "188502",
-        "total_rooms": null
+        "total_rooms": 2
       },
       {
         "id": "standard_triple",
         "name": "трехместный стандартный номер",
         "source_room_id": "188503",
-        "total_rooms": null
+        "total_rooms": 1
       },
       {
         "id": "superior_single_bed",
-        "name": "улучшенный номер с одной кроватью",
+        "name": "улучшенный  номер с одной кроватью",
         "source_room_id": "188504",
         "total_rooms": null
       },
@@ -65,16 +65,28 @@
         "id": "single_shared_bathroom",
         "name": "одноместный номер с общей ванной комнатой",
         "source_room_id": "188505",
-        "total_rooms": null
+        "total_rooms": 1
       },
       {
         "id": "studio",
         "name": "студия",
         "source_room_id": "201948",
-        "total_rooms": null
+        "total_rooms": 1
       }
     ]
   },
+  "rates": [
+    {
+      "id": "772150",
+      "name": "Лояльный",
+      "enabled": true
+    },
+    {
+      "id": "772153",
+      "name": "С гарантией",
+      "enabled": true
+    }
+  ],
   "collection": {
     "enabled": false,
     "days_ahead": 60,

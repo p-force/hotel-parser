@@ -170,12 +170,18 @@ func writeSummary(out io.Writer, hotel config.Config, req bnovo.SearchRequest, r
 		}
 		if stock.Status == collect.StockKnown && stock.Available != nil {
 			observed = strconv.Itoa(*stock.Available)
-			outcome = "unchanged"
-			if increased[category.SourceRoomID] {
-				outcome = "increase"
+			if category.TotalRooms != nil {
+				outcome = "unchanged"
+				if increased[category.SourceRoomID] {
+					outcome = "increase"
+				}
 			}
 		}
-		fmt.Fprintf(table, "%s\t%d\t%s\t%s\n", category.Name, category.TotalRooms, observed, outcome)
+		configured := "unknown"
+		if category.TotalRooms != nil {
+			configured = strconv.Itoa(*category.TotalRooms)
+		}
+		fmt.Fprintf(table, "%s\t%s\t%s\t%s\n", category.Name, configured, observed, outcome)
 	}
 	if err := table.Flush(); err != nil {
 		return err

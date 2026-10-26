@@ -48,11 +48,15 @@ func DetectInventoryIncreases(stocks []CategoryStock, inventory config.Inventory
 			warnings = append(warnings, bnovo.ParseWarning{Code: "inventory_stock_duplicate", Message: "expected one normalized stock per category and scenario", Context: id})
 			continue
 		}
-		if stock.Status != StockKnown || stock.Available == nil || *stock.Available <= category.TotalRooms {
+		if category.TotalRooms == nil {
+			warnings = append(warnings, bnovo.ParseWarning{Code: "inventory_max_unknown", Message: "configured maximum is unknown; comparison skipped", Context: id})
+			continue
+		}
+		if stock.Status != StockKnown || stock.Available == nil || *stock.Available <= *category.TotalRooms {
 			continue
 		}
 		increases = append(increases, InventoryIncrease{
-			CategoryID: id, CategoryName: category.Name, PreviousMax: category.TotalRooms,
+			CategoryID: id, CategoryName: category.Name, PreviousMax: *category.TotalRooms,
 			Observed: *stock.Available, NewMax: *stock.Available,
 		})
 	}

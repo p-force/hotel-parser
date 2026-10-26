@@ -41,7 +41,11 @@ func writeConfig(t *testing.T, hotel config.Config) string {
 func observedResult(req bnovo.SearchRequest, hotel config.Config) bnovo.SearchResult {
 	result := bnovo.SearchResult{Request: req, HTTPStatus: 200, Status: bnovo.SearchStatusSuccess}
 	for _, category := range hotel.Inventory.Categories {
-		count := category.TotalRooms
+		if category.TotalRooms == nil {
+			result.Categories = append(result.Categories, bnovo.RoomCategory{ID: category.SourceRoomID, Name: category.Name})
+			continue
+		}
+		count := *category.TotalRooms
 		result.Categories = append(result.Categories, bnovo.RoomCategory{ID: category.SourceRoomID, Name: category.Name})
 		result.Variants = append(result.Variants, bnovo.AccommodationVariant{ID: category.SourceRoomID, CategoryID: category.SourceRoomID, Adults: 2})
 		result.Offers = append(result.Offers, bnovo.RateOffer{CategoryID: category.SourceRoomID, VariantID: category.SourceRoomID, RateID: "1", Visible: true, Price: "100.00", Currency: "RUB", Availability: bnovo.AvailabilityEvidence{DataAvailable: &count, SelectableQuantities: []int{1, count}}})
@@ -336,5 +340,24 @@ func TestInventoryCheckHelp(t *testing.T) {
 	})
 	if code != 0 || !strings.Contains(out.String(), "--date") || diagnostics.Len() != 0 {
 		t.Errorf("неверный help: %d %s %s", code, out.String(), diagnostics.String())
+	}
+}
+
+func TestInventoryCheckUnknownConfiguredMaximum(t *testing.T) {
+	baseline := hotelFixture(t)
+	hotel := baseline
+	hotel.Inventory.Categories = append([]config.RoomCategory(nil), baseline.Inventory.Categories...)
+	hotel.Inventory.TotalRooms = nil
+	hotel.Inventory.Categories[0].TotalRooms = nil
+	path := writeConfig(t, hotel)
+	var out, diagnostics, logs bytes.Buffer
+	code := run(context.Background(), []string{"--config=" + path}, &out, &diagnostics, slog.New(slog.NewJSONHandler(&logs, nil)), time.Date(2026, 10, 26, 0, 0, 0, 0, time.UTC), func(ctx context.Context, req bnovo.SearchRequest) bnovo.SearchResult {
+		return observedResult(req, baseline)
+	})
+	if code != 1 || !strings.Contains(strings.Join(strings.Fields(out.String()), " "), "Stadium unknown 10 unknown") || !strings.Contains(diagnostics.String(), "inventory_max_unknown") {
+		t.Errorf("неизвестный максимум выведен как число: code=%d\n%s\n%s", code, out.String(), diagnostics.String())
+	}
+	if logs.Len() != 0 || strings.Contains(out.String(), "%!") {
+		t.Errorf("ложное увеличение или ошибка формата: %s %s", out.String(), logs.String())
 	}
 }
