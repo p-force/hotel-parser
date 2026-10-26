@@ -122,6 +122,7 @@ func TestCollectStructuredLogging(t *testing.T) {
 				}
 			}
 			final := events[len(events)-1]
+			assertCollectionTiming(t, events, result, true, tc.parse)
 			for key, want := range map[string]any{"status": string(tc.status), "http_status": float64(tc.httpStatus), "categories_count": float64(len(result.Categories)), "offers_count": float64(len(result.Offers)), "warnings_count": float64(len(result.Warnings)), "error_code": tc.errorCode} {
 				if final[key] != want {
 					t.Errorf("итоговое поле %s = %v, ожидалось %v", key, final[key], want)
@@ -208,5 +209,153 @@ func TestCollectLoggingCanceledContext(t *testing.T) {
 	final := events[len(events)-1]
 	if final["level"] != "ERROR" || final["error_code"] != "canceled" || final["http_status"] != float64(0) {
 		t.Errorf("неверная диагностика отмены: %v", final)
+	}
+}
+
+// Проверяем заполненность, границы этапов и отсутствие неприменимых метрик.
+func assertCollectionTiming(t *testing.T, events []map[string]any, result SearchResult, wantHTTP, wantParse bool) {
+	t.Helper()
+	final := events[len(events)-1]
+	total, ok := final["collection_duration_ms"].(float64)
+	if !ok || total < 0 {
+		t.Fatalf("нет корректного времени попытки: %v", final)
+	}
+	if final["duration_ms"] != total {
+		t.Error("совместимое поле duration_ms расходится с collection_duration_ms")
+	}
+	var stages float64
+	for key, want := range map[string]bool{"http_duration_ms": wantHTTP, "parse_duration_ms": wantParse} {
+		value, exists := final[key]
+		if exists != want {
+			t.Errorf("поле %s присутствует=%t, ожидалось %t", key, exists, want)
+			continue
+		}
+		if !exists {
+			continue
+		}
+		duration, ok := value.(float64)
+		if !ok || duration < 0 {
+			t.Errorf("неверная метрика %s=%v", key, value)
+			continue
+		}
+		stages += duration
+		eventName := "bnovo.http.completed"
+		if key == "parse_duration_ms" {
+			eventName = "bnovo.parse.completed"
+		}
+		found := false
+		for _, event := range events {
+			if event["msg"] == eventName {
+				found = true
+				if event[key] != value || event["duration_ms"] != value {
+					t.Errorf("метрика %s измерена повторно: %v, итог: %v", key, event, final)
+				}
+			}
+		}
+		if !found {
+			t.Errorf("нет события этапа %s", key)
+		}
+	}
+	if total < stages {
+		t.Errorf("время попытки %v меньше суммы этапов %v", total, stages)
+	}
+	for _, event := range events {
+		stamp, ok := event["collected_at"].(string)
+		if !ok {
+			t.Errorf("нет UTC начала попытки: %v", event)
+			continue
+		}
+		parsed, err := time.Parse(time.RFC3339Nano, stamp)
+		if err != nil || !parsed.Equal(result.CollectedAt) || !strings.HasSuffix(stamp, "Z") {
+			t.Errorf("неверное начало попытки: %q, результат: %v", stamp, result.CollectedAt)
+		}
+		if _, exists := event["queue_wait_ms"]; exists {
+			t.Error("метрика очереди появилась без очереди")
+		}
+		if event["msg"] != "bnovo.collect.completed" {
+			if _, exists := event["collection_duration_ms"]; exists {
+				t.Error("полное время записано до завершения")
+			}
+		}
+	}
+}
+
+func TestCollectTimingWithoutHTTPRequest(t *testing.T) {
+	for _, reason := range []string{"invalid_request", "canceled", "deadline"} {
+		t.Run(reason, func(t *testing.T) {
+			buf := captureCollectionLogs(t)
+			client := testClient(t, func(w http.ResponseWriter, r *http.Request) {
+				t.Error("HTTP-запрос не должен отправляться")
+			})
+			req := testSearchRequest()
+			ctx := context.Background()
+			if reason == "invalid_request" {
+				req.Adults = 0
+			}
+			if reason == "canceled" {
+				var cancel context.CancelFunc
+				ctx, cancel = context.WithCancel(ctx)
+				cancel()
+			}
+			if reason == "deadline" {
+				var cancel context.CancelFunc
+				ctx, cancel = context.WithDeadline(ctx, time.Now().Add(-time.Second))
+				defer cancel()
+			}
+			started := time.Now()
+			result := client.Collect(ctx, req)
+			if result.Status != SearchStatusFailed {
+				t.Fatalf("неверный результат: %+v", result)
+			}
+			assertCollectedAt(t, result, started)
+			events := readCollectionLogs(t, buf)
+			assertCollectionTiming(t, events, result, false, false)
+			for _, event := range events {
+				if event["msg"] == "bnovo.http.completed" {
+					if _, exists := event["duration_ms"]; exists {
+						t.Error("неотправленный запрос получил HTTP-duration")
+					}
+				}
+				if event["msg"] == "bnovo.parse.completed" {
+					t.Error("парсинг не должен начинаться")
+				}
+			}
+		})
+	}
+}
+
+func TestCollectTimingHTTPTimeout(t *testing.T) {
+	for _, phase := range []string{"headers", "body"} {
+		t.Run(phase, func(t *testing.T) {
+			buf := captureCollectionLogs(t)
+			client := testClient(t, func(w http.ResponseWriter, r *http.Request) {
+				if phase == "body" {
+					fmt.Fprint(w, "partial body")
+					w.(http.Flusher).Flush()
+				}
+				<-r.Context().Done()
+			})
+			client.timeout = 100 * time.Millisecond
+			started := time.Now()
+			result := client.Collect(context.Background(), testSearchRequest())
+			elapsed := time.Since(started)
+			if result.Status != SearchStatusFailed || result.Error.Code != "timeout" {
+				t.Fatalf("неверный результат: %+v", result)
+			}
+			events := readCollectionLogs(t, buf)
+			assertCollectionTiming(t, events, result, true, false)
+			final := events[len(events)-1]
+			httpMS := final["http_duration_ms"].(float64)
+			if httpMS < 80 || httpMS > float64(elapsed.Milliseconds()+1) {
+				t.Errorf("HTTP-duration %v не отражает таймаут: фактически %v", httpMS, elapsed)
+			}
+			wantStatus := float64(0)
+			if phase == "body" {
+				wantStatus = 200
+			}
+			if final["http_status"] != wantStatus {
+				t.Errorf("неверный HTTP-статус: %v", final)
+			}
+		})
 	}
 }
