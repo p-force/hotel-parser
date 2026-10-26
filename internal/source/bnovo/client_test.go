@@ -61,8 +61,8 @@ func assertResponseMetadata(t *testing.T, response HTTPResponse, started time.Ti
 	if response.RequestedAt.Location() != time.UTC {
 		t.Errorf("время запроса должно быть в UTC: %v", response.RequestedAt)
 	}
-	if response.Duration <= 0 {
-		t.Errorf("продолжительность должна быть положительной: %v", response.Duration)
+	if response.Duration < 0 {
+		t.Errorf("продолжительность не должна быть отрицательной: %v", response.Duration)
 	}
 }
 
@@ -91,6 +91,9 @@ func TestClientHTTPStatus(t *testing.T) {
 				t.Errorf("статус = %d, ожидался %d", response.StatusCode, status)
 			}
 			assertResponseMetadata(t, response, started)
+			if !response.RequestStarted {
+				t.Error("нет признака запуска HTTP-запроса")
+			}
 			if status == http.StatusOK {
 				if err != nil || string(response.Body) != body {
 					t.Fatalf("ответ = %q, ошибка = %v", response.Body, err)
@@ -184,6 +187,12 @@ func TestClientCanceledContext(t *testing.T) {
 			assertResponseMetadata(t, response, started)
 			if phase == "before_request" && requests.Load() != 0 {
 				t.Error("отменённый контекст не должен приводить к HTTP-запросу")
+			}
+			if phase == "before_request" && (response.Duration != 0 || response.RequestStarted) {
+				t.Errorf("неотправленный запрос получил длительность: %v", response.Duration)
+			}
+			if phase != "before_request" && (!response.RequestStarted || response.Duration < 0) {
+				t.Errorf("нет длительности начатого HTTP-запроса: %v", response.Duration)
 			}
 		})
 	}
