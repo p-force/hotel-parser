@@ -62,6 +62,10 @@ type HTTPResponse struct {
 	// RequestedAt — момент начала запроса в UTC.
 	RequestedAt time.Time
 
+	// RequestStarted означает, что выполнение дошло до вызова http.Client.Do.
+	// Отличает пропущенный HTTP-этап от выполненного с нулевой длительностью.
+	RequestStarted bool
+
 	// Duration — время от начала http.Client.Do до завершения обработки
 	// ответа, включая чтение тела. Ноль, если HTTP-запрос не начинался.
 	Duration time.Duration
@@ -284,6 +288,7 @@ func (c *Client) get(
 
 	// Измеряем только HTTP-этап, включая чтение тела и закрытие ответа.
 	// started сохраняет монотонную часть времени; RequestedAt в UTC её не имеет.
+	result.RequestStarted = true
 	started := time.Now()
 	defer func() { result.Duration = time.Since(started) }()
 	resp, err := c.httpClient.Do(req)

@@ -94,14 +94,15 @@ func (h *PrettyHandler) Handle(_ context.Context, r slog.Record) error {
 		fmt.Fprintf(&b, " %s=%s", key, a.Value.String())
 	}
 
-	for _, a := range h.attrs {
-		writeAttr(a, nil)
+	if !h.writeBnovoAttrs(&b, r) {
+		for _, a := range h.attrs {
+			writeAttr(a, nil)
+		}
+		r.Attrs(func(a slog.Attr) bool {
+			writeAttr(a, h.groups)
+			return true
+		})
 	}
-
-	r.Attrs(func(a slog.Attr) bool {
-		writeAttr(a, h.groups)
-		return true
-	})
 
 	b.WriteByte('\n')
 

@@ -6,6 +6,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	appLogger "github.com/p-force/hotel-parser/internal/logger"
 	"log/slog"
 	"net/http"
 	"reflect"
@@ -105,16 +106,8 @@ func TestCollectStructuredLogging(t *testing.T) {
 				if event["msg"] != wantNames[i] || event["attempt_id"] != attempt {
 					t.Errorf("нарушена корреляция/очерёдность: %v", event)
 				}
-				for key, want := range map[string]any{"property_id": req.PropertyID, "check_in": "2026-10-26", "check_out": "2026-10-28", "los": float64(2), "adults": float64(2)} {
-					if event[key] != want {
-						t.Errorf("поле %s = %v, ожидалось %v", key, event[key], want)
-					}
-				}
-				wantLevel := "INFO"
-				if event["msg"] == "bnovo.http.completed" && !tc.parse {
-					wantLevel = "ERROR"
-				}
-				if event["msg"] == "bnovo.parse.completed" || event["msg"] == "bnovo.collect.completed" {
+				wantLevel := "DEBUG"
+				if event["msg"] == "bnovo.collect.completed" {
 					wantLevel = tc.level
 				}
 				if event["level"] != wantLevel {
@@ -123,13 +116,22 @@ func TestCollectStructuredLogging(t *testing.T) {
 			}
 			final := events[len(events)-1]
 			assertCollectionTiming(t, events, result, true, tc.parse)
-			for key, want := range map[string]any{"status": string(tc.status), "http_status": float64(tc.httpStatus), "categories_count": float64(len(result.Categories)), "offers_count": float64(len(result.Offers)), "warnings_count": float64(len(result.Warnings)), "error_code": tc.errorCode} {
+			for key, want := range map[string]any{"status": string(tc.status), "http_status": float64(tc.httpStatus), "categories_count": float64(len(result.Categories)), "offers_count": float64(len(result.Offers)), "warnings_count": float64(len(result.Warnings))} {
 				if final[key] != want {
 					t.Errorf("итоговое поле %s = %v, ожидалось %v", key, final[key], want)
 				}
 			}
-			if _, ok := final["duration_ms"].(float64); !ok {
-				t.Error("нет длительности попытки")
+			for key, want := range map[string]any{"property_id": req.PropertyID, "check_in": "2026-10-26", "check_out": "2026-10-28", "los": float64(2), "adults": float64(2)} {
+				if final[key] != want {
+					t.Errorf("итоговое поле %s = %v, ожидалось %v", key, final[key], want)
+				}
+			}
+			if tc.errorCode == "" {
+				if _, exists := final["error_code"]; exists {
+					t.Error("пустой error_code не должен выводиться")
+				}
+			} else if final["error_code"] != tc.errorCode {
+				t.Errorf("неверный error_code: %v", final)
 			}
 			for _, forbidden := range []string{secret, "secret-cookie-value", "<html>", "<h1>", client.baseURL.String(), "4910.50"} {
 				if strings.Contains(buf.String(), forbidden) {
@@ -220,9 +222,7 @@ func assertCollectionTiming(t *testing.T, events []map[string]any, result Search
 	if !ok || total < 0 {
 		t.Fatalf("нет корректного времени попытки: %v", final)
 	}
-	if final["duration_ms"] != total {
-		t.Error("совместимое поле duration_ms расходится с collection_duration_ms")
-	}
+
 	var stages float64
 	for key, want := range map[string]bool{"http_duration_ms": wantHTTP, "parse_duration_ms": wantParse} {
 		value, exists := final[key]
@@ -247,7 +247,7 @@ func assertCollectionTiming(t *testing.T, events []map[string]any, result Search
 		for _, event := range events {
 			if event["msg"] == eventName {
 				found = true
-				if event[key] != value || event["duration_ms"] != value {
+				if event[key] != value {
 					t.Errorf("метрика %s измерена повторно: %v, итог: %v", key, event, final)
 				}
 			}
@@ -260,14 +260,27 @@ func assertCollectionTiming(t *testing.T, events []map[string]any, result Search
 		t.Errorf("время попытки %v меньше суммы этапов %v", total, stages)
 	}
 	for _, event := range events {
-		stamp, ok := event["collected_at"].(string)
-		if !ok {
-			t.Errorf("нет UTC начала попытки: %v", event)
-			continue
+		if _, exists := event["duration_ms"]; exists {
+			t.Error("универсальный duration_ms не должен выводиться")
 		}
-		parsed, err := time.Parse(time.RFC3339Nano, stamp)
-		if err != nil || !parsed.Equal(result.CollectedAt) || !strings.HasSuffix(stamp, "Z") {
-			t.Errorf("неверное начало попытки: %q, результат: %v", stamp, result.CollectedAt)
+		if event["msg"] == "bnovo.collect.completed" {
+			stamp, ok := event["collected_at"].(string)
+			if !ok {
+				t.Fatalf("нет UTC начала попытки: %v", event)
+			}
+			parsed, err := time.Parse(time.RFC3339Nano, stamp)
+			if err != nil || !parsed.Equal(result.CollectedAt) || !strings.HasSuffix(stamp, "Z") {
+				t.Errorf("неверное начало попытки: %q", stamp)
+			}
+		} else {
+			for _, key := range []string{"collected_at", "property_id", "check_in", "check_out", "los", "adults"} {
+				if _, exists := event[key]; exists {
+					t.Errorf("контекст %s повторяется на промежуточном этапе", key)
+				}
+			}
+		}
+		if code, exists := event["error_code"]; exists && code == "" {
+			t.Error("пустой error_code")
 		}
 		if _, exists := event["queue_wait_ms"]; exists {
 			t.Error("метрика очереди появилась без очереди")
@@ -357,5 +370,78 @@ func TestCollectTimingHTTPTimeout(t *testing.T) {
 				t.Errorf("неверный HTTP-статус: %v", final)
 			}
 		})
+	}
+}
+
+func TestCollectInfoHasOnlyFinalRecord(t *testing.T) {
+	for _, format := range []string{"text", "json"} {
+		for _, tc := range []struct {
+			name, content string
+			httpStatus    int
+			level         string
+		}{
+			{"no_offers", `<div class="tariff__nodates">Здесь нет свободных мест с 26 октября 2026 по 28 октября 2026</div>`, 200, "INFO"},
+			{"partial", `<div class="plan_row" data-plan-id="1"></div>`, 200, "WARN"},
+			{"failed", "error", 403, "ERROR"},
+		} {
+			t.Run(format+"/"+tc.name, func(t *testing.T) {
+				var buf bytes.Buffer
+				previous := slog.Default()
+				if format == "json" {
+					slog.SetDefault(slog.New(slog.NewJSONHandler(&buf, nil)))
+				} else {
+					slog.SetDefault(appLogger.New(&buf, time.UTC))
+				}
+				t.Cleanup(func() { slog.SetDefault(previous) })
+				client := testClient(t, func(w http.ResponseWriter, r *http.Request) {
+					w.WriteHeader(tc.httpStatus)
+					fmt.Fprint(w, collectorHTML(tc.content))
+				})
+				result := client.Collect(context.Background(), testSearchRequest())
+				if strings.Count(buf.String(), "\n") != 1 {
+					t.Fatalf("на INFO ожидается одна строка: %s", buf.String())
+				}
+				for _, forbidden := range []string{"bnovo.collect.started", "bnovo.http.completed", "bnovo.parse.completed", " duration_ms=", `"duration_ms":`} {
+					if strings.Contains(buf.String(), forbidden) {
+						t.Errorf("лишние подробности на INFO: %s", buf.String())
+					}
+				}
+				if format == "text" {
+					if !strings.HasPrefix(buf.String(), "["+tc.level+"] ") {
+						t.Errorf("формат PrettyHandler изменился: %s", buf.String())
+					}
+					if result.Error == nil && strings.Contains(buf.String(), "error_code=") {
+						t.Error("выведен пустой error_code")
+					}
+				} else {
+					events := readCollectionLogs(t, &buf)
+					final := events[0]
+					if final["level"] != tc.level || final["msg"] != "bnovo.collect.completed" {
+						t.Errorf("неверный итог: %v", final)
+					}
+					keys := []string{"time", "level", "msg", "attempt_id", "property_id", "check_in", "check_out", "los", "adults", "collected_at", "collection_duration_ms", "http_duration_ms", "status", "http_status", "categories_count", "offers_count", "warnings_count"}
+					if result.Error == nil {
+						keys = append(keys, "parse_duration_ms")
+					} else {
+						keys = append(keys, "error_code")
+					}
+					if len(final) != len(keys) {
+						t.Errorf("неверный набор полей JSON: %v", final)
+					}
+					for _, key := range keys {
+						if _, exists := final[key]; !exists {
+							t.Errorf("в JSON нет поля %s", key)
+						}
+					}
+					if result.Error == nil {
+						if _, exists := final["error_code"]; exists {
+							t.Error("в JSON выведен пустой error_code")
+						}
+					} else if final["error_code"] != result.Error.Code {
+						t.Error("потерян код ошибки")
+					}
+				}
+			})
+		}
 	}
 }

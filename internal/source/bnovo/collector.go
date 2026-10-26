@@ -29,26 +29,27 @@ func (c *Client) Collect(
 		// Некорректный UID может содержать URL, токен или произвольный текст.
 		propertyID = ""
 	}
-	log := slog.Default().With(
-		"attempt_id", rand.Text(),
-		"collected_at", started.UTC(),
-		"property_id", propertyID,
-		"check_in", req.CheckIn.Format("2006-01-02"),
-		"check_out", req.CheckOut.Format("2006-01-02"),
-		"los", calendarLOS(req),
-		"adults", req.Adults,
-	)
-	log.InfoContext(ctx, "bnovo.collect.started")
+	// На этапах достаточно ID попытки; полный сценарий записывается один раз в итоге.
+	log := slog.Default().With("attempt_id", rand.Text())
+	scenarioAttrs := []slog.Attr{
+		slog.String("property_id", propertyID),
+		slog.String("check_in", req.CheckIn.Format("2006-01-02")),
+		slog.String("check_out", req.CheckOut.Format("2006-01-02")),
+		slog.Int("los", calendarLOS(req)),
+		slog.Int("adults", req.Adults),
+		slog.Time("collected_at", started.UTC()),
+	}
+	log.DebugContext(ctx, "bnovo.collect.started")
 	defer func() {
 		duration := time.Since(started)
-		attrs := []slog.Attr{slog.Int64("collection_duration_ms", duration.Milliseconds())}
+		attrs := append(scenarioAttrs, slog.Int64("collection_duration_ms", duration.Milliseconds()))
 		if httpDuration != nil {
 			attrs = append(attrs, slog.Int64("http_duration_ms", httpDuration.Milliseconds()))
 		}
 		if parseDuration != nil {
 			attrs = append(attrs, slog.Int64("parse_duration_ms", parseDuration.Milliseconds()))
 		}
-		logCollectionResult(ctx, log, "bnovo.collect.completed", result, duration, attrs...)
+		logCollectionResult(ctx, log, result, attrs...)
 	}()
 
 	result = SearchResult{
@@ -61,29 +62,26 @@ func (c *Client) Collect(
 	response, err := c.Search(ctx, req)
 
 	// Сохраняем метаданные независимо от успешности запроса.
-	if response.Duration > 0 {
+	if response.RequestStarted {
 		httpDuration = &response.Duration
 	}
 	result.HTTPStatus = response.StatusCode
 
-	httpLevel := slog.LevelInfo
-	errorCode := ""
 	if err != nil {
 		result.Error = collectionErrorFrom(err, response.StatusCode)
-		httpLevel = slog.LevelError
-		errorCode = result.Error.Code
 	}
 	httpAttrs := []slog.Attr{
 		slog.Int("http_status", response.StatusCode),
-		slog.String("error_code", errorCode),
 	}
 	if httpDuration != nil {
 		httpAttrs = append(httpAttrs,
 			slog.Int64("http_duration_ms", httpDuration.Milliseconds()),
-			slog.Int64("duration_ms", httpDuration.Milliseconds()),
 		)
 	}
-	log.LogAttrs(ctx, httpLevel, "bnovo.http.completed", httpAttrs...)
+	if result.Error != nil {
+		httpAttrs = append(httpAttrs, slog.String("error_code", result.Error.Code))
+	}
+	log.LogAttrs(ctx, slog.LevelDebug, "bnovo.http.completed", httpAttrs...)
 	if err != nil {
 		return result
 	}
@@ -108,7 +106,10 @@ func (c *Client) Collect(
 		result.Offers = parsed.Offers
 		result.CategoryAvailability = parsed.CategoryAvailability
 		result.Warnings = parsed.Warnings
-		logCollectionResult(ctx, log, "bnovo.parse.completed", result, parseElapsed, slog.Int64("parse_duration_ms", parseElapsed.Milliseconds()))
+		log.DebugContext(ctx, "bnovo.parse.completed",
+			"parse_duration_ms", parseElapsed.Milliseconds(),
+			"error_code", result.Error.Code,
+		)
 
 		return result
 	}
@@ -118,7 +119,12 @@ func (c *Client) Collect(
 	// Parse не выполняет HTTP и не знает время начала запроса.
 	parsed.CollectedAt = result.CollectedAt
 	parsed.HTTPStatus = response.StatusCode
-	logCollectionResult(ctx, log, "bnovo.parse.completed", parsed, parseElapsed, slog.Int64("parse_duration_ms", parseElapsed.Milliseconds()))
+	log.DebugContext(ctx, "bnovo.parse.completed",
+		"parse_duration_ms", parseElapsed.Milliseconds(),
+		"categories_count", len(parsed.Categories),
+		"offers_count", len(parsed.Offers),
+		"warnings_count", len(parsed.Warnings),
+	)
 
 	return parsed
 }
@@ -162,14 +168,10 @@ func calendarLOS(req SearchRequest) int {
 }
 
 // В логи попадают только счётчики и коды, без текста предупреждений и ошибок.
-func logCollectionResult(ctx context.Context, log *slog.Logger, event string, result SearchResult, duration time.Duration, timingAttrs ...slog.Attr) {
+func logCollectionResult(ctx context.Context, log *slog.Logger, result SearchResult, timingAttrs ...slog.Attr) {
 	level := slog.LevelInfo
 	if result.Status == SearchStatusPartial || len(result.Warnings) > 0 {
 		level = slog.LevelWarn
-	}
-	errorCode := ""
-	if result.Error != nil {
-		errorCode = result.Error.Code
 	}
 	if result.Status == SearchStatusFailed {
 		level = slog.LevelError
@@ -180,9 +182,10 @@ func logCollectionResult(ctx context.Context, log *slog.Logger, event string, re
 		slog.Int("categories_count", len(result.Categories)),
 		slog.Int("offers_count", len(result.Offers)),
 		slog.Int("warnings_count", len(result.Warnings)),
-		slog.String("error_code", errorCode),
-		slog.Int64("duration_ms", duration.Milliseconds()),
+	}
+	if result.Error != nil && result.Error.Code != "" {
+		attrs = append(attrs, slog.String("error_code", result.Error.Code))
 	}
 	attrs = append(attrs, timingAttrs...)
-	log.LogAttrs(ctx, level, event, attrs...)
+	log.LogAttrs(ctx, level, "bnovo.collect.completed", attrs...)
 }
