@@ -4,17 +4,25 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"log"
+	"log/slog"
 	"os"
 	"time"
 
 	"github.com/p-force/hotel-parser/internal/config"
+	"github.com/p-force/hotel-parser/internal/logger"
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
 )
 
 func main() {
+	log, err := logger.FromEnv(os.Stderr, time.FixedZone("UTC+3", 3*60*60))
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(1)
+	}
+	slog.SetDefault(log)
 	if err := run(); err != nil {
-		log.Fatal(err)
+		slog.Error("bnovo-check failed", "error_code", "cli_error")
+		os.Exit(1)
 	}
 }
 

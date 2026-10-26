@@ -46,6 +46,10 @@
 - Диагностический CLI `cmd/bnovo-check` со сводкой и JSON-результатом.
 - Отдельная проверка ожидаемых категорий по конфигурации в `internal/collect`.
 - Тесты HTTP-клиента, парсера и сбора на локальных HTTP-серверах и HTML-фикстурах.
+- Структурированные события Bnovo-сбора с `attempt_id`, параметрами поиска,
+  HTTP-статусом, счётчиками и кодами ошибок без содержимого ответов.
+- Настройка формата и уровня логов через `HOTEL_PARSER_LOG_FORMAT`
+  и `HOTEL_PARSER_LOG_LEVEL`; JSON по умолчанию в Docker.
 
 ### Changed
 
@@ -53,6 +57,8 @@
   запускает статический анализ, тесты с детектором гонок и сборку.
 - CI запускается при push и pull request для веток `dev` и `master`.
 - Требуемая версия Go повышена до 1.26; добавлен `golang.org/x/net/html`.
+- Сохранён текстовый формат `PrettyHandler`: `[LEVEL] YYYY-MM-DD HH:MM:SS message key=value`.
+  JSON использует `slog.JSONHandler`; логи идут в stderr отдельно от результата CLI в stdout.
 
 ### Fixed
 
