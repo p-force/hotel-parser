@@ -45,6 +45,11 @@ type batchJob struct {
 	source     string
 }
 
+type queuedJob struct {
+	index    int
+	queuedAt time.Time
+}
+
 type batchRun struct {
 	batchID             string
 	results             []bnovo.SearchResult
@@ -76,13 +81,13 @@ func collectJobs(ctx context.Context, input []batchJob, options BatchOptions) (b
 	var canceledCount atomic.Int64
 	var active, peak atomic.Int64
 	queueWaitMS := make([]*int64, len(input))
-	jobs := make(chan int)
+	jobs := make(chan queuedJob)
 	var wg sync.WaitGroup
 	var startMu sync.Mutex
 	var lastStart time.Time
 
 	// Общий допуск не накапливает разрешения после простоя и отменяется вместе с context.
-	begin := func(index int) bool {
+	begin := func(index int, queuedAt time.Time) bool {
 		startMu.Lock()
 		defer startMu.Unlock()
 		if ctx.Err() != nil {
@@ -114,7 +119,7 @@ func collectJobs(ctx context.Context, input []batchJob, options BatchOptions) (b
 		}
 		lastStart = time.Now()
 		executed[index] = true
-		wait := time.Since(started).Milliseconds()
+		wait := time.Since(queuedAt).Milliseconds()
 		queueWaitMS[index] = &wait
 		slog.DebugContext(ctx, "bnovo.batch.scenario.started", "batch_id", batchID,
 			"scenario_index", index, "queue_wait_ms", wait,
@@ -127,8 +132,9 @@ func collectJobs(ctx context.Context, input []batchJob, options BatchOptions) (b
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
-			for index := range jobs {
-				if !begin(index) {
+			for job := range jobs {
+				index := job.index
+				if !begin(index, job.queuedAt) {
 					continue
 				}
 				result := input[index].client.Collect(ctx, input[index].request)
@@ -144,10 +150,11 @@ func collectJobs(ctx context.Context, input []batchJob, options BatchOptions) (b
 	}
 dispatch:
 	for index := range input {
+		job := queuedJob{index: index, queuedAt: time.Now()}
 		select {
 		case <-ctx.Done():
 			break dispatch
-		case jobs <- index:
+		case jobs <- job:
 		}
 	}
 	close(jobs)

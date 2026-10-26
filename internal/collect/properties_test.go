@@ -247,13 +247,20 @@ func TestPropertiesCancellationAndNotStarted(t *testing.T) {
 	if outcome.summary.CanceledCount != 4 || outcome.summary.NotStartedCount != 5 || outcome.summary.FailedCount != 9 {
 		t.Fatalf("summary=%+v", outcome.summary)
 	}
+	nilWaits := 0
 	for _, result := range outcome.results {
+		if result.QueueWaitMS == nil {
+			nilWaits++
+		}
 		if result.Result.Status != bnovo.SearchStatusFailed || result.Result.Error == nil || result.Result.Error.Code != "canceled" {
 			t.Errorf("bad canceled result: %+v", result)
 		}
 		if result.QueueWaitMS == nil && (!result.Result.CollectedAt.IsZero() || result.Result.HTTPStatus != 0) {
 			t.Errorf("unstarted result has HTTP metadata: %+v", result)
 		}
+	}
+	if nilWaits != outcome.summary.NotStartedCount {
+		t.Errorf("unstarted jobs with nil wait=%d, want=%d", nilWaits, outcome.summary.NotStartedCount)
 	}
 	globalConcurrency.Lock()
 	active, batches := globalConcurrency.active, globalConcurrency.batches
@@ -384,5 +391,80 @@ func TestPropertiesDefaultLimitAndRepeatedHotel(t *testing.T) {
 	assertPropertyIdentity(t, properties, outcome.results)
 	if outcome.summary.PeakActiveScenarios != 8 || outcome.summary.ConcurrencyLimit != 8 || outcome.summary.SuccessCount != 12 || len(outcome.summary.Properties) != 2 || outcome.summary.Properties[0].SuccessCount != 6 {
 		t.Fatalf("defaults/repeated hotel: %+v", outcome.summary)
+	}
+}
+
+func TestPropertiesQueueWaitPerJob(t *testing.T) {
+	globalLimit(t, 1)
+	logs := captureBatchLogs(t)
+	firstEntered := make(chan struct{}, 1)
+	thirdEntered := make(chan time.Time, 1)
+	release := make(chan struct{})
+	var once sync.Once
+	t.Cleanup(func() { once.Do(func() { close(release) }) })
+	var calls atomic.Int32
+	client := poolClient(t, func(w http.ResponseWriter, r *http.Request) {
+		switch calls.Add(1) {
+		case 1:
+			firstEntered <- struct{}{}
+			select {
+			case <-release:
+			case <-r.Context().Done():
+				return
+			}
+		case 3:
+			thirdEntered <- time.Now()
+		}
+		fmt.Fprint(w, propertySuccessHTML)
+	}, 0)
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+	properties := propertyInputs(t, client)[:1]
+	done := launchProperties(ctx, properties, BatchOptions{Workers: 1})
+	receive(t, firstEntered)
+	// Задержку создаём только для проверки метрики; порядок задают каналы.
+	timer := time.NewTimer(50 * time.Millisecond)
+	defer timer.Stop()
+	<-timer.C
+	releasedAt := time.Now()
+	once.Do(func() { close(release) })
+	thirdAt := receive(t, thirdEntered)
+	outcome := receive(t, done)
+	if outcome.err != nil {
+		t.Fatal(outcome.err)
+	}
+	assertPropertyIdentity(t, properties, outcome.results)
+	if calls.Load() != 3 || outcome.summary.SuccessCount != 3 || outcome.summary.PeakActiveScenarios != 1 {
+		t.Fatalf("bad execution: %+v calls=%d", outcome.summary, calls.Load())
+	}
+	waits := make([]int64, len(outcome.results))
+	for i, result := range outcome.results {
+		if result.QueueWaitMS == nil {
+			t.Fatalf("started job %d lost wait metric", i)
+		}
+		waits[i] = *result.QueueWaitMS
+	}
+	if waits[1] <= 0 {
+		t.Errorf("second job did not record waiting for the only worker/slot: %v", waits)
+	}
+	// С единственным worker dispatch ставит третье задание после передачи второго,
+	// то есть после освобождения первого. Эта верхняя граница измеряется по событиям,
+	// а не по фиксированному допуску на скорость машины. Расчёт от начала batch её нарушает.
+	if upper := thirdAt.Sub(releasedAt).Milliseconds(); waits[2] > upper {
+		t.Errorf("third wait includes execution before it was queued: wait=%d upper=%d all=%v", waits[2], upper, waits)
+	}
+	seen := 0
+	for _, event := range batchEvents(t, logs) {
+		if event["msg"] != "bnovo.batch.scenario.started" {
+			continue
+		}
+		index := int(event["scenario_index"].(float64))
+		if int64(event["queue_wait_ms"].(float64)) != waits[index] {
+			t.Errorf("log/result wait mismatch: %v", event)
+		}
+		seen++
+	}
+	if seen != 3 {
+		t.Errorf("start metrics=%d want 3", seen)
 	}
 }
