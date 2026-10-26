@@ -8,7 +8,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/p-force/hotel-parser/internal/collect"
 	"github.com/p-force/hotel-parser/internal/config"
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
 )
@@ -53,80 +52,13 @@ func run() error {
 		return fmt.Errorf("create Bnovo client: %w", err)
 	}
 
-	// Передаём контекст. Клиент самостоятельно ограничивает
-	// длительность HTTP-запроса до 20 секунд.
-	response, err := client.Search(context.Background(), request)
-	if err != nil {
-		return fmt.Errorf(
-			"search Bnovo (HTTP %d, duration %s): %w",
-			response.StatusCode,
-			response.Duration,
-			err,
-		)
-	}
-
-	fmt.Printf(
-		"HTTP %d | HTML: %d bytes | Duration: %s\n",
-		response.StatusCode,
-		len(response.Body),
-		response.Duration,
-	)
-
-	// Разбираем HTML на физические категории и варианты.
-	// categories, variants, warnings, err :=
-	// 	bnovo.ParseCategories(response.Body)
-	// if err != nil {
-	// 	return fmt.Errorf("parse Bnovo response: %w", err)
-	// }
-
-	// Выводим структурированный результат.
-	// result := struct {
-	// 	Categories []bnovo.RoomCategory         `json:"categories"`
-	// 	Variants   []bnovo.AccommodationVariant `json:"variants"`
-	// 	Warnings   []bnovo.ParseWarning         `json:"warnings"`
-	// }{
-	// 	Categories: categories,
-	// 	Variants:   variants,
-	// 	Warnings:   warnings,
-	// }
-
-	// offers, offerWarnings, err := bnovo.ParseOffers(response.Body)
-	// if err != nil {
-	// 	return fmt.Errorf("parse offers: %w", err)
-	// }
-
-	// fmt.Printf(
-	// 	"Offers: %d, warnings: %d\n",
-	// 	len(offers),
-	// 	len(offerWarnings),
-	// )
-
-	// encoder := json.NewEncoder(os.Stdout)
-	// encoder.SetIndent("", "  ")
-
-	// if err := encoder.Encode(offers); err != nil {
-	// 	return err
-	// }
-	// if err := encoder.Encode(result); err != nil {
-	// 	return fmt.Errorf("encode JSON: %w", err)
-	// }
-
-	// Выполняем единый разбор HTML.
-	result, err := bnovo.Parse(response.Body, request)
-	if err != nil {
-		return fmt.Errorf("parse Bnovo HTML: %w", err)
-	}
-
-	// Сверяем результат с ожидаемыми категориями из конфигурации.
-	collect.ValidateExpectedCategories(&result, cfg.Inventory)
-
-	// Дополняем результат метаданными HTTP-запроса.
-	result.CollectedAt = response.RequestedAt
-	result.HTTPStatus = response.StatusCode
+	// Выполняем одну попытку публичного сбора Bnovo.
+	result := client.Collect(context.Background(), request)
 
 	// Выводим краткую сводку.
 	fmt.Printf(
-		"Status: %s | Categories: %d | Variants: %d | Offers: %d | Warnings: %d\n",
+		"HTTP %d | Status: %s | Categories: %d | Variants: %d | Offers: %d | Warnings: %d\n",
+		result.HTTPStatus,
 		result.Status,
 		len(result.Categories),
 		len(result.Variants),
@@ -134,11 +66,9 @@ func run() error {
 		len(result.Warnings),
 	)
 
-	// Выводим полный результат в JSON.
+	// Выводим полный результат в JSON, включая диагностику неудачной попытки.
 	encoder := json.NewEncoder(os.Stdout)
 	encoder.SetIndent("", "  ")
 
 	return encoder.Encode(result)
-
-	// return nil
 }
