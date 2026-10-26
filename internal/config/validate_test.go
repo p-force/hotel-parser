@@ -5,6 +5,8 @@ import (
 	"testing"
 )
 
+func roomsPtr(value int) *int { return &value }
+
 func TestConfigValidate(t *testing.T) {
 	valid := func() Config {
 		return Config{
@@ -20,16 +22,16 @@ func TestConfigValidate(t *testing.T) {
 			},
 			Inventory: InventoryConfig{
 				Source:     "manager_confirmed",
-				TotalRooms: 19,
+				TotalRooms: roomsPtr(19),
 				Categories: []RoomCategory{
-					{ID: "stadium", Name: "Stadium", SourceRoomID: "561429", TotalRooms: 10},
-					{ID: "garden", Name: "Garden", SourceRoomID: "459946", TotalRooms: 4},
-					{ID: "premium", Name: "Premium", SourceRoomID: "639687", TotalRooms: 5},
+					{ID: "stadium", Name: "Stadium", SourceRoomID: "561429", TotalRooms: roomsPtr(10)},
+					{ID: "garden", Name: "Garden", SourceRoomID: "459946", TotalRooms: roomsPtr(4)},
+					{ID: "premium", Name: "Premium", SourceRoomID: "639687", TotalRooms: roomsPtr(5)},
 				},
 			},
 			Collection: CollectionConfig{
 				Enabled: true, DaysAhead: 60,
-				Adults: 2, Rooms: 1,
+				Adults: AdultCounts{2}, Rooms: 1,
 				Nights: []int{1, 2, 3},
 			},
 		}
@@ -75,14 +77,14 @@ func TestConfigValidate(t *testing.T) {
 		{
 			name: "incorrect room total",
 			mutate: func(c *Config) {
-				c.Inventory.TotalRooms = 20
+				c.Inventory.TotalRooms = roomsPtr(20)
 			},
 			wantErr: "sum of categories",
 		},
 		{
 			name: "negative category stock",
 			mutate: func(c *Config) {
-				c.Inventory.Categories[0].TotalRooms = -1
+				c.Inventory.Categories[0].TotalRooms = roomsPtr(-1)
 			},
 			wantErr: "must be positive",
 		},
@@ -110,9 +112,9 @@ func TestConfigValidate(t *testing.T) {
 		{
 			name: "invalid adult count",
 			mutate: func(c *Config) {
-				c.Collection.Adults = 3
+				c.Collection.Adults = AdultCounts{3}
 			},
-			wantErr: "requires 2 adults",
+			wantErr: "expected 1 or 2",
 		},
 		{
 			name: "children not supported",

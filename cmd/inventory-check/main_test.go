@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
 	"io"
 	"log/slog"
 	"os"
@@ -41,7 +42,11 @@ func writeConfig(t *testing.T, hotel config.Config) string {
 func observedResult(req bnovo.SearchRequest, hotel config.Config) bnovo.SearchResult {
 	result := bnovo.SearchResult{Request: req, HTTPStatus: 200, Status: bnovo.SearchStatusSuccess}
 	for _, category := range hotel.Inventory.Categories {
-		count := category.TotalRooms
+		if category.TotalRooms == nil {
+			result.Categories = append(result.Categories, bnovo.RoomCategory{ID: category.SourceRoomID, Name: category.Name})
+			continue
+		}
+		count := *category.TotalRooms
 		result.Categories = append(result.Categories, bnovo.RoomCategory{ID: category.SourceRoomID, Name: category.Name})
 		result.Variants = append(result.Variants, bnovo.AccommodationVariant{ID: category.SourceRoomID, CategoryID: category.SourceRoomID, Adults: 2})
 		result.Offers = append(result.Offers, bnovo.RateOffer{CategoryID: category.SourceRoomID, VariantID: category.SourceRoomID, RateID: "1", Visible: true, Price: "100.00", Currency: "RUB", Availability: bnovo.AvailabilityEvidence{DataAvailable: &count, SelectableQuantities: []int{1, count}}})
@@ -190,39 +195,39 @@ func TestInventoryCheckResults(t *testing.T) {
 		rows            []string
 		diagnostic      string
 	}{
-		{"unchanged", func(r *bnovo.SearchResult) {}, 0, 0, []string{"Stadium 10 10 unchanged", "Garden 4 4 unchanged", "Premium 5 5 unchanged"}, ""},
+		{"unchanged", func(r *bnovo.SearchResult) {}, 0, 0, []string{"Stadium 10 10 known unchanged", "Garden 4 4 known unchanged", "Premium 5 5 known unchanged"}, ""},
 		{"increase", func(r *bnovo.SearchResult) {
 			*r.Offers[0].Availability.DataAvailable = 12
 			r.Offers[0].Availability.SelectableQuantities = []int{1, 12}
-		}, 0, 1, []string{"Stadium 10 12 increase"}, ""},
+		}, 0, 1, []string{"Stadium 10 12 known increase"}, ""},
 		{"several_increases", func(r *bnovo.SearchResult) {
 			*r.Offers[0].Availability.DataAvailable = 12
 			r.Offers[0].Availability.SelectableQuantities = []int{1, 12}
 			*r.Offers[1].Availability.DataAvailable = 6
 			r.Offers[1].Availability.SelectableQuantities = []int{1, 6}
-		}, 0, 2, []string{"Stadium 10 12 increase", "Garden 4 6 increase"}, ""},
-		{"unknown", func(r *bnovo.SearchResult) { r.Offers[0].Availability.DataAvailable = nil }, 1, 0, []string{"Stadium 10 unknown unknown"}, "stock_evidence_incomplete"},
-		{"conflict", func(r *bnovo.SearchResult) { r.Offers[0].Availability.SelectableQuantities = []int{1, 11} }, 1, 0, []string{"Stadium 10 unknown conflict"}, "stock_quantity_conflict"},
+		}, 0, 2, []string{"Stadium 10 12 known increase", "Garden 4 6 known increase"}, ""},
+		{"unknown", func(r *bnovo.SearchResult) { r.Offers[0].Availability.DataAvailable = nil }, 1, 0, []string{"Stadium 10 unknown unknown unknown"}, "stock_evidence_incomplete"},
+		{"conflict", func(r *bnovo.SearchResult) { r.Offers[0].Availability.SelectableQuantities = []int{1, 11} }, 1, 0, []string{"Stadium 10 unknown conflict conflict"}, "stock_quantity_conflict"},
 		{"partial", func(r *bnovo.SearchResult) {
 			r.Status = bnovo.SearchStatusPartial
 			r.Warnings = []bnovo.ParseWarning{{Code: "offer_price_invalid", Context: "1/561429", Message: "secret HTML token"}}
-		}, 1, 0, []string{"Stadium 10 10 unchanged"}, "offer_price_invalid"},
+		}, 1, 0, []string{"Stadium 10 10 known unchanged"}, "offer_price_invalid"},
 		{"partial_increase", func(r *bnovo.SearchResult) {
 			r.Status = bnovo.SearchStatusPartial
 			*r.Offers[0].Availability.DataAvailable = 12
 			r.Offers[0].Availability.SelectableQuantities = []int{1, 12}
-		}, 1, 1, []string{"Stadium 10 12 increase"}, "Inventory check incomplete"},
+		}, 1, 1, []string{"Stadium 10 12 known increase"}, "Inventory check incomplete"},
 		{"failed", func(r *bnovo.SearchResult) {
 			r.Status = bnovo.SearchStatusFailed
 			r.HTTPStatus = 403
 			r.Error = &bnovo.CollectionError{Code: "http_error", Message: "secret HTML token", HTTPStatus: 403}
-		}, 1, 0, []string{"Stadium 10 unknown unknown", "Garden 4 unknown unknown", "Premium 5 unknown unknown"}, "http_error"},
+		}, 1, 0, []string{"Stadium 10 unknown unknown unknown", "Garden 4 unknown unknown unknown", "Premium 5 unknown unknown unknown"}, "http_error"},
 		{"timeout", func(r *bnovo.SearchResult) {
 			r.Status = bnovo.SearchStatusFailed
 			r.HTTPStatus = 0
 			r.Error = &bnovo.CollectionError{Code: "timeout", Message: "secret URL token", Retryable: true}
-		}, 1, 0, []string{"Stadium 10 unknown unknown"}, "timeout"},
-		{"missing_configured_category", func(r *bnovo.SearchResult) { r.Categories = r.Categories[:2] }, 1, 0, []string{"Premium 5 unknown unknown"}, "expected_category_missing"},
+		}, 1, 0, []string{"Stadium 10 unknown unknown unknown"}, "timeout"},
+		{"missing_configured_category", func(r *bnovo.SearchResult) { r.Categories = r.Categories[:2] }, 1, 0, []string{"Premium 5 unknown unknown unknown"}, "expected_category_missing"},
 		{"confirmed_zero", func(r *bnovo.SearchResult) {
 			r.Status = bnovo.SearchStatusNoOffers
 			r.Offers = nil
@@ -230,7 +235,7 @@ func TestInventoryCheckResults(t *testing.T) {
 				r.CategoryAvailability[i].HasOffers = false
 				r.CategoryAvailability[i].ConfirmedUnavailable = true
 			}
-		}, 0, 0, []string{"Stadium 10 0 unchanged", "Garden 4 0 unchanged", "Premium 5 0 unchanged"}, ""},
+		}, 0, 0, []string{"Stadium 10 0 known unchanged", "Garden 4 0 known unchanged", "Premium 5 0 known unchanged"}, ""},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			before, err := os.ReadFile(path)
@@ -336,5 +341,65 @@ func TestInventoryCheckHelp(t *testing.T) {
 	})
 	if code != 0 || !strings.Contains(out.String(), "--date") || diagnostics.Len() != 0 {
 		t.Errorf("неверный help: %d %s %s", code, out.String(), diagnostics.String())
+	}
+}
+
+func TestInventoryCheckUnknownConfiguredMaximum(t *testing.T) {
+	baseline := hotelFixture(t)
+	hotel := baseline
+	hotel.Inventory.Categories = append([]config.RoomCategory(nil), baseline.Inventory.Categories...)
+	hotel.Inventory.TotalRooms = nil
+	hotel.Inventory.Categories[0].TotalRooms = nil
+	path := writeConfig(t, hotel)
+	var out, diagnostics, logs bytes.Buffer
+	code := run(context.Background(), []string{"--config=" + path}, &out, &diagnostics, slog.New(slog.NewJSONHandler(&logs, nil)), time.Date(2026, 10, 26, 0, 0, 0, 0, time.UTC), func(ctx context.Context, req bnovo.SearchRequest) bnovo.SearchResult {
+		return observedResult(req, baseline)
+	})
+	if code != 1 || !strings.Contains(strings.Join(strings.Fields(out.String()), " "), "Stadium unknown 10 known unknown") || !strings.Contains(diagnostics.String(), "inventory_max_unknown") {
+		t.Errorf("неизвестный максимум выведен как число: code=%d\n%s\n%s", code, out.String(), diagnostics.String())
+	}
+	if logs.Len() != 0 || strings.Contains(out.String(), "%!") {
+		t.Errorf("ложное увеличение или ошибка формата: %s %s", out.String(), logs.String())
+	}
+}
+
+func TestInventoryCheckAdults(t *testing.T) {
+	hotel := hotelFixture(t)
+	path := writeConfig(t, hotel)
+	for _, tc := range []struct {
+		flag       string
+		want, code int
+	}{
+		{"", 2, 0}, {"1", 1, 0}, {"2", 2, 0}, {"0", 0, 2}, {"3", 0, 2}, {"-1", 0, 2}, {"bad", 0, 2},
+	} {
+		args := []string{"--config=" + path, "--date=2027-02-19"}
+		if tc.flag != "" {
+			args = append(args, "--adults="+tc.flag)
+		}
+		var out, diagnostics bytes.Buffer
+		calls := 0
+		code := run(context.Background(), args, &out, &diagnostics, slog.New(slog.NewTextHandler(io.Discard, nil)), time.Date(2026, 10, 26, 0, 0, 0, 0, time.UTC), func(ctx context.Context, req bnovo.SearchRequest) bnovo.SearchResult {
+			calls++
+			if req.Adults != tc.want {
+				t.Errorf("adults=%d want=%d", req.Adults, tc.want)
+			}
+			result := observedResult(req, hotel)
+			for i := range result.Variants {
+				result.Variants[i].Adults = req.Adults
+			}
+			return result
+		})
+		if code != tc.code {
+			t.Errorf("flag=%q code=%d stderr=%s", tc.flag, code, diagnostics.String())
+		}
+		if tc.code == 2 {
+			if calls != 0 || out.Len() != 0 {
+				t.Fatal("invalid flag sent request")
+			}
+			continue
+		}
+		if calls != 1 || !strings.Contains(out.String(), fmt.Sprintf("Adults: %d", tc.want)) || !strings.Contains(out.String(), "LOS: 1") || strings.Contains(out.String(), "%!") {
+			t.Fatalf("bad scenario output: %s", out.String())
+		}
 	}
 }

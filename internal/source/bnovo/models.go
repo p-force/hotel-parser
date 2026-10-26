@@ -43,8 +43,9 @@ type AccommodationVariant struct {
 	ID string
 	// CategoryID ссылается на RoomCategory.ID (data-real-room-id).
 	CategoryID string
-	// Adults — число взрослых для этого варианта размещения, а не максимальная
-	// вместимость категории. Ноль означает, что число гостей не определено.
+	// Adults — число значков взрослых в .guest-list тарифной строки.
+	// Это характеристика варианта, не обязательное равенство SearchRequest.Adults
+	// и не максимальная вместимость категории. Ноль означает неизвестное значение.
 	Adults int
 }
 
@@ -85,6 +86,11 @@ type RateOffer struct {
 // AvailabilityEvidence хранит исходные данные о количестве из публичного виджета
 // независимо от оценок фактической доступности, занятости или подтверждённых бронирований.
 type AvailabilityEvidence struct {
+	// RowAvailable — флаг tr[data-available="0|1"] в ответе на текущий запрос.
+	// Это признак строки, а не число номеров из select[data-available].
+	// true подтверждает применимость строки при меньшем числе гостей;
+	// nil означает отсутствие распознанного флага. Не переносится между запросами.
+	RowAvailable *bool `json:",omitempty"`
 	// DataAvailable — целочисленное значение атрибута data-available; nil означает,
 	// что атрибут отсутствует или некорректен, а не отсутствие доступных номеров.
 	DataAvailable *int
@@ -179,4 +185,18 @@ type CategoryAvailability struct {
 
 	// Исходный текст сообщения Bnovo.
 	Reason string
+}
+
+// MatchesAdults проверяет число гостей с учётом исходного признака строки Bnovo.
+// Меньшее число значков не вмещает запрос; большее допустимо только при явном
+// tr[data-available="1"] в ответе именно на этот сценарий. Без флага сохраняем
+// прежнее точное сопоставление для совместимости с другими HTML Bnovo.
+func (v AccommodationVariant) MatchesAdults(adults int, evidence AvailabilityEvidence) bool {
+	if adults <= 0 || v.Adults < adults {
+		return false
+	}
+	if evidence.RowAvailable != nil {
+		return *evidence.RowAvailable
+	}
+	return v.Adults == adults
 }

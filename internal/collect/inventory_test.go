@@ -83,7 +83,7 @@ func TestDetectInventoryIncreases(t *testing.T) {
 			if !bytes.Equal(configBefore, inventorySnapshot(t, hotel)) || !bytes.Equal(stocksBefore, inventorySnapshot(t, tc.stocks)) {
 				t.Error("входные структуры изменены")
 			}
-			if hotel.Inventory.TotalRooms != 19 {
+			if hotel.Inventory.TotalRooms == nil || *hotel.Inventory.TotalRooms != 19 {
 				t.Error("изменён общий фонд")
 			}
 		})
@@ -199,7 +199,26 @@ func TestInventoryComparisonConcurrentReadOnly(t *testing.T) {
 		}()
 	}
 	wg.Wait()
-	if hotel.Inventory.Categories[0].TotalRooms != 10 || *stocks[0].Available != 12 {
+	if hotel.Inventory.Categories[0].TotalRooms == nil || *hotel.Inventory.Categories[0].TotalRooms != 10 || *stocks[0].Available != 12 {
 		t.Error("входные данные изменены")
+	}
+}
+
+func TestInventoryUnknownConfiguredMaximum(t *testing.T) {
+	hotel := arenaInventoryConfig(t)
+	hotel.Inventory.TotalRooms = nil
+	hotel.Inventory.Categories[0].TotalRooms = nil
+	stocks := []CategoryStock{knownInventoryStock("561429", 12)}
+	increases, warnings := DetectInventoryIncreases(stocks, hotel.Inventory)
+	if len(increases) != 0 || len(warnings) != 1 || warnings[0].Code != "inventory_max_unknown" || warnings[0].Context != "561429" {
+		t.Errorf("неизвестный максимум был принят за ноль: %+v %+v", increases, warnings)
+	}
+	var output bytes.Buffer
+	LogInventoryIncreases(context.Background(), slog.New(slog.NewJSONHandler(&output, nil)), hotel, bnovo.SearchRequest{}, increases)
+	if output.Len() != 0 {
+		t.Error("увеличение неизвестного максимума не должно логироваться")
+	}
+	if hotel.Inventory.TotalRooms != nil || hotel.Inventory.Categories[0].TotalRooms != nil {
+		t.Error("неизвестный максимум автоматически заполнен")
 	}
 }

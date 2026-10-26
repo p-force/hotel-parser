@@ -284,6 +284,7 @@ func TestValidateAndDeduplicateOffers(t *testing.T) {
 		change func(*RateOffer)
 	}{
 		{"visible", func(o *RateOffer) { o.Visible = false }},
+		{"row_available", func(o *RateOffer) { value := true; o.Availability.RowAvailable = &value }},
 		{"data_available", func(o *RateOffer) { value := 3; o.Availability.DataAvailable = &value }},
 		{"guests", func(o *RateOffer) { value := "3"; o.Availability.DataAvailableForGuests = &value }},
 		{"quantities", func(o *RateOffer) { o.Availability.SelectableQuantities = []int{1} }},
