@@ -1,0 +1,90 @@
+{
+  "id": "lindsay",
+  "name": "Lindsay",
+  "type": "hotel",
+  "role": "competitor",
+  "timezone": "Europe/Moscow",
+  "source": {
+    "type": "bnovo",
+    "base_url": "https://reservationsteps.ru",
+    "property_id": "5125b29f-f39e-498a-94cf-9e47889ff248"
+  },
+  "inventory": {
+    "total_rooms": null,
+    "source": "public_observed_max",
+    "categories": [
+      {
+        "id": "economy_shared_bathroom",
+        "name": "эконом с общей ванной комнатой",
+        "source_room_id": "188497",
+        "total_rooms": 2
+      },
+      {
+        "id": "superior_standard",
+        "name": "улучшенный стандарный номер",
+        "source_room_id": "188498",
+        "total_rooms": 2
+      },
+      {
+        "id": "standard_double",
+        "name": "стандартный номер с одной двухспальной кроватью",
+        "source_room_id": "188499",
+        "total_rooms": 1
+      },
+      {
+        "id": "classic_family",
+        "name": "классический семейный номер",
+        "source_room_id": "188500",
+        "total_rooms": 2
+      },
+      {
+        "id": "standard_twin",
+        "name": "стандарт с двумя раздельными кроватями",
+        "source_room_id": "188501",
+        "total_rooms": null
+      },
+      {
+        "id": "economy_private_bathroom",
+        "name": "эконом с раздельными кроватями и собственной ванной комнатой",
+        "source_room_id": "188502",
+        "total_rooms": null
+      },
+      {
+        "id": "standard_triple",
+        "name": "трехместный стандартный номер",
+        "source_room_id": "188503",
+        "total_rooms": null
+      },
+      {
+        "id": "superior_single_bed",
+        "name": "улучшенный номер с одной кроватью",
+        "source_room_id": "188504",
+        "total_rooms": null
+      },
+      {
+        "id": "single_shared_bathroom",
+        "name": "одноместный номер с общей ванной комнатой",
+        "source_room_id": "188505",
+        "total_rooms": null
+      },
+      {
+        "id": "studio",
+        "name": "студия",
+        "source_room_id": "201948",
+        "total_rooms": null
+      }
+    ]
+  },
+  "collection": {
+    "enabled": false,
+    "days_ahead": 60,
+    "adults": 2,
+    "children_ages": [],
+    "rooms": 1,
+    "nights": [
+      1,
+      2,
+      3
+    ]
+  }
+}
