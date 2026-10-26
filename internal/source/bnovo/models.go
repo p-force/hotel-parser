@@ -123,6 +123,8 @@ const (
 // CollectionError — машиночитаемая ошибка, которую впоследствии можно сохранить
 // вместе с записью попытки; список кодов можно расширять при появлении новых ошибок источника.
 type CollectionError struct {
+	// RetryAfter — минимальная задержка из HTTP Retry-After; ноль означает отсутствие.
+	RetryAfter time.Duration `json:",omitempty"`
 	// Code — стабильный внутренний код ошибки, например "timeout" или "http_error".
 	Code string
 	// Message — краткое диагностическое сообщение без файлов cookie и секретов.

@@ -26,10 +26,15 @@ type PropertyResult struct {
 	Source      config.SourceConfig
 	LOS         int
 	QueueWaitMS *int64
+	Attempts    int
 	Result      bnovo.SearchResult
 }
 
 type PropertySummary struct {
+	RateWaitCount   int
+	RetryCount      int
+	ThrottledCount  int
+	LimiterWaitMS   int64
 	PropertyID      string
 	Source          string
 	SuccessCount    int
@@ -109,8 +114,13 @@ func CollectProperties(ctx context.Context, properties []PropertyCollection, opt
 	}
 	for i, result := range run.results {
 		results[i].Result = result
+		results[i].Attempts = run.attempts[i]
 		results[i].QueueWaitMS = run.queueWaitMS[i]
 		summary := &summaries[owners[i]]
+		summary.RetryCount += max(0, run.attempts[i]-1)
+		summary.ThrottledCount += run.throttled[i]
+		summary.RateWaitCount += run.rateWait[i]
+		summary.LimiterWaitMS += run.limiterWaitMS[i]
 		switch result.Status {
 		case bnovo.SearchStatusSuccess:
 			summary.SuccessCount++
@@ -137,7 +147,7 @@ func CollectProperties(ctx context.Context, properties []PropertyCollection, opt
 		}
 		slog.Log(ctx, level, "bnovo.batch.property.completed", "batch_id", run.batchID, "property_id", summary.PropertyID, "source", summary.Source,
 			"success_count", summary.SuccessCount, "partial_count", summary.PartialCount, "no_offers_count", summary.NoOffersCount,
-			"failed_count", summary.FailedCount, "canceled_count", summary.CanceledCount, "not_started_count", summary.NotStartedCount)
+			"failed_count", summary.FailedCount, "canceled_count", summary.CanceledCount, "not_started_count", summary.NotStartedCount, "retry_count", summary.RetryCount, "throttled_count", summary.ThrottledCount, "rate_wait_count", summary.RateWaitCount, "limiter_wait_ms", summary.LimiterWaitMS)
 	}
 	return results, PropertiesSummary{BatchSummary: run.summary, ConcurrencyLimit: run.concurrencyLimit, PeakActiveScenarios: run.peakActiveScenarios, Properties: summaries}, nil
 }

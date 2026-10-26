@@ -10,6 +10,7 @@ import (
 	"net/url"
 	"strconv"
 	"strings"
+	"syscall"
 	"time"
 )
 
@@ -316,11 +317,11 @@ func (c *Client) get(
 
 		code := classifyRequestError(ctx, err)
 
-		return result, newRequestError(
-			code,
-			"Bnovo HTTP request failed",
-			result.StatusCode,
-		)
+		classified := newRequestError(code, "Bnovo HTTP request failed", result.StatusCode)
+		if code == "transport_error" {
+			classified.Retryable = temporaryTransportError(err)
+		}
+		return result, classified
 	}
 	defer resp.Body.Close()
 
@@ -330,6 +331,7 @@ func (c *Client) get(
 
 	if resp.StatusCode != http.StatusOK {
 		return result, &CollectionError{
+			RetryAfter: parseRetryAfter(resp.Header.Get("Retry-After"), time.Now()),
 			Code:       "http_error",
 			Message:    fmt.Sprintf("Bnovo returned HTTP %d", resp.StatusCode),
 			HTTPStatus: resp.StatusCode,
@@ -348,11 +350,11 @@ func (c *Client) get(
 	if err != nil {
 		code := classifyRequestError(ctx, err)
 
-		return result, newRequestError(
-			code,
-			"failed to read Bnovo response body",
-			resp.StatusCode,
-		)
+		classified := newRequestError(code, "failed to read Bnovo response body", resp.StatusCode)
+		if code == "transport_error" {
+			classified.Retryable = temporaryTransportError(err)
+		}
+		return result, classified
 	}
 
 	if int64(len(body)) > c.maxBodySize {
@@ -527,4 +529,28 @@ func validateSearchRequest(req SearchRequest) error {
 	}
 
 	return nil
+}
+
+// SourceOrigin возвращает только схему и адрес источника, без пути и query.
+func (c *Client) SourceOrigin() string { return c.baseURL.Scheme + "://" + c.baseURL.Host }
+
+func parseRetryAfter(value string, now time.Time) time.Duration {
+	if seconds, err := strconv.ParseInt(strings.TrimSpace(value), 10, 64); err == nil {
+		if seconds < 0 || seconds > int64((1<<63-1)/time.Second) {
+			return 0
+		}
+		return time.Duration(seconds) * time.Second
+	}
+	if date, err := http.ParseTime(value); err == nil && date.After(now) {
+		return date.Sub(now)
+	}
+	return 0
+}
+
+func temporaryTransportError(err error) bool {
+	var network net.Error
+	if errors.As(err, &network) && (network.Timeout() || network.Temporary()) {
+		return true
+	}
+	return errors.Is(err, io.EOF) || errors.Is(err, io.ErrUnexpectedEOF) || errors.Is(err, syscall.ECONNRESET) || errors.Is(err, syscall.ECONNREFUSED) || errors.Is(err, syscall.EPIPE)
 }

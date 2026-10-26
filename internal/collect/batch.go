@@ -10,6 +10,10 @@ import (
 // CanceledCount учитывает только начатые и отменённые сценарии;
 // NotStartedCount — отдельный счётчик незапущенных сценариев.
 type BatchSummary struct {
+	RateWaitCount   int   `json:"rate_wait_count,omitempty"`
+	RetryCount      int   `json:"retry_count,omitempty"`
+	ThrottledCount  int   `json:"throttled_count,omitempty"`
+	LimiterWaitMS   int64 `json:"limiter_wait_ms,omitempty"`
 	BatchDurationMS int64 `json:"batch_duration_ms"`
 	SuccessCount    int   `json:"success_count"`
 	PartialCount    int   `json:"partial_count"`
