@@ -105,6 +105,23 @@ results, summary, err := collect.CollectBatch(ctx, client, requests, collect.Bat
 `queue_wait_ms` с `batch_id` и индексом сценария. Собственные `attempt_id` и метрики
 каждой попытки формирует существующий `Collect`.
 
+## Ручная сверка публичного фонда
+
+```bash
+go run ./cmd/inventory-check --config=configs/arena33.json
+go run ./cmd/inventory-check --config=configs/arena33.json --date=2026-12-21
+```
+
+По умолчанию заезд выбирается через 60 календарных дней от сегодняшней даты
+в часовом поясе отеля. Выполняется один сценарий: 1 ночь, 2 взрослых без детей.
+Явная дата не может быть в прошлом относительно даты отеля.
+
+В stdout выводится таблица всех настроенных категорий; неподтверждённые остатки —
+`unknown`, противоречия — `conflict`. При росте формируется WARN
+`bnovo.inventory.max_increased` с `config_updated=false`; JSON-конфигурация не меняется.
+Код завершения: 0 — полная сверка, 1 — `partial`, неизвестные остатки или сбой,
+2 — неверные аргументы/конфигурация. Предупреждения и логи идут в stderr.
+
 ## Конфигурация
 
 Пример конфигурации отеля — [`configs/arena33.json`](configs/arena33.json):
