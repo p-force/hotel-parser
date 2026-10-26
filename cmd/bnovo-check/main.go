@@ -8,6 +8,8 @@ import (
 	"os"
 	"time"
 
+	"github.com/p-force/hotel-parser/internal/collect"
+	"github.com/p-force/hotel-parser/internal/config"
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
 )
 
@@ -18,6 +20,11 @@ func main() {
 }
 
 func run() error {
+	cfg, err := config.Load("configs/arena33.json")
+	if err != nil {
+		return fmt.Errorf("load hotel config: %w", err)
+	}
+
 	// Часовой пояс отеля, не локальный часовой пояс компьютера.
 	loc, err := time.LoadLocation("Europe/Moscow")
 	if err != nil {
@@ -30,7 +37,7 @@ func run() error {
 
 	// Настройки одного тестового поискового сценария.
 	request := bnovo.SearchRequest{
-		PropertyID: "7f3f84ae-1f13-419f-af60-ae782d454666",
+		PropertyID: cfg.Source.PropertyID,
 		CheckIn:    checkIn,
 		CheckOut:   checkIn.AddDate(0, 0, nights),
 		Adults:     2,
@@ -39,7 +46,7 @@ func run() error {
 
 	// Клиент для публичного модуля Bnovo.
 	client, err := bnovo.NewClient(
-		"https://reservationsteps.ru",
+		cfg.Source.BaseURL,
 		nil,
 	)
 	if err != nil {
@@ -109,6 +116,9 @@ func run() error {
 	if err != nil {
 		return fmt.Errorf("parse Bnovo HTML: %w", err)
 	}
+
+	// Сверяем результат с ожидаемыми категориями из конфигурации.
+	collect.ValidateExpectedCategories(&result, cfg.Inventory)
 
 	// Дополняем результат метаданными HTTP-запроса.
 	result.CollectedAt = response.RequestedAt

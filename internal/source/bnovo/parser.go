@@ -505,6 +505,20 @@ func Parse(
 		)
 	}
 
+	// Проверяем, что полученный HTML содержит
+	// минимальную ожидаемую структуру Bnovo.
+	if err := validateBnovoDocument(doc); err != nil {
+		return result, fmt.Errorf(
+			"validate Bnovo document: %w", err,
+		)
+	}
+
+	if !hasRecognizedSearchState(doc) {
+		return result, fmt.Errorf(
+			"Bnovo response has no recognizable search state",
+		)
+	}
+
 	// Извлекаем категории и варианты размещения.
 	categories, variants, categoryWarnings, err :=
 		parseCategoriesAndVariants(doc)
@@ -544,7 +558,7 @@ func Parse(
 			result.Warnings,
 		)
 
-		// Определяем доступность каждой физической категории.
+	// Определяем доступность каждой физической категории.
 	categoryAvailability, availabilityWarnings :=
 		parseCategoryAvailability(
 			doc,
@@ -555,9 +569,18 @@ func Parse(
 
 	result.CategoryAvailability = categoryAvailability
 
+	// 2. Сохраняем предупреждения, возникшие при разборе HTML.
 	result.Warnings = append(
 		result.Warnings,
 		availabilityWarnings...,
+	)
+
+	// 3. Проверяем полноту и непротиворечивость результатов.
+	result.Warnings = append(
+		result.Warnings,
+		validateCategoryAvailability(
+			result.CategoryAvailability,
+		)...,
 	)
 	// Проверяем, подтверждена ли недоступность всех категорий.
 	allUnavailable := len(result.CategoryAvailability) > 0 &&
@@ -595,15 +618,34 @@ func Parse(
 	return result, nil
 }
 
+// hasRecognizedSearchState проверяет наличие элементов,
+// описывающих результат поиска на публичной странице.
+func hasRecognizedSearchState(doc *html.Node) bool {
+	found := false
+
+	walkHTML(doc, func(node *html.Node) {
+		if found || node.Type != html.ElementNode {
+			return
+		}
+
+		if hasClass(node, "plan_row") ||
+			hasClass(node, "tariff__nodates") {
+			found = true
+		}
+	})
+
+	return found
+}
+
 // validateAndDeduplicateOffers проверяет целостность
 // найденных предложений.
 //
 // Уникальность предложения определяется комбинацией:
 // CategoryID + VariantID + RateID.
 //
-// Идентичные дубликаты удаляются без предупреждения.
-// Противоречивые предложения сохраняются только
-// в первом встретившемся варианте с предупреждением.
+// Идентичные дубликаты объединяются без предупреждения.
+// При расхождении данных весь конфликтующий ключ исключается.
+// Порядок первого появления непротиворечивых предложений сохраняется.
 func validateAndDeduplicateOffers(
 	offers []RateOffer,
 	categories []RoomCategory,
@@ -630,7 +672,8 @@ func validateAndDeduplicateOffers(
 	}
 
 	seen := make(map[offerKey]RateOffer)
-	valid := make([]RateOffer, 0, len(offers))
+	conflicts := make(map[offerKey]struct{})
+	order := make([]offerKey, 0, len(offers))
 
 	for _, offer := range offers {
 		contextID := offer.CategoryID + "/" +
@@ -686,11 +729,17 @@ func validateAndDeduplicateOffers(
 			RateID:     offer.RateID,
 		}
 
+		// Обнаруженный конфликт нельзя устранить последующими дубликатами.
+		if _, conflict := conflicts[key]; conflict {
+			continue
+		}
+
 		if previous, exists := seen[key]; exists {
 			if !reflect.DeepEqual(previous, offer) {
+				conflicts[key] = struct{}{}
 				warnings = append(warnings, ParseWarning{
 					Code:    "offer_duplicate_conflict",
-					Message: "same offer identity has conflicting values",
+					Message: "same offer identity has conflicting values; all offers for this identity excluded",
 					Context: contextID,
 				})
 			}
@@ -698,7 +747,15 @@ func validateAndDeduplicateOffers(
 		}
 
 		seen[key] = offer
-		valid = append(valid, offer)
+		order = append(order, key)
+	}
+
+	// Первое предложение принимается только после проверки всех его дубликатов.
+	valid := make([]RateOffer, 0, len(order))
+	for _, key := range order {
+		if _, conflict := conflicts[key]; !conflict {
+			valid = append(valid, seen[key])
+		}
 	}
 
 	return valid, warnings
@@ -1524,7 +1581,6 @@ func matchesUnavailablePeriod(
 	return true, nil
 }
 
-
 var russianMonths = map[string]time.Month{
 	"января":   time.January,
 	"февраля":  time.February,
@@ -1575,4 +1631,81 @@ func parseRussianDate(day, monthName, year string) (string, error) {
 	}
 
 	return date.Format("2006-01-02"), nil
+}
+
+// validateCategoryAvailability проверяет, что для каждой
+// ожидаемой категории известен результат публичного поиска.
+//
+// Отсутствие предложений без явного сообщения Bnovo
+// не считается подтверждённой недоступностью.
+func validateCategoryAvailability(
+	availability []CategoryAvailability,
+) []ParseWarning {
+	var warnings []ParseWarning
+
+	for _, state := range availability {
+		switch {
+		case state.HasOffers && state.ConfirmedUnavailable:
+			warnings = append(warnings, ParseWarning{
+				Code:    "category_availability_conflict",
+				Message: "category has offers and confirmed unavailability",
+				Context: state.CategoryID,
+			})
+
+		case !state.HasOffers && !state.ConfirmedUnavailable:
+			warnings = append(warnings, ParseWarning{
+				Code:    "category_availability_unknown",
+				Message: "category has no visible offers or confirmed unavailability",
+				Context: state.CategoryID,
+			})
+		}
+	}
+
+	return warnings
+}
+
+// validateBnovoDocument проверяет минимальную структуру
+// публичной страницы бронирования.
+//
+// Функция не проверяет доступность номеров и не определяет
+// SearchStatus. Она только исключает ответы, которые
+// невозможно достоверно интерпретировать как поиск Bnovo.
+func validateBnovoDocument(doc *html.Node) error {
+	roomTypes, err := parseEnabledRoomTypes(doc)
+	if err != nil {
+		return fmt.Errorf("invalid Bnovo room metadata: %w", err)
+	}
+
+	roomCards := 0
+	recognizedCards := 0
+
+	walkHTML(doc, func(node *html.Node) {
+		if node.Type != html.ElementNode ||
+			!hasClass(node, "room") {
+			return
+		}
+
+		categoryID := attr(node, "data-roomtype-id")
+		if categoryID == "" {
+			return
+		}
+
+		roomCards++
+
+		if _, exists := roomTypes[categoryID]; exists {
+			recognizedCards++
+		}
+	})
+
+	if roomCards == 0 {
+		return fmt.Errorf("Bnovo room cards not found")
+	}
+
+	if recognizedCards == 0 {
+		return fmt.Errorf(
+			"Bnovo room cards do not match room metadata",
+		)
+	}
+
+	return nil
 }
