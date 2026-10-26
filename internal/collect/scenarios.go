@@ -13,15 +13,23 @@ import (
 // Это явный запуск: флаг enabled относится к будущему планировщику, а не к этому API.
 // Каждый SearchResult сохраняет собственный Request, включая число гостей и даты/LOS.
 func CollectConfiguredBatch(ctx context.Context, client *bnovo.Client, hotel config.Config, checkIn time.Time, options BatchOptions) ([]bnovo.SearchResult, BatchSummary, error) {
-	if err := hotel.Collection.Validate(); err != nil {
+	requests, err := configuredRequests(hotel, checkIn)
+	if err != nil {
 		return nil, BatchSummary{}, err
 	}
+	return CollectBatch(ctx, client, requests, options)
+}
+
+func configuredRequests(hotel config.Config, checkIn time.Time) ([]bnovo.SearchRequest, error) {
+	if err := hotel.Collection.Validate(); err != nil {
+		return nil, err
+	}
 	if checkIn.IsZero() {
-		return nil, BatchSummary{}, fmt.Errorf("check-in date is required")
+		return nil, fmt.Errorf("check-in date is required")
 	}
 	loc, err := time.LoadLocation(hotel.Timezone)
 	if err != nil {
-		return nil, BatchSummary{}, err
+		return nil, err
 	}
 	day := checkIn.In(loc)
 	day = time.Date(day.Year(), day.Month(), day.Day(), 0, 0, 0, 0, loc)
@@ -31,5 +39,5 @@ func CollectConfiguredBatch(ctx context.Context, client *bnovo.Client, hotel con
 			requests = append(requests, bnovo.SearchRequest{PropertyID: hotel.Source.PropertyID, CheckIn: day, CheckOut: day.AddDate(0, 0, nights), Adults: adults, Language: "ru"})
 		}
 	}
-	return CollectBatch(ctx, client, requests, options)
+	return requests, nil
 }

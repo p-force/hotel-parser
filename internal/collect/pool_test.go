@@ -370,9 +370,15 @@ func TestBatchStartInterval(t *testing.T) {
 		t.Fatal(err)
 	}
 	var waits []float64
+	var starts []time.Time
 	for _, event := range batchEvents(t, buf) {
 		if event["msg"] == "bnovo.batch.scenario.started" {
 			waits = append(waits, event["queue_wait_ms"].(float64))
+			startedAt, err := time.Parse(time.RFC3339Nano, event["time"].(string))
+			if err != nil {
+				t.Fatal(err)
+			}
+			starts = append(starts, startedAt)
 		}
 	}
 	if len(waits) != 4 {
@@ -380,12 +386,14 @@ func TestBatchStartInterval(t *testing.T) {
 	}
 	for i := 1; i < len(waits); i++ {
 		// Нижняя граница допускает усечение до целых мс; верхнюю не ограничиваем.
-		if waits[i]-waits[i-1] < float64(interval.Milliseconds()-1) {
-			t.Errorf("интервал стартов не выдержан: %v", waits)
+		if starts[i].Sub(starts[i-1]) < interval-time.Millisecond {
+			t.Errorf("интервал стартов не выдержан: %v", starts)
 		}
 	}
-	if summary.BatchDurationMS < int64(waits[len(waits)-1]) {
-		t.Errorf("время пакета меньше ожидания: %+v", summary)
+	for _, wait := range waits {
+		if wait < 0 || summary.BatchDurationMS < int64(wait) {
+			t.Errorf("неверное ожидание %v: %+v", wait, summary)
+		}
 	}
 }
 
