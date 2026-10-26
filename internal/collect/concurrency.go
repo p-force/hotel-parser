@@ -12,10 +12,15 @@ const DefaultGlobalConcurrency = 8
 // Слот охватывает Collect целиком, включая чтение тела и парсинг.
 var globalConcurrency = struct {
 	sync.Mutex
-	slots   chan struct{}
-	batches int
-	active  int
-}{slots: make(chan struct{}, DefaultGlobalConcurrency)}
+	slots      chan struct{}
+	batches    int
+	active     int
+	changed    chan struct{}
+	properties map[string]int
+	sources    map[string]*sourceState
+	limits     Limits
+	waiters    []admissionWaiter
+}{slots: make(chan struct{}, DefaultGlobalConcurrency), changed: make(chan struct{}), properties: make(map[string]int), sources: make(map[string]*sourceState), limits: defaultLimits()}
 
 // ConfigureGlobalConcurrency задаёт общий предел до запуска пакетного сбора.
 // Перенастройка во время любого пакета отклоняется, чтобы не создать второй допуск.
@@ -65,4 +70,5 @@ func releaseScenario(slots chan struct{}) {
 	defer globalConcurrency.Unlock()
 	globalConcurrency.active--
 	<-slots
+	signalLimits()
 }

@@ -5,8 +5,6 @@ import (
 	"crypto/rand"
 	"errors"
 	"log/slog"
-	"sync"
-	"sync/atomic"
 	"time"
 
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
@@ -20,7 +18,8 @@ const (
 // BatchOptions ограничивает число одновременно выполняемых сценариев и частоту их старта.
 type BatchOptions struct {
 	Workers       int           // 0: DefaultWorkers (3), для CollectProperties — 8; допустимы 1..MaxWorkers.
-	StartInterval time.Duration // Минимальный интервал между допусками к Collect; 0 отключает ограничение.
+	StartInterval time.Duration // Интервал всех попыток этого batch; дополнительно действует source limiter.
+	Retry         RetryPolicy
 }
 
 // CollectBatch выполняет независимые сценарии общим клиентом и сохраняет порядок результатов.
@@ -43,6 +42,7 @@ type batchJob struct {
 	client     *bnovo.Client
 	propertyID string
 	source     string
+	origin     string
 }
 
 type queuedJob struct {
@@ -58,6 +58,10 @@ type batchRun struct {
 	queueWaitMS         []*int64
 	concurrencyLimit    int
 	peakActiveScenarios int
+	attempts            []int
+	throttled           []int
+	rateWait            []int
+	limiterWaitMS       []int64
 }
 
 // collectJobs — единственный bounded worker pool для всех пакетных API.
@@ -78,87 +82,28 @@ func collectJobs(ctx context.Context, input []batchJob, options BatchOptions) (b
 	batchID := rand.Text()
 	results := make([]bnovo.SearchResult, len(input))
 	executed := make([]bool, len(input))
-	var canceledCount atomic.Int64
-	var active, peak atomic.Int64
-	queueWaitMS := make([]*int64, len(input))
-	jobs := make(chan queuedJob)
-	var wg sync.WaitGroup
-	var startMu sync.Mutex
-	var lastStart time.Time
-
-	// Общий допуск не накапливает разрешения после простоя и отменяется вместе с context.
-	begin := func(index int, queuedAt time.Time) bool {
-		startMu.Lock()
-		defer startMu.Unlock()
-		if ctx.Err() != nil {
-			return false
-		}
-		if !lastStart.IsZero() && options.StartInterval > 0 {
-			if wait := options.StartInterval - time.Since(lastStart); wait > 0 {
-				timer := time.NewTimer(wait)
-				defer timer.Stop()
-				select {
-				case <-ctx.Done():
-					return false
-				case <-timer.C:
-				}
-			}
-		}
-		if ctx.Err() != nil {
-			return false
-		}
-		globalActive, ok := acquireScenario(ctx, slots)
-		if !ok {
-			return false
-		}
-		current := active.Add(1)
-		for previous := peak.Load(); current > previous; previous = peak.Load() {
-			if peak.CompareAndSwap(previous, current) {
-				break
-			}
-		}
-		lastStart = time.Now()
-		executed[index] = true
-		wait := time.Since(queuedAt).Milliseconds()
-		queueWaitMS[index] = &wait
-		slog.DebugContext(ctx, "bnovo.batch.scenario.started", "batch_id", batchID,
-			"scenario_index", index, "queue_wait_ms", wait,
-			"property_id", input[index].propertyID, "source", input[index].source,
-			"active_scenarios", globalActive, "concurrency_limit", cap(slots))
-		return true
+	policy, err := options.Retry.normalized()
+	if err != nil {
+		return batchRun{}, err
 	}
-
-	for range min(workers, len(input)) {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			for job := range jobs {
-				index := job.index
-				if !begin(index, job.queuedAt) {
-					continue
-				}
-				result := input[index].client.Collect(ctx, input[index].request)
-				active.Add(-1)
-				releaseScenario(slots)
-				results[index] = result
-				if result.Error != nil && (result.Error.Code == "canceled" ||
-					(result.Error.Code == "timeout" && ctx.Err() == context.DeadlineExceeded)) {
-					canceledCount.Add(1)
-				}
-			}
-		}()
-	}
-dispatch:
-	for index := range input {
-		job := queuedJob{index: index, queuedAt: time.Now()}
-		select {
-		case <-ctx.Done():
-			break dispatch
-		case jobs <- job:
+	input = append([]batchJob(nil), input...)
+	for i := range input {
+		if input[i].client == nil {
+			return batchRun{}, errors.New("Bnovo client is required")
+		}
+		input[i].origin, err = SourceKey(input[i].client.SourceOrigin())
+		if err != nil {
+			return batchRun{}, err
 		}
 	}
-	close(jobs)
-	wg.Wait()
+	run := batchRun{batchID: batchID, results: results, executed: executed, queueWaitMS: make([]*int64, len(input)), attempts: make([]int, len(input)), throttled: make([]int, len(input)), rateWait: make([]int, len(input)), limiterWaitMS: make([]int64, len(input)), concurrencyLimit: cap(slots)}
+	scheduleJobs(ctx, input, options, policy, slots, &run)
+	canceledCount := 0
+	for i, result := range results {
+		if executed[i] && result.Error != nil && (result.Error.Code == "canceled" || (result.Error.Code == "timeout" && ctx.Err() == context.DeadlineExceeded)) {
+			canceledCount++
+		}
+	}
 
 	notStarted := 0
 	for index, ran := range executed {
@@ -176,7 +121,13 @@ dispatch:
 		}
 	}
 	summary := SummarizeBatch(started, results)
-	summary.CanceledCount = int(canceledCount.Load())
+	summary.CanceledCount = canceledCount
+	for i := range input {
+		summary.RetryCount += max(0, run.attempts[i]-1)
+		summary.ThrottledCount += run.throttled[i]
+		summary.RateWaitCount += run.rateWait[i]
+		summary.LimiterWaitMS += run.limiterWaitMS[i]
+	}
 	summary.NotStartedCount = notStarted
 	level := slog.LevelInfo
 	if summary.PartialCount > 0 {
@@ -190,6 +141,8 @@ dispatch:
 		"partial_count", summary.PartialCount, "no_offers_count", summary.NoOffersCount,
 		"failed_count", summary.FailedCount, "canceled_count", summary.CanceledCount,
 		"not_started_count", summary.NotStartedCount,
-		"concurrency_limit", cap(slots), "peak_active_scenarios", peak.Load())
-	return batchRun{batchID: batchID, results: results, summary: summary, executed: executed, queueWaitMS: queueWaitMS, concurrencyLimit: cap(slots), peakActiveScenarios: int(peak.Load())}, nil
+		"concurrency_limit", cap(slots), "peak_active_scenarios", run.peakActiveScenarios, "retry_count", summary.RetryCount, "throttled_count", summary.ThrottledCount, "rate_wait_count", summary.RateWaitCount, "limiter_wait_ms", summary.LimiterWaitMS)
+	run.summary = summary
+	return run, nil
+
 }
