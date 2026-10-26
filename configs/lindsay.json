@@ -90,7 +90,7 @@
   "collection": {
     "enabled": false,
     "days_ahead": 60,
-    "adults": 2,
+    "adults": [1, 2],
     "children_ages": [],
     "rooms": 1,
     "nights": [

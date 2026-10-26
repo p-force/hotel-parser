@@ -34,12 +34,12 @@ type RoomCategory struct {
 }
 
 type CollectionConfig struct {
-	Enabled      bool  `json:"enabled"`
-	DaysAhead    int   `json:"days_ahead"`
-	Adults       int   `json:"adults"`
-	ChildrenAges []int `json:"children_ages"`
-	Rooms        int   `json:"rooms"`
-	Nights       []int `json:"nights"`
+	Enabled      bool        `json:"enabled"`
+	DaysAhead    int         `json:"days_ahead"`
+	Adults       AdultCounts `json:"adults"`
+	ChildrenAges []int       `json:"children_ages"`
+	Rooms        int         `json:"rooms"`
+	Nights       []int       `json:"nights"`
 }
 
 // RateConfig — справочник тарифов; Enabled пока не влияет на сбор предложений.

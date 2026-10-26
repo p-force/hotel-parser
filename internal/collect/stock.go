@@ -51,7 +51,7 @@ func normalizeStock(result bnovo.SearchResult, categoryID string) CategoryStock 
 		}
 		stock.Warnings = append(stock.Warnings, warning)
 		switch warning.Code {
-		case "room_area_invalid", "category_metadata_missing", "currency_unknown", "offer_price_invalid", "offers_not_found":
+		case "room_area_invalid", "category_metadata_missing", "currency_unknown", "offer_price_invalid", "offers_not_found", "category_availability_unknown":
 			// Эти предупреждения сами по себе не опровергают признаки количества.
 		default:
 			blocked = true
@@ -94,13 +94,18 @@ func normalizeStock(result bnovo.SearchResult, categoryID string) CategoryStock 
 		}
 	}
 	for _, offer := range result.Offers {
-		if offer.CategoryID != categoryID || !offer.Visible || offer.Availability.SelectDisabled {
+		if offer.CategoryID != categoryID || offer.Availability.SelectDisabled {
+			continue
+		}
+		if offer.RateID == "" || offer.VariantID == "" {
+			incomplete = true
+			warn("stock_identity_missing", "offer rate and variant IDs are required")
 			continue
 		}
 		matches, uncertain := stockVariantMatches(result, offer)
 		if uncertain {
 			incomplete = true
-			warn("stock_variant_unknown", "visible offer has no unambiguous matching accommodation variant")
+			warn("stock_variant_unknown", "offer has no unambiguous matching accommodation variant")
 			continue
 		}
 		if !matches {

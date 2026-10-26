@@ -564,6 +564,7 @@ func Parse(
 			doc,
 			req,
 			result.Categories,
+			result.Variants,
 			result.Offers,
 		)
 
@@ -763,7 +764,7 @@ func validateAndDeduplicateOffers(
 
 // determineSearchStatus определяет результат парсинга.
 //
-// success: есть видимые предложения и нет предупреждений.
+// success: есть подходящие предложения и нет предупреждений.
 // no_offers: все известные категории явно недоступны.
 // partial: неполные или противоречивые данные.
 func determineSearchStatus(
@@ -777,19 +778,10 @@ func determineSearchStatus(
 		return SearchStatusPartial
 	}
 
-	hasVisibleOffer := false
-
-	for _, offer := range offers {
-		if offer.Visible &&
-			offer.Price != "" &&
-			offer.Currency != "" {
-			hasVisibleOffer = true
-			break
+	for _, state := range availability {
+		if state.HasOffers {
+			return SearchStatusSuccess
 		}
-	}
-
-	if hasVisibleOffer {
-		return SearchStatusSuccess
 	}
 
 	// Подтверждаем отсутствие предложений только если
@@ -1422,6 +1414,7 @@ func parseCategoryAvailability(
 	doc *html.Node,
 	req SearchRequest,
 	categories []RoomCategory,
+	variants []AccommodationVariant,
 	offers []RateOffer,
 ) ([]CategoryAvailability, []ParseWarning) {
 	var warnings []ParseWarning
@@ -1438,17 +1431,15 @@ func parseCategoryAvailability(
 		}
 	}
 
-	// Определяем категории, у которых есть видимые
-	// предложения с известной ценой.
+	// Свёрнутая строка Bnovo остаётся предложением при согласованных
+	// признаках бронируемости и подходящем числе гостей.
 	for _, offer := range offers {
 		state, exists := availability[offer.CategoryID]
 		if !exists {
 			continue
 		}
 
-		if offer.Visible &&
-			offer.Price != "" &&
-			offer.Currency != "" {
+		if offerMatchesScenario(offer, variants, req) {
 			state.HasOffers = true
 			availability[offer.CategoryID] = state
 		}
@@ -1655,7 +1646,7 @@ func validateCategoryAvailability(
 		case !state.HasOffers && !state.ConfirmedUnavailable:
 			warnings = append(warnings, ParseWarning{
 				Code:    "category_availability_unknown",
-				Message: "category has no visible offers or confirmed unavailability",
+				Message: "category has no matching offers or confirmed unavailability",
 				Context: state.CategoryID,
 			})
 		}
@@ -1708,4 +1699,36 @@ func validateBnovoDocument(doc *html.Node) error {
 	}
 
 	return nil
+}
+
+// offerMatchesScenario не приравнивает HTML-видимость к бронируемости.
+// Для скрытой строки нужны оба согласованных публичных сигнала количества.
+func offerMatchesScenario(offer RateOffer, variants []AccommodationVariant, req SearchRequest) bool {
+	if offer.CategoryID == "" || offer.VariantID == "" || offer.RateID == "" ||
+		offer.Price == "" || offer.Currency == "" || offer.Availability.SelectDisabled {
+		return false
+	}
+	matched := false
+	for _, variant := range variants {
+		if variant.ID == offer.VariantID {
+			if variant.CategoryID != offer.CategoryID || variant.Adults != req.Adults {
+				return false
+			}
+			matched = true
+		}
+	}
+	if !matched {
+		return false
+	}
+	if offer.Visible {
+		return true
+	}
+	maxOption := 0
+	for _, quantity := range offer.Availability.SelectableQuantities {
+		if quantity > maxOption {
+			maxOption = quantity
+		}
+	}
+	return maxOption > 0 && offer.Availability.DataAvailable != nil &&
+		*offer.Availability.DataAvailable == maxOption
 }

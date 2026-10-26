@@ -140,8 +140,18 @@ func (c CollectionConfig) Validate() error {
 		return fmt.Errorf("days_ahead: must be positive")
 	}
 
-	if c.Adults != 2 {
-		return fmt.Errorf("adults: MVP requires 2 adults")
+	if len(c.Adults) == 0 {
+		return fmt.Errorf("adults: at least one scenario is required")
+	}
+	seenAdults := make(map[int]bool)
+	for _, adults := range c.Adults {
+		if adults != 1 && adults != 2 {
+			return fmt.Errorf("adults: expected 1 or 2")
+		}
+		if seenAdults[adults] {
+			return fmt.Errorf("adults: duplicate scenario %d", adults)
+		}
+		seenAdults[adults] = true
 	}
 
 	if c.Rooms != 1 {

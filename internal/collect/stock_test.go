@@ -87,14 +87,14 @@ func TestNormalizeCategoryStock(t *testing.T) {
 			r.Offers[0].Availability = bnovo.AvailabilityEvidence{DataAvailable: stockInt(0), SelectableQuantities: []int{0}}
 		}, StockUnknown, nil, "stock_evidence_incomplete"},
 		{"zero_data_positive_options", func(r *bnovo.SearchResult) { r.Offers[0].Availability.DataAvailable = stockInt(0) }, StockConflict, nil, "stock_quantity_conflict"},
-		{"hidden_only", func(r *bnovo.SearchResult) { r.Offers[0].Visible = false }, StockUnknown, nil, "stock_evidence_missing"},
+		{"hidden_only", func(r *bnovo.SearchResult) { r.Offers[0].Visible = false }, StockKnown, stockInt(2), ""},
 		{"disabled_only", func(r *bnovo.SearchResult) { r.Offers[0].Availability.SelectDisabled = true }, StockUnknown, nil, "stock_evidence_missing"},
-		{"hidden_conflict_ignored", func(r *bnovo.SearchResult) {
+		{"hidden_conflict_detected", func(r *bnovo.SearchResult) {
 			other := r.Offers[0]
 			other.Visible = false
 			other.Availability.DataAvailable = stockInt(7)
 			r.Offers = append(r.Offers, other)
-		}, StockKnown, stockInt(2), ""},
+		}, StockConflict, nil, "stock_quantity_conflict"},
 		{"disabled_conflict_ignored", func(r *bnovo.SearchResult) {
 			other := r.Offers[0]
 			other.Availability.SelectDisabled = true
@@ -109,6 +109,7 @@ func TestNormalizeCategoryStock(t *testing.T) {
 			r.Offers = append(r.Offers, other)
 		}, StockKnown, stockInt(2), ""},
 		{"only_different_guest_count", func(r *bnovo.SearchResult) { r.Variants[0].Adults = 3 }, StockUnknown, nil, "stock_evidence_missing"},
+		{"missing_rate_id", func(r *bnovo.SearchResult) { r.Offers[0].RateID = "" }, StockUnknown, nil, "stock_identity_missing"},
 		{"unknown_variant", func(r *bnovo.SearchResult) { r.Variants = nil }, StockUnknown, nil, "stock_variant_unknown"},
 		{"unknown_guest_count", func(r *bnovo.SearchResult) { r.Variants[0].Adults = 0 }, StockUnknown, nil, "stock_variant_unknown"},
 		{"variant_category_mismatch", func(r *bnovo.SearchResult) { r.Variants[0].CategoryID = "459946" }, StockUnknown, nil, "stock_variant_unknown"},
@@ -124,7 +125,7 @@ func TestNormalizeCategoryStock(t *testing.T) {
 			r.Status = bnovo.SearchStatusNoOffers
 			r.Offers[0].Visible = false
 			r.CategoryAvailability[0] = bnovo.CategoryAvailability{CategoryID: "561429", ConfirmedUnavailable: true}
-		}, StockKnown, stockInt(0), ""},
+		}, StockConflict, nil, "stock_quantity_conflict"},
 		{"unavailable_with_disabled_offer", func(r *bnovo.SearchResult) {
 			r.Status = bnovo.SearchStatusNoOffers
 			r.Offers[0].Availability.SelectDisabled = true

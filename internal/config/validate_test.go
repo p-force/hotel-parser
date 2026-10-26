@@ -31,7 +31,7 @@ func TestConfigValidate(t *testing.T) {
 			},
 			Collection: CollectionConfig{
 				Enabled: true, DaysAhead: 60,
-				Adults: 2, Rooms: 1,
+				Adults: AdultCounts{2}, Rooms: 1,
 				Nights: []int{1, 2, 3},
 			},
 		}
@@ -112,9 +112,9 @@ func TestConfigValidate(t *testing.T) {
 		{
 			name: "invalid adult count",
 			mutate: func(c *Config) {
-				c.Collection.Adults = 3
+				c.Collection.Adults = AdultCounts{3}
 			},
-			wantErr: "requires 2 adults",
+			wantErr: "expected 1 or 2",
 		},
 		{
 			name: "children not supported",
