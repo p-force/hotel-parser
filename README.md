@@ -81,9 +81,29 @@ cookies и текст условий бронирования в логи не �
 могут занять 0 мс после округления. `collected_at` — начало попытки в UTC,
 длительности считаются по монотонным часам. Универсальный `duration_ms` не выводится.
 
-`internal/collect.SummarizeBatch` подготавливает сводку готовых результатов:
-время пакета и счётчики `success`, `partial`, `no_offers`, `failed`.
-Очередь и worker pool пока не реализованы, `queue_wait_ms` не добавляется.
+## Пакетный сбор
+
+`internal/collect.CollectBatch` вызывает `Client.Collect` общим клиентом через
+ограниченный worker pool и возвращает результаты в порядке входных сценариев:
+
+```go
+results, summary, err := collect.CollectBatch(ctx, client, requests, collect.BatchOptions{
+    Workers:       3,
+    StartInterval: 200 * time.Millisecond,
+})
+```
+
+`Workers=0` означает 3 workers, допустимы 1–32. `StartInterval` ограничивает
+интервал между допусками к `Collect` внутри пакета; 0 отключает ограничение частоты.
+Ошибки сценариев остаются в `SearchResult`; `err` сообщает о неверных настройках.
+
+При отмене незапущенные сценарии сохраняются как `failed` с кодом `canceled`
+(или `timeout` при истечении deadline), нулевыми `CollectedAt` и `HTTPStatus`.
+`summary` содержит время пакета и счётчики исходов, отдельно — отменённые начатые
+(`CanceledCount`) и незапущенные (`NotStartedCount`) сценарии; оба входят в `FailedCount`.
+На DEBUG ожидание до начала `Collect`, включая ограничитель частоты, выводится как
+`queue_wait_ms` с `batch_id` и индексом сценария. Собственные `attempt_id` и метрики
+каждой попытки формирует существующий `Collect`.
 
 ## Конфигурация
 

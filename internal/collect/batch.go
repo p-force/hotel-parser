@@ -6,14 +6,17 @@ import (
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
 )
 
-// BatchSummary — формат диагностики завершённого пакета для будущего сборщика.
-// Не запускает запросы и не предполагает наличия очереди или worker pool.
+// BatchSummary содержит время пакета и счётчики исходов.
+// CanceledCount учитывает только начатые и отменённые сценарии;
+// NotStartedCount — отдельный счётчик незапущенных сценариев.
 type BatchSummary struct {
 	BatchDurationMS int64 `json:"batch_duration_ms"`
 	SuccessCount    int   `json:"success_count"`
 	PartialCount    int   `json:"partial_count"`
 	NoOffersCount   int   `json:"no_offers_count"`
 	FailedCount     int   `json:"failed_count"`
+	CanceledCount   int   `json:"canceled_count,omitempty"`
+	NotStartedCount int   `json:"not_started_count,omitempty"`
 }
 
 // SummarizeBatch считает исходы готовых результатов и время пакета.
