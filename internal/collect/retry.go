@@ -9,7 +9,7 @@ import (
 )
 
 // RetryPolicy.MaxAttempts включает исходную попытку; 1 отключает повторы.
-// Для CollectProperties по умолчанию 3; для прежних пакетных API — 1.
+// По умолчанию 3 попытки для всех пакетных API.
 type RetryPolicy struct {
 	MaxAttempts                int
 	InitialBackoff, MaxBackoff time.Duration
@@ -17,13 +17,13 @@ type RetryPolicy struct {
 
 func (p RetryPolicy) normalized() (RetryPolicy, error) {
 	if p.MaxAttempts == 0 {
-		p.MaxAttempts = 1
+		p.MaxAttempts = 3
 	}
 	if p.InitialBackoff == 0 {
-		p.InitialBackoff = 100 * time.Millisecond
+		p.InitialBackoff = time.Second
 	}
 	if p.MaxBackoff == 0 {
-		p.MaxBackoff = 2 * time.Second
+		p.MaxBackoff = 10 * time.Second
 	}
 	if p.MaxAttempts < 1 || p.MaxAttempts > 5 || p.InitialBackoff < 0 || p.MaxBackoff < p.InitialBackoff || p.MaxBackoff > time.Minute {
 		return p, fmt.Errorf("invalid retry policy")

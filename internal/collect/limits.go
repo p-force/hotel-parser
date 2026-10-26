@@ -16,7 +16,8 @@ type SourceLimit struct {
 }
 
 // Limits действуют на все пакеты процесса. Sources содержит исключения по origin.
-// Нулевые concurrency означают 4 на отель и 8 на источник; нулевой интервал — без пауз.
+// Нулевые concurrency означают 4 на отель и 8 на источник. Для публичного Bnovo
+// встроен интервал 500 мс; явная запись Sources переопределяет его, в том числе нулём.
 type Limits struct {
 	PropertyConcurrency int
 	SourceConcurrency   int
@@ -24,7 +25,13 @@ type Limits struct {
 	Sources             map[string]SourceLimit
 }
 
-func defaultLimits() Limits { return Limits{PropertyConcurrency: 4, SourceConcurrency: 8} }
+func defaultLimits() Limits {
+	return Limits{PropertyConcurrency: 4, SourceConcurrency: 8,
+		Sources: map[string]SourceLimit{
+			"https://reservationsteps.ru": {Concurrency: 8, StartInterval: 500 * time.Millisecond},
+		},
+	}
+}
 
 // SourceKey нормализует origin; путь, query, userinfo и fragment никогда не входят в ключ.
 func SourceKey(raw string) (string, error) {
@@ -66,7 +73,8 @@ func ConfigureLimits(options Limits) error {
 	if options.PropertyConcurrency < 1 || options.PropertyConcurrency > MaxWorkers || options.SourceConcurrency < 1 || options.SourceConcurrency > MaxWorkers || options.SourceStartInterval < 0 {
 		return fmt.Errorf("invalid property/source limits")
 	}
-	sources := make(map[string]SourceLimit, len(options.Sources))
+	sources := defaultLimits().Sources
+	seen := make(map[string]bool, len(options.Sources))
 	for raw, limit := range options.Sources {
 		key, err := SourceKey(raw)
 		if err != nil {
@@ -78,9 +86,10 @@ func ConfigureLimits(options Limits) error {
 		if limit.Concurrency < 1 || limit.Concurrency > MaxWorkers || limit.StartInterval < 0 {
 			return fmt.Errorf("invalid source limits")
 		}
-		if _, exists := sources[key]; exists {
+		if seen[key] {
 			return fmt.Errorf("duplicate normalized source limit")
 		}
+		seen[key] = true
 		sources[key] = limit
 	}
 	options.Sources = sources

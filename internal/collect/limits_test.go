@@ -346,3 +346,87 @@ func TestPropertyAliasesShareLimitAcrossAPIs(t *testing.T) {
 		t.Errorf("hotel alias bypassed property limit: peak=%d", peak.Load())
 	}
 }
+
+func TestAutomaticBnovoSourceLimit(t *testing.T) {
+	// ConfigureLimits до первого допуска не вызывается: правило уже загружено процессом.
+	t.Cleanup(func() {
+		if err := ConfigureLimits(Limits{}); err != nil {
+			t.Error(err)
+		}
+	})
+	origin, err := SourceKey("https://RESERVATIONSTEPS.RU:443/rooms?ignored=true")
+	if err != nil {
+		t.Fatal(err)
+	}
+	globalConcurrency.Lock()
+	configured := globalConcurrency.limits.Sources[origin]
+	propertyLimit := globalConcurrency.limits.PropertyConcurrency
+	globalConcurrency.Unlock()
+	want := SourceLimit{Concurrency: 8, StartInterval: 500 * time.Millisecond}
+	if configured != want || propertyLimit != 4 {
+		t.Fatalf("automatic defaults: source=%+v property=%d", configured, propertyLimit)
+	}
+	slots, unregister := registerBatch()
+	defer unregister()
+	first, _, _, ok := tryAdmission(context.Background(), slots, "first-hotel", origin)
+	if !ok {
+		t.Fatal("initial Bnovo admission failed")
+	}
+	globalConcurrency.Lock()
+	startedAt := globalConcurrency.sources[origin].lastStart
+	globalConcurrency.Unlock()
+	first.release()
+	if permit, rateAt, _, ok := tryAdmission(context.Background(), slots, "second-hotel", origin); ok {
+		permit.release()
+		t.Fatal("Bnovo default did not throttle another hotel on the same source")
+	} else if rateAt.Sub(startedAt) != 500*time.Millisecond {
+		t.Fatalf("rate deadline=%s want 500ms", rateAt.Sub(startedAt))
+	}
+}
+
+func TestBnovoSourceDefaultResetAndOverride(t *testing.T) {
+	defer func() {
+		if err := ConfigureLimits(Limits{}); err != nil {
+			t.Error(err)
+		}
+	}()
+	for _, tc := range []struct {
+		name    string
+		options Limits
+		want    SourceLimit
+	}{
+		{"reset_keeps_default", Limits{}, SourceLimit{Concurrency: 8, StartInterval: 500 * time.Millisecond}},
+		{"explicit_zero_disables_pause", Limits{Sources: map[string]SourceLimit{"https://RESERVATIONSTEPS.RU:443/path": {Concurrency: 2, StartInterval: 0}}}, SourceLimit{Concurrency: 2}},
+		{"custom_interval", Limits{Sources: map[string]SourceLimit{"https://reservationsteps.ru": {Concurrency: 3, StartInterval: time.Second}}}, SourceLimit{Concurrency: 3, StartInterval: time.Second}},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			if err := ConfigureLimits(tc.options); err != nil {
+				t.Fatal(err)
+			}
+			globalConcurrency.Lock()
+			got := globalConcurrency.limits.Sources["https://reservationsteps.ru"]
+			globalConcurrency.Unlock()
+			if got != tc.want {
+				t.Fatalf("source=%+v want=%+v", got, tc.want)
+			}
+			if tc.want.StartInterval == 0 {
+				slots, unregister := registerBatch()
+				defer unregister()
+				first, _, _, ok := tryAdmission(context.Background(), slots, "a", "https://reservationsteps.ru")
+				if !ok {
+					t.Fatal("first admission failed")
+				}
+				defer first.release()
+				second, _, _, ok := tryAdmission(context.Background(), slots, "b", "https://reservationsteps.ru")
+				if !ok {
+					t.Fatal("explicit zero interval ignored")
+				}
+				defer second.release()
+				if extra, _, _, ok := tryAdmission(context.Background(), slots, "c", "https://reservationsteps.ru"); ok {
+					extra.release()
+					t.Fatal("custom concurrency ignored")
+				}
+			}
+		})
+	}
+}

@@ -288,3 +288,36 @@ func TestRetryBackoffDoesNotOccupySingleWorker(t *testing.T) {
 		t.Fatalf("backoff held worker or retried after cancel: %+v err=%v", outcome.run.summary, outcome.err)
 	}
 }
+
+func TestRetryDefaultsAndOverrides(t *testing.T) {
+	policy, err := (RetryPolicy{}).normalized()
+	want := RetryPolicy{MaxAttempts: 3, InitialBackoff: time.Second, MaxBackoff: 10 * time.Second}
+	if err != nil || policy != want {
+		t.Fatalf("defaults=%+v err=%v want=%+v", policy, err, want)
+	}
+	override := RetryPolicy{MaxAttempts: 1, InitialBackoff: 2 * time.Millisecond, MaxBackoff: 5 * time.Millisecond}
+	got, err := override.normalized()
+	if err != nil || got != override {
+		t.Fatalf("override=%+v err=%v", got, err)
+	}
+	for attempt := 1; attempt <= 5; attempt++ {
+		ceiling := min(time.Second*time.Duration(1<<(attempt-1)), 10*time.Second)
+		delay := retryDelay(policy, attempt, 0)
+		if delay < ceiling/2 || delay >= ceiling {
+			t.Errorf("default jitter/backoff: attempt=%d delay=%s ceiling=%s", attempt, delay, ceiling)
+		}
+	}
+	if got := retryDelay(policy, 1, 30*time.Second); got != 30*time.Second {
+		t.Errorf("Retry-After shortened: %s", got)
+	}
+}
+
+func TestDefaultRetryAttemptCount(t *testing.T) {
+	var calls atomic.Int32
+	client := poolClient(t, func(w http.ResponseWriter, r *http.Request) { calls.Add(1); w.WriteHeader(503) }, 0)
+	// Сохраняем MaxAttempts по умолчанию; сокращаем только ожидание локального теста.
+	_, summary, err := CollectBatch(context.Background(), client, batchRequests(1), BatchOptions{Retry: RetryPolicy{InitialBackoff: time.Millisecond, MaxBackoff: time.Millisecond}})
+	if err != nil || calls.Load() != 3 || summary.RetryCount != 2 {
+		t.Fatalf("default retries: calls=%d summary=%+v err=%v", calls.Load(), summary, err)
+	}
+}

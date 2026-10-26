@@ -173,8 +173,8 @@ if err := collect.ConfigureLimits(collect.Limits{
     SourceConcurrency:   8,
     Sources: map[string]collect.SourceLimit{
         "https://reservationsteps.ru": {
-            Concurrency:  4,
-            StartInterval: 200 * time.Millisecond,
+            Concurrency:   8,
+            StartInterval: 500 * time.Millisecond,
         },
     },
 }); err != nil {
@@ -186,17 +186,21 @@ if err := collect.ConfigureLimits(collect.Limits{
 Origin нормализуется как схема + host + port, с удалением стандартного порта,
 пути, query и credentials. Физический отель определяется по origin + UID,
 поэтому конфигурационный ID и UID прежнего `CollectBatch` делят один допуск.
-`SourceStartInterval` задаёт общий интервал; `Sources` переопределяет настройки
-отдельного origin. Нулевой интервал отключает паузы. `BatchOptions.StartInterval`
-остаётся дополнительным интервалом этого batch: выполняются оба условия.
+Для `https://reservationsteps.ru` автоматически действует встроенное правило:
+8 одновременных попыток и минимум 500 мс между стартами (2 старта в секунду).
+Вызов `ConfigureLimits` не обязателен; `ConfigureLimits(Limits{})` сохраняет это
+правило. Явная запись этого origin в `Sources` переопределяет его, в том числе
+`StartInterval: 0` отключает паузу. `SourceStartInterval` задаёт интервал для
+источников без отдельного правила; для них ноль означает отсутствие пауз.
+`BatchOptions.StartInterval` остаётся дополнительным интервалом этого batch:
+выполняются оба условия.
 Интервалы ограничивают допуски к `Collect`, включая каждую retry-попытку;
 перенаправления внутри одной попытки ограничивает существующий Bnovo-клиент.
 
-`CollectProperties` по умолчанию делает до 3 попыток. Прежние `CollectBatch` и
-`CollectConfiguredBatch` сохраняют 1 попытку; повторы включаются через
-`BatchOptions.Retry` (`RetryPolicy{MaxAttempts: 3}`). Явное `MaxAttempts: 1`
-отключает retry, верхний предел — 5. По умолчанию backoff начинается со 100 мс,
-удваивается до 2 с и использует equal jitter: 50–100% текущей задержки.
+Все пакетные API по умолчанию делают до 3 попыток. Политика настраивается через
+`BatchOptions.Retry`; явное `MaxAttempts: 1` отключает retry, верхний предел — 5.
+По умолчанию backoff начинается с 1 с, удваивается до 10 с и использует
+equal jitter: 50–100% текущей задержки.
 `InitialBackoff` / `MaxBackoff` настраиваются; максимальный backoff — 1 минута.
 Корректный `Retry-After` (секунды или HTTP-date) задаёт минимальную задержку и
 может превышать MaxBackoff; ожидание остаётся отменяемым.

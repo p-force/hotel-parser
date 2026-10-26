@@ -57,9 +57,6 @@ type PropertiesSummary struct {
 // и общий процессный допуск ограничивают все отели и одновременно запущенные пакеты.
 // Enabled не проверяется: это явный запуск, как CollectConfiguredBatch.
 func CollectProperties(ctx context.Context, properties []PropertyCollection, options BatchOptions) ([]PropertyResult, PropertiesSummary, error) {
-	if options.Retry.MaxAttempts == 0 {
-		options.Retry.MaxAttempts = 3
-	}
 	if options.Workers == 0 {
 		options.Workers = DefaultGlobalConcurrency
 	}

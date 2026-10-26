@@ -344,7 +344,7 @@ func TestBatchHTTPTimeout(t *testing.T) {
 		defer func() { finished <- struct{}{} }()
 		<-r.Context().Done()
 	}, 30*time.Millisecond)
-	results, summary, err := CollectBatch(context.Background(), client, batchRequests(3), BatchOptions{Workers: 2})
+	results, summary, err := CollectBatch(context.Background(), client, batchRequests(3), BatchOptions{Workers: 2, Retry: RetryPolicy{MaxAttempts: 1}})
 	if err != nil {
 		t.Fatal(err)
 	}
