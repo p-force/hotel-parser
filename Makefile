@@ -1,5 +1,5 @@
 
-.PHONY: run build test test-race fmt fmt-check vet tidy check
+.PHONY: run build test test-race test-integration test-integration-docker fmt fmt-check vet tidy check
 
 run:
 	go run ./cmd/hotel-parser
@@ -28,3 +28,11 @@ tidy:
 	go mod tidy
 
 check: fmt-check vet test-race build
+
+# Явный локальный DSN; .env автоматически не загружается.
+test-integration:
+	go test -tags=integration -count=1 ./internal/storage/... ./internal/collect/...
+
+# PostgreSQL существующего docker compose, без подбора credentials/портов хоста.
+test-integration-docker:
+	python3 scripts/test-integration-docker.py

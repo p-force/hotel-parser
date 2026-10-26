@@ -221,6 +221,106 @@ equal jitter: 50–100% текущей задержки.
 по origin и не переживает перезапуск. Durable queue, история и восстановление
 незавершённых сценариев остаются для следующих задач (#24–27).
 
+## PostgreSQL: задания и история
+
+`internal/storage` не зависит от Bnovo. Драйвер — pgx через `database/sql`.
+По умолчанию используется отдельная схема `hotel_parser`; миграции запускаются
+явно через `Store.Migrate(ctx)`, а не при открытии соединения.
+
+```go
+store, err := storage.Open(ctx, os.Getenv("HOTEL_PARSER_DATABASE_URL"), storage.Options{})
+if err != nil {
+    return err
+}
+defer store.Close()
+if err := store.Migrate(ctx); err != nil {
+    return err
+}
+batch, err := collect.CollectPropertiesStored(ctx, store, properties, options)
+```
+
+Схема содержит:
+
+- `schema_migrations`: версии и SHA-256 миграций, транзакционный advisory lock;
+- `collection_runs`: один запуск отеля с периодом, временем и итоговым статусом;
+- `scenario_jobs`: источник/origin/UID, даты, LOS, adults, rooms, children, язык,
+  состояние, число попыток и `next_retry_at`;
+- `collection_attempts`: **каждая** выполненная попытка, включая промежуточные
+  retry, HTTP-статус, безопасный код ошибки, retryable, время и длительность;
+- `observations`: один нормализованный публичный остаток и площадь категории на попытку;
+- `observation_variants`, `observation_offers`: варианты, тарифы, точная цена
+  `NUMERIC`, валюта и исходные признаки доступности.
+
+`unknown`/`conflict` имеют `available=NULL`. Подтверждённая недоступность хранится
+отдельным флагом; при достоверном нуле остаток равен 0. Тарифы и варианты не
+суммируются: физический остаток берётся только из `observations.available`.
+Сохраняются коды/контексты предупреждений и данные `partial`. HTML, cookies,
+свободные тексты ошибок, условия оплаты/отмены и платёжные URL не сохраняются.
+
+`SaveAttempt` одной транзакцией вставляет попытку и наблюдения, затем меняет статус
+задания. Уникальность `(job_id, attempt_no)` и hash канонического payload дают
+идемпотентность: одинаковая запись — no-op, изменённая — `ErrConflict`. Записи
+одного задания сериализуются row lock; порядок номеров проверяется. Задание
+идемпотентно создаётся по `(run_id, scenario_key)`, ключ включает все параметры
+сценария. Новый сбор создаёт новые run/job и не перезаписывает старые значения.
+
+UPDATE/DELETE/TRUNCATE фактов и изменение идентичности run/job запрещены
+триггерами; внешние ключи, UNIQUE и CHECK защищают связи и значения. Состояние
+незавершённого задания меняется отдельно от неизменяемых фактов. `MarkRunning`
+**не является claim/lease** и не исключает повторный запуск другим executor (#26).
+
+`StoredBatch` возвращает результаты, ID запусков и упорядоченные ID заданий.
+При ошибке storage данные других сценариев сохраняются, ошибка возвращается
+отдельно, а новые HTTP-retry этого задания не запускаются. Незавершённый run
+остаётся открытым. После отмены выполняется ограниченная запись завершения
+(до 5 секунд на операцию), незапущенные задания помечаются canceled без попыток.
+Длительность попытки измеряется монотонными часами вокруг её выполнения;
+`collected_at` сохраняет отдельную метку источника.
+
+Для чтения есть `GetRun`, `GetJob`, `GetAttempt`; обычный SELECT также сохраняет
+измерения сценария без удвоения остатков:
+
+```sql
+SELECT r.property_id, j.check_in, j.check_out, j.los, j.adults,
+       a.attempt_no, o.category_id, o.available, o.stock_status,
+       o.confirmed_unavailable
+FROM hotel_parser.collection_runs r
+JOIN hotel_parser.scenario_jobs j ON j.run_id = r.id
+JOIN hotel_parser.collection_attempts a ON a.job_id = j.id
+JOIN hotel_parser.observations o ON o.attempt_id = a.id;
+```
+
+Интеграционные тесты запускаются отдельно:
+
+```bash
+# Рекомендуется для уже работающего PostgreSQL из docker-compose проекта:
+make test-integration-docker
+
+# Альтернатива: явно экспортированный корректный локальный DSN:
+make test-integration
+```
+
+Первый вариант берёт настройки из существующего compose-контейнера `postgres`,
+компилирует Linux test binaries и выполняет их внутри контейнера. Он не создаёт
+новый PostgreSQL, не зависит от сервера на порту хоста и не выводит credentials.
+`.env` автоматически не исполняется. Каждый тест использует случайную схему
+`hp_test_*` и удаляет только её; существующие таблицы не изменяются.
+Integration-tag тесты отказываются от нелокального DSN. Обычные `go test ./...`
+и `make check` проверяют unit-тесты без подключения к БД.
+
+Будущее подключение к существующей Neon БД:
+
+1. Проверить миграции на отдельной тестовой БД/ветке и сделать backup.
+2. Выделить владельца миграций и схему `hotel_parser`; не использовать таблицы
+   и историю миграций предыдущего проекта.
+3. Передать DSN через секрет `HOTEL_PARSER_DATABASE_URL`; открыть `storage.Open`
+   с `Schema: "hotel_parser"` и применить `Migrate` контролируемым отдельным шагом.
+4. Проверить ledger и SELECT; выдать приложению минимальные права на новую схему
+   (история INSERT/SELECT, прогресс run/job UPDATE), без доступа к старым таблицам.
+
+В #25 Neon не подключается. Claims/leases, восстановление после падения процесса,
+Vercel runtime budget, cron и горизонт 60 дней остаются для #24/#26/#27.
+
 ## Ручная сверка публичного фонда
 
 ```bash
