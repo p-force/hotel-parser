@@ -44,4 +44,3 @@ func validateExpectedCategories(
 
 	return warnings
 }
-
