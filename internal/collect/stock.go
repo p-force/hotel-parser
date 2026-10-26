@@ -110,7 +110,7 @@ func normalizeStock(result bnovo.SearchResult, categoryID string) CategoryStock 
 		}
 		if !matches {
 			continue
-		} // Известный вариант для другого числа гостей — другой сценарий.
+		} // Применимость строки не подтверждена для запрошенного числа гостей.
 		evidence := offer.Availability
 		if evidence.DataAvailable != nil && *evidence.DataAvailable < 0 {
 			incomplete = true
@@ -174,7 +174,7 @@ func stockVariantMatches(result bnovo.SearchResult, offer bnovo.RateOffer) (matc
 	if found == nil || found.CategoryID != offer.CategoryID || found.Adults <= 0 {
 		return false, true
 	}
-	return found.Adults == result.Request.Adults, false
+	return found.MatchesAdults(result.Request.Adults, offer.Availability), false
 }
 
 // Контексты предупреждений соответствуют существующему parser.go:
@@ -213,7 +213,7 @@ func stockWarningApplies(warning bnovo.ParseWarning, categoryID string, result b
 			}
 		}
 		return !found
-	case "available_quantity_invalid", "offer_rate_mismatch", "offer_plan_variant_mismatch", "offer_price_invalid":
+	case "row_availability_invalid", "available_quantity_invalid", "offer_rate_mismatch", "offer_plan_variant_mismatch", "offer_price_invalid":
 		parts := strings.Split(warning.Context, "/")
 		if len(parts) != 2 {
 			return true

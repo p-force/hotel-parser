@@ -1053,6 +1053,22 @@ func parseAvailabilityEvidence(
 	contextID := attr(selector, "data-plan-id") +
 		"/" + attr(selector, "data-room-id")
 
+	// Флаг строки описывает её применимость в текущем ответе поиска.
+	// Его нельзя путать с количеством из одноимённого атрибута select.
+	if row := closestAncestor(selector, "tr"); row != nil {
+		for _, attribute := range row.Attr {
+			if attribute.Key != "data-available" {
+				continue
+			}
+			if attribute.Val == "0" || attribute.Val == "1" {
+				available := attribute.Val == "1"
+				result.RowAvailable = &available
+			} else {
+				warnings = append(warnings, ParseWarning{Code: "row_availability_invalid", Message: "invalid row data-available flag", Context: contextID})
+			}
+		}
+	}
+
 	// Публичное количество из селектора тарифа.
 	if raw := attr(selector, "data-available"); raw != "" {
 		value, err := strconv.Atoi(raw)
@@ -1711,7 +1727,7 @@ func offerMatchesScenario(offer RateOffer, variants []AccommodationVariant, req 
 	matched := false
 	for _, variant := range variants {
 		if variant.ID == offer.VariantID {
-			if variant.CategoryID != offer.CategoryID || variant.Adults != req.Adults {
+			if variant.CategoryID != offer.CategoryID || !variant.MatchesAdults(req.Adults, offer.Availability) {
 				return false
 			}
 			matched = true
