@@ -57,6 +57,10 @@ type PropertiesSummary struct {
 // и общий процессный допуск ограничивают все отели и одновременно запущенные пакеты.
 // Enabled не проверяется: это явный запуск, как CollectConfiguredBatch.
 func CollectProperties(ctx context.Context, properties []PropertyCollection, options BatchOptions) ([]PropertyResult, PropertiesSummary, error) {
+	return collectPropertiesObserved(ctx, properties, options, nil)
+}
+
+func collectPropertiesObserved(ctx context.Context, properties []PropertyCollection, options BatchOptions, observer *attemptObserver) ([]PropertyResult, PropertiesSummary, error) {
 	if options.Workers == 0 {
 		options.Workers = DefaultGlobalConcurrency
 	}
@@ -108,8 +112,8 @@ func CollectProperties(ctx context.Context, properties []PropertyCollection, opt
 			owners = append(owners, owner)
 		}
 	}
-	run, err := collectJobs(ctx, jobs, options)
-	if err != nil {
+	run, err := collectJobsObserved(ctx, jobs, options, observer)
+	if err != nil && len(run.results) == 0 {
 		return nil, PropertiesSummary{}, err
 	}
 	for i, result := range run.results {
@@ -149,5 +153,5 @@ func CollectProperties(ctx context.Context, properties []PropertyCollection, opt
 			"success_count", summary.SuccessCount, "partial_count", summary.PartialCount, "no_offers_count", summary.NoOffersCount,
 			"failed_count", summary.FailedCount, "canceled_count", summary.CanceledCount, "not_started_count", summary.NotStartedCount, "retry_count", summary.RetryCount, "throttled_count", summary.ThrottledCount, "rate_wait_count", summary.RateWaitCount, "limiter_wait_ms", summary.LimiterWaitMS)
 	}
-	return results, PropertiesSummary{BatchSummary: run.summary, ConcurrencyLimit: run.concurrencyLimit, PeakActiveScenarios: run.peakActiveScenarios, Properties: summaries}, nil
+	return results, PropertiesSummary{BatchSummary: run.summary, ConcurrencyLimit: run.concurrencyLimit, PeakActiveScenarios: run.peakActiveScenarios, Properties: summaries}, err
 }

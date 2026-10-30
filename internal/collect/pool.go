@@ -51,6 +51,7 @@ type queuedJob struct {
 }
 
 type batchRun struct {
+	storageError        error
 	batchID             string
 	results             []bnovo.SearchResult
 	summary             BatchSummary
@@ -66,6 +67,10 @@ type batchRun struct {
 
 // collectJobs — единственный bounded worker pool для всех пакетных API.
 func collectJobs(ctx context.Context, input []batchJob, options BatchOptions) (batchRun, error) {
+	return collectJobsObserved(ctx, input, options, nil)
+}
+
+func collectJobsObserved(ctx context.Context, input []batchJob, options BatchOptions, observer *attemptObserver) (batchRun, error) {
 	workers := options.Workers
 	if workers == 0 {
 		workers = DefaultWorkers
@@ -97,7 +102,7 @@ func collectJobs(ctx context.Context, input []batchJob, options BatchOptions) (b
 		}
 	}
 	run := batchRun{batchID: batchID, results: results, executed: executed, queueWaitMS: make([]*int64, len(input)), attempts: make([]int, len(input)), throttled: make([]int, len(input)), rateWait: make([]int, len(input)), limiterWaitMS: make([]int64, len(input)), concurrencyLimit: cap(slots)}
-	scheduleJobs(ctx, input, options, policy, slots, &run)
+	scheduleJobs(ctx, input, options, policy, slots, &run, observer)
 	canceledCount := 0
 	for i, result := range results {
 		if executed[i] && result.Error != nil && (result.Error.Code == "canceled" || (result.Error.Code == "timeout" && ctx.Err() == context.DeadlineExceeded)) {
@@ -143,6 +148,6 @@ func collectJobs(ctx context.Context, input []batchJob, options BatchOptions) (b
 		"not_started_count", summary.NotStartedCount,
 		"concurrency_limit", cap(slots), "peak_active_scenarios", run.peakActiveScenarios, "retry_count", summary.RetryCount, "throttled_count", summary.ThrottledCount, "rate_wait_count", summary.RateWaitCount, "limiter_wait_ms", summary.LimiterWaitMS)
 	run.summary = summary
-	return run, nil
+	return run, run.storageError
 
 }

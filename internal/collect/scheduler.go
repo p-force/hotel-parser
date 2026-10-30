@@ -2,6 +2,7 @@ package collect
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"log/slog"
 	"strings"
@@ -14,11 +15,17 @@ import (
 
 type scheduledAttempt struct {
 	queuedJob
-	permit admission
+	permit      admission
+	number      int
+	queueWaitMS *int64
 }
 type completedAttempt struct {
-	index  int
-	result bnovo.SearchResult
+	index                 int
+	result                bnovo.SearchResult
+	startedAt, finishedAt time.Time
+	durationMS            int64
+	queueWaitMS           *int64
+	beforeError           error
 }
 type pendingJob struct {
 	queuedAt, readyAt, waitingAt time.Time
@@ -26,14 +33,46 @@ type pendingJob struct {
 }
 
 // executeAttempt освобождает допуски также при панике. Паника не перехватывается.
+type attemptObserver struct {
+	before func(context.Context, int, int, time.Time) error
+	after  func(context.Context, completedAttempt, int, *time.Time) error
+}
+
 func executeAttempt(ctx context.Context, job batchJob, permit admission) bnovo.SearchResult {
+	return executeObservedAttempt(ctx, job, permit, 0, 1, nil).result
+}
+func executeObservedAttempt(ctx context.Context, job batchJob, permit admission, index, number int, observer *attemptObserver) (done completedAttempt) {
 	defer permit.release()
-	return job.client.Collect(ctx, job.request)
+	started := time.Now()
+	done.index = index
+	done.startedAt = started.UTC()
+	defer func() {
+		elapsed := time.Since(started)
+		done.durationMS = elapsed.Milliseconds()
+		done.finishedAt = started.Add(elapsed).UTC()
+	}()
+	if observer != nil && observer.before != nil {
+		if err := observer.before(ctx, index, number, done.startedAt); err != nil {
+			code := "storage_error"
+			if ctx.Err() != nil {
+				code = "canceled"
+				if ctx.Err() == context.DeadlineExceeded {
+					code = "timeout"
+				}
+			} else {
+				done.beforeError = err
+			}
+			done.result = bnovo.SearchResult{Request: job.request, Status: bnovo.SearchStatusFailed, Error: &bnovo.CollectionError{Code: code, Message: "collection could not start", Retryable: false}}
+			return done
+		}
+	}
+	done.result = job.client.Collect(ctx, job.request)
+	return done
 }
 
 // scheduleJobs расширяет диспетчер прежнего bounded pool: workers исполняют одну
 // попытку, диспетчер хранит ожидания и retry. Нет goroutine на задание или таймер.
-func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, policy RetryPolicy, slots chan struct{}, run *batchRun) {
+func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, policy RetryPolicy, slots chan struct{}, run *batchRun, observer *attemptObserver) {
 	ctx, cancel := context.WithCancel(ctx)
 	defer withdrawAdmissions(run.batchID)
 	workers := options.Workers
@@ -59,8 +98,9 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 				}
 				release := job.permit.release
 				job.permit.release = func() { active.Add(-1); release() }
-				result := executeAttempt(ctx, input[index], job.permit)
-				completed <- completedAttempt{index, result}
+				done := executeObservedAttempt(ctx, input[index], job.permit, index, job.number, observer)
+				done.queueWaitMS = job.queueWaitMS
+				completed <- done
 			}
 		}()
 	}
@@ -87,10 +127,27 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 		if done.result.HTTPStatus == 429 {
 			run.throttled[i]++
 		}
+		if done.beforeError != nil {
+			run.storageError = errors.Join(run.storageError, done.beforeError)
+			remaining--
+			return
+		}
+		var nextRetryAt *time.Time
+		var delay time.Duration
 		if ctx.Err() == nil && run.attempts[i] < policy.MaxAttempts && retryable(done.result) {
-			delay := retryDelay(policy, run.attempts[i], done.result.Error.RetryAfter)
-			now := time.Now()
-			pending[i] = pendingJob{queuedAt: now, readyAt: now.Add(delay)}
+			delay = retryDelay(policy, run.attempts[i], done.result.Error.RetryAfter)
+			at := time.Now().Add(delay)
+			nextRetryAt = &at
+		}
+		if observer != nil && observer.after != nil {
+			if err := observer.after(ctx, done, run.attempts[i], nextRetryAt); err != nil {
+				run.storageError = errors.Join(run.storageError, err)
+				remaining--
+				return
+			}
+		}
+		if nextRetryAt != nil {
+			pending[i] = pendingJob{queuedAt: time.Now(), readyAt: *nextRetryAt}
 			owner := owners[input[i].propertyID]
 			groups[owner] = append(groups[owner], i)
 			slog.DebugContext(ctx, "bnovo.batch.retry.scheduled", "batch_id", run.batchID, "scenario_index", i, "property_id", input[i].propertyID, "source", input[i].source, "source_origin", input[i].origin, "retry_reason", done.result.Error.Code, "http_status", done.result.HTTPStatus, "backoff_ms", delay.Milliseconds(), "next_attempt", run.attempts[i]+1)
@@ -182,7 +239,7 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 				running++
 
 				// running<workers до резервирования гарантирует свободного/завершающего worker.
-				jobs <- scheduledAttempt{queuedJob{i, state.queuedAt}, permit}
+				jobs <- scheduledAttempt{queuedJob{i, state.queuedAt}, permit, run.attempts[i], run.queueWaitMS[i]}
 				handedOff = true
 				dispatched = true
 			}()

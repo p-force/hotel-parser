@@ -11,6 +11,10 @@
 
 ### Added
 
+- PostgreSQL storage в отдельной схеме: run/job/attempt и append-only наблюдения,
+  идемпотентная транзакционная запись, история всех retry и интеграционные тесты
+  на существующем локальном Docker PostgreSQL (#25).
+
 - Процессные лимиты по отелю и источнику, round-robin между отелями,
   source rate limiting и ограниченные retry с jitter/Retry-After. Добавлены
   метрики ожидания, throttling и повторов; существующий пул сохранён (#23).
