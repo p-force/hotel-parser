@@ -135,18 +135,18 @@ func TestPostgresStoredCollectionCancellation(t *testing.T) {
 	if result.err != nil {
 		t.Fatal(result.err)
 	}
-	if len(result.batch.Runs) != 1 || result.batch.Runs[0].Status != storage.RunCanceled {
-		t.Fatalf("canceled run not persisted: %+v", result.batch.Runs)
+	if len(result.batch.Runs) != 1 || result.batch.Runs[0].Status != storage.RunRunning {
+		t.Fatalf("unfinished run is not recoverable: %+v", result.batch.Runs)
 	}
 	for i, id := range result.batch.JobIDs {
 		job, err := store.GetJob(context.Background(), id)
-		if err != nil || job.Status != storage.JobCanceled {
-			t.Fatalf("canceled job lost: %+v %v", job, err)
+		if err != nil || (job.Status != storage.JobRunning && job.Status != storage.JobQueued) {
+			t.Fatalf("unfinished job is not recoverable: %+v %v", job, err)
 		}
 		if i == 0 {
 			a, err := store.GetAttempt(context.Background(), id, 1)
-			if err != nil || a.Error == nil || a.Error.Code != "canceled" {
-				t.Fatalf("active cancellation not saved: %+v %v", a, err)
+			if !errors.Is(err, storage.ErrNotFound) {
+				t.Fatalf("interrupted request invented completion: %+v %v", a, err)
 			}
 		} else if job.Attempts != 0 {
 			t.Fatal("unstarted job invented HTTP attempt")
@@ -180,8 +180,8 @@ func TestPostgresStoredRetryCancellation(t *testing.T) {
 		t.Fatal(result.err)
 	}
 	job, err := store.GetJob(context.Background(), result.batch.JobIDs[0])
-	if err != nil || job.Status != storage.JobCanceled || job.NextRetryAt != nil {
-		t.Fatalf("canceled retry job not finalized: %+v %v", job, err)
+	if err != nil || job.Status != storage.JobRetryable || job.NextRetryAt == nil {
+		t.Fatalf("retry job is not recoverable: %+v %v", job, err)
 	}
 	first, err := store.GetAttempt(context.Background(), job.ID, 1)
 	if err != nil || first.HTTPStatus != 429 || first.NextRetryAt == nil {

@@ -51,6 +51,10 @@ func executeObservedAttempt(ctx context.Context, job batchJob, permit admission,
 		done.durationMS = elapsed.Milliseconds()
 		done.finishedAt = started.Add(elapsed).UTC()
 	}()
+	if ctx.Err() != nil {
+		done.result = canceledAttempt(ctx, job.request)
+		return done
+	}
 	if observer != nil && observer.before != nil {
 		if err := observer.before(ctx, index, number, done.startedAt); err != nil {
 			code := "storage_error"
@@ -66,8 +70,21 @@ func executeObservedAttempt(ctx context.Context, job batchJob, permit admission,
 			return done
 		}
 	}
+	if ctx.Err() != nil {
+		done.result = canceledAttempt(ctx, job.request)
+		return done
+	}
 	done.result = job.client.Collect(ctx, job.request)
 	return done
+}
+
+func canceledAttempt(ctx context.Context, req bnovo.SearchRequest) bnovo.SearchResult {
+	code := "canceled"
+	if ctx.Err() == context.DeadlineExceeded {
+		code = "timeout"
+	}
+	return bnovo.SearchResult{Request: req, Status: bnovo.SearchStatusFailed,
+		Error: &bnovo.CollectionError{Code: code, Message: "collection context ended"}}
 }
 
 // scheduleJobs расширяет диспетчер прежнего bounded pool: workers исполняют одну
@@ -120,6 +137,12 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 	pending := make([]pendingJob, len(input))
 	remaining, running, cursor := len(input), 0, 0
 	var lastStart time.Time
+	attemptLimit := func(i int) int {
+		if input[i].maxAttempts > 0 {
+			return min(policy.MaxAttempts, input[i].maxAttempts)
+		}
+		return policy.MaxAttempts
+	}
 	handle := func(done completedAttempt) {
 		running--
 		i := done.index
@@ -134,7 +157,7 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 		}
 		var nextRetryAt *time.Time
 		var delay time.Duration
-		if ctx.Err() == nil && run.attempts[i] < policy.MaxAttempts && retryable(done.result) {
+		if ctx.Err() == nil && run.attempts[i] < attemptLimit(i) && retryable(done.result) {
 			delay = retryDelay(policy, run.attempts[i], done.result.Error.RetryAfter)
 			at := time.Now().Add(delay)
 			nextRetryAt = &at
@@ -276,7 +299,7 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 			code = "timeout"
 		}
 		for i := range input {
-			if run.executed[i] && run.attempts[i] < policy.MaxAttempts && retryable(run.results[i]) {
+			if run.executed[i] && run.attempts[i] < attemptLimit(i) && retryable(run.results[i]) {
 				run.results[i].Status = bnovo.SearchStatusFailed
 				run.results[i].Error = &bnovo.CollectionError{Code: code, HTTPStatus: run.results[i].HTTPStatus, Message: "batch retry canceled", Retryable: code == "timeout"}
 			}
