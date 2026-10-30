@@ -65,12 +65,12 @@ func (s *Store) GetRun(ctx context.Context, id string) (Run, error) {
 	return r, nil
 }
 
-const jobColumns = `id::text,run_id::text,property_id,source,source_origin,source_property_id,check_in,check_out,los,adults,rooms,array_to_json(children_ages),language,status,attempts,COALESCE(last_error_code,''),created_at,started_at,finished_at,next_retry_at`
+const jobColumns = `id::text,run_id::text,property_id,source,source_origin,source_property_id,check_in,check_out,los,adults,rooms,array_to_json(children_ages),language,status,attempts,COALESCE(last_error_code,''),created_at,started_at,finished_at,next_retry_at,COALESCE(lease_owner,''),lease_token,leased_until,max_claims,max_attempts`
 
 func scanJob(row scanner) (Job, error) {
 	var j Job
 	var children []byte
-	err := row.Scan(&j.ID, &j.RunID, &j.Scenario.PropertyID, &j.Scenario.Source, &j.Scenario.SourceOrigin, &j.Scenario.SourcePropertyID, &j.Scenario.CheckIn, &j.Scenario.CheckOut, &j.Scenario.LOS, &j.Scenario.Adults, &j.Scenario.Rooms, &children, &j.Scenario.Language, &j.Status, &j.Attempts, &j.LastErrorCode, &j.CreatedAt, &j.StartedAt, &j.FinishedAt, &j.NextRetryAt)
+	err := row.Scan(&j.ID, &j.RunID, &j.Scenario.PropertyID, &j.Scenario.Source, &j.Scenario.SourceOrigin, &j.Scenario.SourcePropertyID, &j.Scenario.CheckIn, &j.Scenario.CheckOut, &j.Scenario.LOS, &j.Scenario.Adults, &j.Scenario.Rooms, &children, &j.Scenario.Language, &j.Status, &j.Attempts, &j.LastErrorCode, &j.CreatedAt, &j.StartedAt, &j.FinishedAt, &j.NextRetryAt, &j.LeaseOwner, &j.LeaseToken, &j.LeasedUntil, &j.MaxClaims, &j.MaxAttempts)
 	if err == nil {
 		err = json.Unmarshal(children, &j.Scenario.ChildrenAges)
 	}
@@ -128,17 +128,25 @@ func (s *Store) CreateJob(ctx context.Context, runID string, input Scenario) (Jo
 	return result, nil
 }
 
-// MarkRunning — запись состояния перед локальным выполнением, НЕ claim/lease.
+// MarkRunning — legacy-запись для никогда не захваченных заданий.
+// После первого claim требуется lease-aware API; иначе ErrLeaseLost.
 func (s *Store) MarkRunning(ctx context.Context, jobID string, number int, startedAt time.Time) error {
 	if number < 1 || startedAt.IsZero() {
 		return fmt.Errorf("invalid attempt start")
 	}
-	result, err := s.db.ExecContext(ctx, `UPDATE `+s.table("scenario_jobs")+` SET status='running',started_at=COALESCE(started_at,$3),next_retry_at=NULL WHERE id=$1::uuid AND attempts=$2-1 AND status IN ('queued','retryable','running')`, jobID, number, stamp(startedAt))
+	result, err := s.db.ExecContext(ctx, `UPDATE `+s.table("scenario_jobs")+` SET status='running',started_at=COALESCE(started_at,$3),next_retry_at=NULL WHERE id=$1::uuid AND attempts=$2-1 AND lease_token=0 AND status IN ('queued','retryable','running')`, jobID, number, stamp(startedAt))
 	if err != nil {
 		return dbError("mark job running", err)
 	}
 	rows, _ := result.RowsAffected()
 	if rows != 1 {
+		job, readErr := s.GetJob(ctx, jobID)
+		if readErr != nil {
+			return readErr
+		}
+		if job.LeaseToken > 0 {
+			return ErrLeaseLost
+		}
 		return ErrTransition
 	}
 	return nil
@@ -147,7 +155,7 @@ func (s *Store) CancelPending(ctx context.Context, runID, code string) error {
 	if code != "canceled" && code != "timeout" {
 		return fmt.Errorf("invalid cancellation code")
 	}
-	_, err := s.db.ExecContext(ctx, `UPDATE `+s.table("scenario_jobs")+` SET status='canceled',finished_at=GREATEST(now(),COALESCE(started_at,now())),next_retry_at=NULL,last_error_code=$2 WHERE run_id=$1::uuid AND status IN ('queued','running','retryable')`, runID, code)
+	_, err := s.db.ExecContext(ctx, `UPDATE `+s.table("scenario_jobs")+` SET status='canceled',finished_at=GREATEST(now(),COALESCE(started_at,now())),next_retry_at=NULL,last_error_code=$2 WHERE run_id=$1::uuid AND lease_token=0 AND status IN ('queued','running','retryable')`, runID, code)
 	if err != nil {
 		return dbError("cancel pending jobs", err)
 	}
