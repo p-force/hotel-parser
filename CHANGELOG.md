@@ -11,6 +11,9 @@
 
 ### Added
 
+- Платформонезависимый runtime PostgreSQL-очереди: execution deadline, heartbeat,
+  общий shutdown/flush budget, durable progress и восстановление после отмены (#24).
+
 - Атомарный PostgreSQL claim, продлеваемые аренды и fencing token, восстановление
   заданий после сбоя, ограниченные retry и идемпотентное завершение (#26).
 

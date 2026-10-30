@@ -35,6 +35,9 @@ func CollectPropertiesStored(ctx context.Context, store *storage.Store, properti
 	if _, err := options.Retry.normalized(); err != nil {
 		return batch, err
 	}
+	flush, stopFlush := shutdownContext(ctx, 5*time.Second)
+	defer stopFlush()
+	policy, _ := options.Retry.normalized()
 	type planned struct{ scenario storage.Scenario }
 	plannedJobs := make([]planned, 0)
 	ranges := make(map[string]storage.RunInput)
@@ -95,11 +98,21 @@ func CollectPropertiesStored(ctx context.Context, store *storage.Store, properti
 			return store.MarkRunning(ctx, batch.JobIDs[index], number, started)
 		},
 		after: func(ctx context.Context, done completedAttempt, number int, next *time.Time) error {
+			if interruptedAttempt(ctx, done.result) {
+				return nil
+			}
+			if ctx.Err() != nil && next == nil && retryable(done.result) && number < policy.MaxAttempts {
+				at := time.Now().Add(retryDelay(policy, number, done.result.Error.RetryAfter))
+				next = &at
+			}
 			// Завершение фактически выполненного HTTP должно попасть в историю и после
 			// отмены collection context. Отдельное ожидание записи ограничено пятью секундами.
-			writeCtx, cancel := context.WithTimeout(context.WithoutCancel(ctx), 5*time.Second)
+			writeCtx, cancel := context.WithTimeout(flush, 5*time.Second)
 			defer cancel()
-			input := storageAttempt(done.result, batch.JobIDs[done.index], number, done.startedAt, done.finishedAt, done.durationMS, done.queueWaitMS, next)
+			input, inputErr := storageAttemptContext(writeCtx, done.result, batch.JobIDs[done.index], number, done.startedAt, done.finishedAt, done.durationMS, done.queueWaitMS, next)
+			if inputErr != nil {
+				return inputErr
+			}
 			_, err := store.SaveAttempt(writeCtx, input)
 			return err
 		},
@@ -108,16 +121,12 @@ func CollectPropertiesStored(ctx context.Context, store *storage.Store, properti
 	batch.Results = results
 	batch.Summary = summary
 	for i, run := range batch.Runs {
-		writeCtx, cancel := context.WithTimeout(context.WithoutCancel(ctx), 5*time.Second)
-		if ctx.Err() != nil {
-			code := "canceled"
-			if ctx.Err() == context.DeadlineExceeded {
-				code = "timeout"
-			}
-			err = errors.Join(err, store.CancelPending(writeCtx, run.ID, code))
-		}
+		writeCtx, cancel := context.WithTimeout(flush, 5*time.Second)
 		finished, finishErr := store.FinishRun(writeCtx, run.ID)
 		cancel()
+		if ctx.Err() != nil && errors.Is(finishErr, storage.ErrIncomplete) {
+			continue
+		}
 		if finishErr != nil {
 			err = errors.Join(err, finishErr)
 		} else {
@@ -153,6 +162,14 @@ func storedWarnings(warnings []bnovo.ParseWarning) []storage.Warning {
 }
 func publicLabel(value string) string { return publicLink.ReplaceAllString(value, "[link omitted]") }
 func storageAttempt(result bnovo.SearchResult, jobID string, number int, started, finished time.Time, duration int64, queue *int64, next *time.Time) storage.AttemptInput {
+	input, _ := storageAttemptContext(context.Background(), result, jobID, number, started, finished, duration, queue, next)
+	return input
+}
+
+func storageAttemptContext(ctx context.Context, result bnovo.SearchResult, jobID string, number int, started, finished time.Time, duration int64, queue *int64, next *time.Time) (storage.AttemptInput, error) {
+	if err := ctx.Err(); err != nil {
+		return storage.AttemptInput{}, err
+	}
 	input := storage.AttemptInput{JobID: jobID, Number: number, StartedAt: started, FinishedAt: finished, DurationMS: duration, QueueWaitMS: queue, Outcome: storage.Outcome(result.Status), HTTPStatus: result.HTTPStatus, Warnings: storedWarnings(result.Warnings), NextRetryAt: next, Observations: make([]storage.Observation, 0, len(result.Categories))}
 	if !result.CollectedAt.IsZero() {
 		at := result.CollectedAt
@@ -174,15 +191,24 @@ func storageAttempt(result bnovo.SearchResult, jobID string, number int, started
 		availability[state.CategoryID] = state
 	}
 	for _, stock := range NormalizeCategoryStock(result) {
+		if err := ctx.Err(); err != nil {
+			return storage.AttemptInput{}, err
+		}
 		category := categories[stock.CategoryID]
 		state := availability[stock.CategoryID]
 		observation := storage.Observation{CategoryID: stock.CategoryID, CategoryName: publicLabel(category.Name), AreaM2: category.AreaM2, Available: stock.Available, StockStatus: storage.StockStatus(stock.Status), HasOffers: state.HasOffers, ConfirmedUnavailable: state.ConfirmedUnavailable, Warnings: storedWarnings(stock.Warnings)}
 		for _, variant := range result.Variants {
+			if err := ctx.Err(); err != nil {
+				return storage.AttemptInput{}, err
+			}
 			if variant.CategoryID == stock.CategoryID {
 				observation.Variants = append(observation.Variants, storage.Variant{ID: variant.ID, Adults: variant.Adults})
 			}
 		}
 		for _, offer := range result.Offers {
+			if err := ctx.Err(); err != nil {
+				return storage.AttemptInput{}, err
+			}
 			if offer.CategoryID != stock.CategoryID {
 				continue
 			}
@@ -203,5 +229,5 @@ func storageAttempt(result bnovo.SearchResult, jobID string, number int, started
 		}
 		input.Observations = append(input.Observations, observation)
 	}
-	return input
+	return input, ctx.Err()
 }

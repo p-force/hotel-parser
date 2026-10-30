@@ -38,11 +38,12 @@ func CollectBatch(ctx context.Context, client *bnovo.Client, requests []bnovo.Se
 }
 
 type batchJob struct {
-	request    bnovo.SearchRequest
-	client     *bnovo.Client
-	propertyID string
-	source     string
-	origin     string
+	maxAttempts int // 0: policy; durable runtime ограничивает оставшимся бюджетом.
+	request     bnovo.SearchRequest
+	client      *bnovo.Client
+	propertyID  string
+	source      string
+	origin      string
 }
 
 type queuedJob struct {
