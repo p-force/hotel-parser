@@ -46,6 +46,9 @@ func TestConfigValidate(t *testing.T) {
 			name:   "valid config",
 			mutate: func(*Config) {},
 		},
+		{name: "single LOS 1", mutate: func(c *Config) { c.Collection.Nights = []int{1} }},
+		{name: "explicit single LOS 2", mutate: func(c *Config) { c.Collection.Nights = []int{2} }},
+		{name: "empty LOS", mutate: func(c *Config) { c.Collection.Nights = nil }, wantErr: "nights"},
 		{
 			name: "missing hotel id",
 			mutate: func(c *Config) {

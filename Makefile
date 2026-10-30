@@ -7,6 +7,7 @@ run:
 build:
 	mkdir -p bin
 	go build -o bin/hotel-parser ./cmd/hotel-parser
+	go build -o bin/collection ./cmd/collection
 
 test:
 	go test ./...
@@ -31,7 +32,7 @@ check: fmt-check vet test-race build
 
 # Явный локальный DSN; .env автоматически не загружается.
 test-integration:
-	go test -tags=integration -count=1 ./internal/storage/... ./internal/collect/...
+	go test -tags=integration -count=1 ./internal/storage/... ./internal/collect/... ./internal/schedule/...
 
 # PostgreSQL существующего docker compose, без подбора credentials/портов хоста.
 test-integration-docker:

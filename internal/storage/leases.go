@@ -14,6 +14,7 @@ type ClaimOptions struct {
 	BatchSize              int
 	LeaseDuration          time.Duration
 	MaxClaims, MaxAttempts int
+	PropertyID             string // Необязательный фильтр отеля для fair claim.
 	RunID                  string // Необязательный фильтр одного запуска.
 }
 
@@ -57,8 +58,8 @@ func (s *Store) ClaimJobs(ctx context.Context, options ClaimOptions) ([]Job, err
 	ready := `((j.status='queued') OR (j.status='retryable' AND j.next_retry_at<=clock_timestamp() AND (j.leased_until IS NULL OR j.leased_until<=clock_timestamp())) OR (j.status='running' AND (j.leased_until IS NULL OR j.leased_until<=clock_timestamp())))`
 	maxClaims := `CASE WHEN j.lease_token=0 THEN $4 ELSE j.max_claims END`
 	maxAttempts := `CASE WHEN j.lease_token=0 THEN $5 ELSE j.max_attempts END`
-	filter := ` AND ($6='' OR j.run_id=NULLIF($6,'')::uuid)`
-	args := []any{options.Owner, options.BatchSize, options.LeaseDuration.Microseconds(), options.MaxClaims, options.MaxAttempts, options.RunID}
+	filter := ` AND ($6='' OR j.run_id=NULLIF($6,'')::uuid) AND ($7='' OR j.property_id=$7)`
+	args := []any{options.Owner, options.BatchSize, options.LeaseDuration.Microseconds(), options.MaxClaims, options.MaxAttempts, options.RunID, options.PropertyID}
 	// Истёкший worker, исчерпавший бюджет, не оставляет вечное running/retryable.
 	// Фиктивной HTTP-попытки нет: результат потерян при crash и восстановить его нельзя.
 	exhausted := `WITH exhausted AS (SELECT j.id FROM ` + jobs + ` j JOIN ` + runs + ` r ON r.id=j.run_id AND r.status='running' WHERE ` + ready + filter + ` AND (j.lease_token>=(` + maxClaims + `) OR j.attempts>=(` + maxAttempts + `)) ORDER BY j.created_at,j.id FOR UPDATE OF j SKIP LOCKED LIMIT $2) UPDATE ` + jobs + ` j SET status='failed',finished_at=GREATEST(clock_timestamp(),COALESCE(j.started_at,clock_timestamp())),next_retry_at=NULL,leased_until=NULL,last_error_code=CASE WHEN j.attempts>=(` + maxAttempts + `) THEN 'attempt_limit' ELSE 'lease_exhausted' END FROM exhausted e WHERE j.id=e.id`
@@ -67,7 +68,7 @@ func (s *Store) ClaimJobs(ctx context.Context, options ClaimOptions) ([]Job, err
 	if _, err = tx.ExecContext(ctx, exhausted, args...); err != nil {
 		return nil, dbError("finalize exhausted jobs", err)
 	}
-	query := `WITH picked AS (SELECT j.id FROM ` + jobs + ` j JOIN ` + runs + ` r ON r.id=j.run_id AND r.status='running' WHERE ` + ready + filter + ` AND j.lease_token<(` + maxClaims + `) AND j.attempts<(` + maxAttempts + `) ORDER BY j.created_at,j.id FOR UPDATE OF j SKIP LOCKED LIMIT $2), claimed AS (UPDATE ` + jobs + ` j SET status='running',lease_owner=$1,lease_token=j.lease_token+1,leased_until=clock_timestamp()+$3::bigint*interval '1 microsecond',max_claims=CASE WHEN j.lease_token=0 THEN $4 ELSE j.max_claims END,max_attempts=CASE WHEN j.lease_token=0 THEN $5 ELSE j.max_attempts END,next_retry_at=NULL,finished_at=NULL,started_at=COALESCE(j.started_at,clock_timestamp()) FROM picked p WHERE j.id=p.id RETURNING j.*) SELECT ` + jobColumns + ` FROM claimed ORDER BY created_at,id`
+	query := `WITH picked AS (SELECT j.id FROM ` + jobs + ` j JOIN ` + runs + ` r ON r.id=j.run_id AND r.status='running' WHERE ` + ready + filter + ` AND j.lease_token<(` + maxClaims + `) AND j.attempts<(` + maxAttempts + `) ORDER BY j.created_at,j.id FOR UPDATE OF j SKIP LOCKED LIMIT $2), claimed AS (UPDATE ` + jobs + ` j SET status='running',last_claimed_at=clock_timestamp(),lease_owner=$1,lease_token=j.lease_token+1,leased_until=clock_timestamp()+$3::bigint*interval '1 microsecond',max_claims=CASE WHEN j.lease_token=0 THEN $4 ELSE j.max_claims END,max_attempts=CASE WHEN j.lease_token=0 THEN $5 ELSE j.max_attempts END,next_retry_at=NULL,finished_at=NULL,started_at=COALESCE(j.started_at,clock_timestamp()) FROM picked p WHERE j.id=p.id RETURNING j.*) SELECT ` + jobColumns + ` FROM claimed ORDER BY created_at,id`
 	rows, err := tx.QueryContext(ctx, query, args...)
 	if err != nil {
 		return nil, dbError("claim jobs", err)

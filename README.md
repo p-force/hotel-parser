@@ -3,8 +3,8 @@
 Сервис мониторинга цен, доступности и занятости номеров отелей.
 
 Проект находится на этапе первоначальной разработки. Реализованы сбор и разбор
-публичных предложений Bnovo, конфигурация отеля, логгер, окружение PostgreSQL и CI.
-Периодический сбор, хранение наблюдений, аналитика занятости и Excel-отчёты планируются.
+публичных предложений Bnovo, PostgreSQL-история и очередь, планирование регулярного
+сбора групп отелей, логгер и CI. Аналитика занятости и Excel-отчёты планируются.
 
 ## Локальный запуск
 
@@ -220,6 +220,108 @@ equal jitter: 50–100% текущей задержки.
 очередь и число workers ограничены. Состояние rate limiter хранится в памяти
 по origin и не переживает перезапуск. Durable queue, история и восстановление
 незавершённых сценариев остаются для следующих задач (#24–27).
+
+## Регулярный сбор групп отелей
+
+`internal/schedule` разделяет planner (`BuildPlans`), runner (`collect.RunGroups`)
+и application service (`Service.Execute`). CLI и HTTP используют один service.
+Внешний cron инициирует запуск; фонового планировщика после HTTP-ответа нет.
+
+В [`configs/groups.json`](configs/groups.json) указываются `id`, отдельная `schema`
+и пути конфигураций относительно файла реестра. Вторая группа добавляется вторым
+элементом `groups` с другим ID и схемой, например `hotel_parser_hotel_b`.
+Одинаковые property ID между группами допустимы. Схемы `hotel_parser`, `public`,
+`pg_*` и повторное использование схемы двумя группами запрещены.
+
+Регулярный сценарий: **1 взрослый, 1 номер, LOS=1, без детей**, независимо от
+диагностических `adults`/`nights` в конфигурации отеля. Для документированной
+замены LOS=1 на LOS=2 у property задаются `"los": 2` и непустое
+`"los2_evidence"` с результатом сравнения/ссылкой на исследование. Оба LOS вместе
+не запускаются. Существующие диагностические API сохраняют явные сценарии.
+
+| Слот МСК | Cron UTC | Даты заезда в timezone отеля | Сценариев/отель |
+|---|---|---|---:|
+| 08:00 | `0 5 * * *` | сегодня … +60 включительно | 61 |
+| 12:00 | `0 9 * * *` | сегодня … +7 включительно | 8 |
+| 16:00 | `0 13 * * *` | сегодня … +7 включительно | 8 |
+| 20:00 | `0 17 * * *` | сегодня | 1 |
+
+Итого **78 сценариев на активный отель в сутки**, без retry. Время слота —
+`Europe/Moscow`; дата заезда вычисляется в `timezone` объекта. RFC3339 slot —
+логическое время расписания, поэтому при повторной доставке передаётся тот же
+timestamp. Новый слот создаёт отдельную историю. Повтор слота использует стабильный
+run ID и hash плана: дубликатов нет, изменение уже опубликованного плана — ошибка.
+Миграция `0003_collection_plans.sql` добавляет ledger; `PlanRun` публикует run
+и все jobs одной транзакцией.
+
+CLI (DSN берётся только из `HOTEL_PARSER_DATABASE_URL`, `.env` не исполняется):
+
+```bash
+make build
+./bin/collection migrate                     # Явный DDL во всех настроенных схемах.
+./bin/collection plan --slot=2026-10-31T08:00:00+03:00
+./bin/collection resume --execution-timeout=45s --shutdown-grace-period=5s --max-jobs=64
+./bin/collection tick --slot=2026-10-31T12:00:00+03:00
+./bin/collection serve --listen=127.0.0.1:8080
+```
+
+`plan` не обращается к Bnovo. `resume` продолжает все готовые незавершённые run,
+включая предыдущие дни; `tick` сначала продолжает ограниченную пачку старых jobs,
+резервируя время для публикации слота, затем планирует и продолжает очередь.
+По умолчанию: 8 workers, 64 claim за вызов, execution 45 секунд, grace 5 секунд.
+Очередь отбирается по кругу между группами/отелями; история claim сохраняет
+fairness между короткими вызовами. Pool и лимиты процесса общие для всех групп.
+Прогресс по group/schema/run читается из БД; завершённые run получают finished_at.
+После исчерпания бюджета отчёта возвращается `progress_known=false` и ошибка.
+
+Для Docker используется тот же binary:
+`docker run --rm --network=<сеть_БД> --env HOTEL_PARSER_DATABASE_URL --entrypoint /app/collection hotel-parser resume`.
+Образ содержит реестр и конфигурации; другой реестр можно передать read-only томом
+и `--groups`. В Docker DSN указывает на compose-хост `postgres`, а не `localhost`.
+Production Neon автоматически не мигрируется и не настраивается.
+
+HTTP: задайте `HOTEL_PARSER_TRIGGER_SECRET` (случайный секрет от 32 байт) в окружении
+сервера. Внешний TLS/reverse proxy должен передавать заголовок Authorization.
+
+```bash
+curl --fail-with-body -X POST http://127.0.0.1:8080/trigger \
+  -H "Authorization: Bearer $HOTEL_PARSER_TRIGGER_SECRET" \
+  -H 'Content-Type: application/json' \
+  --data '{"action":"plan","slot":"2026-10-31T08:00:00+03:00"}'
+# Для продолжения: --data '{"action":"resume"}'
+```
+
+Секрет не принимается в URL. Actions: `plan`, `resume`, `tick`; HTTP 409 означает,
+что другой runner уже работает, 503 — незавершённую обработку/ошибку. Повтор
+доставки безопасен. Обработчик дожидается runtime и flush до ответа.
+
+На Docker/VPS настройте **внешний cron** (ниже timezone crontab — UTC, DSN передан
+через окружение процесса; путь `/opt/hotel-parser` замените своим):
+
+```cron
+0 5 * * * cd /opt/hotel-parser && ./bin/collection plan --slot="$(TZ=Europe/Moscow date +\%Y-\%m-\%dT08:00:00+03:00)"
+0 9 * * * cd /opt/hotel-parser && ./bin/collection plan --slot="$(TZ=Europe/Moscow date +\%Y-\%m-\%dT12:00:00+03:00)"
+0 13 * * * cd /opt/hotel-parser && ./bin/collection plan --slot="$(TZ=Europe/Moscow date +\%Y-\%m-\%dT16:00:00+03:00)"
+0 17 * * * cd /opt/hotel-parser && ./bin/collection plan --slot="$(TZ=Europe/Moscow date +\%Y-\%m-\%dT20:00:00+03:00)"
+* * * * * cd /opt/hotel-parser && ./bin/collection resume --execution-timeout=45s --shutdown-grace-period=5s
+```
+
+Для HTTP/serverless внешний scheduler отправляет `plan` в те же четыре слота
+и **`resume` каждую минуту** до опустошения очереди и далее для будущих retry/leases.
+При ошибке plan повторяется с исходным slot timestamp. Это обязательный механизм
+продолжения; одного следующего суточного запуска недостаточно. На сигнал/отмену
+новые операции прекращаются, готовые ответы сохраняются с fencing, остальные jobs
+восстановит следующий вызов после истечения lease. Конфигурации отелей с backlog
+нужно сохранять в реестре. Лимит среды должен покрывать execution + grace.
+
+**Bnovo: один активный application runner на одну PostgreSQL database.** Session
+advisory lock общий для всех групп и процессов, guard проверяется перед HTTP;
+второй runner не отправляет запросы. Нужен direct/session DSN, transaction-pooling
+DSN не поддерживается. При передаче lock выдерживается пауза 500 мс, затем действуют
+лимиты #23: глобальный 8, отель 4, origin 8 и 500 мс между стартами публичного Bnovo.
+Не запускайте другие Bnovo-клиенты в обход service одновременно с scheduled runner.
+Это singleton-ограничение, **не распределённый rate limiter**. До горизонтального
+исполнения нескольких runner обязательна [задача #33](https://github.com/p-force/hotel-parser/issues/33).
 
 ## PostgreSQL: задания и история
 

@@ -43,12 +43,12 @@ def main():
     database = urllib.parse.quote(settings["POSTGRES_DB"], safe="")
     env["HOTEL_PARSER_DATABASE_URL"] = f"postgresql://{user}:{password}@127.0.0.1:{port}/{database}?sslmode=disable"
     remote = "/tmp/hotel-parser-integration-" + uuid.uuid4().hex
-    subprocess.run(["docker", "exec", container, "mkdir", "-p", remote + "/internal/storage", remote + "/internal/collect"], check=True)
+    subprocess.run(["docker", "exec", container, "mkdir", "-p", remote + "/internal/storage", remote + "/internal/collect", remote + "/internal/schedule"], check=True)
     subprocess.run(["docker", "cp", str(ROOT / "configs"), container + ":" + remote + "/configs"], check=True)
     subprocess.run(["docker", "cp", str(ROOT / "internal/collect/testdata"), container + ":" + remote + "/internal/collect/testdata"], check=True)
     try:
         with tempfile.TemporaryDirectory(prefix="hotel-parser-tests-") as directory:
-            for package in ("storage", "collect"):
+            for package in ("storage", "collect", "schedule"):
                 binary = str(pathlib.Path(directory) / (package + ".test"))
                 subprocess.run(["go", "test", "-c", "-tags=integration", "-o", binary,
                                 "./internal/" + package], cwd=ROOT, env=env, check=True)

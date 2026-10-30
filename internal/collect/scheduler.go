@@ -126,10 +126,10 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 	var groups [][]int
 	owners := make(map[string]int)
 	for i, job := range input {
-		owner, ok := owners[job.propertyID]
+		owner, ok := owners[job.groupID+"/"+job.propertyID]
 		if !ok {
 			owner = len(groups)
-			owners[job.propertyID] = owner
+			owners[job.groupID+"/"+job.propertyID] = owner
 			groups = append(groups, nil)
 		}
 		groups[owner] = append(groups[owner], i)
@@ -171,7 +171,7 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 		}
 		if nextRetryAt != nil {
 			pending[i] = pendingJob{queuedAt: time.Now(), readyAt: *nextRetryAt}
-			owner := owners[input[i].propertyID]
+			owner := owners[input[i].groupID+"/"+input[i].propertyID]
 			groups[owner] = append(groups[owner], i)
 			slog.DebugContext(ctx, "bnovo.batch.retry.scheduled", "batch_id", run.batchID, "scenario_index", i, "property_id", input[i].propertyID, "source", input[i].source, "source_origin", input[i].origin, "retry_reason", done.result.Error.Code, "http_status", done.result.HTTPStatus, "backoff_ms", delay.Milliseconds(), "next_attempt", run.attempts[i]+1)
 		} else {

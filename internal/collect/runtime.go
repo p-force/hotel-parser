@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"sort"
 	"sync"
 	"time"
 
@@ -12,6 +13,8 @@ import (
 )
 
 type RuntimeOptions struct {
+	MaxJobs             int                 // 0: ограничение только execution deadline.
+	RunnerLock          *storage.RunnerLock // Guard application-service для Bnovo.
 	Batch               BatchOptions
 	Claim               storage.ClaimOptions
 	ExecutionTimeout    time.Duration // 0: только родительский context.
@@ -41,7 +44,7 @@ func (o RuntimeOptions) normalized() (RuntimeOptions, error) {
 	if o.Claim.BatchSize == 0 {
 		o.Claim.BatchSize = o.Batch.Workers
 	}
-	if o.Batch.Workers < 1 || o.Batch.Workers > MaxWorkers || o.Batch.StartInterval < 0 || o.ExecutionTimeout < 0 || o.ShutdownGracePeriod < 0 || o.Claim.BatchSize < 1 || o.Claim.BatchSize > o.Batch.Workers || o.RenewInterval <= 0 || o.RenewInterval >= o.Claim.LeaseDuration {
+	if o.MaxJobs < 0 || o.Batch.Workers < 1 || o.Batch.Workers > MaxWorkers || o.Batch.StartInterval < 0 || o.ExecutionTimeout < 0 || o.ShutdownGracePeriod < 0 || o.Claim.BatchSize < 1 || o.Claim.BatchSize > o.Batch.Workers || o.RenewInterval <= 0 || o.RenewInterval >= o.Claim.LeaseDuration {
 		return o, fmt.Errorf("invalid runtime options")
 	}
 	var err error
@@ -72,20 +75,35 @@ func shutdownContext(execution context.Context, grace time.Duration) (context.Co
 	return flush, func() { close(stop); cancel(); <-done }
 }
 
-// RunQueued вычитывает готовые задания существующей PostgreSQL-очереди до её
-// опустошения или отмены. CheckIn из PropertyCollection не используется: сценарий
-// берётся из durable job. Все переданные конфигурации/клиенты переиспользуются.
-// HTTP исполняет прежний bounded pool; второй очереди и HTTP retry loop здесь нет.
-func RunQueued(ctx context.Context, store *storage.Store, properties []PropertyCollection, options RuntimeOptions) (result RuntimeResult, err error) {
-	if store == nil {
-		return result, fmt.Errorf("storage is required")
+// RuntimeGroup привязывает конфигурации к явному Store; ID может повторяться только
+// у отелей разных групп, но не у самих групп или их схем.
+type RuntimeGroup struct {
+	ID         string
+	Store      *storage.Store
+	Properties []PropertyCollection
+}
+type RuntimeGroupResult struct {
+	GroupID, Schema string
+	RuntimeResult
+}
+
+func RunQueued(ctx context.Context, store *storage.Store, properties []PropertyCollection, options RuntimeOptions) (RuntimeResult, error) {
+	groups, err := RunGroups(ctx, []RuntimeGroup{{ID: "single", Store: store, Properties: properties}}, options)
+	if len(groups) == 0 {
+		return RuntimeResult{}, err
 	}
+	return groups[0].RuntimeResult, err
+}
+
+// RunGroups использует один pool. Claim идёт по кругу между группами и отелями;
+// большая очередь не захватывает всю пачку раньше небольшой.
+func RunGroups(ctx context.Context, groups []RuntimeGroup, options RuntimeOptions) (results []RuntimeGroupResult, err error) {
 	options, err = options.normalized()
 	if err != nil {
-		return result, err
+		return nil, err
 	}
 	if ctx.Err() != nil {
-		return result, ctx.Err()
+		return nil, ctx.Err()
 	}
 	if options.ExecutionTimeout > 0 {
 		var cancel context.CancelFunc
@@ -96,86 +114,151 @@ func RunQueued(ctx context.Context, store *storage.Store, properties []PropertyC
 	defer stopExecution(nil)
 	flush, stop := shutdownContext(ctx, options.ShutdownGracePeriod)
 	defer stop()
-	// Прогресс берём только из committed DB state, включая незахваченные jobs.
-	defer func() {
-		readCtx, cancel := context.WithTimeout(flush, options.ShutdownGracePeriod)
-		defer cancel()
-		var progressErr error
-		result.Progress, progressErr = store.Progress(readCtx, options.Claim.RunID)
-		result.ProgressKnown = progressErr == nil
-		err = errors.Join(err, progressErr)
-	}()
-	byID := make(map[string]PropertyCollection, len(properties))
-	clients := make(map[string]*bnovo.Client)
-	for _, property := range properties {
-		if err := property.Hotel.Validate(); err != nil {
-			return result, err
+	groups = append([]RuntimeGroup(nil), groups...)
+	seenIDs, seenSchemas := map[string]bool{}, map[string]bool{}
+	clients := map[string]*bnovo.Client{}
+	for i := range groups {
+		g := &groups[i]
+		if g.ID == "" || g.Store == nil || seenIDs[g.ID] || seenSchemas[g.Store.Schema()] {
+			return nil, fmt.Errorf("invalid or duplicate runtime group/schema")
 		}
-		if _, exists := byID[property.Hotel.ID]; exists {
-			return result, fmt.Errorf("duplicate runtime property")
-		}
-		origin, e := SourceKey(property.Hotel.Source.BaseURL)
-		if e != nil {
-			return result, e
-		}
-		if property.Client == nil {
-			property.Client = clients[origin]
+		seenIDs[g.ID], seenSchemas[g.Store.Schema()] = true, true
+		seenProperties := map[string]bool{}
+		g.Properties = append([]PropertyCollection(nil), g.Properties...)
+		for j := range g.Properties {
+			property := &g.Properties[j]
+			if err := property.Hotel.Validate(); err != nil {
+				return nil, err
+			}
+			if seenProperties[property.Hotel.ID] {
+				return nil, fmt.Errorf("duplicate runtime property")
+			}
+			seenProperties[property.Hotel.ID] = true
+			origin, e := SourceKey(property.Hotel.Source.BaseURL)
+			if e != nil {
+				return nil, e
+			}
 			if property.Client == nil {
-				property.Client, e = bnovo.NewClient(property.Hotel.Source.BaseURL, nil)
-				if e != nil {
-					return result, e
+				property.Client = clients[origin]
+				if property.Client == nil {
+					property.Client, e = bnovo.NewClient(property.Hotel.Source.BaseURL, nil)
+					if e != nil {
+						return nil, e
+					}
+					clients[origin] = property.Client
 				}
-				clients[origin] = property.Client
+			}
+			if property.Client.SourceOrigin() != origin {
+				return nil, fmt.Errorf("runtime client does not match property source")
 			}
 		}
-		if property.Client.SourceOrigin() != origin {
-			return result, fmt.Errorf("runtime client does not match property source")
-		}
-		byID[property.Hotel.ID] = property
+		results = append(results, RuntimeGroupResult{GroupID: g.ID, Schema: g.Store.Schema()})
 	}
-	for ctx.Err() == nil {
-		jobs, claimErr := store.ClaimJobs(ctx, options.Claim)
-		if claimErr != nil {
-			return result, claimErr
+	defer func() {
+		for i, g := range groups {
+			readCtx, cancel := context.WithTimeout(flush, options.ShutdownGracePeriod)
+			var e error
+			results[i].Progress, e = g.Store.Progress(readCtx, options.Claim.RunID)
+			results[i].ProgressKnown = e == nil
+			cancel()
+			err = errors.Join(err, e)
 		}
-		if len(jobs) == 0 {
-			return result, ctx.Err()
+	}()
+	groupOrder := make([]int, len(groups))
+	groupLast := make([]time.Time, len(groups))
+	for i := range groups {
+		history, e := groups[i].Store.ClaimHistory(ctx)
+		if e != nil {
+			return results, e
 		}
-		for _, job := range jobs {
-			result.JobIDs = append(result.JobIDs, job.ID)
+		groupOrder[i] = i
+		for _, at := range history {
+			if at.After(groupLast[i]) {
+				groupLast[i] = at
+			}
+		}
+		sort.SliceStable(groups[i].Properties, func(a, b int) bool {
+			return history[groups[i].Properties[a].Hotel.ID].Before(history[groups[i].Properties[b].Hotel.ID])
+		})
+	}
+	sort.SliceStable(groupOrder, func(a, b int) bool { return groupLast[groupOrder[a]].Before(groupLast[groupOrder[b]]) })
+	cursor := 0
+	propertyCursor := make([]int, len(groups))
+	claimedCount := 0
+	for ctx.Err() == nil && (options.MaxJobs == 0 || claimedCount < options.MaxJobs) {
+		wave := make([]leasedJob, 0, options.Claim.BatchSize)
+		empty := 0
+		for len(wave) < options.Claim.BatchSize && empty < len(groups) && ctx.Err() == nil && (options.MaxJobs == 0 || claimedCount < options.MaxJobs) {
+			index := groupOrder[cursor]
+			cursor = (cursor + 1) % len(groups)
+			g := groups[index]
+			found := false
+			for tries := 0; tries < len(g.Properties); tries++ {
+				p := g.Properties[propertyCursor[index]%len(g.Properties)]
+				propertyCursor[index]++
+				claim := options.Claim
+				claim.BatchSize = 1
+				claim.PropertyID = p.Hotel.ID
+				jobs, e := g.Store.ClaimJobs(ctx, claim)
+				if e != nil {
+					return results, e
+				}
+				if len(jobs) == 0 {
+					continue
+				}
+				wave = append(wave, leasedJob{groupID: g.ID, store: g.Store, property: p, job: jobs[0]})
+				results[index].JobIDs = append(results[index].JobIDs, jobs[0].ID)
+				claimedCount++
+				found = true
+				break
+			}
+			if found {
+				empty = 0
+			} else {
+				empty++
+			}
+		}
+		if len(wave) == 0 {
+			return results, ctx.Err()
 		}
 		if ctx.Err() != nil {
 			break
 		}
-		if err := runLeasedJobs(ctx, flush, stopExecution, store, byID, jobs, options); err != nil {
-			return result, err
+		if err := runLeasedJobs(ctx, flush, stopExecution, wave, options); err != nil {
+			return results, err
 		}
 	}
-	return result, ctx.Err()
+	return results, ctx.Err()
+}
+
+type leasedJob struct {
+	groupID  string
+	store    *storage.Store
+	property PropertyCollection
+	job      storage.Job
 }
 
 type runtimeLease struct {
-	mu       sync.Mutex
-	job      storage.Job
+	mu sync.Mutex
+	leasedJob
 	finished bool
 }
 
-func runLeasedJobs(ctx, flush context.Context, stopExecution context.CancelCauseFunc, store *storage.Store, properties map[string]PropertyCollection, jobs []storage.Job, options RuntimeOptions) error {
+func runLeasedJobs(ctx, flush context.Context, stopExecution context.CancelCauseFunc, jobs []leasedJob, options RuntimeOptions) error {
 	ctx, cancel := context.WithCancelCause(ctx)
 	defer cancel(nil)
 	states := make([]runtimeLease, len(jobs))
 	input := make([]batchJob, len(jobs))
-	for i, job := range jobs {
-		property, exists := properties[job.Scenario.PropertyID]
+	for i, item := range jobs {
+		job, property := item.job, item.property
 		origin, e := SourceKey(property.Hotel.Source.BaseURL)
-		if !exists || e != nil || origin != job.Scenario.SourceOrigin || property.Hotel.Source.Type != job.Scenario.Source || property.Hotel.Source.PropertyID != job.Scenario.SourcePropertyID || property.Client.SourceOrigin() != origin {
+		if e != nil || origin != job.Scenario.SourceOrigin || property.Hotel.Source.Type != job.Scenario.Source || property.Hotel.Source.PropertyID != job.Scenario.SourcePropertyID || property.Client.SourceOrigin() != origin {
 			return fmt.Errorf("queued job does not match runtime property/source")
 		}
-		states[i].job = job
+		states[i].leasedJob = item
 		sc := job.Scenario
-		input[i] = batchJob{client: property.Client, propertyID: sc.PropertyID, source: sc.Source,
-			maxAttempts: job.MaxAttempts - job.Attempts,
-			request:     bnovo.SearchRequest{PropertyID: sc.SourcePropertyID, CheckIn: sc.CheckIn, CheckOut: sc.CheckOut, Adults: sc.Adults, ChildrenAges: append([]int(nil), sc.ChildrenAges...), Language: sc.Language}}
+		input[i] = batchJob{groupID: item.groupID, client: property.Client, propertyID: sc.PropertyID, source: sc.Source, maxAttempts: job.MaxAttempts - job.Attempts,
+			request: bnovo.SearchRequest{PropertyID: sc.SourcePropertyID, CheckIn: sc.CheckIn, CheckOut: sc.CheckOut, Adults: sc.Adults, ChildrenAges: append([]int(nil), sc.ChildrenAges...), Language: sc.Language}}
 	}
 	// Единственный heartbeat на ограниченную пачку; не goroutine на задание.
 	heartbeatDone := make(chan struct{})
@@ -194,7 +277,7 @@ func runLeasedJobs(ctx, flush context.Context, stopExecution context.CancelCause
 				state.mu.Lock()
 				var err error
 				if !state.finished && ctx.Err() == nil {
-					_, err = store.RenewLease(ctx, state.job.Lease(), options.Claim.LeaseDuration)
+					_, err = state.store.RenewLease(ctx, state.job.Lease(), options.Claim.LeaseDuration)
 				}
 				state.mu.Unlock()
 				if err != nil {
@@ -214,7 +297,13 @@ func runLeasedJobs(ctx, flush context.Context, stopExecution context.CancelCause
 			state := &states[index]
 			state.mu.Lock()
 			defer state.mu.Unlock()
-			_, err := store.RenewLease(ctx, state.job.Lease(), options.Claim.LeaseDuration)
+			if options.RunnerLock != nil {
+				if err := options.RunnerLock.Check(ctx); err != nil {
+					stopExecution(err)
+					return err
+				}
+			}
+			_, err := state.store.RenewLease(ctx, state.job.Lease(), options.Claim.LeaseDuration)
 			if err != nil {
 				stopExecution(err)
 			}
@@ -240,7 +329,7 @@ func runLeasedJobs(ctx, flush context.Context, stopExecution context.CancelCause
 				at := time.Now().Add(retryDelay(options.Batch.Retry, state.job.Attempts+number, done.result.Error.RetryAfter))
 				next = &at
 			}
-			ValidateExpectedCategories(&done.result, properties[state.job.Scenario.PropertyID].Hotel.Inventory)
+			ValidateExpectedCategories(&done.result, state.property.Hotel.Inventory)
 			attempt, err := storageAttemptContext(writeCtx, done.result, state.job.ID, state.job.Attempts+number, done.startedAt, done.finishedAt, done.durationMS, done.queueWaitMS, next)
 			if err != nil {
 				return err
@@ -248,7 +337,7 @@ func runLeasedJobs(ctx, flush context.Context, stopExecution context.CancelCause
 			attempt.Lease = ptrLease(state.job.Lease())
 			state.mu.Lock()
 			defer state.mu.Unlock()
-			_, err = store.SaveAttempt(writeCtx, attempt)
+			_, err = state.store.SaveAttempt(writeCtx, attempt)
 			if err == nil && next == nil {
 				state.finished = true
 			}
