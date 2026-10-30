@@ -10,12 +10,17 @@ func (s *Store) GetAttempt(ctx context.Context, jobID string, number int) (Attem
 	var a Attempt
 	var code sql.NullString
 	var retryable bool
+	var owner sql.NullString
+	var token int64
 	var warnings []byte
 	a.JobID = jobID
 	a.Number = number
-	err := s.db.QueryRowContext(ctx, `SELECT id::text,started_at,finished_at,duration_ms,queue_wait_ms,collected_at,outcome,http_status,error_code,retryable,warnings,next_retry_at FROM `+s.table("collection_attempts")+` WHERE job_id=$1::uuid AND attempt_no=$2`, jobID, number).Scan(&a.ID, &a.StartedAt, &a.FinishedAt, &a.DurationMS, &a.QueueWaitMS, &a.CollectedAt, &a.Outcome, &a.HTTPStatus, &code, &retryable, &warnings, &a.NextRetryAt)
+	err := s.db.QueryRowContext(ctx, `SELECT id::text,started_at,finished_at,duration_ms,queue_wait_ms,collected_at,outcome,http_status,error_code,retryable,warnings,next_retry_at,lease_owner,lease_token FROM `+s.table("collection_attempts")+` WHERE job_id=$1::uuid AND attempt_no=$2`, jobID, number).Scan(&a.ID, &a.StartedAt, &a.FinishedAt, &a.DurationMS, &a.QueueWaitMS, &a.CollectedAt, &a.Outcome, &a.HTTPStatus, &code, &retryable, &warnings, &a.NextRetryAt, &owner, &token)
 	if err != nil {
 		return a, dbError("read attempt", err)
+	}
+	if token > 0 {
+		a.Lease = &Lease{JobID: jobID, Owner: owner.String, Token: token}
 	}
 	if code.Valid {
 		a.Error = &AttemptError{Code: code.String, Retryable: retryable}

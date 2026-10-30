@@ -14,10 +14,12 @@ import (
 )
 
 var (
-	ErrNotFound   = errors.New("storage record not found")
-	ErrConflict   = errors.New("storage idempotency conflict")
-	ErrTransition = errors.New("invalid storage state transition")
-	ErrIncomplete = errors.New("collection run has unfinished jobs")
+	ErrLeaseLost    = errors.New("job lease ownership lost")
+	ErrAttemptLimit = errors.New("job attempt limit exhausted")
+	ErrNotFound     = errors.New("storage record not found")
+	ErrConflict     = errors.New("storage idempotency conflict")
+	ErrTransition   = errors.New("invalid storage state transition")
+	ErrIncomplete   = errors.New("collection run has unfinished jobs")
 )
 
 // Error не содержит DSN, SQL-параметров и PostgreSQL DETAIL, которые могут раскрыть данные.

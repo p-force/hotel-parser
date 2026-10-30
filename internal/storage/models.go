@@ -66,6 +66,10 @@ type Scenario struct {
 	Language           string
 }
 type Job struct {
+	LeaseOwner                         string
+	LeaseToken                         int64
+	LeasedUntil                        *time.Time
+	MaxClaims, MaxAttempts             int
 	ID, RunID                          string
 	Scenario                           Scenario
 	Status                             JobStatus
@@ -83,6 +87,7 @@ type AttemptError struct {
 }
 
 type AttemptInput struct {
+	Lease                 *Lease `json:",omitempty"`
 	JobID                 string
 	Number                int
 	StartedAt, FinishedAt time.Time
@@ -129,3 +134,11 @@ type Offer struct {
 	SelectDisabled              bool
 	SelectableQuantities        []int
 }
+
+// Lease — fencing credential одного захвата. Token монотонно растёт на каждый claim.
+type Lease struct {
+	JobID, Owner string
+	Token        int64
+}
+
+func (j Job) Lease() Lease { return Lease{JobID: j.ID, Owner: j.LeaseOwner, Token: j.LeaseToken} }

@@ -266,8 +266,49 @@ batch, err := collect.CollectPropertiesStored(ctx, store, properties, options)
 
 UPDATE/DELETE/TRUNCATE фактов и изменение идентичности run/job запрещены
 триггерами; внешние ключи, UNIQUE и CHECK защищают связи и значения. Состояние
-незавершённого задания меняется отдельно от неизменяемых фактов. `MarkRunning`
-**не является claim/lease** и не исключает повторный запуск другим executor (#26).
+незавершённого задания меняется отдельно от неизменяемых фактов.
+
+### Конкурентные исполнители и аренда задания
+
+Миграция `0002_job_leases.sql` добавляет владельца, монотонный fencing token,
+срок аренды и бюджеты повторов. `ClaimJobs` атомарно получает готовые задания
+через `FOR UPDATE SKIP LOCKED` и `UPDATE RETURNING`; транзакция завершается до
+HTTP. Время готовности и срок аренды проверяются по часам PostgreSQL.
+
+```go
+jobs, err := store.ClaimJobs(ctx, storage.ClaimOptions{
+    Owner: "worker-1", BatchSize: 3, LeaseDuration: time.Minute,
+    MaxClaims: 3, MaxAttempts: 3,
+})
+// Для каждого job: выполнить сбор вне транзакции, подготовить AttemptInput.
+// lease := job.Lease()
+// store.RenewLease(ctx, lease, time.Minute) // До истечения аренды.
+// store.CompleteJob(ctx, lease, input)     // success/partial/no_offers.
+// store.FailJob(ctx, lease, input, storage.FailPolicy{})
+```
+
+По умолчанию batch равен 1, lease — минуте, оба бюджета — 3. Размер batch
+должен соответствовать доступным workers; исполнитель сам продлевает аренды
+до истечения. После истечения задание доступно другому процессу с новым token;
+старый владелец получает `ErrLeaseLost` при продлении или записи. Повторный
+`CompleteJob` с тем же payload и действующей генерацией не дублирует историю.
+Гарантия — **at-least-once execution**, а не exactly-once HTTP: ответ потерянного
+worker может потребовать нового запроса.
+
+`Attempts` считает сохранённые HTTP-попытки, token — захваты, включая восстановление
+после crash. Бюджеты фиксируются первым claim. Промежуточный HTTP-retry из #23
+сохраняется через `SaveAttempt` с `AttemptInput.Lease`, удерживая аренду; оставшееся
+число HTTP-попыток ограничивается `MaxAttempts - Attempts`. `FailJob` сохраняет
+ошибку и освобождает аренду: retryable получает `next_retry_at` с exponential
+backoff и jitter (по умолчанию 1–10 секунд), с учётом переданного `NextRetryAt`
+как нижней границы, например для Retry-After. Неповторяемые ошибки и исчерпанные
+бюджеты завершают задание. Crash без сохранённого ответа не создаёт фиктивной
+HTTP-попытки. Эти методы не выполняют HTTP и не создают второй цикл HTTP-retry.
+
+`CollectPropertiesStored` остаётся исполнителем новых запусков из #25; он не
+вычитывает durable-очередь и не управляет heartbeat. `MarkRunning`, `CancelPending`
+и запись без lease действуют только на задания, которые ещё не получали claim.
+Для нескольких процессов над одной очередью используются lease-aware методы выше.
 
 `StoredBatch` возвращает результаты, ID запусков и упорядоченные ID заданий.
 При ошибке storage данные других сценариев сохраняются, ошибка возвращается
@@ -318,8 +359,8 @@ Integration-tag тесты отказываются от нелокальног�
 4. Проверить ledger и SELECT; выдать приложению минимальные права на новую схему
    (история INSERT/SELECT, прогресс run/job UPDATE), без доступа к старым таблицам.
 
-В #25 Neon не подключается. Claims/leases, восстановление после падения процесса,
-Vercel runtime budget, cron и горизонт 60 дней остаются для #24/#26/#27.
+Neon не подключается. Runtime-адаптеры, Vercel runtime budget, cron и горизонт
+60 дней остаются для следующих задач.
 
 ## Ручная сверка публичного фонда
 
