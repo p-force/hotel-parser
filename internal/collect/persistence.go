@@ -2,8 +2,6 @@ package collect
 
 import (
 	"context"
-	"errors"
-	"fmt"
 	"regexp"
 	"strings"
 	"time"
@@ -11,136 +9,6 @@ import (
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
 	"github.com/p-force/hotel-parser/internal/storage"
 )
-
-// StoredBatch сохраняет идентификаторы даже при частичной ошибке записи.
-// Миграции вызываются отдельно, до запуска сбора.
-type StoredBatch struct {
-	Results []PropertyResult
-	Summary PropertiesSummary
-	Runs    []storage.Run
-	JobIDs  []string // В том же порядке, что Results.
-}
-
-// CollectPropertiesStored использует прежний executor и сохраняет КАЖДУЮ попытку,
-// включая retry. Ошибка storage возвращается отдельно от результатов источника;
-// следующие HTTP-попытки этого задания при ошибке записи не запускаются.
-func CollectPropertiesStored(ctx context.Context, store *storage.Store, properties []PropertyCollection, options BatchOptions) (StoredBatch, error) {
-	var batch StoredBatch
-	if store == nil {
-		return batch, fmt.Errorf("storage is required")
-	}
-	if options.Workers < 0 || options.Workers > MaxWorkers || options.StartInterval < 0 {
-		return batch, fmt.Errorf("invalid batch options")
-	}
-	if _, err := options.Retry.normalized(); err != nil {
-		return batch, err
-	}
-	flush, stopFlush := shutdownContext(ctx, 5*time.Second)
-	defer stopFlush()
-	policy, _ := options.Retry.normalized()
-	type planned struct{ scenario storage.Scenario }
-	plannedJobs := make([]planned, 0)
-	ranges := make(map[string]storage.RunInput)
-	sourceByProperty := make(map[string]string)
-	order := make([]string, 0)
-	for _, property := range properties {
-		if err := property.Hotel.Validate(); err != nil {
-			return batch, err
-		}
-		requests, err := configuredRequests(property.Hotel, property.CheckIn)
-		if err != nil {
-			return batch, err
-		}
-		origin, err := SourceKey(property.Hotel.Source.BaseURL)
-		if err != nil {
-			return batch, err
-		}
-		sourceIdentity := property.Hotel.Source.Type + "/" + origin + "/" + property.Hotel.Source.PropertyID
-		if previous, ok := sourceByProperty[property.Hotel.ID]; ok && previous != sourceIdentity {
-			return batch, fmt.Errorf("conflicting property sources")
-		}
-		sourceByProperty[property.Hotel.ID] = sourceIdentity
-		for _, req := range requests {
-			scenario := storage.Scenario{PropertyID: property.Hotel.ID, Source: property.Hotel.Source.Type, SourceOrigin: origin, SourcePropertyID: req.PropertyID, CheckIn: req.CheckIn, CheckOut: req.CheckOut, LOS: int(civilDays(req.CheckIn, req.CheckOut)), Adults: req.Adults, Rooms: property.Hotel.Collection.Rooms, ChildrenAges: append([]int{}, req.ChildrenAges...), Language: req.Language}
-			plannedJobs = append(plannedJobs, planned{scenario})
-			span, ok := ranges[property.Hotel.ID]
-			if !ok {
-				order = append(order, property.Hotel.ID)
-				span = storage.RunInput{PropertyID: property.Hotel.ID, PeriodStart: req.CheckIn, PeriodEnd: req.CheckOut}
-			}
-			if req.CheckIn.Before(span.PeriodStart) {
-				span.PeriodStart = req.CheckIn
-			}
-			if req.CheckOut.After(span.PeriodEnd) {
-				span.PeriodEnd = req.CheckOut
-			}
-			ranges[property.Hotel.ID] = span
-		}
-	}
-	runIDs := make(map[string]string)
-	for _, propertyID := range order {
-		run, err := store.CreateRun(ctx, ranges[propertyID])
-		if err != nil {
-			return batch, err
-		}
-		batch.Runs = append(batch.Runs, run)
-		runIDs[propertyID] = run.ID
-	}
-	for _, job := range plannedJobs {
-		created, err := store.CreateJob(ctx, runIDs[job.scenario.PropertyID], job.scenario)
-		if err != nil {
-			return batch, err
-		}
-		batch.JobIDs = append(batch.JobIDs, created.ID)
-	}
-	observer := &attemptObserver{
-		before: func(ctx context.Context, index, number int, started time.Time) error {
-			return store.MarkRunning(ctx, batch.JobIDs[index], number, started)
-		},
-		after: func(ctx context.Context, done completedAttempt, number int, next *time.Time) error {
-			if interruptedAttempt(ctx, done.result) {
-				return nil
-			}
-			if ctx.Err() != nil && next == nil && retryable(done.result) && number < policy.MaxAttempts {
-				at := time.Now().Add(retryDelay(policy, number, done.result.Error.RetryAfter))
-				next = &at
-			}
-			// Завершение фактически выполненного HTTP должно попасть в историю и после
-			// отмены collection context. Отдельное ожидание записи ограничено пятью секундами.
-			writeCtx, cancel := context.WithTimeout(flush, 5*time.Second)
-			defer cancel()
-			input, inputErr := storageAttemptContext(writeCtx, done.result, batch.JobIDs[done.index], number, done.startedAt, done.finishedAt, done.durationMS, done.queueWaitMS, next)
-			if inputErr != nil {
-				return inputErr
-			}
-			_, err := store.SaveAttempt(writeCtx, input)
-			return err
-		},
-	}
-	results, summary, err := collectPropertiesObserved(ctx, properties, options, observer)
-	batch.Results = results
-	batch.Summary = summary
-	for i, run := range batch.Runs {
-		writeCtx, cancel := context.WithTimeout(flush, 5*time.Second)
-		finished, finishErr := store.FinishRun(writeCtx, run.ID)
-		cancel()
-		if ctx.Err() != nil && errors.Is(finishErr, storage.ErrIncomplete) {
-			continue
-		}
-		if finishErr != nil {
-			err = errors.Join(err, finishErr)
-		} else {
-			batch.Runs[i] = finished
-		}
-	}
-	return batch, err
-}
-
-func civilDays(in, out time.Time) int {
-	a, _ := time.Parse("2006-01-02", in.Format("2006-01-02"))
-	b, _ := time.Parse("2006-01-02", out.Format("2006-01-02"))
-	return int(b.Sub(a) / (24 * time.Hour))
-}
 
 var diagnosticCode = regexp.MustCompile(`^[a-z][a-z0-9_]{0,127}$`)
 var publicLink = regexp.MustCompile(`(?i)https?://[^\s<>]+`)
@@ -161,11 +29,6 @@ func storedWarnings(warnings []bnovo.ParseWarning) []storage.Warning {
 	return result
 }
 func publicLabel(value string) string { return publicLink.ReplaceAllString(value, "[link omitted]") }
-func storageAttempt(result bnovo.SearchResult, jobID string, number int, started, finished time.Time, duration int64, queue *int64, next *time.Time) storage.AttemptInput {
-	input, _ := storageAttemptContext(context.Background(), result, jobID, number, started, finished, duration, queue, next)
-	return input
-}
-
 func storageAttemptContext(ctx context.Context, result bnovo.SearchResult, jobID string, number int, started, finished time.Time, duration int64, queue *int64, next *time.Time) (storage.AttemptInput, error) {
 	if err := ctx.Err(); err != nil {
 		return storage.AttemptInput{}, err

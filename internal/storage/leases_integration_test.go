@@ -145,9 +145,6 @@ func TestPostgresCrashRecoveryAndFencing(t *testing.T) {
 	if _, err := first.SaveAttempt(context.Background(), input); !errors.Is(err, storage.ErrLeaseLost) {
 		t.Fatalf("unfenced SaveAttempt bypass: %v", err)
 	}
-	if err := first.MarkRunning(context.Background(), b.ID, 2, time.Now()); !errors.Is(err, storage.ErrLeaseLost) {
-		t.Fatalf("legacy MarkRunning bypass: %v", err)
-	}
 	var count int
 	if err := db.QueryRow(`SELECT count(*) FROM "` + schema + `".observations`).Scan(&count); err != nil || count != 1 {
 		t.Fatalf("duplicate observations=%d", count)
@@ -286,13 +283,6 @@ func TestPostgresHTTPRetriesShareLeaseAndBudget(t *testing.T) {
 	other := claimOne(t, second, run.ID, "other")
 	if other.ID == j.ID {
 		t.Fatal("active HTTP retry was reclaimed")
-	}
-	if err := second.CancelPending(context.Background(), run.ID, "canceled"); err != nil {
-		t.Fatal(err)
-	}
-	state, _ = store.GetJob(context.Background(), j.ID)
-	if state.Status != storage.JobRetryable {
-		t.Fatal("legacy cancellation changed leased job")
 	}
 	failed.Number = 2
 	failed.NextRetryAt = nil

@@ -9,6 +9,12 @@
 
 ## [Unreleased]
 
+### Removed
+
+- Legacy-путь `CollectPropertiesStored`, DTO `StoredBatch` и неиспользуемые
+  операции `MarkRunning`/`CancelPending`. Сбор и тесты истории используют
+  существующий lease-aware runtime `RunQueued` / `RunGroups` (#43).
+
 ### Fixed
 
 - Подтверждённая публичная недоступность Bnovo на точные даты сохраняется как

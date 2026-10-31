@@ -57,10 +57,6 @@ type PropertiesSummary struct {
 // и общий процессный допуск ограничивают все отели и одновременно запущенные пакеты.
 // Enabled не проверяется: это явный запуск, как CollectConfiguredBatch.
 func CollectProperties(ctx context.Context, properties []PropertyCollection, options BatchOptions) ([]PropertyResult, PropertiesSummary, error) {
-	return collectPropertiesObserved(ctx, properties, options, nil)
-}
-
-func collectPropertiesObserved(ctx context.Context, properties []PropertyCollection, options BatchOptions, observer *attemptObserver) ([]PropertyResult, PropertiesSummary, error) {
 	if options.Workers == 0 {
 		options.Workers = DefaultGlobalConcurrency
 	}
@@ -112,7 +108,7 @@ func collectPropertiesObserved(ctx context.Context, properties []PropertyCollect
 			owners = append(owners, owner)
 		}
 	}
-	run, err := collectJobsObserved(ctx, jobs, options, observer)
+	run, err := collectJobs(ctx, jobs, options)
 	if err != nil && len(run.results) == 0 {
 		return nil, PropertiesSummary{}, err
 	}

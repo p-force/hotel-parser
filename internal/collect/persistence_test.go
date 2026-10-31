@@ -93,3 +93,9 @@ func TestAttemptObserverSeesEveryRetryAndStorageErrors(t *testing.T) {
 		t.Fatal("persistence error overwrote source result")
 	}
 }
+
+// Удобство тестов адаптера; production использует storageAttemptContext.
+func storageAttempt(result bnovo.SearchResult, jobID string, number int, started, finished time.Time, duration int64, queue *int64, next *time.Time) storage.AttemptInput {
+	input, _ := storageAttemptContext(context.Background(), result, jobID, number, started, finished, duration, queue, next)
+	return input
+}
