@@ -11,6 +11,10 @@
 
 ### Added
 
+- Регулярные планы 61/8/8/1 для независимых групп PostgreSQL-схем, атомарная
+  идемпотентная публикация слотов, fair runner, CLI/защищённый HTTP-trigger,
+  восстановление внешними повторными запусками и singleton-защита Bnovo (#27).
+
 - Платформонезависимый runtime PostgreSQL-очереди: execution deadline, heartbeat,
   общий shutdown/flush budget, durable progress и восстановление после отмены (#24).
 

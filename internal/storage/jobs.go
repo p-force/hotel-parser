@@ -20,6 +20,22 @@ func scanRun(row scanner) (Run, error) {
 }
 
 func (s *Store) CreateRun(ctx context.Context, input RunInput) (Run, error) {
+	tx, err := s.db.BeginTx(ctx, nil)
+	if err != nil {
+		return Run{}, dbError("begin run", err)
+	}
+	defer tx.Rollback()
+	result, err := s.createRunTx(ctx, tx, input)
+	if err != nil {
+		return Run{}, err
+	}
+	if err := tx.Commit(); err != nil {
+		return Run{}, dbError("commit run", err)
+	}
+	return result, nil
+}
+
+func (s *Store) createRunTx(ctx context.Context, tx *sql.Tx, input RunInput) (Run, error) {
 	if !validID(input.PropertyID) || len(input.PropertyID) > 128 || input.PeriodStart.IsZero() || input.PeriodEnd.IsZero() {
 		return Run{}, fmt.Errorf("invalid collection run")
 	}
@@ -33,13 +49,8 @@ func (s *Store) CreateRun(ctx context.Context, input RunInput) (Run, error) {
 		input.StartedAt = time.Now()
 	}
 	input.StartedAt = stamp(input.StartedAt)
-	tx, err := s.db.BeginTx(ctx, nil)
-	if err != nil {
-		return Run{}, dbError("begin run", err)
-	}
-	defer tx.Rollback()
 	var id string
-	err = tx.QueryRowContext(ctx, `INSERT INTO `+s.table("collection_runs")+`(id,property_id,period_start,period_end,started_at,status) VALUES(COALESCE(NULLIF($1,'')::uuid,gen_random_uuid()),$2,$3::date,$4::date,$5,'running') ON CONFLICT(id) DO NOTHING RETURNING id::text`, input.ID, input.PropertyID, input.PeriodStart.Format("2006-01-02"), input.PeriodEnd.Format("2006-01-02"), input.StartedAt).Scan(&id)
+	err := tx.QueryRowContext(ctx, `INSERT INTO `+s.table("collection_runs")+`(id,property_id,period_start,period_end,started_at,status) VALUES(COALESCE(NULLIF($1,'')::uuid,gen_random_uuid()),$2,$3::date,$4::date,$5,'running') ON CONFLICT DO NOTHING RETURNING id::text`, input.ID, input.PropertyID, input.PeriodStart.Format("2006-01-02"), input.PeriodEnd.Format("2006-01-02"), input.StartedAt).Scan(&id)
 	if errors.Is(err, sql.ErrNoRows) {
 		id = input.ID
 	} else if err != nil {
@@ -51,9 +62,6 @@ func (s *Store) CreateRun(ctx context.Context, input RunInput) (Run, error) {
 	}
 	if result.PropertyID != input.PropertyID || !result.PeriodStart.Equal(input.PeriodStart) || !result.PeriodEnd.Equal(input.PeriodEnd) || (explicitStart && !result.StartedAt.Equal(input.StartedAt)) {
 		return Run{}, ErrConflict
-	}
-	if err = tx.Commit(); err != nil {
-		return Run{}, dbError("commit run", err)
 	}
 	return result, nil
 }
@@ -84,6 +92,22 @@ func (s *Store) GetJob(ctx context.Context, id string) (Job, error) {
 	return j, nil
 }
 func (s *Store) CreateJob(ctx context.Context, runID string, input Scenario) (Job, error) {
+	tx, err := s.db.BeginTx(ctx, nil)
+	if err != nil {
+		return Job{}, dbError("begin job", err)
+	}
+	defer tx.Rollback()
+	result, err := s.createJobTx(ctx, tx, runID, input)
+	if err != nil {
+		return Job{}, err
+	}
+	if err := tx.Commit(); err != nil {
+		return Job{}, dbError("commit job", err)
+	}
+	return result, nil
+}
+
+func (s *Store) createJobTx(ctx context.Context, tx *sql.Tx, runID string, input Scenario) (Job, error) {
 	input, err := normalizeScenario(input)
 	if err != nil {
 		return Job{}, err
@@ -92,20 +116,12 @@ func (s *Store) CreateJob(ctx context.Context, runID string, input Scenario) (Jo
 	if err != nil {
 		return Job{}, err
 	}
-	tx, err := s.db.BeginTx(ctx, nil)
-	if err != nil {
-		return Job{}, dbError("begin job", err)
-	}
-	defer tx.Rollback()
 	run, err := scanRun(tx.QueryRowContext(ctx, `SELECT `+runColumns+` FROM `+s.table("collection_runs")+` WHERE id=$1::uuid FOR UPDATE`, runID))
 	if err != nil {
 		return Job{}, dbError("read job run", err)
 	}
 	existing, err := scanJob(tx.QueryRowContext(ctx, `SELECT `+jobColumns+` FROM `+s.table("scenario_jobs")+` WHERE run_id=$1::uuid AND scenario_key=$2`, runID, key))
 	if err == nil {
-		if err = tx.Commit(); err != nil {
-			return Job{}, dbError("commit existing job", err)
-		}
 		return existing, nil
 	}
 	if !errors.Is(err, sql.ErrNoRows) {
@@ -121,9 +137,6 @@ func (s *Store) CreateJob(ctx context.Context, runID string, input Scenario) (Jo
 	result, err := scanJob(tx.QueryRowContext(ctx, `INSERT INTO `+s.table("scenario_jobs")+`(run_id,scenario_key,property_id,source,source_origin,source_property_id,check_in,check_out,los,adults,rooms,children_ages,language,status) VALUES($1::uuid,$2,$3,$4,$5,$6,$7::date,$8::date,$9,$10,$11,ARRAY(SELECT jsonb_array_elements_text($12::jsonb)::integer),$13,'queued') RETURNING `+jobColumns, runID, key, input.PropertyID, input.Source, input.SourceOrigin, input.SourcePropertyID, input.CheckIn.Format("2006-01-02"), input.CheckOut.Format("2006-01-02"), input.LOS, input.Adults, input.Rooms, string(children), input.Language))
 	if err != nil {
 		return Job{}, dbError("create job", err)
-	}
-	if err = tx.Commit(); err != nil {
-		return Job{}, dbError("commit job", err)
 	}
 	return result, nil
 }

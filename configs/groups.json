@@ -1,0 +1,12 @@
+{
+  "groups": [
+    {
+      "id": "arena33",
+      "schema": "hotel_parser_arena33",
+      "properties": [
+        { "config": "arena33.json" },
+        { "config": "lindsay.json" }
+      ]
+    }
+  ]
+}

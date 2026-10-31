@@ -83,3 +83,6 @@ func Open(ctx context.Context, dsn string, options Options) (*Store, error) {
 }
 func (s *Store) Close() error             { return s.db.Close() }
 func (s *Store) table(name string) string { return `"` + s.schema + `"."` + name + `"` }
+
+// Schema возвращает явно выбранную схему Store.
+func (s *Store) Schema() string { return s.schema }

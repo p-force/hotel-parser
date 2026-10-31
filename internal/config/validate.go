@@ -162,8 +162,8 @@ func (c CollectionConfig) Validate() error {
 		return fmt.Errorf("children_ages: MVP requires no children")
 	}
 
-	if len(c.Nights) != 3 {
-		return fmt.Errorf("nights: expected exactly [1, 2, 3]")
+	if len(c.Nights) < 1 || len(c.Nights) > 3 {
+		return fmt.Errorf("nights: expected 1 to 3 explicit LOS values")
 	}
 
 	seen := make(map[int]bool)
