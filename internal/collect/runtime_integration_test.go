@@ -444,3 +444,53 @@ func TestPostgresRuntimeIndependentOutcomesAndDurableAttemptBudget(t *testing.T)
 		t.Fatalf("reclaim exceeded HTTP budget: %+v %+v %v %v", result, job, err, readErr)
 	}
 }
+
+func TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery(t *testing.T) {
+	store, db, schema := storagetest.Open(t)
+	var calls atomic.Int32
+	properties, run, jobs := runtimeFixture(t, store, 1, func(w http.ResponseWriter, r *http.Request) { calls.Add(1); fmt.Fprint(w, propertySuccessHTML) })
+	origin := properties[0].Hotel.Source.BaseURL
+	testLimits(t, Limits{Sources: map[string]SourceLimit{origin: {StartInterval: time.Hour}}})
+	// A direct request consumes the transport interval, but no scheduler admission.
+	// The queued job can therefore reach RenewLease/Collect and wait at HTTP gate.
+	if result := properties[0].Client.Collect(context.Background(), batchRequests(1)[0]); result.Status != bnovo.SearchStatusSuccess {
+		t.Fatalf("warm-up: %+v", result)
+	}
+	started := signalLog(t, "bnovo.collect.started")
+	options := runtimeOptions(run.ID, 1)
+	options.ExecutionTimeout = 200 * time.Millisecond
+	options.RenewInterval = 20 * time.Millisecond
+	outcome := receive(t, launchRuntime(context.Background(), store, properties, options))
+	receive(t, started)
+	if !errors.Is(outcome.err, context.DeadlineExceeded) || calls.Load() != 1 || outcome.result.Progress.Remaining != 1 || outcome.result.Progress.Canceled != 0 {
+		t.Fatalf("transport wait deadline lost job or sent HTTP: %+v calls=%d", outcome, calls.Load())
+	}
+	job, err := store.GetJob(context.Background(), jobs[0].ID)
+	if err != nil || job.Status != storage.JobRunning || job.Attempts != 0 {
+		t.Fatalf("unfinished job finalized: %+v %v", job, err)
+	}
+	globalConcurrency.Lock()
+	active, batches, waiters := globalConcurrency.active, globalConcurrency.batches, len(globalConcurrency.waiters)
+	globalConcurrency.Unlock()
+	if active != 0 || batches != 0 || waiters != 0 {
+		t.Fatalf("leaked admission: %d/%d/%d", active, batches, waiters)
+	}
+	expireRuntimeLease(t, db, schema, job.ID)
+	if err := ConfigureLimits(Limits{Sources: map[string]SourceLimit{origin: {StartInterval: 0}}}); err != nil {
+		t.Fatal(err)
+	}
+	options = runtimeOptions(run.ID, 1)
+	options.Claim.Owner = "worker-b"
+	recovered, err := RunQueued(context.Background(), runtimeSecondPool(t, schema), properties, options)
+	if err != nil || recovered.Progress.Completed != 1 || calls.Load() != 2 {
+		t.Fatalf("recover: %+v %v calls=%d", recovered, err, calls.Load())
+	}
+	current, err := store.GetJob(context.Background(), job.ID)
+	if err != nil || current.LeaseToken != job.LeaseToken+1 || current.Attempts != 1 {
+		t.Fatalf("recovery fencing/attempt: %+v %v", current, err)
+	}
+	old := storageAttempt(bnovo.SearchResult{Status: bnovo.SearchStatusSuccess}, job.ID, 1, time.Now(), time.Now(), 0, nil, nil)
+	if _, err := store.CompleteJob(context.Background(), job.Lease(), old); !errors.Is(err, storage.ErrLeaseLost) {
+		t.Fatalf("stale token accepted: %v", err)
+	}
+}

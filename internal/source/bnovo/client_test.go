@@ -452,8 +452,13 @@ func TestNewClientPreservesHTTPClient(t *testing.T) {
 			if client.httpClient == original {
 				t.Fatal("Bnovo-клиент должен использовать отдельную копию http.Client")
 			}
-			if client.httpClient.Transport != before.Transport || client.httpClient.Jar != before.Jar || client.httpClient.Timeout != before.Timeout {
-				t.Error("копия потеряла настройки транспорта, cookie jar или таймаута")
+			base := before.Transport
+			if base == nil {
+				base = http.DefaultTransport
+			}
+			limited, ok := client.httpClient.Transport.(*startLimitedTransport)
+			if !ok || limited.base != base || client.httpClient.Jar != before.Jar || client.httpClient.Timeout != before.Timeout {
+				t.Error("копия потеряла базовый транспорт, cookie jar или таймаут")
 			}
 			response, err := client.Bootstrap(context.Background(), testPropertyID)
 			if err != nil || string(response.Body) != "final HTML" {

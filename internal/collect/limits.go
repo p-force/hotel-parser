@@ -3,11 +3,10 @@ package collect
 import (
 	"context"
 	"fmt"
-	"net"
-	"net/url"
-	"strconv"
 	"strings"
 	"time"
+
+	"github.com/p-force/hotel-parser/internal/source/bnovo"
 )
 
 type SourceLimit struct {
@@ -34,34 +33,7 @@ func defaultLimits() Limits {
 }
 
 // SourceKey нормализует origin; путь, query, userinfo и fragment никогда не входят в ключ.
-func SourceKey(raw string) (string, error) {
-	u, err := url.Parse(raw)
-	if err != nil || u.Hostname() == "" {
-		return "", fmt.Errorf("invalid source origin")
-	}
-	scheme := strings.ToLower(u.Scheme)
-	if scheme != "http" && scheme != "https" {
-		return "", fmt.Errorf("invalid source scheme")
-	}
-	host := strings.TrimSuffix(strings.ToLower(u.Hostname()), ".")
-	port := u.Port()
-	if port != "" {
-		n, err := strconv.Atoi(port)
-		if err != nil || n < 1 || n > 65535 {
-			return "", fmt.Errorf("invalid source port")
-		}
-		port = strconv.Itoa(n)
-	}
-	if (scheme == "https" && port == "443") || (scheme == "http" && port == "80") {
-		port = ""
-	}
-	if port != "" {
-		host = net.JoinHostPort(host, port)
-	} else if strings.Contains(host, ":") {
-		host = "[" + host + "]"
-	}
-	return scheme + "://" + host, nil
-}
+func SourceKey(raw string) (string, error) { return bnovo.SourceOriginKey(raw) }
 
 func ConfigureLimits(options Limits) error {
 	if options.PropertyConcurrency == 0 {
@@ -97,6 +69,13 @@ func ConfigureLimits(options Limits) error {
 	defer globalConcurrency.Unlock()
 	if globalConcurrency.batches != 0 {
 		return fmt.Errorf("cannot configure limits while a batch is running")
+	}
+	intervals := make(map[string]time.Duration, len(options.Sources))
+	for origin, limit := range options.Sources {
+		intervals[origin] = limit.StartInterval
+	}
+	if err := bnovo.ConfigureStartIntervals(options.SourceStartInterval, intervals); err != nil {
+		return err
 	}
 	globalConcurrency.limits = options
 	globalConcurrency.properties = make(map[string]int)
