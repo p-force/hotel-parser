@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
+	"github.com/p-force/hotel-parser/internal/source/travelline"
 )
 
 type SourceLimit struct {
@@ -28,6 +29,7 @@ func defaultLimits() Limits {
 	return Limits{PropertyConcurrency: 4, SourceConcurrency: 8,
 		Sources: map[string]SourceLimit{
 			"https://reservationsteps.ru": {Concurrency: 8, StartInterval: 500 * time.Millisecond},
+			travelline.PublicOrigin:       {Concurrency: travelline.DefaultConcurrency, StartInterval: travelline.DefaultStartInterval},
 		},
 	}
 }
@@ -77,6 +79,7 @@ func ConfigureLimits(options Limits) error {
 	if err := bnovo.ConfigureStartIntervals(options.SourceStartInterval, intervals); err != nil {
 		return err
 	}
+	travelline.ConfigureStartIntervals(options.SourceStartInterval, intervals)
 	globalConcurrency.limits = options
 	globalConcurrency.properties = make(map[string]int)
 	globalConcurrency.sources = make(map[string]*sourceState)

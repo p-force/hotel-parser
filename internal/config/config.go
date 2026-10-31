@@ -42,7 +42,7 @@ type CollectionConfig struct {
 	Nights       []int       `json:"nights"`
 }
 
-// RateConfig — справочник тарифов; Enabled пока не влияет на сбор предложений.
+// RateConfig — справочник тарифов; TravelLine использует Enabled как allowlist публичных тарифов.
 type RateConfig struct {
 	ID      string `json:"id"`
 	Name    string `json:"name"`
