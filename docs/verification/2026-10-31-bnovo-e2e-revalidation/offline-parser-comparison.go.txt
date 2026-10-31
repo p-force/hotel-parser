@@ -1,0 +1,77 @@
+package main
+
+import (
+	"crypto/sha256"
+	"encoding/hex"
+	"encoding/json"
+	"fmt"
+	"os"
+	"path/filepath"
+	"time"
+
+	"github.com/p-force/hotel-parser/internal/collect"
+	"github.com/p-force/hotel-parser/internal/source/bnovo"
+)
+
+func main() {
+	var inputs []struct {
+		PropertyID string `json:"property_id"`
+		CheckIn    string `json:"check_in"`
+		CheckOut   string `json:"check_out"`
+		SHA        string `json:"body_sha256"`
+	}
+	data, err := os.ReadFile(os.Args[1])
+	if err != nil {
+		panic(err)
+	}
+	if err = json.Unmarshal(data, &inputs); err != nil {
+		panic(err)
+	}
+	type row struct {
+		PropertyID, CheckIn, CheckOut, BodySHA256, Status string
+		WarningCodes                                      []string
+		Stocks                                            []collect.CategoryStock
+	}
+	rows := make([]row, 0, len(inputs))
+	for _, input := range inputs {
+		body, err := os.ReadFile(filepath.Join(os.Args[2], input.SHA+".html"))
+		if err != nil {
+			panic(err)
+		}
+		hash := sha256.Sum256(body)
+		if hex.EncodeToString(hash[:]) != input.SHA {
+			panic("checksum mismatch")
+		}
+		in, err := time.Parse("2006-01-02", input.CheckIn)
+		if err != nil {
+			panic(err)
+		}
+		out, err := time.Parse("2006-01-02", input.CheckOut)
+		if err != nil {
+			panic(err)
+		}
+		uid := "7f3f84ae-1f13-419f-af60-ae782d454666"
+		if input.PropertyID == "lindsay" {
+			uid = "5125b29f-f39e-498a-94cf-9e47889ff248"
+		}
+		result, err := bnovo.Parse(body, bnovo.SearchRequest{PropertyID: uid, CheckIn: in, CheckOut: out, Adults: 1, Language: "ru"})
+		if err != nil {
+			panic(err)
+		}
+		item := row{PropertyID: input.PropertyID, CheckIn: input.CheckIn, CheckOut: input.CheckOut, BodySHA256: input.SHA, Status: string(result.Status), Stocks: collect.NormalizeCategoryStock(result)}
+		for _, w := range result.Warnings {
+			item.WarningCodes = append(item.WarningCodes, w.Code)
+		}
+		for i := range item.Stocks {
+			for j := range item.Stocks[i].Warnings {
+				item.Stocks[i].Warnings[j].Message = ""
+			}
+		}
+		rows = append(rows, item)
+	}
+	output, err := json.MarshalIndent(rows, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(output))
+}

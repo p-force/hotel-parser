@@ -1,0 +1,127 @@
+{
+  "base_sha": "74c3492d26a05af98d88c7f2cb7ac02c554489d5",
+  "phase": "smoke",
+  "StartedAt": "2026-10-31T00:52:01.957548549Z",
+  "FinishedAt": "2026-10-31T00:52:03.096067758Z",
+  "DurationMS": 1138,
+  "Schema": "hp_test_m27nnqlukwi7vpd4vemouk3qeb",
+  "smoke_passed": false,
+  "LindsayTestOnlyEnabled": false,
+  "ExecutionError": false,
+  "Requests": [
+    {
+      "UID": "7f3f84ae-1f13-419f-af60-ae782d454666",
+      "CheckIn": "21-12-2026",
+      "CheckOut": "22-12-2026",
+      "Adults": "1",
+      "StartedAt": "2026-10-31T00:52:02.508440591Z",
+      "HeadersAt": "0001-01-01T00:00:00Z",
+      "FinishedAt": "2026-10-31T00:52:03.055958466Z",
+      "HTTPStatus": 0,
+      "Bytes": 0,
+      "SHA256": "",
+      "TransportError": true
+    }
+  ],
+  "PeakHTTP": 1,
+  "MinimumStartGapMS": 0,
+  "Response": {
+    "groups": [
+      {
+        "group_id": "arena33",
+        "schema": "hp_test_m27nnqlukwi7vpd4vemouk3qeb",
+        "runs": [
+          {
+            "Run": {
+              "ID": "3671c4a5-2ee8-591e-a913-1b1b37220d09",
+              "PropertyID": "arena33",
+              "PeriodStart": "2026-12-21T00:00:00Z",
+              "PeriodEnd": "2026-12-22T00:00:00Z",
+              "StartedAt": "2026-12-21T17:00:00Z",
+              "FinishedAt": "2026-12-21T17:00:00Z",
+              "Status": "failed"
+            },
+            "Queued": 0,
+            "Running": 0,
+            "Retryable": 0,
+            "Succeeded": 0,
+            "Partial": 0,
+            "NoOffers": 0,
+            "Failed": 1,
+            "Canceled": 0,
+            "Remaining": 0
+          }
+        ]
+      }
+    ],
+    "progress_known": true
+  },
+  "SQL": {
+    "http_codes": [
+      {
+        "http_status": 0,
+        "error_code": "transport_error",
+        "attempts": 1
+      }
+    ],
+    "property_jobs": [
+      {
+        "property_id": "arena33",
+        "status": "failed",
+        "jobs": 1,
+        "attempts": 1
+      }
+    ],
+    "server_version": {
+      "version": "PostgreSQL 17.10 (Debian 17.10-1.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+    },
+    "stock_status": [],
+    "table_counts": {
+      "runs": 1,
+      "jobs": 1,
+      "attempts": 1,
+      "observations": 0,
+      "variants": 0,
+      "offers": 0
+    }
+  },
+  "Samples": [
+    {
+      "ID": "7023d062-89d7-4e0e-b4ad-882a0fa6865b",
+      "Lease": {
+        "JobID": "c2a88dd6-6bb8-4723-9352-a28ff482dc0c",
+        "Owner": "MQ74F4PKI3KI6AZVIVZC7MAQUE",
+        "Token": 1
+      },
+      "JobID": "c2a88dd6-6bb8-4723-9352-a28ff482dc0c",
+      "Number": 1,
+      "StartedAt": "2026-10-31T00:52:02.504929Z",
+      "FinishedAt": "2026-10-31T00:52:03.056052Z",
+      "DurationMS": 551,
+      "QueueWaitMS": 0,
+      "CollectedAt": "2026-10-31T00:52:02.508316Z",
+      "Outcome": "failed",
+      "HTTPStatus": 0,
+      "Error": {
+        "Code": "transport_error",
+        "Retryable": false
+      },
+      "Warnings": [
+        {
+          "Code": "expected_category_missing",
+          "Context": "459946"
+        },
+        {
+          "Code": "expected_category_missing",
+          "Context": "561429"
+        },
+        {
+          "Code": "expected_category_missing",
+          "Context": "639687"
+        }
+      ],
+      "NextRetryAt": null,
+      "Observations": []
+    }
+  ]
+}

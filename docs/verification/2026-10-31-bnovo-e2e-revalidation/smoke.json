@@ -1,0 +1,2230 @@
+{
+  "base_sha": "4b8a92444553401d4c640a443d5f46cafd5a8ccf",
+  "phase": "smoke",
+  "StartedAt": "2026-10-31T10:55:40.198325002Z",
+  "FinishedAt": "2026-10-31T10:55:43.116391836Z",
+  "DurationMS": 2918,
+  "Schema": "hp_test_agzoqsx3b2fakapw33mxxogy6r",
+  "smoke_passed": true,
+  "LindsayTestOnlyEnabled": true,
+  "ExecutionError": false,
+  "Requests": [
+    {
+      "UID": "7f3f84ae-1f13-419f-af60-ae782d454666",
+      "CheckIn": "21-12-2026",
+      "CheckOut": "22-12-2026",
+      "Adults": "1",
+      "StartedAt": "2026-10-31T10:55:40.720458168Z",
+      "HeadersAt": "2026-10-31T10:55:43.04857767Z",
+      "FinishedAt": "2026-10-31T10:55:43.065926836Z",
+      "HTTPStatus": 200,
+      "Bytes": 466010,
+      "SHA256": "0fd6264bb5cd3969fba39d4d317c4635ed02443d3187015619a82d2fa5d78dc3",
+      "TransportError": false
+    },
+    {
+      "UID": "5125b29f-f39e-498a-94cf-9e47889ff248",
+      "CheckIn": "21-12-2026",
+      "CheckOut": "22-12-2026",
+      "Adults": "1",
+      "StartedAt": "2026-10-31T10:55:41.227305419Z",
+      "HeadersAt": "2026-10-31T10:55:42.980498461Z",
+      "FinishedAt": "2026-10-31T10:55:43.00004342Z",
+      "HTTPStatus": 200,
+      "Bytes": 574921,
+      "SHA256": "7931f1131bb0b90559c49c9e85f305611267d109ce0d343a123363c1227dbe55",
+      "TransportError": false
+    }
+  ],
+  "PeakHTTP": 2,
+  "MinimumStartGapMS": 506.847251,
+  "Response": {
+    "groups": [
+      {
+        "group_id": "arena33",
+        "schema": "hp_test_agzoqsx3b2fakapw33mxxogy6r",
+        "runs": [
+          {
+            "Run": {
+              "ID": "3671c4a5-2ee8-591e-a913-1b1b37220d09",
+              "PropertyID": "arena33",
+              "PeriodStart": "2026-12-21T00:00:00Z",
+              "PeriodEnd": "2026-12-22T00:00:00Z",
+              "StartedAt": "2026-12-21T17:00:00Z",
+              "FinishedAt": "2026-12-21T17:00:00Z",
+              "Status": "succeeded"
+            },
+            "Queued": 0,
+            "Running": 0,
+            "Retryable": 0,
+            "Succeeded": 1,
+            "Partial": 0,
+            "NoOffers": 0,
+            "Failed": 0,
+            "Canceled": 0,
+            "Remaining": 0
+          },
+          {
+            "Run": {
+              "ID": "e7f2f568-20a1-5875-a568-57591d85fad9",
+              "PropertyID": "lindsay",
+              "PeriodStart": "2026-12-21T00:00:00Z",
+              "PeriodEnd": "2026-12-22T00:00:00Z",
+              "StartedAt": "2026-12-21T17:00:00Z",
+              "FinishedAt": "2026-12-21T17:00:00Z",
+              "Status": "succeeded"
+            },
+            "Queued": 0,
+            "Running": 0,
+            "Retryable": 0,
+            "Succeeded": 1,
+            "Partial": 0,
+            "NoOffers": 0,
+            "Failed": 0,
+            "Canceled": 0,
+            "Remaining": 0
+          }
+        ]
+      }
+    ],
+    "progress_known": true
+  },
+  "SQL": {
+    "attempt_count_mismatches": 0,
+    "attempt_timing": [
+      {
+        "property_id": "arena33",
+        "mean_duration_ms": 2355.0000000000000000,
+        "max_duration_ms": 2355,
+        "mean_pool_queue_wait_ms": 0.00000000000000000000,
+        "max_pool_queue_wait_ms": 0,
+        "mean_durable_wait_ms": 520.3150000000000000
+      },
+      {
+        "property_id": "lindsay",
+        "mean_duration_ms": 1792.0000000000000000,
+        "max_duration_ms": 1792,
+        "mean_pool_queue_wait_ms": 504.0000000000000000,
+        "max_pool_queue_wait_ms": 504,
+        "mean_durable_wait_ms": 1019.9340000000000000
+      }
+    ],
+    "category_counts": [
+      {
+        "property_id": "arena33",
+        "category_id": "459946",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "arena33",
+        "category_id": "561429",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "arena33",
+        "category_id": "639687",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188497",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188498",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188499",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188500",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188501",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188502",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188503",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188504",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188505",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "201948",
+        "observations": 1,
+        "known": 1,
+        "unknown": 0,
+        "conflict": 0
+      }
+    ],
+    "counts_by_property": [
+      {
+        "property_id": "arena33",
+        "jobs": 1,
+        "attempts": 1,
+        "observations": 3,
+        "offers": 28,
+        "succeeded": 1,
+        "partial": 0,
+        "no_offers": 0,
+        "failed": 0,
+        "remaining": 0
+      },
+      {
+        "property_id": "lindsay",
+        "jobs": 1,
+        "attempts": 1,
+        "observations": 10,
+        "offers": 28,
+        "succeeded": 1,
+        "partial": 0,
+        "no_offers": 0,
+        "failed": 0,
+        "remaining": 0
+      }
+    ],
+    "duplicates": {
+      "jobs": 0,
+      "attempts": 0
+    },
+    "http_codes": [
+      {
+        "http_status": 200,
+        "error_code": null,
+        "attempts": 2
+      }
+    ],
+    "observed_data": [
+      {
+        "stock_status": "known",
+        "confirmed_unavailable": false,
+        "observations": 12,
+        "null_available": 0,
+        "zero_available": 0,
+        "null_area": 0
+      },
+      {
+        "stock_status": "known",
+        "confirmed_unavailable": true,
+        "observations": 1,
+        "null_available": 0,
+        "zero_available": 1,
+        "null_area": 0
+      }
+    ],
+    "orphans": {
+      "jobs": 0,
+      "attempts": 0,
+      "observations": 0,
+      "offers": 0
+    },
+    "property_jobs": [
+      {
+        "property_id": "arena33",
+        "status": "succeeded",
+        "jobs": 1,
+        "attempts": 1
+      },
+      {
+        "property_id": "lindsay",
+        "status": "succeeded",
+        "jobs": 1,
+        "attempts": 1
+      }
+    ],
+    "scenario_shape": [
+      {
+        "adults": 1,
+        "rooms": 1,
+        "los": 1,
+        "language": "ru",
+        "first_check_in": "2026-12-21",
+        "last_check_in": "2026-12-21",
+        "jobs": 2
+      }
+    ],
+    "server_version": {
+      "version": "PostgreSQL 17.10 (Debian 17.10-1.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+    },
+    "stock_status": [
+      {
+        "stock_status": "known",
+        "confirmed_unavailable": false,
+        "observations": 12
+      },
+      {
+        "stock_status": "known",
+        "confirmed_unavailable": true,
+        "observations": 1
+      }
+    ],
+    "table_counts": {
+      "runs": 2,
+      "jobs": 2,
+      "attempts": 2,
+      "observations": 13,
+      "variants": 21,
+      "offers": 56
+    },
+    "timestamps": {
+      "future_run_finished": 2,
+      "bad_attempt_order": 0,
+      "future_attempts": 0
+    }
+  },
+  "Samples": [
+    {
+      "ID": "ab3c2a5b-ea57-4e29-8697-9490d087c8de",
+      "Lease": {
+        "JobID": "5d5303dd-c069-4995-9ac7-2d63a9bc2cb3",
+        "Owner": "5QPIW3KMD6OMGETHX3RX6ZT33Y",
+        "Token": 1
+      },
+      "JobID": "5d5303dd-c069-4995-9ac7-2d63a9bc2cb3",
+      "Number": 1,
+      "StartedAt": "2026-10-31T10:55:40.719544Z",
+      "FinishedAt": "2026-10-31T10:55:43.074977Z",
+      "DurationMS": 2355,
+      "QueueWaitMS": 0,
+      "CollectedAt": "2026-10-31T10:55:40.720411Z",
+      "Outcome": "success",
+      "HTTPStatus": 200,
+      "Error": null,
+      "Warnings": [],
+      "NextRetryAt": null,
+      "Observations": [
+        {
+          "CategoryID": "459946",
+          "CategoryName": "Арена 33 \"Garden\"",
+          "AreaM2": 12,
+          "Available": 4,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "459946",
+              "Adults": 2
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "459946",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "4320",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 4,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "VariantID": "459946",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "4010",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 4,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "VariantID": "459946",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "4010",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 4,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "VariantID": "459946",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "5220",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 4,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "561429",
+          "CategoryName": "Арена 33 \"Stadium\"",
+          "AreaM2": 14,
+          "Available": 10,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "561429",
+              "Adults": 2
+            },
+            {
+              "ID": "561441",
+              "Adults": 3
+            },
+            {
+              "ID": "640071",
+              "Adults": 4
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "561429",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "4120",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561429",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "3830",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 10,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561429",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "3830",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 10,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561429",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "5020",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561441",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "5090",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561441",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "4730",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561441",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "4730",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561441",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "6440",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "640071",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "6060",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "640071",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "5630",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "640071",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "5630",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "640071",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "7860",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "639687",
+          "CategoryName": "Арена 33 \"Premium\"",
+          "AreaM2": 15,
+          "Available": 5,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "639687",
+              "Adults": 2
+            },
+            {
+              "ID": "639689",
+              "Adults": 3
+            },
+            {
+              "ID": "639690",
+              "Adults": 4
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "639687",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "4610",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639687",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "4280",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 5,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639687",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "4280",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 5,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639687",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "5510",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639689",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "5580",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639689",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "5180",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639689",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "5180",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639689",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "6930",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639690",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "6550",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639690",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "6080",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639690",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "6080",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639690",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "8350",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ID": "1abeb4e0-cb8c-4cd2-aa03-2697b8a37193",
+      "Lease": {
+        "JobID": "7a9597d3-d483-426c-b648-7d5f931cb552",
+        "Owner": "5QPIW3KMD6OMGETHX3RX6ZT33Y",
+        "Token": 1
+      },
+      "JobID": "7a9597d3-d483-426c-b648-7d5f931cb552",
+      "Number": 1,
+      "StartedAt": "2026-10-31T10:55:41.224445Z",
+      "FinishedAt": "2026-10-31T10:55:43.016851Z",
+      "DurationMS": 1792,
+      "QueueWaitMS": 504,
+      "CollectedAt": "2026-10-31T10:55:41.22722Z",
+      "Outcome": "success",
+      "HTTPStatus": 200,
+      "Error": null,
+      "Warnings": [],
+      "NextRetryAt": null,
+      "Observations": [
+        {
+          "CategoryID": "188497",
+          "CategoryName": "эконом с общей ванной комнатой",
+          "AreaM2": 12,
+          "Available": 2,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "188497",
+              "Adults": 2
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "188497",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "3200",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 2,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            },
+            {
+              "VariantID": "188497",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "3000",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 2,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "188498",
+          "CategoryName": "улучшенный стандарный номер",
+          "AreaM2": 18,
+          "Available": 2,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "188498",
+              "Adults": 2
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "188498",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "4400",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 2,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            },
+            {
+              "VariantID": "188498",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "4200",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 2,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "188499",
+          "CategoryName": "стандартный номер с одной двухспальной кроватью",
+          "AreaM2": 18,
+          "Available": 1,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "188499",
+              "Adults": 2
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "188499",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "4400",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 1,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            },
+            {
+              "VariantID": "188499",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "4200",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 1,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "188500",
+          "CategoryName": "классический семейный номер",
+          "AreaM2": 20,
+          "Available": 2,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "188500",
+              "Adults": 3
+            },
+            {
+              "ID": "188506",
+              "Adults": 4
+            },
+            {
+              "ID": "207403",
+              "Adults": 2
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "188500",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "5000",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 2,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            },
+            {
+              "VariantID": "188500",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "4800",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 2,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            },
+            {
+              "VariantID": "188506",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "5000",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 2,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            },
+            {
+              "VariantID": "188506",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "4800",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 2,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            },
+            {
+              "VariantID": "207403",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "4700",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 2,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            },
+            {
+              "VariantID": "207403",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "4500",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 2,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "188501",
+          "CategoryName": "стандарт с двумя раздельными кроватями",
+          "AreaM2": 18,
+          "Available": 1,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "188501",
+              "Adults": 2
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "188501",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "4400",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            },
+            {
+              "VariantID": "188501",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "4200",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "188502",
+          "CategoryName": "эконом с раздельными кроватями и собственной ванной комнатой",
+          "AreaM2": 14,
+          "Available": 2,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "188502",
+              "Adults": 2
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "188502",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "4100",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 2,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            },
+            {
+              "VariantID": "188502",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "3900",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 2,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "188503",
+          "CategoryName": "трехместный стандартный номер",
+          "AreaM2": 18,
+          "Available": 1,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "188503",
+              "Adults": 2
+            },
+            {
+              "ID": "188507",
+              "Adults": 3
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "188503",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "4500",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            },
+            {
+              "VariantID": "188503",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "4300",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            },
+            {
+              "VariantID": "188507",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "4600",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            },
+            {
+              "VariantID": "188507",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "4400",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "188504",
+          "CategoryName": "улучшенный  номер с одной кроватью",
+          "AreaM2": 18,
+          "Available": 0,
+          "StockStatus": "known",
+          "HasOffers": false,
+          "ConfirmedUnavailable": true,
+          "Warnings": [],
+          "Variants": [],
+          "Offers": []
+        },
+        {
+          "CategoryID": "188505",
+          "CategoryName": "одноместный номер с общей ванной комнатой",
+          "AreaM2": 8,
+          "Available": 1,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "188505",
+              "Adults": 1
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "188505",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "3200",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            },
+            {
+              "VariantID": "188505",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "3000",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "201948",
+          "CategoryName": "студия",
+          "AreaM2": 35,
+          "Available": 1,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "201948",
+              "Adults": 3
+            },
+            {
+              "ID": "204812",
+              "Adults": 1
+            },
+            {
+              "ID": "204813",
+              "Adults": 2
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "201948",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "6200",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            },
+            {
+              "VariantID": "201948",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "6000",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            },
+            {
+              "VariantID": "204812",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "5700",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            },
+            {
+              "VariantID": "204812",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "5500",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            },
+            {
+              "VariantID": "204813",
+              "RateID": "772150",
+              "RateName": "лояльный",
+              "Price": "5700",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            },
+            {
+              "VariantID": "204813",
+              "RateID": "772153",
+              "RateName": "с гарантией",
+              "Price": "5500",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 1,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "0",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "Events": [
+    {
+      "Time": "2026-10-31T10:55:40.206495127Z",
+      "Message": "collection.run.progress",
+      "Values": {
+        "failed": 0,
+        "group_id": "arena33",
+        "no_offers": 0,
+        "partial": 0,
+        "property_id": "arena33",
+        "queued": 1,
+        "remaining": 1,
+        "retryable": 0,
+        "run_id": "3671c4a5-2ee8-591e-a913-1b1b37220d09",
+        "running": 0,
+        "schema": "hp_test_agzoqsx3b2fakapw33mxxogy6r",
+        "succeeded": 0
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:40.206554835Z",
+      "Message": "collection.run.progress",
+      "Values": {
+        "failed": 0,
+        "group_id": "arena33",
+        "no_offers": 0,
+        "partial": 0,
+        "property_id": "lindsay",
+        "queued": 1,
+        "remaining": 1,
+        "retryable": 0,
+        "run_id": "e7f2f568-20a1-5875-a568-57591d85fad9",
+        "running": 0,
+        "schema": "hp_test_agzoqsx3b2fakapw33mxxogy6r",
+        "succeeded": 0
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:40.719521293Z",
+      "Message": "bnovo.batch.scenario.started",
+      "Values": {
+        "active_property": 1,
+        "active_scenarios": 1,
+        "active_source": 1,
+        "batch_id": "7FIGSYOC7KZ5MX6HVIA6PNDHZ6",
+        "concurrency_limit": 8,
+        "property_id": "arena33",
+        "queue_wait_ms": 0,
+        "scenario_index": 0,
+        "source": "bnovo",
+        "source_origin": "https://reservationsteps.ru"
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:40.719536793Z",
+      "Message": "bnovo.batch.attempt.started",
+      "Values": {
+        "active_property": 1,
+        "active_scenarios": 1,
+        "active_source": 1,
+        "attempt": 1,
+        "batch_id": "7FIGSYOC7KZ5MX6HVIA6PNDHZ6",
+        "limiter_wait_ms": 0,
+        "property_id": "arena33",
+        "rate_limited": false,
+        "scenario_index": 0,
+        "source": "bnovo",
+        "source_origin": "https://reservationsteps.ru"
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:40.72041771Z",
+      "Message": "bnovo.collect.started",
+      "Values": {}
+    },
+    {
+      "Time": "2026-10-31T10:55:41.22434471Z",
+      "Message": "bnovo.batch.scenario.started",
+      "Values": {
+        "active_property": 1,
+        "active_scenarios": 2,
+        "active_source": 2,
+        "batch_id": "7FIGSYOC7KZ5MX6HVIA6PNDHZ6",
+        "concurrency_limit": 8,
+        "property_id": "lindsay",
+        "queue_wait_ms": 504,
+        "scenario_index": 1,
+        "source": "bnovo",
+        "source_origin": "https://reservationsteps.ru"
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:41.224406794Z",
+      "Message": "bnovo.batch.attempt.started",
+      "Values": {
+        "active_property": 1,
+        "active_scenarios": 2,
+        "active_source": 2,
+        "attempt": 1,
+        "batch_id": "7FIGSYOC7KZ5MX6HVIA6PNDHZ6",
+        "limiter_wait_ms": 504,
+        "property_id": "lindsay",
+        "rate_limited": true,
+        "scenario_index": 1,
+        "source": "bnovo",
+        "source_origin": "https://reservationsteps.ru"
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:41.22724121Z",
+      "Message": "bnovo.collect.started",
+      "Values": {}
+    },
+    {
+      "Time": "2026-10-31T10:55:43.000064628Z",
+      "Message": "bnovo.http.completed",
+      "Values": {
+        "http_duration_ms": 1772,
+        "http_status": 200
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:43.016785211Z",
+      "Message": "bnovo.parse.completed",
+      "Values": {
+        "categories_count": 10,
+        "offers_count": 28,
+        "parse_duration_ms": 16,
+        "warnings_count": 0
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:43.01683517Z",
+      "Message": "bnovo.collect.completed",
+      "Values": {
+        "adults": 1,
+        "categories_count": 10,
+        "check_in": "2026-12-21",
+        "check_out": "2026-12-22",
+        "collected_at": "2026-10-31T10:55:41.227220502Z",
+        "collection_duration_ms": 1789,
+        "http_duration_ms": 1772,
+        "http_status": 200,
+        "los": 1,
+        "offers_count": 28,
+        "parse_duration_ms": 16,
+        "property_id": "5125b29f-f39e-498a-94cf-9e47889ff248",
+        "status": "success",
+        "warnings_count": 0
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:43.065933461Z",
+      "Message": "bnovo.http.completed",
+      "Values": {
+        "http_duration_ms": 2345,
+        "http_status": 200
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:43.074945378Z",
+      "Message": "bnovo.parse.completed",
+      "Values": {
+        "categories_count": 3,
+        "offers_count": 28,
+        "parse_duration_ms": 8,
+        "warnings_count": 0
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:43.074968253Z",
+      "Message": "bnovo.collect.completed",
+      "Values": {
+        "adults": 1,
+        "categories_count": 3,
+        "check_in": "2026-12-21",
+        "check_out": "2026-12-22",
+        "collected_at": "2026-10-31T10:55:40.720411043Z",
+        "collection_duration_ms": 2354,
+        "http_duration_ms": 2345,
+        "http_status": 200,
+        "los": 1,
+        "offers_count": 28,
+        "parse_duration_ms": 8,
+        "property_id": "7f3f84ae-1f13-419f-af60-ae782d454666",
+        "status": "success",
+        "warnings_count": 0
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:43.08141092Z",
+      "Message": "bnovo.batch.completed",
+      "Values": {
+        "batch_duration_ms": 2361,
+        "batch_id": "7FIGSYOC7KZ5MX6HVIA6PNDHZ6",
+        "canceled_count": 0,
+        "concurrency_limit": 8,
+        "failed_count": 0,
+        "limiter_wait_ms": 504,
+        "no_offers_count": 0,
+        "not_started_count": 0,
+        "partial_count": 0,
+        "peak_active_scenarios": 2,
+        "rate_wait_count": 1,
+        "retry_count": 0,
+        "success_count": 2,
+        "throttled_count": 0
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:43.08461292Z",
+      "Message": "collection.run.progress",
+      "Values": {
+        "failed": 0,
+        "finished_at": "2026-12-21T17:00:00Z",
+        "group_id": "arena33",
+        "no_offers": 0,
+        "partial": 0,
+        "property_id": "arena33",
+        "queued": 0,
+        "remaining": 0,
+        "retryable": 0,
+        "run_id": "3671c4a5-2ee8-591e-a913-1b1b37220d09",
+        "running": 0,
+        "schema": "hp_test_agzoqsx3b2fakapw33mxxogy6r",
+        "succeeded": 1
+      }
+    },
+    {
+      "Time": "2026-10-31T10:55:43.085279836Z",
+      "Message": "collection.run.progress",
+      "Values": {
+        "failed": 0,
+        "finished_at": "2026-12-21T17:00:00Z",
+        "group_id": "arena33",
+        "no_offers": 0,
+        "partial": 0,
+        "property_id": "lindsay",
+        "queued": 0,
+        "remaining": 0,
+        "retryable": 0,
+        "run_id": "e7f2f568-20a1-5875-a568-57591d85fad9",
+        "running": 0,
+        "schema": "hp_test_agzoqsx3b2fakapw33mxxogy6r",
+        "succeeded": 1
+      }
+    }
+  ],
+  "Verification": {
+    "AttemptsCompared": 2,
+    "ObservationsCompared": 13,
+    "OffersCompared": 56,
+    "RawOffersCompared": 56,
+    "TariffsWithCancellation": 56,
+    "TariffsWithPrepayment": 56,
+    "Mismatches": null,
+    "RawSamples": [
+      {
+        "PropertyID": "arena33",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "459946",
+        "VariantID": "459946",
+        "RateID": "775264",
+        "Price": "4010",
+        "Currency": "RUB",
+        "DataAvailable": "4",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "arena33",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "459946",
+        "VariantID": "459946",
+        "RateID": "777967",
+        "Price": "4010",
+        "Currency": "RUB",
+        "DataAvailable": "4",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "arena33",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "561429",
+        "VariantID": "561429",
+        "RateID": "775264",
+        "Price": "3830",
+        "Currency": "RUB",
+        "DataAvailable": "10",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "arena33",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "561429",
+        "VariantID": "561429",
+        "RateID": "777967",
+        "Price": "3830",
+        "Currency": "RUB",
+        "DataAvailable": "10",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "arena33",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "639687",
+        "VariantID": "639687",
+        "RateID": "775264",
+        "Price": "4280",
+        "Currency": "RUB",
+        "DataAvailable": "5",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "arena33",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "639687",
+        "VariantID": "639687",
+        "RateID": "777967",
+        "Price": "4280",
+        "Currency": "RUB",
+        "DataAvailable": "5",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "lindsay",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "188497",
+        "VariantID": "188497",
+        "RateID": "772150",
+        "Price": "3200",
+        "Currency": "RUB",
+        "DataAvailable": "2",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "lindsay",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "188497",
+        "VariantID": "188497",
+        "RateID": "772153",
+        "Price": "3000",
+        "Currency": "RUB",
+        "DataAvailable": "2",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "lindsay",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "188498",
+        "VariantID": "188498",
+        "RateID": "772150",
+        "Price": "4400",
+        "Currency": "RUB",
+        "DataAvailable": "2",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "lindsay",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "188498",
+        "VariantID": "188498",
+        "RateID": "772153",
+        "Price": "4200",
+        "Currency": "RUB",
+        "DataAvailable": "2",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "lindsay",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "188499",
+        "VariantID": "188499",
+        "RateID": "772150",
+        "Price": "4400",
+        "Currency": "RUB",
+        "DataAvailable": "1",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "lindsay",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "188499",
+        "VariantID": "188499",
+        "RateID": "772153",
+        "Price": "4200",
+        "Currency": "RUB",
+        "DataAvailable": "1",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "lindsay",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "188500",
+        "VariantID": "207403",
+        "RateID": "772150",
+        "Price": "4700",
+        "Currency": "RUB",
+        "DataAvailable": "2",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2
+        ],
+        "Disabled": false
+      },
+      {
+        "PropertyID": "lindsay",
+        "CheckIn": "2026-12-21",
+        "CategoryID": "188500",
+        "VariantID": "207403",
+        "RateID": "772153",
+        "Price": "4500",
+        "Currency": "RUB",
+        "DataAvailable": "2",
+        "RowAvailable": "1",
+        "OptionValues": [
+          1,
+          2
+        ],
+        "Disabled": false
+      }
+    ]
+  },
+  "Interrupted": false,
+  "AfterStop": null,
+  "SIGTERMSentAt": null,
+  "FirstWorkerInterrupted": false
+}

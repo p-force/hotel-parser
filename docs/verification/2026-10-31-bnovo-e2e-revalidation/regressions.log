@@ -1,0 +1,94 @@
+=== RUN   TestKnownDefectConfirmedUnavailableWithoutPlans
+--- PASS: TestKnownDefectConfirmedUnavailableWithoutPlans (0.00s)
+=== RUN   TestHTTPStartsSharedAcrossClientsAndOriginAliases
+    start_limiter_test.go:68: RoundTrip start=2026-10-31T10:54:51.054843Z
+    start_limiter_test.go:71: RoundTrip start=2026-10-31T10:54:51.555973Z gap=501.127375ms
+    start_limiter_test.go:71: RoundTrip start=2026-10-31T10:54:52.057055Z gap=501.078917ms
+--- PASS: TestHTTPStartsSharedAcrossClientsAndOriginAliases (1.00s)
+=== RUN   TestHTTPStartWaitCancellationAndDeadline
+=== RUN   TestHTTPStartWaitCancellationAndDeadline/cancel
+=== RUN   TestHTTPStartWaitCancellationAndDeadline/deadline
+--- PASS: TestHTTPStartWaitCancellationAndDeadline (0.05s)
+    --- PASS: TestHTTPStartWaitCancellationAndDeadline/cancel (0.00s)
+    --- PASS: TestHTTPStartWaitCancellationAndDeadline/deadline (0.05s)
+=== RUN   TestHTTPStartGateIncludesRedirectsAndIndependentOrigins
+    start_limiter_test.go:211: redirect starts=2026-10-31T10:54:52.109128Z, 2026-10-31T10:54:52.609793Z gap=500.661667ms
+--- PASS: TestHTTPStartGateIncludesRedirectsAndIndependentOrigins (0.50s)
+PASS
+ok  	github.com/p-force/hotel-parser/internal/source/bnovo	1.749s
+=== RUN   TestKnownDefectAdmissionDoesNotLimitActualHTTPStarts
+2026/10/31 13:54:51 INFO bnovo.collect.completed attempt_id=ITKPOEXZRKX33XSO7WQJO3CCDY http_status=200 status=success categories_count=1 offers_count=1 warnings_count=0 property_id=00000000-0000-0000-0000-000000000001 check_in=2026-10-26 check_out=2026-10-28 los=2 adults=2 collected_at=2026-10-31T10:54:51.785Z collection_duration_ms=0 http_duration_ms=0 parse_duration_ms=0
+2026/10/31 13:54:52 INFO bnovo.collect.completed attempt_id=KKEBRWGVBRTEY6ZSIMCKDY6D2B http_status=200 status=success categories_count=1 offers_count=1 warnings_count=0 property_id=00000000-0000-0000-0000-000000000002 check_in=2026-10-26 check_out=2026-10-28 los=2 adults=2 collected_at=2026-10-31T10:54:51.785Z collection_duration_ms=501 http_duration_ms=501 parse_duration_ms=0
+2026/10/31 13:54:52 INFO bnovo.batch.completed batch_id=75C2TJAYLNHAOXP6XUXUHVS6TA batch_duration_ms=1002 success_count=2 partial_count=0 no_offers_count=0 failed_count=0 canceled_count=0 not_started_count=0 concurrency_limit=8 peak_active_scenarios=2 retry_count=0 throttled_count=0 rate_wait_count=1 limiter_wait_ms=500
+    known_rate_gap_test.go:58: actual RoundTrip start timestamps: 2026-10-31T10:54:51.786035Z, 2026-10-31T10:54:52.287104Z; gap=501.065917ms
+--- PASS: TestKnownDefectAdmissionDoesNotLimitActualHTTPStarts (1.00s)
+=== RUN   TestHTTPStartGateWithRetryBackoffAndRetryAfter
+=== RUN   TestHTTPStartGateWithRetryBackoffAndRetryAfter/source_interval
+2026/10/31 13:54:52 ERROR bnovo.collect.completed attempt_id=JGZX5BSZJVRPLTWZMEWFZALXO4 http_status=429 status=failed categories_count=0 offers_count=0 warnings_count=0 error_code=http_error property_id=00000000-0000-0000-0000-000000000001 check_in=2026-10-26 check_out=2026-10-28 los=2 adults=2 collected_at=2026-10-31T10:54:52.287Z collection_duration_ms=0 http_duration_ms=0
+2026/10/31 13:54:52 INFO bnovo.collect.completed attempt_id=ZFGZJKAAQTFY7W72A5R5BIXS3E http_status=200 status=success categories_count=1 offers_count=1 warnings_count=0 property_id=00000000-0000-0000-0000-000000000001 check_in=2026-10-26 check_out=2026-10-28 los=2 adults=2 collected_at=2026-10-31T10:54:52.788Z collection_duration_ms=0 http_duration_ms=0 parse_duration_ms=0
+2026/10/31 13:54:52 INFO bnovo.batch.completed batch_id=4QJ357YO5NLNDFZWQ3JCVZGA54 batch_duration_ms=501 success_count=1 partial_count=0 no_offers_count=0 failed_count=0 canceled_count=0 not_started_count=0 concurrency_limit=8 peak_active_scenarios=1 retry_count=1 throttled_count=1 rate_wait_count=1 limiter_wait_ms=500
+    known_rate_gap_test.go:98: RoundTrip retry starts=2026-10-31T10:54:52.288114Z, 2026-10-31T10:54:52.789116Z gap=500.998709ms
+=== RUN   TestHTTPStartGateWithRetryBackoffAndRetryAfter/backoff
+2026/10/31 13:54:52 ERROR bnovo.collect.completed attempt_id=QZ6I2SJ3RABADVJCCHJF7NU6MX http_status=429 status=failed categories_count=0 offers_count=0 warnings_count=0 error_code=http_error property_id=00000000-0000-0000-0000-000000000001 check_in=2026-10-26 check_out=2026-10-28 los=2 adults=2 collected_at=2026-10-31T10:54:52.789Z collection_duration_ms=0 http_duration_ms=0
+2026/10/31 13:54:53 INFO bnovo.collect.completed attempt_id=Q2ML5EFAKGQCR4MY4JOL6I6TDX http_status=200 status=success categories_count=1 offers_count=1 warnings_count=0 property_id=00000000-0000-0000-0000-000000000001 check_in=2026-10-26 check_out=2026-10-28 los=2 adults=2 collected_at=2026-10-31T10:54:53.637Z collection_duration_ms=0 http_duration_ms=0 parse_duration_ms=0
+2026/10/31 13:54:53 INFO bnovo.batch.completed batch_id=QVKD5PHM4CGXUOCPVB6K6REK5V batch_duration_ms=847 success_count=1 partial_count=0 no_offers_count=0 failed_count=0 canceled_count=0 not_started_count=0 concurrency_limit=8 peak_active_scenarios=1 retry_count=1 throttled_count=1 rate_wait_count=0 limiter_wait_ms=0
+    known_rate_gap_test.go:98: RoundTrip retry starts=2026-10-31T10:54:52.789939Z, 2026-10-31T10:54:53.637442Z gap=847.498625ms
+=== RUN   TestHTTPStartGateWithRetryBackoffAndRetryAfter/retry_after
+2026/10/31 13:54:53 ERROR bnovo.collect.completed attempt_id=KNGCW3P7K4Z2PGFOZ7DGE5U6JC http_status=429 status=failed categories_count=0 offers_count=0 warnings_count=0 error_code=http_error property_id=00000000-0000-0000-0000-000000000001 check_in=2026-10-26 check_out=2026-10-28 los=2 adults=2 collected_at=2026-10-31T10:54:53.638Z collection_duration_ms=0 http_duration_ms=0
+2026/10/31 13:54:54 INFO bnovo.collect.completed attempt_id=T5OWRIMG74QMPL5FSME62CEKSL http_status=200 status=success categories_count=1 offers_count=1 warnings_count=0 property_id=00000000-0000-0000-0000-000000000001 check_in=2026-10-26 check_out=2026-10-28 los=2 adults=2 collected_at=2026-10-31T10:54:54.639Z collection_duration_ms=0 http_duration_ms=0 parse_duration_ms=0
+2026/10/31 13:54:54 INFO bnovo.batch.completed batch_id=MUJPKJYMEZKFVLUHKKUHLWO3Q3 batch_duration_ms=1001 success_count=1 partial_count=0 no_offers_count=0 failed_count=0 canceled_count=0 not_started_count=0 concurrency_limit=8 peak_active_scenarios=1 retry_count=1 throttled_count=1 rate_wait_count=0 limiter_wait_ms=0
+    known_rate_gap_test.go:98: RoundTrip retry starts=2026-10-31T10:54:53.638113Z, 2026-10-31T10:54:54.639408Z gap=1.001289417s
+--- PASS: TestHTTPStartGateWithRetryBackoffAndRetryAfter (2.35s)
+    --- PASS: TestHTTPStartGateWithRetryBackoffAndRetryAfter/source_interval (0.50s)
+    --- PASS: TestHTTPStartGateWithRetryBackoffAndRetryAfter/backoff (0.85s)
+    --- PASS: TestHTTPStartGateWithRetryBackoffAndRetryAfter/retry_after (1.00s)
+=== RUN   TestConfirmedUnavailableWithoutPlansForConfiguredHotels
+=== RUN   TestConfirmedUnavailableWithoutPlansForConfiguredHotels/arena33
+=== RUN   TestConfirmedUnavailableWithoutPlansForConfiguredHotels/lindsay
+--- PASS: TestConfirmedUnavailableWithoutPlansForConfiguredHotels (0.00s)
+    --- PASS: TestConfirmedUnavailableWithoutPlansForConfiguredHotels/arena33 (0.00s)
+    --- PASS: TestConfirmedUnavailableWithoutPlansForConfiguredHotels/lindsay (0.00s)
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/missing_expected_category
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/date_mismatch
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/invalid_date
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/no_exact_signal
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/generic_no_offers
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/minimum_stay
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/minimum_stay_with_exact_dates
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/ambiguous_prefixed_message
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/contradictory_available_offer
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/incomplete_tariff_block
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/potential_offers_without_plans
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/corrupted_plans_with_offers
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/unknown_category_list
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/corrupted_category_list
+=== RUN   TestUnavailabilityWithoutPlansRemainsConservative/no_room_cards
+--- PASS: TestUnavailabilityWithoutPlansRemainsConservative (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/missing_expected_category (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/date_mismatch (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/invalid_date (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/no_exact_signal (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/generic_no_offers (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/minimum_stay (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/minimum_stay_with_exact_dates (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/ambiguous_prefixed_message (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/contradictory_available_offer (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/incomplete_tariff_block (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/potential_offers_without_plans (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/corrupted_plans_with_offers (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/unknown_category_list (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/corrupted_category_list (0.00s)
+    --- PASS: TestUnavailabilityWithoutPlansRemainsConservative/no_room_cards (0.00s)
+=== RUN   TestMissingPlansWarningScopeInMixedAvailability
+=== RUN   TestMissingPlansWarningScopeInMixedAvailability/plans=false
+=== RUN   TestMissingPlansWarningScopeInMixedAvailability/plans=true
+--- PASS: TestMissingPlansWarningScopeInMixedAvailability (0.00s)
+    --- PASS: TestMissingPlansWarningScopeInMixedAvailability/plans=false (0.00s)
+    --- PASS: TestMissingPlansWarningScopeInMixedAvailability/plans=true (0.00s)
+=== RUN   TestUnscopedTariffMetadataStillBlocksConfirmedZero
+--- PASS: TestUnscopedTariffMetadataStillBlocksConfirmedZero (0.00s)
+=== RUN   TestMissingPlansTracksCrossCategorySelector
+--- PASS: TestMissingPlansTracksCrossCategorySelector (0.00s)
+PASS
+ok  	github.com/p-force/hotel-parser/internal/collect	3.770s

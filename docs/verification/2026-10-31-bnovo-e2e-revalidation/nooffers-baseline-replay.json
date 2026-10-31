@@ -1,0 +1,182 @@
+[
+  {
+    "PropertyID": "lindsay",
+    "CheckIn": "2026-12-30",
+    "CheckOut": "2026-12-31",
+    "BodySHA256": "da0fe1f94e6ab4c969b28cf0d64524616cf4e60a76ba8cf8e56d892fd92fa087",
+    "Status": "partial",
+    "WarningCodes": [
+      "plans_metadata_missing"
+    ],
+    "Stocks": [
+      {
+        "CategoryID": "188497",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      },
+      {
+        "CategoryID": "188498",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      },
+      {
+        "CategoryID": "188499",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      },
+      {
+        "CategoryID": "188500",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      },
+      {
+        "CategoryID": "188501",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      },
+      {
+        "CategoryID": "188502",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      },
+      {
+        "CategoryID": "188503",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      },
+      {
+        "CategoryID": "188504",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      },
+      {
+        "CategoryID": "188505",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      },
+      {
+        "CategoryID": "201948",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "PropertyID": "arena33",
+    "CheckIn": "2026-11-02",
+    "CheckOut": "2026-11-03",
+    "BodySHA256": "690088c11760ab8500591972e1344d756694851cf621509517109816564fef7c",
+    "Status": "partial",
+    "WarningCodes": [
+      "plans_metadata_missing"
+    ],
+    "Stocks": [
+      {
+        "CategoryID": "459946",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      },
+      {
+        "CategoryID": "561429",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      },
+      {
+        "CategoryID": "639687",
+        "Available": null,
+        "Status": "unknown",
+        "Warnings": [
+          {
+            "Code": "plans_metadata_missing",
+            "Message": "",
+            "Context": "$plansForJs"
+          }
+        ]
+      }
+    ]
+  }
+]

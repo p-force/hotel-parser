@@ -1,0 +1,27 @@
+{
+  "regular_checks": {
+    "go test ./...": 0,
+    "go test -race ./...": 0,
+    "make check": 0,
+    "make test-integration-docker": 0,
+    "git diff --check": 0
+  },
+  "known_contract_reproductions": {
+    "TestKnownDefectAdmissionDoesNotLimitActualHTTPStarts": {
+      "exit": 1,
+      "issue": 36,
+      "actual_gap": "2.583us",
+      "required_gap": "250ms"
+    },
+    "TestKnownDefectConfirmedUnavailableWithoutPlans": {
+      "exit": 1,
+      "issue": 37,
+      "actual_status": "partial",
+      "required_status": "no_offers"
+    }
+  },
+  "live_persistence_harness_prototype_exit": 0,
+  "full_rate_conformance_passed": false,
+  "verdict": "NO-GO",
+  "issue35_complete": false
+}

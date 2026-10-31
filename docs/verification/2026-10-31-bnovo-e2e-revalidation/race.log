@@ -1,0 +1,10 @@
+ok  	github.com/p-force/hotel-parser/cmd/bnovo-check	(cached)
+?   	github.com/p-force/hotel-parser/cmd/collection	[no test files]
+?   	github.com/p-force/hotel-parser/cmd/hotel-parser	[no test files]
+ok  	github.com/p-force/hotel-parser/cmd/inventory-check	(cached)
+ok  	github.com/p-force/hotel-parser/internal/collect	8.385s
+ok  	github.com/p-force/hotel-parser/internal/config	(cached)
+ok  	github.com/p-force/hotel-parser/internal/logger	(cached)
+ok  	github.com/p-force/hotel-parser/internal/schedule	1.822s
+ok  	github.com/p-force/hotel-parser/internal/source/bnovo	(cached)
+ok  	github.com/p-force/hotel-parser/internal/storage	(cached)

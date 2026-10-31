@@ -1,0 +1,15 @@
+go vet ./...
+go test -race -count=1 ./...
+ok  	github.com/p-force/hotel-parser/cmd/bnovo-check	1.614s
+?   	github.com/p-force/hotel-parser/cmd/collection	[no test files]
+?   	github.com/p-force/hotel-parser/cmd/hotel-parser	[no test files]
+ok  	github.com/p-force/hotel-parser/cmd/inventory-check	1.803s
+ok  	github.com/p-force/hotel-parser/internal/collect	8.957s
+ok  	github.com/p-force/hotel-parser/internal/config	2.152s
+ok  	github.com/p-force/hotel-parser/internal/logger	2.317s
+ok  	github.com/p-force/hotel-parser/internal/schedule	2.562s
+ok  	github.com/p-force/hotel-parser/internal/source/bnovo	5.402s
+ok  	github.com/p-force/hotel-parser/internal/storage	2.944s
+mkdir -p bin
+go build -o bin/hotel-parser ./cmd/hotel-parser
+go build -o bin/collection ./cmd/collection

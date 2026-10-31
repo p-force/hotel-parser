@@ -1,0 +1,8 @@
+2026/10/31 04:07:22 INFO bnovo.collect.completed attempt_id=HRWGQSTEOHKJVBBXECNIYZ7QH3 http_status=200 status=success categories_count=1 offers_count=1 warnings_count=0 property_id=00000000-0000-0000-0000-000000000001 check_in=2026-10-26 check_out=2026-10-28 los=2 adults=2 collected_at=2026-10-31T01:07:22.678Z collection_duration_ms=1 http_duration_ms=1 parse_duration_ms=0
+2026/10/31 04:07:22 INFO bnovo.collect.completed attempt_id=BLEL7DPIXXWHXTS5SXC4QLKGDS http_status=200 status=success categories_count=1 offers_count=1 warnings_count=0 property_id=00000000-0000-0000-0000-000000000002 check_in=2026-10-26 check_out=2026-10-28 los=2 adults=2 collected_at=2026-10-31T01:07:22.678Z collection_duration_ms=1 http_duration_ms=1 parse_duration_ms=0
+2026/10/31 04:07:22 INFO bnovo.batch.completed batch_id=LZSOAJNULWYFJ7SWGGNEWDODY7 batch_duration_ms=254 success_count=2 partial_count=0 no_offers_count=0 failed_count=0 canceled_count=0 not_started_count=0 concurrency_limit=8 peak_active_scenarios=2 retry_count=0 throttled_count=0 rate_wait_count=1 limiter_wait_ms=252
+--- FAIL: TestKnownDefectAdmissionDoesNotLimitActualHTTPStarts (0.26s)
+    known_rate_gap_test.go:47: actual HTTP starts coalesced after pre-HTTP work: gap=2.583µs, required >=250ms
+FAIL
+FAIL	github.com/p-force/hotel-parser/internal/collect	0.681s
+FAIL
