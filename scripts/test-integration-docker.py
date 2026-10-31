@@ -59,7 +59,7 @@ def main():
                                 "./internal/" + package], cwd=ROOT, env=env, check=True)
                 target = remote + "/" + package + ".test"
                 subprocess.run(["docker", "cp", binary, container + ":" + target], check=True)
-                subprocess.run(["docker", "exec", "--workdir", remote + "/internal/" + package, "--env", "HOTEL_PARSER_DATABASE_URL", "--env", "HOTEL_PARSER_REPRO_KNOWN_DEFECTS", container,
+                subprocess.run(["docker", "exec", "--workdir", remote + "/internal/" + package, "--env", "HOTEL_PARSER_DATABASE_URL", container,
                                 target, "-test.v", "-test.run", "^TestPostgres", "-test.timeout=120s"], env=env, check=True)
     finally:
         subprocess.run(["docker", "exec", container, "rm", "-rf", remote], check=True)

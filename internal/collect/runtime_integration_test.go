@@ -175,7 +175,7 @@ func TestPostgresRuntimeCancelRateAndBackoff(t *testing.T) {
 		t.Run(fmt.Sprint("backoff=", backoff), func(t *testing.T) {
 			store, _, _ := storagetest.Open(t)
 			var calls atomic.Int32
-			properties, run, _ := runtimeFixture(t, store, 2, func(w http.ResponseWriter, r *http.Request) {
+			properties, run, jobs := runtimeFixture(t, store, 2, func(w http.ResponseWriter, r *http.Request) {
 				calls.Add(1)
 				if backoff {
 					w.Header().Set("Retry-After", "3600")
@@ -206,6 +206,29 @@ func TestPostgresRuntimeCancelRateAndBackoff(t *testing.T) {
 			result := receive(t, done)
 			if !errors.Is(result.err, context.Canceled) || calls.Load() != 1 || !result.result.ProgressKnown || result.result.Progress.Remaining < 1 || result.result.Progress.Canceled != 0 {
 				t.Fatalf("canceled wait: %+v calls=%d", result, calls.Load())
+			}
+			if backoff {
+				savedRetries := 0
+				for _, planned := range jobs {
+					job, err := store.GetJob(context.Background(), planned.ID)
+					if err != nil {
+						t.Fatal(err)
+					}
+					if job.Attempts == 0 {
+						continue
+					}
+					savedRetries++
+					attempt, err := store.GetAttempt(context.Background(), job.ID, 1)
+					if err != nil || job.Attempts != 1 || job.Status != storage.JobRetryable || job.NextRetryAt == nil || attempt.HTTPStatus != 429 || attempt.Error == nil || !attempt.Error.Retryable || attempt.NextRetryAt == nil {
+						t.Fatalf("retry history lost on cancellation: %+v %+v %v", job, attempt, err)
+					}
+					if _, err := store.GetAttempt(context.Background(), job.ID, 2); !errors.Is(err, storage.ErrNotFound) {
+						t.Fatalf("cancellation invented another attempt: %v", err)
+					}
+				}
+				if savedRetries != 1 {
+					t.Fatalf("saved retries=%d, want 1", savedRetries)
+				}
 			}
 			globalConcurrency.Lock()
 			active, batches, waiters := globalConcurrency.active, globalConcurrency.batches, len(globalConcurrency.waiters)

@@ -49,12 +49,14 @@ func TestPostgresConfirmedUnavailabilityWithoutPlans(t *testing.T) {
 		properties[i].Client = client
 		properties[i].Hotel.Source.BaseURL = client.SourceOrigin()
 	}
-	batch, err := CollectPropertiesStored(context.Background(), store, properties, BatchOptions{Workers: 2, Retry: RetryPolicy{MaxAttempts: 1}})
-	if err != nil || len(batch.Results) != 2 || len(batch.JobIDs) != 2 || batch.Summary.NoOffersCount != 2 {
-		t.Fatalf("batch failed: %+v %v", batch, err)
+	_, jobs := queueConfiguredTestScenarios(t, store, properties)
+	result, err := RunQueued(context.Background(), store, properties, runtimeOptions("", 2))
+	if err != nil || !result.ProgressKnown || result.Progress.Completed != 2 || result.Progress.Remaining != 0 || len(result.JobIDs) != 2 {
+		t.Fatalf("runtime: %+v %v", result, err)
 	}
 	observations := 0
-	for i, id := range batch.JobIDs {
+	for _, planned := range jobs {
+		id := planned.ID
 		job, err := store.GetJob(context.Background(), id)
 		if err != nil {
 			t.Fatal(err)
@@ -62,9 +64,6 @@ func TestPostgresConfirmedUnavailabilityWithoutPlans(t *testing.T) {
 		hotel, ok := expected[job.Scenario.PropertyID]
 		if !ok || job.Scenario.SourcePropertyID != hotel.Source.PropertyID || job.Scenario.Source != "bnovo" || job.Scenario.CheckIn.Format("2006-01-02") != "2026-12-30" || job.Scenario.CheckOut.Format("2006-01-02") != "2026-12-31" || job.Scenario.LOS != 1 || job.Scenario.Adults != 1 || job.Scenario.Rooms != 1 || job.Status != storage.JobNoOffers || job.Attempts != 1 {
 			t.Fatalf("scenario/status lost: %+v", job)
-		}
-		if batch.Results[i].PropertyID != hotel.ID {
-			t.Fatal("hotel association lost")
 		}
 		attempt, err := store.GetAttempt(context.Background(), id, 1)
 		if err != nil || attempt.Outcome != storage.OutcomeNoOffers || attempt.HTTPStatus != 200 || attempt.Error != nil || len(attempt.Warnings) != 0 || attempt.CollectedAt == nil || len(attempt.Observations) != len(hotel.Inventory.Categories) {

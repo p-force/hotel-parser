@@ -141,39 +141,6 @@ func (s *Store) createJobTx(ctx context.Context, tx *sql.Tx, runID string, input
 	return result, nil
 }
 
-// MarkRunning — legacy-запись для никогда не захваченных заданий.
-// После первого claim требуется lease-aware API; иначе ErrLeaseLost.
-func (s *Store) MarkRunning(ctx context.Context, jobID string, number int, startedAt time.Time) error {
-	if number < 1 || startedAt.IsZero() {
-		return fmt.Errorf("invalid attempt start")
-	}
-	result, err := s.db.ExecContext(ctx, `UPDATE `+s.table("scenario_jobs")+` SET status='running',started_at=COALESCE(started_at,$3),next_retry_at=NULL WHERE id=$1::uuid AND attempts=$2-1 AND lease_token=0 AND status IN ('queued','retryable','running')`, jobID, number, stamp(startedAt))
-	if err != nil {
-		return dbError("mark job running", err)
-	}
-	rows, _ := result.RowsAffected()
-	if rows != 1 {
-		job, readErr := s.GetJob(ctx, jobID)
-		if readErr != nil {
-			return readErr
-		}
-		if job.LeaseToken > 0 {
-			return ErrLeaseLost
-		}
-		return ErrTransition
-	}
-	return nil
-}
-func (s *Store) CancelPending(ctx context.Context, runID, code string) error {
-	if code != "canceled" && code != "timeout" {
-		return fmt.Errorf("invalid cancellation code")
-	}
-	_, err := s.db.ExecContext(ctx, `UPDATE `+s.table("scenario_jobs")+` SET status='canceled',finished_at=GREATEST(now(),COALESCE(started_at,now())),next_retry_at=NULL,last_error_code=$2 WHERE run_id=$1::uuid AND lease_token=0 AND status IN ('queued','running','retryable')`, runID, code)
-	if err != nil {
-		return dbError("cancel pending jobs", err)
-	}
-	return nil
-}
 func (s *Store) FinishRun(ctx context.Context, id string) (Run, error) {
 	tx, err := s.db.BeginTx(ctx, nil)
 	if err != nil {
