@@ -840,11 +840,41 @@ func parseRateOffers(
 	}
 
 	if plansErr != nil {
-		warnings = append(warnings, ParseWarning{
-			Code:    "plans_metadata_missing",
-			Message: plansErr.Error(),
-			Context: "$plansForJs",
+		// Метаданные тарифов нужны только там, где есть тарифная структура.
+		// Точное сообщение nodates без тарифов не зависит от $plansForJs.
+		// Неизвестная привязка остаётся глобальной диагностикой.
+		contexts := make(map[string]bool)
+		walkHTML(doc, func(node *html.Node) {
+			if node.Type != html.ElementNode ||
+				(!hasClass(node, "plan_row") && !hasClass(node, "selectAvailable")) {
+				return
+			}
+			contextID := "$plansForJs"
+			for parent := node; parent != nil; parent = parent.Parent {
+				if hasClass(parent, "room") && attr(parent, "data-roomtype-id") != "" {
+					contextID = attr(parent, "data-roomtype-id")
+					break
+				}
+			}
+			contexts[contextID] = true
+			// При повреждённой вложенности селектор может ссылаться на другую
+			// категорию; отсутствие метаданных затрагивает обе привязки.
+			if hasClass(node, "selectAvailable") && attr(node, "data-real-room-id") != "" {
+				contexts[attr(node, "data-real-room-id")] = true
+			}
 		})
+		keys := make([]string, 0, len(contexts))
+		for key := range contexts {
+			keys = append(keys, key)
+		}
+		sort.Strings(keys)
+		for _, key := range keys {
+			warnings = append(warnings, ParseWarning{
+				Code:    "plans_metadata_missing",
+				Message: plansErr.Error(),
+				Context: key,
+			})
+		}
 	}
 
 	// Находим все тарифные блоки документа.
@@ -1548,6 +1578,7 @@ func matchesUnavailablePeriod(
 	message string,
 	req SearchRequest,
 ) (confirmed bool, err error) {
+	// Подтверждаем всё сообщение, а не подстроку внутри текста с ограничениями.
 	matches := unavailableDatesPattern.FindStringSubmatch(
 		normalizeText(message),
 	)
@@ -1604,7 +1635,7 @@ var russianMonths = map[string]time.Month{
 }
 
 var unavailableDatesPattern = regexp.MustCompile(
-	`(?i)здесь\s+нет\s+свободных\s+мест\s+с\s+(\d{1,2})\s+([а-яё]+)\s+(\d{4})\s+по\s+(\d{1,2})\s+([а-яё]+)\s+(\d{4})`,
+	`(?i)^здесь\s+нет\s+свободных\s+мест\s+с\s+(\d{1,2})\s+([а-яё]+)\s+(\d{4})\s+по\s+(\d{1,2})\s+([а-яё]+)\s+(\d{4})$`,
 )
 
 // parseRussianDate преобразует дату Bnovo в YYYY-MM-DD.

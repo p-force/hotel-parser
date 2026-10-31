@@ -45,13 +45,27 @@ func normalizeStock(result bnovo.SearchResult, categoryID string) CategoryStock 
 		stock.Warnings = append(stock.Warnings, bnovo.ParseWarning{Code: code, Message: message, Context: categoryID})
 	}
 	blocked, conflict := false, false
+	unavailable := false
+	for _, state := range result.CategoryAvailability {
+		if state.CategoryID == categoryID && state.ConfirmedUnavailable {
+			unavailable = true
+			if state.HasOffers {
+				conflict = true
+			}
+		}
+	}
 	for _, warning := range result.Warnings {
-		if !stockWarningApplies(warning, categoryID, result) {
+		// Неполный список ожидаемых категорий не подтверждает общий пустой ответ.
+		if !stockWarningApplies(warning, categoryID, result) &&
+			!(unavailable && warning.Code == "expected_category_missing") {
 			continue
 		}
 		stock.Warnings = append(stock.Warnings, warning)
 		switch warning.Code {
-		case "room_area_invalid", "category_metadata_missing", "currency_unknown", "offer_price_invalid", "offers_not_found", "category_availability_unknown":
+		case "category_metadata_missing":
+			// Для нуля нужны и точные даты, и подтверждённая идентичность категории.
+			blocked = blocked || unavailable
+		case "room_area_invalid", "currency_unknown", "offer_price_invalid", "offers_not_found", "category_availability_unknown":
 			// Эти предупреждения сами по себе не опровергают признаки количества.
 		default:
 			blocked = true
@@ -69,15 +83,6 @@ func normalizeStock(result bnovo.SearchResult, categoryID string) CategoryStock 
 	if req.CheckIn.IsZero() || req.CheckOut.IsZero() || req.CheckOut.Format("2006-01-02") <= req.CheckIn.Format("2006-01-02") || req.Adults <= 0 || len(req.ChildrenAges) > 0 {
 		warn("stock_scenario_invalid", "search scenario cannot be matched to adult-only accommodation variants")
 		return stock
-	}
-	unavailable := false
-	for _, state := range result.CategoryAvailability {
-		if state.CategoryID == categoryID && state.ConfirmedUnavailable {
-			unavailable = true
-			if state.HasOffers {
-				conflict = true
-			}
-		}
 	}
 	var observed int
 	hasObserved, incomplete, positive := false, false, false
@@ -191,7 +196,7 @@ func stockWarningApplies(warning bnovo.ParseWarning, categoryID string, result b
 		return
 	}
 	switch warning.Code {
-	case "variant_id_missing", "rate_id_missing", "offer_room_id_missing", "plans_metadata_missing", "currency_unknown", "offers_not_found":
+	case "variant_id_missing", "rate_id_missing", "offer_room_id_missing", "currency_unknown", "offers_not_found":
 		return true
 	case "availability_conflict", "category_availability_conflict", "category_availability_unknown", "unavailable_period_mismatch", "expected_category_missing", "category_metadata_missing", "room_area_invalid":
 		return warning.Context == categoryID || warning.Context == ""
@@ -221,6 +226,8 @@ func stockWarningApplies(warning bnovo.ParseWarning, categoryID string, result b
 		matches, found := variantCategory(parts[1])
 		return matches || !found
 	default:
+		// Включая plans_metadata_missing: категория тарифного блока либо
+		// глобальный $plansForJs, если привязка неизвестна.
 		// Общая диагностика либо неизвестный новый код с доступной привязкой к категории.
 		for _, category := range result.Categories {
 			if category.ID == warning.Context {
