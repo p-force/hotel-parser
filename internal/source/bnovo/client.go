@@ -133,6 +133,13 @@ func NewClient(
 	// Создаём собственную копию конфигурации HTTP-клиента,
 	// чтобы не изменять клиент, переданный вызывающей стороной.
 	clientCopy := *httpClient
+	base := clientCopy.Transport
+	if base == nil {
+		base = http.DefaultTransport
+	}
+	if _, limited := base.(*startLimitedTransport); !limited {
+		clientCopy.Transport = &startLimitedTransport{base: base}
+	}
 
 	clientCopy.CheckRedirect = func(
 		req *http.Request,
