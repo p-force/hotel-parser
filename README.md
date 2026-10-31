@@ -223,6 +223,10 @@ equal jitter: 50–100% текущей задержки.
 
 ## Регулярный сбор групп отелей
 
+Реальный E2E-прогон и ограничения production-готовности:
+[отчёт #35 от 31.10.2026](docs/verification/2026-10-31-bnovo-e2e/report.md).
+Все 122 сценария выполнены; приёмка rate limiting не пройдена, см. #36.
+
 `internal/schedule` разделяет planner (`BuildPlans`), runner (`collect.RunGroups`)
 и application service (`Service.Execute`). CLI и HTTP используют один service.
 Внешний cron инициирует запуск; фонового планировщика после HTTP-ответа нет.

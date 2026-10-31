@@ -15,7 +15,7 @@ def output(args):
     return subprocess.check_output(args, cwd=ROOT, text=True).strip()
 
 
-def main():
+def docker_environment():
     container = output(["docker", "compose", "ps", "-q", "postgres"])
     if not container or "\n" in container:
         raise RuntimeError("one running project PostgreSQL container is required")
@@ -42,6 +42,11 @@ def main():
     password = urllib.parse.quote(settings["POSTGRES_PASSWORD"], safe="")
     database = urllib.parse.quote(settings["POSTGRES_DB"], safe="")
     env["HOTEL_PARSER_DATABASE_URL"] = f"postgresql://{user}:{password}@127.0.0.1:{port}/{database}?sslmode=disable"
+    return container, env
+
+
+def main():
+    container, env = docker_environment()
     remote = "/tmp/hotel-parser-integration-" + uuid.uuid4().hex
     subprocess.run(["docker", "exec", container, "mkdir", "-p", remote + "/internal/storage", remote + "/internal/collect", remote + "/internal/schedule"], check=True)
     subprocess.run(["docker", "cp", str(ROOT / "configs"), container + ":" + remote + "/configs"], check=True)

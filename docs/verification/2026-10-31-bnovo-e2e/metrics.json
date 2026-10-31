@@ -1,0 +1,49 @@
+{
+  "wall_ms": 86180,
+  "round_trip_calls": 125,
+  "response_200": 122,
+  "canceled_before_headers": 3,
+  "minimum_round_trip_gap_ms": 455.947542,
+  "gaps_under_500ms": 24,
+  "triple_starts_within_one_second": 9,
+  "peak_transport_requests": 5,
+  "decoded_body_bytes": 59405333,
+  "metrics": {
+    "http_duration_ms": {
+      "n": 125,
+      "sum": 220177,
+      "mean": 1761.416,
+      "max": 2501
+    },
+    "parse_duration_ms": {
+      "n": 122,
+      "sum": 1586,
+      "mean": 13,
+      "max": 66
+    },
+    "collection_duration_ms": {
+      "n": 125,
+      "sum": 221863,
+      "mean": 1774.904,
+      "max": 2513
+    },
+    "limiter_wait_ms": {
+      "n": 125,
+      "sum": 101766,
+      "mean": 814.128,
+      "max": 1016
+    },
+    "queue_wait_ms": {
+      "n": 125,
+      "sum": 101766,
+      "mean": 814.128,
+      "max": 1016
+    }
+  },
+  "batch_rate_wait_count": 110,
+  "http_retries": 0,
+  "persistence_latency_available": false,
+  "max_active_scenarios": 5,
+  "max_active_property": 3,
+  "max_active_source": 5
+}
