@@ -1,0 +1,283 @@
+{
+  "phase": "offline replay of captured live HTML, NOT a second live collection",
+  "base_sha": "74c3492d26a05af98d88c7f2cb7ac02c554489d5",
+  "StartedAt": "2026-10-31T01:10:09.212019844Z",
+  "FinishedAt": "2026-10-31T01:11:12.19315447Z",
+  "DurationMS": 62981,
+  "Schema": "hp_test_tsim6hh6j2wpis6g7r2t4xaw5v",
+  "SQL": {
+    "attempt_count_mismatches": 0,
+    "attempt_timing": [
+      {
+        "property_id": "arena33",
+        "mean_duration_ms": 17.934426229508198,
+        "max_duration_ms": 64,
+        "mean_pool_queue_wait_ms": 853.9672131147541,
+        "max_pool_queue_wait_ms": 1021,
+        "mean_durable_wait_ms": 30977.89206557377
+      },
+      {
+        "property_id": "lindsay",
+        "mean_duration_ms": 21.983606557377048,
+        "max_duration_ms": 107,
+        "mean_pool_queue_wait_ms": 986.0327868852459,
+        "max_pool_queue_wait_ms": 1021,
+        "mean_durable_wait_ms": 31453.146819672133
+      }
+    ],
+    "category_counts": [
+      {
+        "property_id": "arena33",
+        "category_id": "459946",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "arena33",
+        "category_id": "561429",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "arena33",
+        "category_id": "639687",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188497",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188498",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188499",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188500",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188501",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188502",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188503",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188504",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "188505",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      },
+      {
+        "property_id": "lindsay",
+        "category_id": "201948",
+        "observations": 61,
+        "known": 60,
+        "unknown": 1,
+        "conflict": 0
+      }
+    ],
+    "counts_by_property": [
+      {
+        "property_id": "arena33",
+        "jobs": 61,
+        "attempts": 61,
+        "observations": 183,
+        "offers": 1228,
+        "succeeded": 60,
+        "partial": 1,
+        "no_offers": 0,
+        "failed": 0,
+        "remaining": 0
+      },
+      {
+        "property_id": "lindsay",
+        "jobs": 61,
+        "attempts": 61,
+        "observations": 610,
+        "offers": 1556,
+        "succeeded": 60,
+        "partial": 1,
+        "no_offers": 0,
+        "failed": 0,
+        "remaining": 0
+      }
+    ],
+    "duplicates": {
+      "jobs": 0,
+      "attempts": 0
+    },
+    "http_codes": [
+      {
+        "http_status": 200,
+        "error_code": null,
+        "attempts": 122
+      }
+    ],
+    "observed_data": [
+      {
+        "stock_status": "unknown",
+        "confirmed_unavailable": true,
+        "observations": 13,
+        "null_available": 13,
+        "zero_available": 0,
+        "null_area": 0
+      },
+      {
+        "stock_status": "known",
+        "confirmed_unavailable": true,
+        "observations": 112,
+        "null_available": 0,
+        "zero_available": 112,
+        "null_area": 0
+      },
+      {
+        "stock_status": "known",
+        "confirmed_unavailable": false,
+        "observations": 668,
+        "null_available": 0,
+        "zero_available": 0,
+        "null_area": 0
+      }
+    ],
+    "orphans": {
+      "jobs": 0,
+      "attempts": 0,
+      "observations": 0,
+      "offers": 0
+    },
+    "property_jobs": [
+      {
+        "property_id": "arena33",
+        "status": "partial",
+        "jobs": 1,
+        "attempts": 1
+      },
+      {
+        "property_id": "arena33",
+        "status": "succeeded",
+        "jobs": 60,
+        "attempts": 60
+      },
+      {
+        "property_id": "lindsay",
+        "status": "partial",
+        "jobs": 1,
+        "attempts": 1
+      },
+      {
+        "property_id": "lindsay",
+        "status": "succeeded",
+        "jobs": 60,
+        "attempts": 60
+      }
+    ],
+    "scenario_shape": [
+      {
+        "adults": 1,
+        "rooms": 1,
+        "los": 1,
+        "language": "ru",
+        "first_check_in": "2026-10-31",
+        "last_check_in": "2026-12-30",
+        "jobs": 122
+      }
+    ],
+    "server_version": {
+      "version": "PostgreSQL 17.10 (Debian 17.10-1.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+    },
+    "stock_status": [
+      {
+        "stock_status": "unknown",
+        "confirmed_unavailable": true,
+        "observations": 13
+      },
+      {
+        "stock_status": "known",
+        "confirmed_unavailable": true,
+        "observations": 112
+      },
+      {
+        "stock_status": "known",
+        "confirmed_unavailable": false,
+        "observations": 668
+      }
+    ],
+    "table_counts": {
+      "runs": 2,
+      "jobs": 122,
+      "attempts": 122,
+      "observations": 793,
+      "variants": 1163,
+      "offers": 2784
+    },
+    "timestamps": {
+      "future_run_finished": 2,
+      "bad_attempt_order": 0,
+      "future_attempts": 0
+    }
+  },
+  "Verification": {
+    "AttemptsCompared": 122,
+    "ObservationsCompared": 793,
+    "OffersCompared": 2784,
+    "RawOffersCompared": 2784,
+    "TariffsWithCancellation": 2784,
+    "TariffsWithPrepayment": 2784,
+    "Mismatches": null
+  }
+}

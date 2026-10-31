@@ -1,0 +1,5 @@
+--- FAIL: TestKnownDefectConfirmedUnavailableWithoutPlans (0.00s)
+    known_unavailable_test.go:26: all categories explicitly unavailable, but status=partial warnings=[{Code:plans_metadata_missing Message:$plansForJs JSON not found Context:$plansForJs}]
+FAIL
+FAIL	github.com/p-force/hotel-parser/internal/source/bnovo	0.474s
+FAIL
