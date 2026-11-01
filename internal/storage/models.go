@@ -123,6 +123,9 @@ type Variant struct {
 	Adults int
 }
 type Offer struct {
+	// ReportedQuantity — нативная публичная квота API; nil и 0 различаются.
+	// omitempty сохраняет канонический payload старых попыток с отсутствующим полем.
+	ReportedQuantity            *int `json:",omitempty"`
 	VariantID, RateID, RateName string
 	Price                       *string // Точное десятичное число, сохраняется как NUMERIC; nil — нет данных.
 	Currency                    *string

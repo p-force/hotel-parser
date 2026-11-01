@@ -5,6 +5,7 @@ package schedule
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
@@ -238,6 +239,114 @@ func TestPostgresMixedSourcesInvalidCurrency(t *testing.T) {
 		}
 	}
 	for table, want := range map[string]int{"scenario_jobs": 2, "collection_attempts": 2, "observations": 11, "observation_offers": 1} {
+		var count int
+		if err := admin.QueryRow(`SELECT count(*) FROM "` + schema + `"."` + table + `"`).Scan(&count); err != nil || count != want {
+			t.Fatal(table, count, err)
+		}
+	}
+}
+
+func TestPostgresTravelLineConflictingQuantitiesRoundTrip(t *testing.T) {
+	_, admin, schema := storagetest.Open(t)
+	info, body := travelLineRegressionFixture(t)
+	var meta, data map[string]any
+	if err := json.Unmarshal(info, &meta); err != nil {
+		t.Fatal(err)
+	}
+	if err := json.Unmarshal(body, &data); err != nil {
+		t.Fatal(err)
+	}
+	hotel := meta["hotels"].([]any)[0].(map[string]any)
+	for _, raw := range hotel["room_types"].([]any) {
+		if raw.(map[string]any)["code"] == "4347" {
+			hotel["room_types"] = []any{raw}
+			break
+		}
+	}
+	var stays []any
+	for _, raw := range data["room_stays"].([]any) {
+		stay := raw.(map[string]any)
+		room := stay["room_types"].([]any)[0].(map[string]any)
+		rate := stay["rate_plans"].([]any)[0].(map[string]any)["code"]
+		if room["code"] != "4347" || (rate != "128299" && rate != "128301") {
+			continue
+		}
+		room["room_type_quota_rph"] = rate
+		stays = append(stays, stay)
+	}
+	if len(stays) != 2 {
+		t.Fatal("fixture changed")
+	}
+	data["room_stays"] = stays
+	data["room_type_quotas"] = []any{map[string]any{"rph": "128299", "quantity": 9}, map[string]any{"rph": "128301", "quantity": 10}}
+	info, _ = json.Marshal(meta)
+	body, _ = json.Marshal(data)
+	var calls atomic.Int32
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		calls.Add(1)
+		if r.URL.Path == "/ApiWebDistribution/BookingForm/hotel_info" {
+			w.Write(info)
+		} else {
+			w.Write(body)
+		}
+	}))
+	defer server.Close()
+	regressionTransport(t, server)
+	cfg, err := config.Load("../../configs/aerostar.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	cfg.Collection.Enabled = true
+	cfg.Source.BaseURL = server.URL
+	cfg.Inventory.Categories = cfg.Inventory.Categories[:1]
+	cfg.Rates = []config.RateConfig{{ID: "128299", Name: "Public A", Enabled: true}, {ID: "128301", Name: "Public B", Enabled: true}}
+	registry := Registry{Groups: []Group{{ID: "aerostar", Schema: schema, Properties: []Property{{Hotel: cfg}}}}}
+	s := testService(t, registry, nil, collect.RuntimeOptions{MaxJobs: 1})
+	for _, req := range []Request{{Action: "plan", Slot: regressionSlot()}, {Action: "resume"}} {
+		if _, err := s.Execute(context.Background(), req); err != nil {
+			t.Fatal(err)
+		}
+	}
+	var jobID string
+	if err := admin.QueryRow(`SELECT id::text FROM "` + schema + `".scenario_jobs`).Scan(&jobID); err != nil {
+		t.Fatal(err)
+	}
+	store := s.groups[0].Store
+	attempt, err := store.GetAttempt(context.Background(), jobID, 1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if attempt.Outcome != storage.OutcomePartial || attempt.Error != nil || len(attempt.Observations) != 1 {
+		t.Fatal(attempt)
+	}
+	observation := attempt.Observations[0]
+	if observation.CategoryID != "4347" || observation.StockStatus != storage.StockConflict || observation.Available != nil || len(observation.Offers) != 2 {
+		t.Fatal(observation)
+	}
+	want := map[string]int{"128299": 9, "128301": 10}
+	for _, offer := range observation.Offers {
+		quantity, ok := want[offer.RateID]
+		if !ok || offer.ReportedQuantity == nil || *offer.ReportedQuantity != quantity || offer.DataAvailable != nil || len(offer.SelectableQuantities) != 0 {
+			t.Fatal("source quota or HTML evidence corrupted", offer)
+		}
+	}
+	id, err := store.SaveAttempt(context.Background(), attempt.AttemptInput)
+	if err != nil || id != attempt.ID {
+		t.Fatal("identical commit not idempotent", id, err)
+	}
+	changed := attempt.AttemptInput
+	changed.Observations[0].Offers[0].ReportedQuantity = new(int)
+	*changed.Observations[0].Offers[0].ReportedQuantity = 11
+	if _, err := store.SaveAttempt(context.Background(), changed); !errors.Is(err, storage.ErrConflict) {
+		t.Fatal("changed quota did not conflict", err)
+	}
+	if _, err := s.Execute(context.Background(), Request{Action: "resume"}); err != nil {
+		t.Fatal(err)
+	}
+	if calls.Load() != 2 {
+		t.Fatal("completed scenario reran HTTP", calls.Load())
+	}
+	for table, want := range map[string]int{"scenario_jobs": 1, "collection_attempts": 1, "observations": 1, "observation_offers": 2} {
 		var count int
 		if err := admin.QueryRow(`SELECT count(*) FROM "` + schema + `"."` + table + `"`).Scan(&count); err != nil || count != want {
 			t.Fatal(table, count, err)

@@ -152,7 +152,7 @@ func (s *Store) insertObservation(ctx context.Context, tx *sql.Tx, attemptID str
 	}
 	for _, offer := range o.Offers {
 		quantities, _ := json.Marshal(offer.SelectableQuantities)
-		if _, err = tx.ExecContext(ctx, `INSERT INTO `+s.table("observation_offers")+`(observation_id,variant_id,rate_id,rate_name,price,currency,meal_plan,visible,data_available,row_available,data_available_for_guests,select_disabled,selectable_quantities) VALUES($1::uuid,$2,$3,$4,$5::numeric,$6,$7,$8,$9,$10,$11,$12,ARRAY(SELECT jsonb_array_elements_text($13::jsonb)::integer))`, id, offer.VariantID, offer.RateID, offer.RateName, offer.Price, offer.Currency, offer.MealPlan, offer.Visible, offer.DataAvailable, offer.RowAvailable, offer.DataAvailableForGuests, offer.SelectDisabled, string(quantities)); err != nil {
+		if _, err = tx.ExecContext(ctx, `INSERT INTO `+s.table("observation_offers")+`(observation_id,variant_id,rate_id,rate_name,price,currency,meal_plan,visible,data_available,row_available,data_available_for_guests,select_disabled,selectable_quantities,reported_quantity) VALUES($1::uuid,$2,$3,$4,$5::numeric,$6,$7,$8,$9,$10,$11,$12,ARRAY(SELECT jsonb_array_elements_text($13::jsonb)::integer),$14)`, id, offer.VariantID, offer.RateID, offer.RateName, offer.Price, offer.Currency, offer.MealPlan, offer.Visible, offer.DataAvailable, offer.RowAvailable, offer.DataAvailableForGuests, offer.SelectDisabled, string(quantities), offer.ReportedQuantity); err != nil {
 			return dbError("insert observed offer", err)
 		}
 	}

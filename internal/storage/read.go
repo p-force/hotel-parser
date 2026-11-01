@@ -75,14 +75,14 @@ func (s *Store) GetAttempt(ctx context.Context, jobID string, number int) (Attem
 		if err != nil {
 			return a, dbError("read variants", err)
 		}
-		offers, err := s.db.QueryContext(ctx, `SELECT variant_id,rate_id,rate_name,price::text,currency,meal_plan,visible,data_available,row_available,data_available_for_guests,select_disabled,array_to_json(selectable_quantities) FROM `+s.table("observation_offers")+` WHERE observation_id=$1::uuid ORDER BY variant_id,rate_id`, id)
+		offers, err := s.db.QueryContext(ctx, `SELECT variant_id,rate_id,rate_name,price::text,currency,meal_plan,visible,data_available,row_available,data_available_for_guests,select_disabled,array_to_json(selectable_quantities),reported_quantity FROM `+s.table("observation_offers")+` WHERE observation_id=$1::uuid ORDER BY variant_id,rate_id`, id)
 		if err != nil {
 			return a, dbError("read offers", err)
 		}
 		for offers.Next() {
 			var offer Offer
 			var quantities []byte
-			if err = offers.Scan(&offer.VariantID, &offer.RateID, &offer.RateName, &offer.Price, &offer.Currency, &offer.MealPlan, &offer.Visible, &offer.DataAvailable, &offer.RowAvailable, &offer.DataAvailableForGuests, &offer.SelectDisabled, &quantities); err != nil {
+			if err = offers.Scan(&offer.VariantID, &offer.RateID, &offer.RateName, &offer.Price, &offer.Currency, &offer.MealPlan, &offer.Visible, &offer.DataAvailable, &offer.RowAvailable, &offer.DataAvailableForGuests, &offer.SelectDisabled, &quantities, &offer.ReportedQuantity); err != nil {
 				offers.Close()
 				return a, dbError("scan offer", err)
 			}
