@@ -17,10 +17,12 @@ import (
 )
 
 type Service struct {
-	registry     Registry
-	groups       []collect.RuntimeGroup
-	options      collect.RuntimeOptions
-	csvDirectory string
+	registry      Registry
+	groups        []collect.RuntimeGroup
+	options       collect.RuntimeOptions
+	csvDirectory  string
+	uploader      *report.YandexDiskUploader
+	diskDirectory string
 }
 type Request struct {
 	Action string    `json:"action"`
@@ -32,10 +34,11 @@ type GroupProgress struct {
 	Runs    []storage.RunProgress `json:"runs"`
 }
 type Response struct {
-	Planned       []storage.Run     `json:"planned,omitempty"`
-	Groups        []GroupProgress   `json:"groups"`
-	ProgressKnown bool              `json:"progress_known"`
-	Exports       []report.Artifact `json:"exports,omitempty"`
+	Planned       []storage.Run      `json:"planned,omitempty"`
+	Groups        []GroupProgress    `json:"groups"`
+	ProgressKnown bool               `json:"progress_known"`
+	Exports       []report.Artifact  `json:"exports,omitempty"`
+	Deliveries    []storage.Delivery `json:"deliveries,omitempty"`
 }
 
 // Open подключает все группы к одной БД. DDL выполняет только явный Migrate.
@@ -54,7 +57,7 @@ func Open(ctx context.Context, dsn string, registry Registry, options collect.Ru
 	if err != nil {
 		return nil, fmt.Errorf("invalid CSV directory")
 	}
-	service := &Service{registry: registry, options: options, csvDirectory: directory}
+	service := &Service{registry: registry, options: options, csvDirectory: directory, uploader: report.NewYandexDiskUploader(nil), diskDirectory: os.Getenv("YANDEX_DISK_DIR")}
 	if service.options.Claim.Owner == "" {
 		service.options.Claim.Owner = rand.Text()
 	}
@@ -144,6 +147,23 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 		response.Groups, err = s.progress(ctx, err)
 		response.ProgressKnown = response.Groups != nil
 		response.Exports = s.exportCSV(ctx, response.Groups)
+		// После публикации слота, остановки workers и освобождения runner lock.
+		// Upload не задерживает следующий слот и не изменяет collection error.
+		deliveryCtx, stopDelivery := context.WithTimeout(ctx, 10*time.Second)
+		defer stopDelivery()
+		remaining := 2
+		for _, g := range s.groups {
+			ds := s.uploader.Deliver(deliveryCtx, g.Store, g.ID, s.diskDirectory, remaining)
+			response.Deliveries = append(response.Deliveries, ds...)
+			for _, d := range ds {
+				if d.LeaseToken != "" {
+					remaining--
+				}
+			}
+			if deliveryCtx.Err() != nil {
+				break
+			}
+		}
 	}()
 	options := s.options
 	options.ExecutionTimeout = 0

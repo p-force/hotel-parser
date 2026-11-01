@@ -603,3 +603,49 @@ GitHub Actions выполняет проверки форматирования,
 с детектором гонок и сборку при push и pull request в `dev` и `master`.
 
 История изменений — в [CHANGELOG.md](CHANGELOG.md).
+
+### Доставка CSV на Яндекс Диск
+
+После terminal run `plan`/`tick`/`resume` сверяют очередь доставок в PostgreSQL.
+Отправка выполняется после collection workers и освобождения runner lock:
+не более двух доставок и 10 секунд на вызов, в пределах execution deadline.
+Незавершённые runs не отправляются; ошибка Диска не меняет результат сбора.
+
+- `YANDEX_DISK_TOKEN` — OAuth из окружения с правами `cloud_api:disk.read`
+  и `cloud_api:disk.write` (чтение metadata для проверки, запись CSV).
+- `YANDEX_DISK_DIR` — корень, по умолчанию `/hotel-parser`.
+- Перед использованием примените миграцию `0005` штатной командой `migrate`.
+
+Пример пути: `/hotel-parser/v1/hotel_parser/arena33/arena33/20261101T050000Z/<run_id>.csv`.
+Путь фиксируется при первой постановке доставки; изменение root не переносит старые файлы.
+OAuth передаётся только `cloud-api.yandex.net`; upload href и redirects проверяются,
+на PUT токен не отправляется. Файлы не публикуются в общий доступ.
+
+`deliveries` в ответе содержит состояние доставки отдельно от результата collection.
+Без токена: `pending`, диагностика `disk_token_missing`, без HTTP-запросов к Диску.
+Полное состояние хранится в `<schema>.csv_deliveries`:
+
+```sql
+SELECT group_id, run_id, remote_path, state, attempts, next_attempt_at, error_code
+FROM hotel_parser.csv_deliveries ORDER BY next_attempt_at;
+```
+
+Повторы выполняются очередным `resume`/`tick`: exponential backoff от 5 секунд
+до 10 минут плюс jitter до 25%, с учётом `Retry-After` (до суток).
+401/403 и конфигурационные ошибки откладываются минимум на 6 часов.
+После исправления токена перезапустите процесс. Для немедленного повтора конкретного run:
+
+```sql
+UPDATE hotel_parser.csv_deliveries SET next_attempt_at=now()
+WHERE group_id='<group>' AND run_id='<run_id>' AND state='retryable_failed';
+```
+
+Затем выполните обычный `resume`. Активные leases не сбрасывайте.
+Прерванный delivery claim восстанавливается через 2 минуты; устаревший token
+не может подтвердить доставку. Вне транзакции CSV потоково генерируется из PostgreSQL
+для checksum, затем для PUT; постоянный локальный файл не нужен.
+После PUT или потерянного ответа проверяются размер и SHA-256/MD5 удалённого файла.
+`delivered` фиксируется только после подтверждения файла и commit; при повторе
+существующий совпадающий файл не загружается заново, отличающийся не перезаписывается.
+Реализация не обещает distributed exactly-once. Для повторов нужен следующий вызов
+`resume`/`tick`; фонового процесса отправки нет.
