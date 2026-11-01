@@ -6,17 +6,21 @@ import (
 	"errors"
 	"fmt"
 	"log/slog"
+	"os"
+	"path/filepath"
 	"time"
 
 	"github.com/p-force/hotel-parser/internal/collect"
+	"github.com/p-force/hotel-parser/internal/report"
 	"github.com/p-force/hotel-parser/internal/source"
 	"github.com/p-force/hotel-parser/internal/storage"
 )
 
 type Service struct {
-	registry Registry
-	groups   []collect.RuntimeGroup
-	options  collect.RuntimeOptions
+	registry     Registry
+	groups       []collect.RuntimeGroup
+	options      collect.RuntimeOptions
+	csvDirectory string
 }
 type Request struct {
 	Action string    `json:"action"`
@@ -28,9 +32,10 @@ type GroupProgress struct {
 	Runs    []storage.RunProgress `json:"runs"`
 }
 type Response struct {
-	Planned       []storage.Run   `json:"planned,omitempty"`
-	Groups        []GroupProgress `json:"groups"`
-	ProgressKnown bool            `json:"progress_known"`
+	Planned       []storage.Run     `json:"planned,omitempty"`
+	Groups        []GroupProgress   `json:"groups"`
+	ProgressKnown bool              `json:"progress_known"`
+	Exports       []report.Artifact `json:"exports,omitempty"`
 }
 
 // Open подключает все группы к одной БД. DDL выполняет только явный Migrate.
@@ -41,7 +46,15 @@ func Open(ctx context.Context, dsn string, registry Registry, options collect.Ru
 	if options.ExecutionTimeout < 0 || options.ShutdownGracePeriod < 0 || options.MaxJobs < 0 || options.Batch.Workers < 0 || options.Batch.Workers > collect.MaxWorkers || options.RunnerLock != nil {
 		return nil, fmt.Errorf("invalid service options")
 	}
-	service := &Service{registry: registry, options: options}
+	directory := os.Getenv("HOTEL_PARSER_CSV_DIR")
+	if directory == "" {
+		directory = filepath.Join(os.TempDir(), "hotel-parser-csv")
+	}
+	directory, err := filepath.Abs(directory)
+	if err != nil {
+		return nil, fmt.Errorf("invalid CSV directory")
+	}
+	service := &Service{registry: registry, options: options, csvDirectory: directory}
 	if service.options.Claim.Owner == "" {
 		service.options.Claim.Owner = rand.Text()
 	}
@@ -130,6 +143,7 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 		// ещё один grace period для отчёта после deadline/отмены.
 		response.Groups, err = s.progress(ctx, err)
 		response.ProgressKnown = response.Groups != nil
+		response.Exports = s.exportCSV(ctx, response.Groups)
 	}()
 	options := s.options
 	options.ExecutionTimeout = 0
@@ -233,4 +247,36 @@ func (s *Service) progress(ctx context.Context, prior error) ([]GroupProgress, e
 		groups = append(groups, GroupProgress{GroupID: g.ID, Schema: g.Store.Schema(), Runs: runs})
 	}
 	return groups, prior
+}
+
+// Экспорт запускается после остановки workers и освобождения runner lock (LIFO
+// defer в Execute). Ошибка CSV возвращается отдельно от результата collection.
+// Terminal runs остаются в PostgreSQL и на следующем вызове проверяются снова:
+// поэтому сбой диска/процесса или исчезновение ephemeral filesystem восстановимы.
+func (s *Service) exportCSV(ctx context.Context, groups []GroupProgress) []report.Artifact {
+	var artifacts []report.Artifact
+	stores := make(map[string]*storage.Store, len(s.groups))
+	for _, g := range s.groups {
+		stores[g.ID] = g.Store
+	}
+	for _, g := range groups {
+		// Сначала свежие завершённые runs, чтобы старый архив не задерживал новые.
+		for i := len(g.Runs) - 1; i >= 0; i-- {
+			run := g.Runs[i].Run
+			if run.Status == storage.RunRunning || run.FinishedAt == nil {
+				continue
+			}
+			artifact, err := report.Generate(ctx, stores[g.GroupID], g.GroupID, s.csvDirectory, run.ID)
+			artifacts = append(artifacts, artifact)
+			if err != nil {
+				slog.WarnContext(ctx, "collection.csv.failed", "run_id", run.ID, "group_id", g.GroupID, "path", artifact.Path, "error_code", artifact.ErrorCode, "retry_pending", artifact.RetryPending)
+			} else if artifact.Generated {
+				slog.InfoContext(ctx, "collection.csv.generated", "run_id", run.ID, "group_id", g.GroupID, "path", artifact.Path, "ready", true)
+			}
+			if ctx.Err() != nil {
+				return artifacts
+			}
+		}
+	}
+	return artifacts
 }

@@ -47,6 +47,9 @@ func await[T any](t *testing.T, ch <-chan T) T {
 
 func testService(t *testing.T, r Registry, server *httptest.Server, options collect.RuntimeOptions) *Service {
 	t.Helper()
+	if os.Getenv("HOTEL_PARSER_CSV_DIR") == "" {
+		t.Setenv("HOTEL_PARSER_CSV_DIR", t.TempDir())
+	}
 	s, err := Open(context.Background(), os.Getenv("HOTEL_PARSER_DATABASE_URL"), r, options)
 	if err != nil {
 		t.Fatal(err)
