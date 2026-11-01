@@ -47,6 +47,7 @@ func await[T any](t *testing.T, ch <-chan T) T {
 
 func testService(t *testing.T, r Registry, server *httptest.Server, options collect.RuntimeOptions) *Service {
 	t.Helper()
+	t.Setenv("YANDEX_DISK_TOKEN", "") // Любая доставка в тестах — только через явно внедрённый mock.
 	if os.Getenv("HOTEL_PARSER_CSV_DIR") == "" {
 		t.Setenv("HOTEL_PARSER_CSV_DIR", t.TempDir())
 	}
