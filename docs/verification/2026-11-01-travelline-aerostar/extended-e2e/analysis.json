@@ -1,0 +1,6028 @@
+{
+  "verdict": "PARTIAL",
+  "implementation_errors": [],
+  "unexplained_or_unconfirmed": [],
+  "rows": [
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "los": 1,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4347",
+      "name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "6375.00",
+      "available": 7,
+      "status": "known",
+      "native_quantities": [
+        7
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "los": 1,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4350",
+      "name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "6375.00",
+      "available": 10,
+      "status": "known",
+      "native_quantities": [
+        10
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "los": 1,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "103578",
+      "name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "7650.00",
+      "available": 8,
+      "status": "known",
+      "native_quantities": [
+        8
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "los": 1,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "103580",
+      "name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "7650.00",
+      "available": 10,
+      "status": "known",
+      "native_quantities": [
+        10
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "los": 1,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4348",
+      "name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+      "area_m2": "36",
+      "min_public_price_rub": "8075.00",
+      "available": 1,
+      "status": "known",
+      "native_quantities": [
+        1
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "los": 1,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "8875",
+      "name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+      "area_m2": "36",
+      "min_public_price_rub": "8075.00",
+      "available": 4,
+      "status": "known",
+      "native_quantities": [
+        4
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "los": 1,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4349",
+      "name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+      "area_m2": "42",
+      "min_public_price_rub": "9775.00",
+      "available": 6,
+      "status": "known",
+      "native_quantities": [
+        6
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "los": 1,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "8876",
+      "name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+      "area_m2": "42",
+      "min_public_price_rub": "9775.00",
+      "available": 3,
+      "status": "known",
+      "native_quantities": [
+        3
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "los": 1,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "133917",
+      "name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "area_m2": "65",
+      "min_public_price_rub": null,
+      "available": null,
+      "status": "unknown",
+      "native_quantities": [],
+      "offers": 0,
+      "comparison": "no_public_offer_both",
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "133917"
+        }
+      ]
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "los": 1,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "250899",
+      "name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "area_m2": "65",
+      "min_public_price_rub": null,
+      "available": null,
+      "status": "unknown",
+      "native_quantities": [],
+      "offers": 0,
+      "comparison": "no_public_offer_both",
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "250899"
+        }
+      ]
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "los": 2,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4347",
+      "name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "12750.00",
+      "available": 7,
+      "status": "known",
+      "native_quantities": [
+        7
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "los": 2,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4350",
+      "name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "12750.00",
+      "available": 10,
+      "status": "known",
+      "native_quantities": [
+        10
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "los": 2,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "103578",
+      "name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "15300.00",
+      "available": 8,
+      "status": "known",
+      "native_quantities": [
+        8
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "los": 2,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "103580",
+      "name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "15300.00",
+      "available": 10,
+      "status": "known",
+      "native_quantities": [
+        10
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "los": 2,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4348",
+      "name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+      "area_m2": "36",
+      "min_public_price_rub": "16150.00",
+      "available": 1,
+      "status": "known",
+      "native_quantities": [
+        1
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "los": 2,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "8875",
+      "name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+      "area_m2": "36",
+      "min_public_price_rub": "16150.00",
+      "available": 4,
+      "status": "known",
+      "native_quantities": [
+        4
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "los": 2,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4349",
+      "name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+      "area_m2": "42",
+      "min_public_price_rub": "19550.00",
+      "available": 6,
+      "status": "known",
+      "native_quantities": [
+        6
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "los": 2,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "8876",
+      "name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+      "area_m2": "42",
+      "min_public_price_rub": "19550.00",
+      "available": 3,
+      "status": "known",
+      "native_quantities": [
+        3
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "los": 2,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "133917",
+      "name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "area_m2": "65",
+      "min_public_price_rub": null,
+      "available": null,
+      "status": "unknown",
+      "native_quantities": [],
+      "offers": 0,
+      "comparison": "no_public_offer_both",
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "133917"
+        }
+      ]
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "los": 2,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "250899",
+      "name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "area_m2": "65",
+      "min_public_price_rub": null,
+      "available": null,
+      "status": "unknown",
+      "native_quantities": [],
+      "offers": 0,
+      "comparison": "no_public_offer_both",
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "250899"
+        }
+      ]
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "los": 3,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4347",
+      "name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "18615.00",
+      "available": 7,
+      "status": "known",
+      "native_quantities": [
+        7
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "los": 3,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4350",
+      "name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "18615.00",
+      "available": 9,
+      "status": "known",
+      "native_quantities": [
+        9
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "los": 3,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "103578",
+      "name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "22440.00",
+      "available": 8,
+      "status": "known",
+      "native_quantities": [
+        8
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "los": 3,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "103580",
+      "name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+      "area_m2": "20",
+      "min_public_price_rub": "22440.00",
+      "available": 3,
+      "status": "known",
+      "native_quantities": [
+        3
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "los": 3,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4348",
+      "name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+      "area_m2": "36",
+      "min_public_price_rub": "23715.00",
+      "available": 1,
+      "status": "known",
+      "native_quantities": [
+        1
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "los": 3,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "8875",
+      "name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+      "area_m2": "36",
+      "min_public_price_rub": "23715.00",
+      "available": 4,
+      "status": "known",
+      "native_quantities": [
+        4
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "los": 3,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "4349",
+      "name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+      "area_m2": "42",
+      "min_public_price_rub": "28815.00",
+      "available": 6,
+      "status": "known",
+      "native_quantities": [
+        6
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "los": 3,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "8876",
+      "name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+      "area_m2": "42",
+      "min_public_price_rub": "28815.00",
+      "available": 3,
+      "status": "known",
+      "native_quantities": [
+        3
+      ],
+      "offers": 5,
+      "comparison": "match",
+      "warnings": []
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "los": 3,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "133917",
+      "name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "area_m2": "65",
+      "min_public_price_rub": null,
+      "available": null,
+      "status": "unknown",
+      "native_quantities": [],
+      "offers": 0,
+      "comparison": "no_public_offer_both",
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "133917"
+        }
+      ]
+    },
+    {
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "los": 3,
+      "adults": 2,
+      "rooms": 1,
+      "category_id": "250899",
+      "name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "area_m2": "65",
+      "min_public_price_rub": null,
+      "available": null,
+      "status": "unknown",
+      "native_quantities": [],
+      "offers": 0,
+      "comparison": "no_public_offer_both",
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "250899"
+        }
+      ]
+    }
+  ],
+  "daily_price_checks": [
+    {
+      "los": 1,
+      "category": "4347",
+      "rate": "128311",
+      "total": "6375.0",
+      "daily_sum": "6375.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4347",
+      "rate": "128299",
+      "total": "7500.0",
+      "daily_sum": "7500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4347",
+      "rate": "128337",
+      "total": "8925.0",
+      "daily_sum": "8925.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4347",
+      "rate": "128301",
+      "total": "10500.0",
+      "daily_sum": "10500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4347",
+      "rate": "917131",
+      "total": "11325.0",
+      "daily_sum": "11325.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4350",
+      "rate": "128311",
+      "total": "6375.0",
+      "daily_sum": "6375.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4350",
+      "rate": "128299",
+      "total": "7500.0",
+      "daily_sum": "7500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4350",
+      "rate": "128337",
+      "total": "8925.0",
+      "daily_sum": "8925.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4350",
+      "rate": "128301",
+      "total": "10500.0",
+      "daily_sum": "10500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4350",
+      "rate": "917131",
+      "total": "11325.0",
+      "daily_sum": "11325.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "103578",
+      "rate": "128311",
+      "total": "7650.0",
+      "daily_sum": "7650.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "103578",
+      "rate": "128299",
+      "total": "9000.0",
+      "daily_sum": "9000.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "103578",
+      "rate": "128337",
+      "total": "10200.0",
+      "daily_sum": "10200.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "103578",
+      "rate": "128301",
+      "total": "12000.0",
+      "daily_sum": "12000.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "103578",
+      "rate": "917131",
+      "total": "12600.0",
+      "daily_sum": "12600.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "103580",
+      "rate": "128311",
+      "total": "7650.0",
+      "daily_sum": "7650.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "103580",
+      "rate": "128299",
+      "total": "9000.0",
+      "daily_sum": "9000.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "103580",
+      "rate": "128337",
+      "total": "10200.0",
+      "daily_sum": "10200.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "103580",
+      "rate": "128301",
+      "total": "12000.0",
+      "daily_sum": "12000.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "103580",
+      "rate": "917131",
+      "total": "12600.0",
+      "daily_sum": "12600.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4348",
+      "rate": "128311",
+      "total": "8075.0",
+      "daily_sum": "8075.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4348",
+      "rate": "128299",
+      "total": "9500.0",
+      "daily_sum": "9500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4348",
+      "rate": "128337",
+      "total": "10625.0",
+      "daily_sum": "10625.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4348",
+      "rate": "128301",
+      "total": "12500.0",
+      "daily_sum": "12500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4348",
+      "rate": "917131",
+      "total": "13025.0",
+      "daily_sum": "13025.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "8875",
+      "rate": "128311",
+      "total": "8075.0",
+      "daily_sum": "8075.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "8875",
+      "rate": "128299",
+      "total": "9500.0",
+      "daily_sum": "9500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "8875",
+      "rate": "128337",
+      "total": "10625.0",
+      "daily_sum": "10625.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "8875",
+      "rate": "128301",
+      "total": "12500.0",
+      "daily_sum": "12500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "8875",
+      "rate": "917131",
+      "total": "13025.0",
+      "daily_sum": "13025.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4349",
+      "rate": "128311",
+      "total": "9775.0",
+      "daily_sum": "9775.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4349",
+      "rate": "128299",
+      "total": "11500.0",
+      "daily_sum": "11500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4349",
+      "rate": "128337",
+      "total": "12325.0",
+      "daily_sum": "12325.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4349",
+      "rate": "128301",
+      "total": "14500.0",
+      "daily_sum": "14500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "4349",
+      "rate": "917131",
+      "total": "14725.0",
+      "daily_sum": "14725.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "8876",
+      "rate": "128311",
+      "total": "9775.0",
+      "daily_sum": "9775.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "8876",
+      "rate": "128299",
+      "total": "11500.0",
+      "daily_sum": "11500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "8876",
+      "rate": "128337",
+      "total": "12325.0",
+      "daily_sum": "12325.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "8876",
+      "rate": "128301",
+      "total": "14500.0",
+      "daily_sum": "14500.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 1,
+      "category": "8876",
+      "rate": "917131",
+      "total": "14725.0",
+      "daily_sum": "14725.0",
+      "dates": [
+        "2026-11-17"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4347",
+      "rate": "128311",
+      "total": "12750.0",
+      "daily_sum": "12750.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4347",
+      "rate": "128299",
+      "total": "15000.0",
+      "daily_sum": "15000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4347",
+      "rate": "128337",
+      "total": "17850.0",
+      "daily_sum": "17850.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4347",
+      "rate": "128301",
+      "total": "21000.0",
+      "daily_sum": "21000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4347",
+      "rate": "917131",
+      "total": "22650.0",
+      "daily_sum": "22650.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4350",
+      "rate": "128311",
+      "total": "12750.0",
+      "daily_sum": "12750.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4350",
+      "rate": "128299",
+      "total": "15000.0",
+      "daily_sum": "15000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4350",
+      "rate": "128337",
+      "total": "17850.0",
+      "daily_sum": "17850.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4350",
+      "rate": "128301",
+      "total": "21000.0",
+      "daily_sum": "21000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4350",
+      "rate": "917131",
+      "total": "22650.0",
+      "daily_sum": "22650.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "103578",
+      "rate": "128311",
+      "total": "15300.0",
+      "daily_sum": "15300.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "103578",
+      "rate": "128299",
+      "total": "18000.0",
+      "daily_sum": "18000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "103578",
+      "rate": "128337",
+      "total": "20400.0",
+      "daily_sum": "20400.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "103578",
+      "rate": "128301",
+      "total": "24000.0",
+      "daily_sum": "24000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "103578",
+      "rate": "917131",
+      "total": "25200.0",
+      "daily_sum": "25200.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "103580",
+      "rate": "128311",
+      "total": "15300.0",
+      "daily_sum": "15300.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "103580",
+      "rate": "128299",
+      "total": "18000.0",
+      "daily_sum": "18000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "103580",
+      "rate": "128337",
+      "total": "20400.0",
+      "daily_sum": "20400.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "103580",
+      "rate": "128301",
+      "total": "24000.0",
+      "daily_sum": "24000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "103580",
+      "rate": "917131",
+      "total": "25200.0",
+      "daily_sum": "25200.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4348",
+      "rate": "128311",
+      "total": "16150.0",
+      "daily_sum": "16150.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4348",
+      "rate": "128299",
+      "total": "19000.0",
+      "daily_sum": "19000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4348",
+      "rate": "128337",
+      "total": "21250.0",
+      "daily_sum": "21250.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4348",
+      "rate": "128301",
+      "total": "25000.0",
+      "daily_sum": "25000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4348",
+      "rate": "917131",
+      "total": "26050.0",
+      "daily_sum": "26050.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "8875",
+      "rate": "128311",
+      "total": "16150.0",
+      "daily_sum": "16150.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "8875",
+      "rate": "128299",
+      "total": "19000.0",
+      "daily_sum": "19000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "8875",
+      "rate": "128337",
+      "total": "21250.0",
+      "daily_sum": "21250.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "8875",
+      "rate": "128301",
+      "total": "25000.0",
+      "daily_sum": "25000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "8875",
+      "rate": "917131",
+      "total": "26050.0",
+      "daily_sum": "26050.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4349",
+      "rate": "128311",
+      "total": "19550.0",
+      "daily_sum": "19550.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4349",
+      "rate": "128299",
+      "total": "23000.0",
+      "daily_sum": "23000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4349",
+      "rate": "128337",
+      "total": "24650.0",
+      "daily_sum": "24650.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4349",
+      "rate": "128301",
+      "total": "29000.0",
+      "daily_sum": "29000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "4349",
+      "rate": "917131",
+      "total": "29450.0",
+      "daily_sum": "29450.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "8876",
+      "rate": "128311",
+      "total": "19550.0",
+      "daily_sum": "19550.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "8876",
+      "rate": "128299",
+      "total": "23000.0",
+      "daily_sum": "23000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "8876",
+      "rate": "128337",
+      "total": "24650.0",
+      "daily_sum": "24650.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "8876",
+      "rate": "128301",
+      "total": "29000.0",
+      "daily_sum": "29000.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 2,
+      "category": "8876",
+      "rate": "917131",
+      "total": "29450.0",
+      "daily_sum": "29450.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4347",
+      "rate": "128311",
+      "total": "18615.0",
+      "daily_sum": "18615.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4347",
+      "rate": "128299",
+      "total": "21900.0",
+      "daily_sum": "21900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4347",
+      "rate": "128337",
+      "total": "26265.0",
+      "daily_sum": "26265.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4347",
+      "rate": "128301",
+      "total": "30900.0",
+      "daily_sum": "30900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4347",
+      "rate": "917131",
+      "total": "33465.0",
+      "daily_sum": "33465.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4350",
+      "rate": "128311",
+      "total": "18615.0",
+      "daily_sum": "18615.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4350",
+      "rate": "128299",
+      "total": "21900.0",
+      "daily_sum": "21900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4350",
+      "rate": "128337",
+      "total": "26265.0",
+      "daily_sum": "26265.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4350",
+      "rate": "128301",
+      "total": "30900.0",
+      "daily_sum": "30900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4350",
+      "rate": "917131",
+      "total": "33465.0",
+      "daily_sum": "33465.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "103578",
+      "rate": "128311",
+      "total": "22440.0",
+      "daily_sum": "22440.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "103578",
+      "rate": "128299",
+      "total": "26400.0",
+      "daily_sum": "26400.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "103578",
+      "rate": "128337",
+      "total": "30090.0",
+      "daily_sum": "30090.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "103578",
+      "rate": "128301",
+      "total": "35400.0",
+      "daily_sum": "35400.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "103578",
+      "rate": "917131",
+      "total": "37290.0",
+      "daily_sum": "37290.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "103580",
+      "rate": "128311",
+      "total": "22440.0",
+      "daily_sum": "22440.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "103580",
+      "rate": "128299",
+      "total": "26400.0",
+      "daily_sum": "26400.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "103580",
+      "rate": "128337",
+      "total": "30090.0",
+      "daily_sum": "30090.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "103580",
+      "rate": "128301",
+      "total": "35400.0",
+      "daily_sum": "35400.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "103580",
+      "rate": "917131",
+      "total": "37290.0",
+      "daily_sum": "37290.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4348",
+      "rate": "128311",
+      "total": "23715.0",
+      "daily_sum": "23715.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4348",
+      "rate": "128299",
+      "total": "27900.0",
+      "daily_sum": "27900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4348",
+      "rate": "128337",
+      "total": "31365.0",
+      "daily_sum": "31365.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4348",
+      "rate": "128301",
+      "total": "36900.0",
+      "daily_sum": "36900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4348",
+      "rate": "917131",
+      "total": "38565.0",
+      "daily_sum": "38565.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "8875",
+      "rate": "128311",
+      "total": "23715.0",
+      "daily_sum": "23715.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "8875",
+      "rate": "128299",
+      "total": "27900.0",
+      "daily_sum": "27900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "8875",
+      "rate": "128337",
+      "total": "31365.0",
+      "daily_sum": "31365.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "8875",
+      "rate": "128301",
+      "total": "36900.0",
+      "daily_sum": "36900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "8875",
+      "rate": "917131",
+      "total": "38565.0",
+      "daily_sum": "38565.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4349",
+      "rate": "128311",
+      "total": "28815.0",
+      "daily_sum": "28815.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4349",
+      "rate": "128299",
+      "total": "33900.0",
+      "daily_sum": "33900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4349",
+      "rate": "128337",
+      "total": "36465.0",
+      "daily_sum": "36465.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4349",
+      "rate": "128301",
+      "total": "42900.0",
+      "daily_sum": "42900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "4349",
+      "rate": "917131",
+      "total": "43665.0",
+      "daily_sum": "43665.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "8876",
+      "rate": "128311",
+      "total": "28815.0",
+      "daily_sum": "28815.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "8876",
+      "rate": "128299",
+      "total": "33900.0",
+      "daily_sum": "33900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "8876",
+      "rate": "128337",
+      "total": "36465.0",
+      "daily_sum": "36465.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "8876",
+      "rate": "128301",
+      "total": "42900.0",
+      "daily_sum": "42900.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    },
+    {
+      "los": 3,
+      "category": "8876",
+      "rate": "917131",
+      "total": "43665.0",
+      "daily_sum": "43665.0",
+      "dates": [
+        "2026-11-17",
+        "2026-11-18",
+        "2026-11-19"
+      ],
+      "ok": true
+    }
+  ],
+  "offer_comparison": [
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128299",
+      "price": "7500.0",
+      "quantity": 7,
+      "quota_reference": "3987961299",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "7500",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "328859344",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128301",
+      "price": "10500.0",
+      "quantity": 7,
+      "quota_reference": "3987961299",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "10500",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "328859344",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128311",
+      "price": "6375.0",
+      "quantity": 7,
+      "quota_reference": "3987961299",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "6375",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "328859344",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128337",
+      "price": "8925.0",
+      "quantity": 7,
+      "quota_reference": "3987961299",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "8925",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "328859344",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "917131",
+      "price": "11325.0",
+      "quantity": 7,
+      "quota_reference": "3987961299",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "11325",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "328859344",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128299",
+      "price": "7500.0",
+      "quantity": 10,
+      "quota_reference": "2820662116",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "7500",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "424559822",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128301",
+      "price": "10500.0",
+      "quantity": 10,
+      "quota_reference": "2820662116",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "10500",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "424559822",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128311",
+      "price": "6375.0",
+      "quantity": 10,
+      "quota_reference": "2820662116",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "6375",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "424559822",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128337",
+      "price": "8925.0",
+      "quantity": 10,
+      "quota_reference": "2820662116",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "8925",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "424559822",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "917131",
+      "price": "11325.0",
+      "quantity": 10,
+      "quota_reference": "2820662116",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "11325",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "424559822",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128299",
+      "price": "9000.0",
+      "quantity": 8,
+      "quota_reference": "1959424165",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "9000",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2280619910",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128301",
+      "price": "12000.0",
+      "quantity": 8,
+      "quota_reference": "1959424165",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "12000",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2280619910",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128311",
+      "price": "7650.0",
+      "quantity": 8,
+      "quota_reference": "1959424165",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "7650",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2280619910",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128337",
+      "price": "10200.0",
+      "quantity": 8,
+      "quota_reference": "1959424165",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "10200",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2280619910",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "917131",
+      "price": "12600.0",
+      "quantity": 8,
+      "quota_reference": "1959424165",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "12600",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2280619910",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128299",
+      "price": "9000.0",
+      "quantity": 10,
+      "quota_reference": "1794851880",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "9000",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "3031939145",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128301",
+      "price": "12000.0",
+      "quantity": 10,
+      "quota_reference": "1794851880",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "12000",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "3031939145",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128311",
+      "price": "7650.0",
+      "quantity": 10,
+      "quota_reference": "1794851880",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "7650",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "3031939145",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128337",
+      "price": "10200.0",
+      "quantity": 10,
+      "quota_reference": "1794851880",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "10200",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "3031939145",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "917131",
+      "price": "12600.0",
+      "quantity": 10,
+      "quota_reference": "1794851880",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "12600",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "3031939145",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128299",
+      "price": "9500.0",
+      "quantity": 1,
+      "quota_reference": "2542879362",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "9500",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "704328959",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128301",
+      "price": "12500.0",
+      "quantity": 1,
+      "quota_reference": "2542879362",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "12500",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "704328959",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128311",
+      "price": "8075.0",
+      "quantity": 1,
+      "quota_reference": "2542879362",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "8075",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "704328959",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128337",
+      "price": "10625.0",
+      "quantity": 1,
+      "quota_reference": "2542879362",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "10625",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "704328959",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "917131",
+      "price": "13025.0",
+      "quantity": 1,
+      "quota_reference": "2542879362",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "13025",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "704328959",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128299",
+      "price": "9500.0",
+      "quantity": 4,
+      "quota_reference": "3036325970",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "9500",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "927922162",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128301",
+      "price": "12500.0",
+      "quantity": 4,
+      "quota_reference": "3036325970",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "12500",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "927922162",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128311",
+      "price": "8075.0",
+      "quantity": 4,
+      "quota_reference": "3036325970",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "8075",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "927922162",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128337",
+      "price": "10625.0",
+      "quantity": 4,
+      "quota_reference": "3036325970",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "10625",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "927922162",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "917131",
+      "price": "13025.0",
+      "quantity": 4,
+      "quota_reference": "3036325970",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "13025",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "927922162",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128299",
+      "price": "11500.0",
+      "quantity": 6,
+      "quota_reference": "3211736445",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "11500",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "1381253195",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128301",
+      "price": "14500.0",
+      "quantity": 6,
+      "quota_reference": "3211736445",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "14500",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "1381253195",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128311",
+      "price": "9775.0",
+      "quantity": 6,
+      "quota_reference": "3211736445",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "9775",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "1381253195",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128337",
+      "price": "12325.0",
+      "quantity": 6,
+      "quota_reference": "3211736445",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "12325",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "1381253195",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "917131",
+      "price": "14725.0",
+      "quantity": 6,
+      "quota_reference": "3211736445",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "14725",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "1381253195",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128299",
+      "price": "11500.0",
+      "quantity": 3,
+      "quota_reference": "3130115021",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "11500",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "2454189149",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128301",
+      "price": "14500.0",
+      "quantity": 3,
+      "quota_reference": "3130115021",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "14500",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "2454189149",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128311",
+      "price": "9775.0",
+      "quantity": 3,
+      "quota_reference": "3130115021",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "9775",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "2454189149",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128337",
+      "price": "12325.0",
+      "quantity": 3,
+      "quota_reference": "3130115021",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "12325",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "2454189149",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 1,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "917131",
+      "price": "14725.0",
+      "quantity": 3,
+      "quota_reference": "3130115021",
+      "source_started_at": "2026-11-01T18:44:01.646858383Z",
+      "control_started_at": "2026-11-01T18:44:02.425973425Z",
+      "control_quotes": [
+        {
+          "price": "14725",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "2454189149",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128299",
+      "price": "15000.0",
+      "quantity": 7,
+      "quota_reference": "643819087",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "15000",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "3685979483",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128301",
+      "price": "21000.0",
+      "quantity": 7,
+      "quota_reference": "643819087",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "21000",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "3685979483",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128311",
+      "price": "12750.0",
+      "quantity": 7,
+      "quota_reference": "643819087",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "12750",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "3685979483",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128337",
+      "price": "17850.0",
+      "quantity": 7,
+      "quota_reference": "643819087",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "17850",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "3685979483",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "917131",
+      "price": "22650.0",
+      "quantity": 7,
+      "quota_reference": "643819087",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "22650",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "3685979483",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128299",
+      "price": "15000.0",
+      "quantity": 10,
+      "quota_reference": "4063933958",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "15000",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "1363135315",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128301",
+      "price": "21000.0",
+      "quantity": 10,
+      "quota_reference": "4063933958",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "21000",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "1363135315",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128311",
+      "price": "12750.0",
+      "quantity": 10,
+      "quota_reference": "4063933958",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "12750",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "1363135315",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128337",
+      "price": "17850.0",
+      "quantity": 10,
+      "quota_reference": "4063933958",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "17850",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "1363135315",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "917131",
+      "price": "22650.0",
+      "quantity": 10,
+      "quota_reference": "4063933958",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "22650",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "1363135315",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128299",
+      "price": "18000.0",
+      "quantity": 8,
+      "quota_reference": "3598418073",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "18000",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2060507591",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128301",
+      "price": "24000.0",
+      "quantity": 8,
+      "quota_reference": "3598418073",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "24000",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2060507591",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128311",
+      "price": "15300.0",
+      "quantity": 8,
+      "quota_reference": "3598418073",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "15300",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2060507591",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128337",
+      "price": "20400.0",
+      "quantity": 8,
+      "quota_reference": "3598418073",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "20400",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2060507591",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "917131",
+      "price": "25200.0",
+      "quantity": 8,
+      "quota_reference": "3598418073",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "25200",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2060507591",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128299",
+      "price": "18000.0",
+      "quantity": 10,
+      "quota_reference": "75544145",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "18000",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "2899181931",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128301",
+      "price": "24000.0",
+      "quantity": 10,
+      "quota_reference": "75544145",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "24000",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "2899181931",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128311",
+      "price": "15300.0",
+      "quantity": 10,
+      "quota_reference": "75544145",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "15300",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "2899181931",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128337",
+      "price": "20400.0",
+      "quantity": 10,
+      "quota_reference": "75544145",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "20400",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "2899181931",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "917131",
+      "price": "25200.0",
+      "quantity": 10,
+      "quota_reference": "75544145",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "25200",
+          "currency": "RUB",
+          "quantity": 10,
+          "quota_reference": "2899181931",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128299",
+      "price": "19000.0",
+      "quantity": 1,
+      "quota_reference": "2680430255",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "19000",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "3737676188",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128301",
+      "price": "25000.0",
+      "quantity": 1,
+      "quota_reference": "2680430255",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "25000",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "3737676188",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128311",
+      "price": "16150.0",
+      "quantity": 1,
+      "quota_reference": "2680430255",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "16150",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "3737676188",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128337",
+      "price": "21250.0",
+      "quantity": 1,
+      "quota_reference": "2680430255",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "21250",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "3737676188",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "917131",
+      "price": "26050.0",
+      "quantity": 1,
+      "quota_reference": "2680430255",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "26050",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "3737676188",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128299",
+      "price": "19000.0",
+      "quantity": 4,
+      "quota_reference": "655926211",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "19000",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "2810320531",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128301",
+      "price": "25000.0",
+      "quantity": 4,
+      "quota_reference": "655926211",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "25000",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "2810320531",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128311",
+      "price": "16150.0",
+      "quantity": 4,
+      "quota_reference": "655926211",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "16150",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "2810320531",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128337",
+      "price": "21250.0",
+      "quantity": 4,
+      "quota_reference": "655926211",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "21250",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "2810320531",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "917131",
+      "price": "26050.0",
+      "quantity": 4,
+      "quota_reference": "655926211",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "26050",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "2810320531",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128299",
+      "price": "23000.0",
+      "quantity": 6,
+      "quota_reference": "29686863",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "23000",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "2193797770",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128301",
+      "price": "29000.0",
+      "quantity": 6,
+      "quota_reference": "29686863",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "29000",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "2193797770",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128311",
+      "price": "19550.0",
+      "quantity": 6,
+      "quota_reference": "29686863",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "19550",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "2193797770",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128337",
+      "price": "24650.0",
+      "quantity": 6,
+      "quota_reference": "29686863",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "24650",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "2193797770",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "917131",
+      "price": "29450.0",
+      "quantity": 6,
+      "quota_reference": "29686863",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "29450",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "2193797770",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128299",
+      "price": "23000.0",
+      "quantity": 3,
+      "quota_reference": "2219412710",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "23000",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "679818093",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128301",
+      "price": "29000.0",
+      "quantity": 3,
+      "quota_reference": "2219412710",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "29000",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "679818093",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128311",
+      "price": "19550.0",
+      "quantity": 3,
+      "quota_reference": "2219412710",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "19550",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "679818093",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128337",
+      "price": "24650.0",
+      "quantity": 3,
+      "quota_reference": "2219412710",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "24650",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "679818093",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 2,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-19",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "917131",
+      "price": "29450.0",
+      "quantity": 3,
+      "quota_reference": "2219412710",
+      "source_started_at": "2026-11-01T18:44:09.139868053Z",
+      "control_started_at": "2026-11-01T18:44:09.90945372Z",
+      "control_quotes": [
+        {
+          "price": "29450",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "679818093",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128299",
+      "price": "21900.0",
+      "quantity": 7,
+      "quota_reference": "328859344",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "21900",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "753388005",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128301",
+      "price": "30900.0",
+      "quantity": 7,
+      "quota_reference": "328859344",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "30900",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "753388005",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128311",
+      "price": "18615.0",
+      "quantity": 7,
+      "quota_reference": "328859344",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "18615",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "753388005",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "128337",
+      "price": "26265.0",
+      "quantity": 7,
+      "quota_reference": "328859344",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "26265",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "753388005",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4347",
+      "variant": "4347:11511",
+      "rate": "917131",
+      "price": "33465.0",
+      "quantity": 7,
+      "quota_reference": "328859344",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "33465",
+          "currency": "RUB",
+          "quantity": 7,
+          "quota_reference": "753388005",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128299",
+      "price": "21900.0",
+      "quantity": 9,
+      "quota_reference": "424559822",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "21900",
+          "currency": "RUB",
+          "quantity": 9,
+          "quota_reference": "3755737312",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128301",
+      "price": "30900.0",
+      "quantity": 9,
+      "quota_reference": "424559822",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "30900",
+          "currency": "RUB",
+          "quantity": 9,
+          "quota_reference": "3755737312",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128311",
+      "price": "18615.0",
+      "quantity": 9,
+      "quota_reference": "424559822",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "18615",
+          "currency": "RUB",
+          "quantity": 9,
+          "quota_reference": "3755737312",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "128337",
+      "price": "26265.0",
+      "quantity": 9,
+      "quota_reference": "424559822",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "26265",
+          "currency": "RUB",
+          "quantity": 9,
+          "quota_reference": "3755737312",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4350",
+      "variant": "4350:11513",
+      "rate": "917131",
+      "price": "33465.0",
+      "quantity": 9,
+      "quota_reference": "424559822",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "33465",
+          "currency": "RUB",
+          "quantity": 9,
+          "quota_reference": "3755737312",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128299",
+      "price": "26400.0",
+      "quantity": 8,
+      "quota_reference": "2280619910",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "26400",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2317953520",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128301",
+      "price": "35400.0",
+      "quantity": 8,
+      "quota_reference": "2280619910",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "35400",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2317953520",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128311",
+      "price": "22440.0",
+      "quantity": 8,
+      "quota_reference": "2280619910",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "22440",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2317953520",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "128337",
+      "price": "30090.0",
+      "quantity": 8,
+      "quota_reference": "2280619910",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "30090",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2317953520",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "103578",
+      "variant": "103578:225038",
+      "rate": "917131",
+      "price": "37290.0",
+      "quantity": 8,
+      "quota_reference": "2280619910",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "37290",
+          "currency": "RUB",
+          "quantity": 8,
+          "quota_reference": "2317953520",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128299",
+      "price": "26400.0",
+      "quantity": 3,
+      "quota_reference": "3031939145",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "26400",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "1962688830",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128301",
+      "price": "35400.0",
+      "quantity": 3,
+      "quota_reference": "3031939145",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "35400",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "1962688830",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128311",
+      "price": "22440.0",
+      "quantity": 3,
+      "quota_reference": "3031939145",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "22440",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "1962688830",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "128337",
+      "price": "30090.0",
+      "quantity": 3,
+      "quota_reference": "3031939145",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "30090",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "1962688830",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "103580",
+      "variant": "103580:225041",
+      "rate": "917131",
+      "price": "37290.0",
+      "quantity": 3,
+      "quota_reference": "3031939145",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "37290",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "1962688830",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128299",
+      "price": "27900.0",
+      "quantity": 1,
+      "quota_reference": "704328959",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "27900",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "533745557",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128301",
+      "price": "36900.0",
+      "quantity": 1,
+      "quota_reference": "704328959",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "36900",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "533745557",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128311",
+      "price": "23715.0",
+      "quantity": 1,
+      "quota_reference": "704328959",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "23715",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "533745557",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "128337",
+      "price": "31365.0",
+      "quantity": 1,
+      "quota_reference": "704328959",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "31365",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "533745557",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4348",
+      "variant": "4348:11515",
+      "rate": "917131",
+      "price": "38565.0",
+      "quantity": 1,
+      "quota_reference": "704328959",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "38565",
+          "currency": "RUB",
+          "quantity": 1,
+          "quota_reference": "533745557",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128299",
+      "price": "27900.0",
+      "quantity": 4,
+      "quota_reference": "927922162",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "27900",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "2523944028",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128301",
+      "price": "36900.0",
+      "quantity": 4,
+      "quota_reference": "927922162",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "36900",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "2523944028",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128311",
+      "price": "23715.0",
+      "quantity": 4,
+      "quota_reference": "927922162",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "23715",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "2523944028",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "128337",
+      "price": "31365.0",
+      "quantity": 4,
+      "quota_reference": "927922162",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "31365",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "2523944028",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "8875",
+      "variant": "8875:13607",
+      "rate": "917131",
+      "price": "38565.0",
+      "quantity": 4,
+      "quota_reference": "927922162",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "38565",
+          "currency": "RUB",
+          "quantity": 4,
+          "quota_reference": "2523944028",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128299",
+      "price": "33900.0",
+      "quantity": 6,
+      "quota_reference": "1381253195",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "33900",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "2368502289",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128301",
+      "price": "42900.0",
+      "quantity": 6,
+      "quota_reference": "1381253195",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "42900",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "2368502289",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128311",
+      "price": "28815.0",
+      "quantity": 6,
+      "quota_reference": "1381253195",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "28815",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "2368502289",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "128337",
+      "price": "36465.0",
+      "quantity": 6,
+      "quota_reference": "1381253195",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "36465",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "2368502289",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "4349",
+      "variant": "4349:13610",
+      "rate": "917131",
+      "price": "43665.0",
+      "quantity": 6,
+      "quota_reference": "1381253195",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "43665",
+          "currency": "RUB",
+          "quantity": 6,
+          "quota_reference": "2368502289",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128299",
+      "price": "33900.0",
+      "quantity": 3,
+      "quota_reference": "2454189149",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "33900",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "3611990382",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128301",
+      "price": "42900.0",
+      "quantity": 3,
+      "quota_reference": "2454189149",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "42900",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "3611990382",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128311",
+      "price": "28815.0",
+      "quantity": 3,
+      "quota_reference": "2454189149",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "28815",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "3611990382",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "128337",
+      "price": "36465.0",
+      "quantity": 3,
+      "quota_reference": "2454189149",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "36465",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "3611990382",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    },
+    {
+      "los": 3,
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-20",
+      "category": "8876",
+      "variant": "8876:13609",
+      "rate": "917131",
+      "price": "43665.0",
+      "quantity": 3,
+      "quota_reference": "2454189149",
+      "source_started_at": "2026-11-01T18:44:05.841244593Z",
+      "control_started_at": "2026-11-01T18:44:06.658828427Z",
+      "control_quotes": [
+        {
+          "price": "43665",
+          "currency": "RUB",
+          "quantity": 3,
+          "quota_reference": "3611990382",
+          "price_match": true,
+          "quantity_match": true,
+          "scenario_match": true
+        }
+      ]
+    }
+  ],
+  "unknown_public_rates": [],
+  "counts": {
+    "collection_attempts": 3,
+    "collection_runs": 1,
+    "observation_offers": 120,
+    "observation_variants": 24,
+    "observations": 30,
+    "scenario_jobs": 3
+  },
+  "duplicates": {
+    "attempts": 0,
+    "jobs": 0,
+    "offers": 0
+  },
+  "replay_no_http": true,
+  "HTTP_requests": 9,
+  "min_source_start_gap_ms": 1001.6160000000001,
+  "duration_ms": 12281.51,
+  "data_integrity_verdict": "PASS",
+  "unconfirmed_categories": [
+    "133917",
+    "250899"
+  ],
+  "historical_quota_discrepancy": "Previous API=10 / AZIMUT=9 remains unexplained; current paired snapshots agree at 7.",
+  "metadata_comparison": [
+    {
+      "los": 1,
+      "category_id": "4347",
+      "source_name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "4347",
+        "list_room_code": [
+          4347
+        ],
+        "name": "Стандарт (с двуспальной кроватью)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "4347",
+        "name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 1,
+      "category_id": "4350",
+      "source_name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "4350",
+        "list_room_code": [
+          4350
+        ],
+        "name": "Стандарт (с двумя кроватями)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "4350",
+        "name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 1,
+      "category_id": "103578",
+      "source_name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "103578",
+        "list_room_code": [
+          103578
+        ],
+        "name": "Комфорт (с двуспальной кроватью)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "103578",
+        "name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 1,
+      "category_id": "103580",
+      "source_name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "103580",
+        "list_room_code": [
+          103580
+        ],
+        "name": "Комфорт (с двумя кроватями)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "103580",
+        "name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 1,
+      "category_id": "4348",
+      "source_name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+      "source_area_m2": 36,
+      "AZIMUT_display": {
+        "code": "4348",
+        "list_room_code": [
+          4348
+        ],
+        "name": "Улучшенный (с двуспальной кроватью)",
+        "roomArea": "36"
+      },
+      "AZIMUT_backend": {
+        "code": "4348",
+        "name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+        "size": {
+          "value": 36,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 1,
+      "category_id": "8875",
+      "source_name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+      "source_area_m2": 36,
+      "AZIMUT_display": {
+        "code": "8875",
+        "list_room_code": [
+          8875
+        ],
+        "name": "Улучшенный (с двумя кроватями)",
+        "roomArea": "36"
+      },
+      "AZIMUT_backend": {
+        "code": "8875",
+        "name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+        "size": {
+          "value": 36,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 1,
+      "category_id": "4349",
+      "source_name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+      "source_area_m2": 42,
+      "AZIMUT_display": {
+        "code": "4349",
+        "list_room_code": [
+          4349
+        ],
+        "name": "Полулюкс (с двуспальной кроватью)",
+        "roomArea": "42"
+      },
+      "AZIMUT_backend": {
+        "code": "4349",
+        "name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+        "size": {
+          "value": 42,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 1,
+      "category_id": "8876",
+      "source_name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+      "source_area_m2": 42,
+      "AZIMUT_display": {
+        "code": "8876",
+        "list_room_code": [
+          8876
+        ],
+        "name": "Полулюкс (с двумя кроватями)",
+        "roomArea": "42"
+      },
+      "AZIMUT_backend": {
+        "code": "8876",
+        "name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+        "size": {
+          "value": 42,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 1,
+      "category_id": "133917",
+      "source_name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "source_area_m2": 65,
+      "AZIMUT_display": {
+        "code": "133917",
+        "list_room_code": [
+          133917
+        ],
+        "name": "Апартаменты",
+        "roomArea": "65"
+      },
+      "AZIMUT_backend": {
+        "code": "133917",
+        "name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+        "size": {
+          "value": 65,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 1,
+      "category_id": "250899",
+      "source_name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "source_area_m2": 65,
+      "AZIMUT_display": {
+        "code": "250899",
+        "list_room_code": [
+          250899
+        ],
+        "name": "Бизнес Апартаменты",
+        "roomArea": "65"
+      },
+      "AZIMUT_backend": {
+        "code": "250899",
+        "name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+        "size": {
+          "value": 65,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 2,
+      "category_id": "4347",
+      "source_name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "4347",
+        "list_room_code": [
+          4347
+        ],
+        "name": "Стандарт (с двуспальной кроватью)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "4347",
+        "name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 2,
+      "category_id": "4350",
+      "source_name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "4350",
+        "list_room_code": [
+          4350
+        ],
+        "name": "Стандарт (с двумя кроватями)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "4350",
+        "name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 2,
+      "category_id": "103578",
+      "source_name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "103578",
+        "list_room_code": [
+          103578
+        ],
+        "name": "Комфорт (с двуспальной кроватью)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "103578",
+        "name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 2,
+      "category_id": "103580",
+      "source_name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "103580",
+        "list_room_code": [
+          103580
+        ],
+        "name": "Комфорт (с двумя кроватями)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "103580",
+        "name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 2,
+      "category_id": "4348",
+      "source_name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+      "source_area_m2": 36,
+      "AZIMUT_display": {
+        "code": "4348",
+        "list_room_code": [
+          4348
+        ],
+        "name": "Улучшенный (с двуспальной кроватью)",
+        "roomArea": "36"
+      },
+      "AZIMUT_backend": {
+        "code": "4348",
+        "name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+        "size": {
+          "value": 36,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 2,
+      "category_id": "8875",
+      "source_name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+      "source_area_m2": 36,
+      "AZIMUT_display": {
+        "code": "8875",
+        "list_room_code": [
+          8875
+        ],
+        "name": "Улучшенный (с двумя кроватями)",
+        "roomArea": "36"
+      },
+      "AZIMUT_backend": {
+        "code": "8875",
+        "name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+        "size": {
+          "value": 36,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 2,
+      "category_id": "4349",
+      "source_name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+      "source_area_m2": 42,
+      "AZIMUT_display": {
+        "code": "4349",
+        "list_room_code": [
+          4349
+        ],
+        "name": "Полулюкс (с двуспальной кроватью)",
+        "roomArea": "42"
+      },
+      "AZIMUT_backend": {
+        "code": "4349",
+        "name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+        "size": {
+          "value": 42,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 2,
+      "category_id": "8876",
+      "source_name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+      "source_area_m2": 42,
+      "AZIMUT_display": {
+        "code": "8876",
+        "list_room_code": [
+          8876
+        ],
+        "name": "Полулюкс (с двумя кроватями)",
+        "roomArea": "42"
+      },
+      "AZIMUT_backend": {
+        "code": "8876",
+        "name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+        "size": {
+          "value": 42,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 2,
+      "category_id": "133917",
+      "source_name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "source_area_m2": 65,
+      "AZIMUT_display": {
+        "code": "133917",
+        "list_room_code": [
+          133917
+        ],
+        "name": "Апартаменты",
+        "roomArea": "65"
+      },
+      "AZIMUT_backend": {
+        "code": "133917",
+        "name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+        "size": {
+          "value": 65,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 2,
+      "category_id": "250899",
+      "source_name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "source_area_m2": 65,
+      "AZIMUT_display": {
+        "code": "250899",
+        "list_room_code": [
+          250899
+        ],
+        "name": "Бизнес Апартаменты",
+        "roomArea": "65"
+      },
+      "AZIMUT_backend": {
+        "code": "250899",
+        "name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+        "size": {
+          "value": 65,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 3,
+      "category_id": "4347",
+      "source_name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "4347",
+        "list_room_code": [
+          4347
+        ],
+        "name": "Стандарт (с двуспальной кроватью)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "4347",
+        "name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 3,
+      "category_id": "4350",
+      "source_name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "4350",
+        "list_room_code": [
+          4350
+        ],
+        "name": "Стандарт (с двумя кроватями)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "4350",
+        "name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 3,
+      "category_id": "103578",
+      "source_name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "103578",
+        "list_room_code": [
+          103578
+        ],
+        "name": "Комфорт (с двуспальной кроватью)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "103578",
+        "name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 3,
+      "category_id": "103580",
+      "source_name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+      "source_area_m2": 20,
+      "AZIMUT_display": {
+        "code": "103580",
+        "list_room_code": [
+          103580
+        ],
+        "name": "Комфорт (с двумя кроватями)",
+        "roomArea": "20"
+      },
+      "AZIMUT_backend": {
+        "code": "103580",
+        "name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+        "size": {
+          "value": 20,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 3,
+      "category_id": "4348",
+      "source_name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+      "source_area_m2": 36,
+      "AZIMUT_display": {
+        "code": "4348",
+        "list_room_code": [
+          4348
+        ],
+        "name": "Улучшенный (с двуспальной кроватью)",
+        "roomArea": "36"
+      },
+      "AZIMUT_backend": {
+        "code": "4348",
+        "name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+        "size": {
+          "value": 36,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 3,
+      "category_id": "8875",
+      "source_name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+      "source_area_m2": 36,
+      "AZIMUT_display": {
+        "code": "8875",
+        "list_room_code": [
+          8875
+        ],
+        "name": "Улучшенный (с двумя кроватями)",
+        "roomArea": "36"
+      },
+      "AZIMUT_backend": {
+        "code": "8875",
+        "name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+        "size": {
+          "value": 36,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 3,
+      "category_id": "4349",
+      "source_name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+      "source_area_m2": 42,
+      "AZIMUT_display": {
+        "code": "4349",
+        "list_room_code": [
+          4349
+        ],
+        "name": "Полулюкс (с двуспальной кроватью)",
+        "roomArea": "42"
+      },
+      "AZIMUT_backend": {
+        "code": "4349",
+        "name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+        "size": {
+          "value": 42,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 3,
+      "category_id": "8876",
+      "source_name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+      "source_area_m2": 42,
+      "AZIMUT_display": {
+        "code": "8876",
+        "list_room_code": [
+          8876
+        ],
+        "name": "Полулюкс (с двумя кроватями)",
+        "roomArea": "42"
+      },
+      "AZIMUT_backend": {
+        "code": "8876",
+        "name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+        "size": {
+          "value": 42,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 3,
+      "category_id": "133917",
+      "source_name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "source_area_m2": 65,
+      "AZIMUT_display": {
+        "code": "133917",
+        "list_room_code": [
+          133917
+        ],
+        "name": "Апартаменты",
+        "roomArea": "65"
+      },
+      "AZIMUT_backend": {
+        "code": "133917",
+        "name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+        "size": {
+          "value": 65,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    },
+    {
+      "los": 3,
+      "category_id": "250899",
+      "source_name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "source_area_m2": 65,
+      "AZIMUT_display": {
+        "code": "250899",
+        "list_room_code": [
+          250899
+        ],
+        "name": "Бизнес Апартаменты",
+        "roomArea": "65"
+      },
+      "AZIMUT_backend": {
+        "code": "250899",
+        "name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+        "size": {
+          "value": 65,
+          "unit": "square_metre"
+        }
+      },
+      "area_matches": true,
+      "backend_name_matches": true
+    }
+  ],
+  "rates": [
+    {
+      "los": 1,
+      "rate_id": "128299",
+      "name": "Лучшая цена дня без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 1,
+      "rate_id": "128301",
+      "name": "Лучшая цена дня с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 1,
+      "rate_id": "128311",
+      "name": "Заранее выгодно!  Тариф без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 1,
+      "rate_id": "128337",
+      "name": "Заранее выгодно!  Тариф с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 1,
+      "rate_id": "741398",
+      "name": "AZIMUT Bonus. Лучшая цена дня с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 1,
+      "rate_id": "741402",
+      "name": "AZIMUT Bonus. Лучшая цена дня без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 1,
+      "rate_id": "741827",
+      "name": "AZIMUT Bonus. Заранее - выгодно! Тариф без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 1,
+      "rate_id": "741828",
+      "name": "AZIMUT Bonus. Заранее - выгодно! Тариф с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 1,
+      "rate_id": "751714",
+      "name": "Бронирование за баллы AZIMUT Bonus",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 1,
+        "available": true
+      }
+    },
+    {
+      "los": 1,
+      "rate_id": "917131",
+      "name": "Тариф полупансион с включенным питанием",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 2,
+      "rate_id": "128299",
+      "name": "Лучшая цена дня без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 2,
+      "rate_id": "128301",
+      "name": "Лучшая цена дня с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 2,
+      "rate_id": "128311",
+      "name": "Заранее выгодно!  Тариф без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 2,
+      "rate_id": "128337",
+      "name": "Заранее выгодно!  Тариф с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 2,
+      "rate_id": "741398",
+      "name": "AZIMUT Bonus. Лучшая цена дня с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 2,
+      "rate_id": "741402",
+      "name": "AZIMUT Bonus. Лучшая цена дня без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 2,
+      "rate_id": "741827",
+      "name": "AZIMUT Bonus. Заранее - выгодно! Тариф без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 2,
+      "rate_id": "741828",
+      "name": "AZIMUT Bonus. Заранее - выгодно! Тариф с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 2,
+      "rate_id": "751714",
+      "name": "Бронирование за баллы AZIMUT Bonus",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 1,
+        "available": true
+      }
+    },
+    {
+      "los": 2,
+      "rate_id": "917131",
+      "name": "Тариф полупансион с включенным питанием",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 3,
+      "rate_id": "128299",
+      "name": "Лучшая цена дня без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 3,
+      "rate_id": "128301",
+      "name": "Лучшая цена дня с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 3,
+      "rate_id": "128311",
+      "name": "Заранее выгодно!  Тариф без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 3,
+      "rate_id": "128337",
+      "name": "Заранее выгодно!  Тариф с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 3,
+      "rate_id": "741398",
+      "name": "AZIMUT Bonus. Лучшая цена дня с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 3,
+      "rate_id": "741402",
+      "name": "AZIMUT Bonus. Лучшая цена дня без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 3,
+      "rate_id": "741827",
+      "name": "AZIMUT Bonus. Заранее - выгодно! Тариф без завтрака",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 3,
+      "rate_id": "741828",
+      "name": "AZIMUT Bonus. Заранее - выгодно! Тариф с завтраком",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    },
+    {
+      "los": 3,
+      "rate_id": "751714",
+      "name": "Бронирование за баллы AZIMUT Bonus",
+      "raw_offers": 8,
+      "stored_offers": 0,
+      "AZIMUT_flags": {
+        "lp": 1,
+        "azimutBonusRate": 1,
+        "available": true
+      }
+    },
+    {
+      "los": 3,
+      "rate_id": "917131",
+      "name": "Тариф полупансион с включенным питанием",
+      "raw_offers": 8,
+      "stored_offers": 8,
+      "AZIMUT_flags": {
+        "lp": 0,
+        "azimutBonusRate": 0,
+        "available": true
+      }
+    }
+  ],
+  "test_schema_removed": true
+}

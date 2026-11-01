@@ -1,0 +1,338 @@
+[
+  {
+    "URL": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_info",
+    "Query": {
+      "audience": [
+        "BookingForm"
+      ],
+      "hotels[0].code": [
+        "585"
+      ],
+      "language": [
+        "ru-ru"
+      ]
+    },
+    "Headers": {
+      "Accept": "application/json",
+      "X-Requested-With": "",
+      "response.Cache-Control": "no-cache",
+      "response.Content-Type": "application/json; charset=utf-8",
+      "response.Date": "Sun, 01 Nov 2026 18:44:01 GMT"
+    },
+    "StartedAt": "2026-11-01T18:43:59.317003799Z",
+    "FinishedAt": "2026-11-01T18:44:01.643400716Z",
+    "Status": 200,
+    "Bytes": 80018,
+    "SHA256": "34b8c06c51d12c817cf5f2cd58dda736826dd15701745f13f1991f20a88ec7ab",
+    "encoded_url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_info?audience=BookingForm&hotels%5B0%5D.code=585&language=ru-ru"
+  },
+  {
+    "URL": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_availability",
+    "Query": {
+      "audience": [
+        "BookingForm"
+      ],
+      "criterions[0].adults": [
+        "2"
+      ],
+      "criterions[0].dates": [
+        "2026-11-17;2026-11-18"
+      ],
+      "criterions[0].hotels[0].code": [
+        "585"
+      ],
+      "include_all_placements": [
+        "false"
+      ],
+      "include_promo_restricted": [
+        "true"
+      ],
+      "include_rates": [
+        "true"
+      ],
+      "include_transfers": [
+        "true"
+      ],
+      "language": [
+        "ru-ru"
+      ]
+    },
+    "Headers": {
+      "Accept": "application/json",
+      "X-Requested-With": "",
+      "response.Cache-Control": "no-cache",
+      "response.Content-Type": "application/json; charset=utf-8",
+      "response.Date": "Sun, 01 Nov 2026 18:44:02 GMT"
+    },
+    "StartedAt": "2026-11-01T18:44:01.646858383Z",
+    "FinishedAt": "2026-11-01T18:44:02.403719217Z",
+    "Status": 200,
+    "Bytes": 206923,
+    "SHA256": "0202ccb7bbee2b5b5090d5ba6f0cbfbe4fb2571ffcf0a1f27584f493e0a3206e",
+    "encoded_url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_availability?audience=BookingForm&criterions%5B0%5D.adults=2&criterions%5B0%5D.dates=2026-11-17%3B2026-11-18&criterions%5B0%5D.hotels%5B0%5D.code=585&include_all_placements=false&include_promo_restricted=true&include_rates=true&include_transfers=true&language=ru-ru"
+  },
+  {
+    "URL": "https://azimuthotels.com/api/tl/availability",
+    "Query": {
+      "adults": [
+        "2"
+      ],
+      "checkIn": [
+        "2026-11-17"
+      ],
+      "checkOut": [
+        "2026-11-18"
+      ],
+      "children": [
+        ""
+      ],
+      "hotelId": [
+        "101"
+      ],
+      "lang": [
+        "ru"
+      ],
+      "promo": [
+        ""
+      ]
+    },
+    "Headers": {
+      "Accept": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      "response.Cache-Control": "no-cache, private",
+      "response.Content-Type": "application/json",
+      "response.Date": "Sun, 01 Nov 2026 18:44:04 GMT",
+      "response.ETag": "W/\"1275853692c7308437344b2b70fbc62944d77b2b\""
+    },
+    "StartedAt": "2026-11-01T18:44:02.425973425Z",
+    "FinishedAt": "2026-11-01T18:44:04.825787426Z",
+    "Status": 200,
+    "Bytes": 907148,
+    "SHA256": "35e1129175885fbc3de04e620d581247c1b488ba43dc4bd20de8487e2d9c3262",
+    "encoded_url": "https://azimuthotels.com/api/tl/availability?adults=2&checkIn=2026-11-17&checkOut=2026-11-18&children=&hotelId=101&lang=ru&promo="
+  },
+  {
+    "URL": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_info",
+    "Query": {
+      "audience": [
+        "BookingForm"
+      ],
+      "hotels[0].code": [
+        "585"
+      ],
+      "language": [
+        "ru-ru"
+      ]
+    },
+    "Headers": {
+      "Accept": "application/json",
+      "X-Requested-With": "",
+      "response.Cache-Control": "no-cache",
+      "response.Content-Type": "application/json; charset=utf-8",
+      "response.Date": "Sun, 01 Nov 2026 18:44:05 GMT"
+    },
+    "StartedAt": "2026-11-01T18:44:04.836561218Z",
+    "FinishedAt": "2026-11-01T18:44:05.029545343Z",
+    "Status": 200,
+    "Bytes": 80018,
+    "SHA256": "34b8c06c51d12c817cf5f2cd58dda736826dd15701745f13f1991f20a88ec7ab",
+    "encoded_url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_info?audience=BookingForm&hotels%5B0%5D.code=585&language=ru-ru"
+  },
+  {
+    "URL": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_availability",
+    "Query": {
+      "audience": [
+        "BookingForm"
+      ],
+      "criterions[0].adults": [
+        "2"
+      ],
+      "criterions[0].dates": [
+        "2026-11-17;2026-11-20"
+      ],
+      "criterions[0].hotels[0].code": [
+        "585"
+      ],
+      "include_all_placements": [
+        "false"
+      ],
+      "include_promo_restricted": [
+        "true"
+      ],
+      "include_rates": [
+        "true"
+      ],
+      "include_transfers": [
+        "true"
+      ],
+      "language": [
+        "ru-ru"
+      ]
+    },
+    "Headers": {
+      "Accept": "application/json",
+      "X-Requested-With": "",
+      "response.Cache-Control": "no-cache",
+      "response.Content-Type": "application/json; charset=utf-8",
+      "response.Date": "Sun, 01 Nov 2026 18:44:06 GMT"
+    },
+    "StartedAt": "2026-11-01T18:44:05.841244593Z",
+    "FinishedAt": "2026-11-01T18:44:06.633353469Z",
+    "Status": 200,
+    "Bytes": 217711,
+    "SHA256": "593b129eac99f25bd172e85ac541f37ef12d399c2d4fc7296d5a2aac1151d344",
+    "encoded_url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_availability?audience=BookingForm&criterions%5B0%5D.adults=2&criterions%5B0%5D.dates=2026-11-17%3B2026-11-20&criterions%5B0%5D.hotels%5B0%5D.code=585&include_all_placements=false&include_promo_restricted=true&include_rates=true&include_transfers=true&language=ru-ru"
+  },
+  {
+    "URL": "https://azimuthotels.com/api/tl/availability",
+    "Query": {
+      "adults": [
+        "2"
+      ],
+      "checkIn": [
+        "2026-11-17"
+      ],
+      "checkOut": [
+        "2026-11-20"
+      ],
+      "children": [
+        ""
+      ],
+      "hotelId": [
+        "101"
+      ],
+      "lang": [
+        "ru"
+      ],
+      "promo": [
+        ""
+      ]
+    },
+    "Headers": {
+      "Accept": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      "response.Cache-Control": "no-cache, private",
+      "response.Content-Type": "application/json",
+      "response.Date": "Sun, 01 Nov 2026 18:44:07 GMT",
+      "response.ETag": "W/\"b0c1fa7a8d39601c67b49d20ab3d0c703983761d\""
+    },
+    "StartedAt": "2026-11-01T18:44:06.658828427Z",
+    "FinishedAt": "2026-11-01T18:44:08.129676011Z",
+    "Status": 200,
+    "Bytes": 926100,
+    "SHA256": "c8710ff3ae0e1d2773fe7dedf04a341a27988c8f39d3c19c5b87372e852133df",
+    "encoded_url": "https://azimuthotels.com/api/tl/availability?adults=2&checkIn=2026-11-17&checkOut=2026-11-20&children=&hotelId=101&lang=ru&promo="
+  },
+  {
+    "URL": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_info",
+    "Query": {
+      "audience": [
+        "BookingForm"
+      ],
+      "hotels[0].code": [
+        "585"
+      ],
+      "language": [
+        "ru-ru"
+      ]
+    },
+    "Headers": {
+      "Accept": "application/json",
+      "X-Requested-With": "",
+      "response.Cache-Control": "no-cache",
+      "response.Content-Type": "application/json; charset=utf-8",
+      "response.Date": "Sun, 01 Nov 2026 18:44:08 GMT"
+    },
+    "StartedAt": "2026-11-01T18:44:08.138252719Z",
+    "FinishedAt": "2026-11-01T18:44:08.37722622Z",
+    "Status": 200,
+    "Bytes": 80018,
+    "SHA256": "34b8c06c51d12c817cf5f2cd58dda736826dd15701745f13f1991f20a88ec7ab",
+    "encoded_url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_info?audience=BookingForm&hotels%5B0%5D.code=585&language=ru-ru"
+  },
+  {
+    "URL": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_availability",
+    "Query": {
+      "audience": [
+        "BookingForm"
+      ],
+      "criterions[0].adults": [
+        "2"
+      ],
+      "criterions[0].dates": [
+        "2026-11-17;2026-11-19"
+      ],
+      "criterions[0].hotels[0].code": [
+        "585"
+      ],
+      "include_all_placements": [
+        "false"
+      ],
+      "include_promo_restricted": [
+        "true"
+      ],
+      "include_rates": [
+        "true"
+      ],
+      "include_transfers": [
+        "true"
+      ],
+      "language": [
+        "ru-ru"
+      ]
+    },
+    "Headers": {
+      "Accept": "application/json",
+      "X-Requested-With": "",
+      "response.Cache-Control": "no-cache",
+      "response.Content-Type": "application/json; charset=utf-8",
+      "response.Date": "Sun, 01 Nov 2026 18:44:09 GMT"
+    },
+    "StartedAt": "2026-11-01T18:44:09.139868053Z",
+    "FinishedAt": "2026-11-01T18:44:09.885687804Z",
+    "Status": 200,
+    "Bytes": 212266,
+    "SHA256": "8b7b29dd7acde33127de44953e383f449dbe47007f7be2ac303688c4b6f9e095",
+    "encoded_url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_availability?audience=BookingForm&criterions%5B0%5D.adults=2&criterions%5B0%5D.dates=2026-11-17%3B2026-11-19&criterions%5B0%5D.hotels%5B0%5D.code=585&include_all_placements=false&include_promo_restricted=true&include_rates=true&include_transfers=true&language=ru-ru"
+  },
+  {
+    "URL": "https://azimuthotels.com/api/tl/availability",
+    "Query": {
+      "adults": [
+        "2"
+      ],
+      "checkIn": [
+        "2026-11-17"
+      ],
+      "checkOut": [
+        "2026-11-19"
+      ],
+      "children": [
+        ""
+      ],
+      "hotelId": [
+        "101"
+      ],
+      "lang": [
+        "ru"
+      ],
+      "promo": [
+        ""
+      ]
+    },
+    "Headers": {
+      "Accept": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+      "response.Cache-Control": "no-cache, private",
+      "response.Content-Type": "application/json",
+      "response.Date": "Sun, 01 Nov 2026 18:44:11 GMT",
+      "response.ETag": "W/\"b2567189769ace2db6112d86549d06a1620f4949\""
+    },
+    "StartedAt": "2026-11-01T18:44:09.90945372Z",
+    "FinishedAt": "2026-11-01T18:44:11.530905263Z",
+    "Status": 200,
+    "Bytes": 916657,
+    "SHA256": "ee0ac832b6a0099a8363a78555cc225078ad6d47188249c2dee59582a66bbe97",
+    "encoded_url": "https://azimuthotels.com/api/tl/availability?adults=2&checkIn=2026-11-17&checkOut=2026-11-19&children=&hotelId=101&lang=ru&promo="
+  }
+]
