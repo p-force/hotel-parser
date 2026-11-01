@@ -268,7 +268,7 @@ func TestPostgresDiskDeliveryCommittedCSVSemantics(t *testing.T) {
 			if _, err := store.FinishRun(ctx, run.ID); err != nil {
 				t.Fatal(err)
 			}
-			ds := uploader.Deliver(ctx, store, "group", "/root", 1)
+			ds := uploader.Deliver(ctx, store, provider+"-group", "/root", 1)
 			if len(ds) != 1 || ds[0].State != "delivered" {
 				t.Fatal(ds)
 			}
@@ -291,7 +291,7 @@ func TestPostgresDiskDeliveryCommittedCSVSemantics(t *testing.T) {
 				t.Fatal(err)
 			}
 			before := m.puts
-			ds = deliveryUploader(t, m).Deliver(ctx, store, "group", "/root", 1)
+			ds = deliveryUploader(t, m).Deliver(ctx, store, provider+"-group", "/root", 1)
 			if len(ds) != 1 || ds[0].State != "delivered" || m.puts != before {
 				t.Fatal("lost commit recovery", ds, m.puts, before)
 			}
@@ -303,8 +303,8 @@ func TestPostgresDiskDeliveryFailedRunsAndBound(t *testing.T) {
 	ctx := context.Background()
 	store, _, _ := storagetest.Open(t)
 	in := time.Date(2026, 12, 21, 0, 0, 0, 0, time.UTC)
-	for range 3 {
-		run, err := store.CreateRun(ctx, storage.RunInput{PropertyID: "hotel", PeriodStart: in, PeriodEnd: in.AddDate(0, 0, 1)})
+	for i := range 3 {
+		run, err := store.CreateRun(ctx, storage.RunInput{PropertyID: "hotel", PeriodStart: in, PeriodEnd: in.AddDate(0, 0, 1), StartedAt: in.Add(time.Duration(5+4*i) * time.Hour)})
 		if err != nil {
 			t.Fatal(err)
 		}
