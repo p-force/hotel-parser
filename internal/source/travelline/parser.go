@@ -73,6 +73,8 @@ type availability struct {
 	Warnings    []json.RawMessage `json:"warnings"`
 }
 
+var currencyCode = regexp.MustCompile(`^[A-Z]{3}$`)
+
 var decimalPrice = regexp.MustCompile(`^(0|[1-9][0-9]*)(\.[0-9]+)?$`)
 
 // Parse читает только подтверждённые поля BookingForm API. publicRates — явный
@@ -188,7 +190,7 @@ func Parse(info, body []byte, req source.SearchRequest, publicRates []string) (s
 			warn("offer_rate_unknown", category)
 			continue
 		}
-		if !decimalPrice.MatchString(string(stay.Total.Price)) || stay.Total.Currency != meta.Hotels[0].Currency || len(stay.Total.Currency) != 3 {
+		if !decimalPrice.MatchString(string(stay.Total.Price)) || stay.Total.Currency != meta.Hotels[0].Currency || !currencyCode.MatchString(stay.Total.Currency) {
 			warn("offer_price_invalid", category)
 			continue
 		}

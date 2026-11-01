@@ -5,15 +5,19 @@ package schedule
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"os"
+	"strings"
+	"sync/atomic"
 	"testing"
 	"time"
 
 	"github.com/p-force/hotel-parser/internal/collect"
 	"github.com/p-force/hotel-parser/internal/config"
 	"github.com/p-force/hotel-parser/internal/source"
+	"github.com/p-force/hotel-parser/internal/storage"
 	"github.com/p-force/hotel-parser/internal/storage/storagetest"
 )
 
@@ -141,4 +145,102 @@ func TestPostgresTravelLineClientPolicyIsolation(t *testing.T) {
 			t.Fatal("equivalent policies did not reuse client")
 		}
 	})
+}
+
+func TestPostgresMixedSourcesInvalidCurrency(t *testing.T) {
+	_, admin, schema := storagetest.Open(t)
+	a, err := config.Load("../../configs/arena33.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	b, err := config.Load("../../configs/aerostar.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	a.Collection.Enabled = true
+	b.Collection.Enabled = true
+	a.Inventory.Categories = a.Inventory.Categories[:1]
+	a.Inventory.Categories[0].SourceRoomID = "1"
+	a.Inventory.TotalRooms = a.Inventory.Categories[0].TotalRooms
+	info, body := travelLineRegressionFixture(t)
+	info = []byte(strings.ReplaceAll(string(info), "RUB", "rub"))
+	body = []byte(strings.ReplaceAll(string(body), "RUB", "rub"))
+	var calls atomic.Int32
+	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		calls.Add(1)
+		switch r.URL.Path {
+		case "/ApiWebDistribution/BookingForm/hotel_info":
+			w.Write(info)
+		case "/ApiWebDistribution/BookingForm/hotel_availability":
+			w.Write(body)
+		default:
+			fmt.Fprint(w, successHTML)
+		}
+	}))
+	defer server.Close()
+	regressionTransport(t, server)
+	a.Source.BaseURL = server.URL
+	b.Source.BaseURL = server.URL
+	r := Registry{Groups: []Group{{ID: "mixed", Schema: schema, Properties: []Property{{Hotel: a}, {Hotel: b}}}}}
+	s := testService(t, r, nil, collect.RuntimeOptions{MaxJobs: 2, Batch: collect.BatchOptions{Workers: 2}})
+	for _, req := range []Request{{Action: "plan", Slot: regressionSlot()}, {Action: "resume"}, {Action: "plan", Slot: regressionSlot()}, {Action: "resume"}} {
+		if _, err := s.Execute(context.Background(), req); err != nil {
+			t.Fatal("source response stopped runtime", err)
+		}
+	}
+	if calls.Load() != 3 {
+		t.Fatal("unexpected HTTP retry/replay", calls.Load())
+	}
+	for _, property := range []struct {
+		id                   string
+		status               storage.JobStatus
+		outcome              storage.Outcome
+		observations, offers int
+	}{
+		{a.ID, storage.JobSucceeded, storage.OutcomeSuccess, 1, 1},
+		{b.ID, storage.JobPartial, storage.OutcomePartial, 10, 0},
+	} {
+		var jobID string
+		if err := admin.QueryRow(`SELECT id::text FROM "`+schema+`".scenario_jobs WHERE property_id=$1`, property.id).Scan(&jobID); err != nil {
+			t.Fatal(err)
+		}
+		job, err := s.groups[0].Store.GetJob(context.Background(), jobID)
+		if err != nil {
+			t.Fatal(err)
+		}
+		attempt, err := s.groups[0].Store.GetAttempt(context.Background(), jobID, 1)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if job.Status != property.status || job.Attempts != 1 || attempt.Outcome != property.outcome || attempt.Error != nil || attempt.HTTPStatus != 200 || len(attempt.Observations) != property.observations {
+			t.Fatal(job, attempt)
+		}
+		offers := 0
+		for _, o := range attempt.Observations {
+			offers += len(o.Offers)
+			if property.id == b.ID && (o.StockStatus != storage.StockUnknown || o.Available != nil) {
+				t.Fatal("bad response became known", o)
+			}
+		}
+		if offers != property.offers {
+			t.Fatal("wrong offer count", offers)
+		}
+		if property.id == b.ID {
+			found := false
+			for _, w := range attempt.Warnings {
+				if w.Code == "offer_price_invalid" {
+					found = true
+				}
+			}
+			if !found {
+				t.Fatal("currency diagnostic lost in PostgreSQL")
+			}
+		}
+	}
+	for table, want := range map[string]int{"scenario_jobs": 2, "collection_attempts": 2, "observations": 11, "observation_offers": 1} {
+		var count int
+		if err := admin.QueryRow(`SELECT count(*) FROM "` + schema + `"."` + table + `"`).Scan(&count); err != nil || count != want {
+			t.Fatal(table, count, err)
+		}
+	}
 }

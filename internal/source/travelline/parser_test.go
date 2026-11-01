@@ -305,3 +305,72 @@ func TestKnownOnlyForCompletePublicCategories(t *testing.T) {
 		}
 	}
 }
+
+func TestCurrencyContract(t *testing.T) {
+	for _, tc := range []struct {
+		name, metadata, offer string
+		valid                 bool
+	}{
+		{"RUB", "RUB", "RUB", true},
+		{"lowercase", "rub", "rub", false},
+		{"mismatch", "RUB", "USD", false},
+		{"digits", "123", "123", false},
+		{"space", "R B", "R B", false},
+		{"too long", "RUBB", "RUBB", false},
+		{"missing metadata", "", "RUB", false},
+		{"missing offer", "RUB", "", false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			info, body, req := fixture(t)
+			var meta metadata
+			var data availability
+			if err := json.Unmarshal(info, &meta); err != nil {
+				t.Fatal(err)
+			}
+			if err := json.Unmarshal(body, &data); err != nil {
+				t.Fatal(err)
+			}
+			meta.Hotels[0].Currency = tc.metadata
+			for i := range data.RoomStays {
+				data.RoomStays[i].Total.Currency = tc.offer
+			}
+			info, _ = json.Marshal(meta)
+			body, _ = json.Marshal(data)
+			result, err := Parse(info, body, req, publicRates)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if result.Status != source.Partial {
+				t.Fatal(result.Status)
+			}
+			if tc.valid {
+				if len(result.Offers) != 40 {
+					t.Fatal("public offers lost", len(result.Offers))
+				}
+				for _, offer := range result.Offers {
+					if offer.Currency != "RUB" {
+						t.Fatal(offer)
+					}
+				}
+			} else {
+				if len(result.Offers) != 0 || result.Error != nil {
+					t.Fatal("invalid offers reached result", result.Error, len(result.Offers))
+				}
+				found := false
+				for _, w := range result.Warnings {
+					if w.Code == "offer_price_invalid" {
+						found = true
+					}
+				}
+				if !found {
+					t.Fatal("missing safe currency diagnostic")
+				}
+				for _, stock := range NormalizeCategoryStock(result) {
+					if stock.Status != source.StockUnknown || stock.Available != nil {
+						t.Fatal("invalid currency confirms stock", stock)
+					}
+				}
+			}
+		})
+	}
+}
