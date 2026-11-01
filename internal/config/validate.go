@@ -34,8 +34,26 @@ func (c Config) Validate() error {
 		return fmt.Errorf("role: unsupported value %q", c.Role)
 	}
 
-	if c.Source.Type != "bnovo" {
+	if c.Source.Type != "bnovo" && c.Source.Type != "travelline" {
 		return fmt.Errorf("source.type: unsupported value %q", c.Source.Type)
+	}
+
+	if c.Source.Type == "travelline" {
+		if len(c.Source.PropertyID) > 16 {
+			return fmt.Errorf("source.property_id: invalid TravelLine ID")
+		}
+		for _, digit := range c.Source.PropertyID {
+			if digit < '0' || digit > '9' {
+				return fmt.Errorf("source.property_id: invalid TravelLine ID")
+			}
+		}
+		enabled := false
+		for _, rate := range c.Rates {
+			enabled = enabled || rate.Enabled
+		}
+		if !enabled {
+			return fmt.Errorf("rates: public TravelLine tariff allowlist is required")
+		}
 	}
 
 	if _, err := time.LoadLocation(c.Timezone); err != nil {

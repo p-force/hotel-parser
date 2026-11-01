@@ -7,6 +7,7 @@ import (
 	"log/slog"
 	"time"
 
+	"github.com/p-force/hotel-parser/internal/source"
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
 )
 
@@ -41,7 +42,7 @@ type batchJob struct {
 	groupID     string
 	maxAttempts int // 0: policy; durable runtime ограничивает оставшимся бюджетом.
 	request     bnovo.SearchRequest
-	client      *bnovo.Client
+	client      source.Client
 	propertyID  string
 	source      string
 	origin      string
@@ -143,7 +144,7 @@ func collectJobsObserved(ctx context.Context, input []batchJob, options BatchOpt
 	if summary.FailedCount > 0 {
 		level = slog.LevelError
 	}
-	slog.Log(ctx, level, "bnovo.batch.completed", "batch_id", batchID,
+	slog.Log(ctx, level, batchLogPrefix(input)+".batch.completed", "batch_id", batchID,
 		"batch_duration_ms", summary.BatchDurationMS, "success_count", summary.SuccessCount,
 		"partial_count", summary.PartialCount, "no_offers_count", summary.NoOffersCount,
 		"failed_count", summary.FailedCount, "canceled_count", summary.CanceledCount,
@@ -152,4 +153,26 @@ func collectJobsObserved(ctx context.Context, input []batchJob, options BatchOpt
 	run.summary = summary
 	return run, run.storageError
 
+}
+
+// Сохраняем имена Bnovo-событий; смешанный batch не приписываем одному адаптеру.
+func batchLogPrefix(jobs []batchJob) string {
+	prefix := ""
+	for _, job := range jobs {
+		current := sourceLogPrefix(job.source)
+		if prefix != "" && prefix != current {
+			return "collect"
+		}
+		prefix = current
+	}
+	if prefix == "" {
+		return "bnovo"
+	}
+	return prefix
+}
+func sourceLogPrefix(value string) string {
+	if value == "travelline" {
+		return "travelline"
+	}
+	return "bnovo"
 }

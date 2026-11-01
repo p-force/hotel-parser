@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/p-force/hotel-parser/internal/config"
+	"github.com/p-force/hotel-parser/internal/source"
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
 )
 
@@ -16,7 +17,7 @@ import (
 type PropertyCollection struct {
 	Hotel   config.Config
 	CheckIn time.Time
-	Client  *bnovo.Client
+	Client  source.Client
 }
 
 // PropertyResult сохраняет идентичность задания; даты, adults и остальные параметры
@@ -62,7 +63,7 @@ func CollectProperties(ctx context.Context, properties []PropertyCollection, opt
 	}
 	jobs := make([]batchJob, 0)
 	results := make([]PropertyResult, 0)
-	clients := make(map[string]*bnovo.Client)
+	clients := make(map[string]source.Client)
 	summaries := make([]PropertySummary, 0, len(properties))
 	indices := make(map[string]int)
 	sources := make(map[string]config.SourceConfig)
@@ -81,13 +82,13 @@ func CollectProperties(ctx context.Context, properties []PropertyCollection, opt
 		}
 		client := property.Client
 		if client == nil {
-			client = clients[hotel.Source.BaseURL]
+			client = clients[SourceClientKey(hotel, hotel.Source.BaseURL)]
 			if client == nil {
-				client, err = bnovo.NewClient(hotel.Source.BaseURL, nil)
+				client, err = NewSourceClient(hotel)
 				if err != nil {
 					return nil, PropertiesSummary{}, err
 				}
-				clients[hotel.Source.BaseURL] = client
+				clients[SourceClientKey(hotel, hotel.Source.BaseURL)] = client
 			}
 		}
 		// Одинаковый ID может иметь несколько дат; неоднозначная конфигурация источника запрещена.
@@ -145,7 +146,7 @@ func CollectProperties(ctx context.Context, properties []PropertyCollection, opt
 		if summary.FailedCount > 0 {
 			level = slog.LevelError
 		}
-		slog.Log(ctx, level, "bnovo.batch.property.completed", "batch_id", run.batchID, "property_id", summary.PropertyID, "source", summary.Source,
+		slog.Log(ctx, level, sourceLogPrefix(summary.Source)+".batch.property.completed", "batch_id", run.batchID, "property_id", summary.PropertyID, "source", summary.Source,
 			"success_count", summary.SuccessCount, "partial_count", summary.PartialCount, "no_offers_count", summary.NoOffersCount,
 			"failed_count", summary.FailedCount, "canceled_count", summary.CanceledCount, "not_started_count", summary.NotStartedCount, "retry_count", summary.RetryCount, "throttled_count", summary.ThrottledCount, "rate_wait_count", summary.RateWaitCount, "limiter_wait_ms", summary.LimiterWaitMS)
 	}

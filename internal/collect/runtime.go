@@ -8,6 +8,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/p-force/hotel-parser/internal/source"
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
 	"github.com/p-force/hotel-parser/internal/storage"
 )
@@ -116,7 +117,7 @@ func RunGroups(ctx context.Context, groups []RuntimeGroup, options RuntimeOption
 	defer stop()
 	groups = append([]RuntimeGroup(nil), groups...)
 	seenIDs, seenSchemas := map[string]bool{}, map[string]bool{}
-	clients := map[string]*bnovo.Client{}
+	clients := map[string]source.Client{}
 	for i := range groups {
 		g := &groups[i]
 		if g.ID == "" || g.Store == nil || seenIDs[g.ID] || seenSchemas[g.Store.Schema()] {
@@ -139,16 +140,16 @@ func RunGroups(ctx context.Context, groups []RuntimeGroup, options RuntimeOption
 				return nil, e
 			}
 			if property.Client == nil {
-				property.Client = clients[origin]
+				property.Client = clients[SourceClientKey(property.Hotel, origin)]
 				if property.Client == nil {
-					property.Client, e = bnovo.NewClient(property.Hotel.Source.BaseURL, nil)
+					property.Client, e = NewSourceClient(property.Hotel)
 					if e != nil {
 						return nil, e
 					}
-					clients[origin] = property.Client
+					clients[SourceClientKey(property.Hotel, origin)] = property.Client
 				}
 			}
-			if property.Client.SourceOrigin() != origin {
+			if property.Client.SourceOrigin() != origin || property.Client.SourceType() != property.Hotel.Source.Type {
 				return nil, fmt.Errorf("runtime client does not match property source")
 			}
 		}
@@ -252,7 +253,7 @@ func runLeasedJobs(ctx, flush context.Context, stopExecution context.CancelCause
 	for i, item := range jobs {
 		job, property := item.job, item.property
 		origin, e := SourceKey(property.Hotel.Source.BaseURL)
-		if e != nil || origin != job.Scenario.SourceOrigin || property.Hotel.Source.Type != job.Scenario.Source || property.Hotel.Source.PropertyID != job.Scenario.SourcePropertyID || property.Client.SourceOrigin() != origin {
+		if e != nil || origin != job.Scenario.SourceOrigin || property.Hotel.Source.Type != job.Scenario.Source || property.Hotel.Source.PropertyID != job.Scenario.SourcePropertyID || (property.Client.SourceOrigin() != origin || property.Client.SourceType() != property.Hotel.Source.Type) {
 			return fmt.Errorf("queued job does not match runtime property/source")
 		}
 		states[i].leasedJob = item

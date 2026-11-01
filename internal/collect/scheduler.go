@@ -173,7 +173,7 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 			pending[i] = pendingJob{queuedAt: time.Now(), readyAt: *nextRetryAt}
 			owner := owners[input[i].groupID+"/"+input[i].propertyID]
 			groups[owner] = append(groups[owner], i)
-			slog.DebugContext(ctx, "bnovo.batch.retry.scheduled", "batch_id", run.batchID, "scenario_index", i, "property_id", input[i].propertyID, "source", input[i].source, "source_origin", input[i].origin, "retry_reason", done.result.Error.Code, "http_status", done.result.HTTPStatus, "backoff_ms", delay.Milliseconds(), "next_attempt", run.attempts[i]+1)
+			slog.DebugContext(ctx, sourceLogPrefix(input[i].source)+".batch.retry.scheduled", "batch_id", run.batchID, "scenario_index", i, "property_id", input[i].propertyID, "source", input[i].source, "source_origin", input[i].origin, "retry_reason", done.result.Error.Code, "http_status", done.result.HTTPStatus, "backoff_ms", delay.Milliseconds(), "next_attempt", run.attempts[i]+1)
 		} else {
 			remaining--
 		}
@@ -251,10 +251,10 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 					wait := time.Since(state.queuedAt).Milliseconds()
 					run.queueWaitMS[i] = &wait
 					run.executed[i] = true
-					slog.DebugContext(ctx, "bnovo.batch.scenario.started", "batch_id", run.batchID, "scenario_index", i, "queue_wait_ms", wait, "property_id", input[i].propertyID, "source", input[i].source, "source_origin", input[i].origin, "active_scenarios", permit.global, "active_property", permit.property, "active_source", permit.source, "concurrency_limit", cap(slots))
+					slog.DebugContext(ctx, sourceLogPrefix(input[i].source)+".batch.scenario.started", "batch_id", run.batchID, "scenario_index", i, "queue_wait_ms", wait, "property_id", input[i].propertyID, "source", input[i].source, "source_origin", input[i].origin, "active_scenarios", permit.global, "active_property", permit.property, "active_source", permit.source, "concurrency_limit", cap(slots))
 				}
 				run.attempts[i]++
-				slog.DebugContext(ctx, "bnovo.batch.attempt.started", "batch_id", run.batchID, "scenario_index", i, "property_id", input[i].propertyID, "source", input[i].source, "source_origin", input[i].origin, "attempt", run.attempts[i], "limiter_wait_ms", attemptWait, "rate_limited", state.rateThrottled, "active_scenarios", permit.global, "active_property", permit.property, "active_source", permit.source)
+				slog.DebugContext(ctx, sourceLogPrefix(input[i].source)+".batch.attempt.started", "batch_id", run.batchID, "scenario_index", i, "property_id", input[i].propertyID, "source", input[i].source, "source_origin", input[i].origin, "attempt", run.attempts[i], "limiter_wait_ms", attemptWait, "rate_limited", state.rateThrottled, "active_scenarios", permit.global, "active_property", permit.property, "active_source", permit.source)
 				groups[owner] = append(groups[owner][:chosen], groups[owner][chosen+1:]...)
 				cursor = (owner + 1) % len(groups)
 				withdrawAdmissions(run.batchID)

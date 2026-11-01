@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/p-force/hotel-parser/internal/collect"
-	"github.com/p-force/hotel-parser/internal/source/bnovo"
+	"github.com/p-force/hotel-parser/internal/source"
 	"github.com/p-force/hotel-parser/internal/storage"
 )
 
@@ -57,7 +57,7 @@ func Open(ctx context.Context, dsn string, registry Registry, options collect.Ru
 	if options.Claim.RunID != "" || options.Claim.PropertyID != "" {
 		return nil, fmt.Errorf("service drains all unfinished runs")
 	}
-	clients := map[string]*bnovo.Client{}
+	clients := map[string]source.Client{}
 	for _, g := range registry.Groups {
 		store, err := storage.Open(ctx, dsn, storage.Options{Schema: g.Schema})
 		if err != nil {
@@ -72,15 +72,15 @@ func Open(ctx context.Context, dsn string, registry Registry, options collect.Ru
 				service.Close()
 				return nil, e
 			}
-			client := clients[origin]
+			client := clients[collect.SourceClientKey(p.Hotel, origin)]
 			if client == nil {
-				client, e = bnovo.NewClient(p.Hotel.Source.BaseURL, nil)
+				client, e = collect.NewSourceClient(p.Hotel)
 				if e != nil {
 					store.Close()
 					service.Close()
 					return nil, e
 				}
-				clients[origin] = client
+				clients[collect.SourceClientKey(p.Hotel, origin)] = client
 			}
 			group.Properties = append(group.Properties, collect.PropertyCollection{Hotel: p.Hotel, Client: client})
 		}

@@ -75,7 +75,7 @@ func storageAttemptContext(ctx context.Context, result bnovo.SearchResult, jobID
 			if offer.CategoryID != stock.CategoryID {
 				continue
 			}
-			stored := storage.Offer{VariantID: offer.VariantID, RateID: offer.RateID, RateName: publicLabel(offer.RateName), MealPlan: publicLabel(offer.MealPlan), Visible: offer.Visible, DataAvailable: offer.Availability.DataAvailable, RowAvailable: offer.Availability.RowAvailable, SelectDisabled: offer.Availability.SelectDisabled, SelectableQuantities: append([]int{}, offer.Availability.SelectableQuantities...)}
+			stored := storage.Offer{ReportedQuantity: offer.Availability.ReportedQuantity, VariantID: offer.VariantID, RateID: offer.RateID, RateName: publicLabel(offer.RateName), MealPlan: publicLabel(offer.MealPlan), Visible: offer.Visible, DataAvailable: offer.Availability.DataAvailable, RowAvailable: offer.Availability.RowAvailable, SelectDisabled: offer.Availability.SelectDisabled, SelectableQuantities: append([]int{}, offer.Availability.SelectableQuantities...)}
 			if offer.Price != "" {
 				price := offer.Price
 				stored.Price = &price

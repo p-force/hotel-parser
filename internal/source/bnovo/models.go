@@ -86,6 +86,10 @@ type RateOffer struct {
 // AvailabilityEvidence хранит исходные данные о количестве из публичного виджета
 // независимо от оценок фактической доступности, занятости или подтверждённых бронирований.
 type AvailabilityEvidence struct {
+	// ReportedQuantity — явное количество из API источника (не HTML-селектор).
+	// Bnovo его не заполняет; nil означает неизвестное количество.
+	ReportedQuantity *int `json:",omitempty"`
+
 	// RowAvailable — флаг tr[data-available="0|1"] в ответе на текущий запрос.
 	// Это признак строки, а не число номеров из select[data-available].
 	// true подтверждает применимость строки при меньшем числе гостей;
@@ -150,6 +154,9 @@ type ParseWarning struct {
 // SearchResult описывает ОДИН поисковый запрос и сохраняет диагностику, даже если
 // предложения не получены. Будущий слой хранения может сохранять каждую попытку.
 type SearchResult struct {
+	// Source выбирает интерпретацию API-признаков; пустое значение сохраняет Bnovo.
+	Source string `json:",omitempty"`
+
 	// Request содержит точные параметры запроса для этой попытки.
 	Request SearchRequest
 	// CollectedAt — время начала попытки в UTC.

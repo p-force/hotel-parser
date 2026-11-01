@@ -561,3 +561,6 @@ func temporaryTransportError(err error) bool {
 	}
 	return errors.Is(err, io.EOF) || errors.Is(err, io.ErrUnexpectedEOF) || errors.Is(err, syscall.ECONNRESET) || errors.Is(err, syscall.ECONNREFUSED) || errors.Is(err, syscall.EPIPE)
 }
+
+// SourceType идентифицирует адаптер при выборе источника runtime.
+func (c *Client) SourceType() string { return "bnovo" }

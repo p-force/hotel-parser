@@ -3,30 +3,30 @@ package collect
 import (
 	"strings"
 
+	"github.com/p-force/hotel-parser/internal/source"
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
+	"github.com/p-force/hotel-parser/internal/source/travelline"
 )
 
-type StockStatus string
+type StockStatus = source.StockStatus
 
 const (
-	StockKnown    StockStatus = "known"
-	StockUnknown  StockStatus = "unknown"
-	StockConflict StockStatus = "conflict"
+	StockKnown    = source.StockKnown
+	StockUnknown  = source.StockUnknown
+	StockConflict = source.StockConflict
 )
 
-// CategoryStock — публичный остаток одного сценария, не физический фонд и не занятость.
-type CategoryStock struct {
-	CategoryID string
-	Available  *int
-	Status     StockStatus
-	Warnings   []bnovo.ParseWarning
-}
+type CategoryStock = source.CategoryStock
 
 // NormalizeCategoryStock возвращает по одному остатку для непустых ID из Categories,
 // сохраняя порядок первого появления. Отсутствующие категории не создаются.
 // Предполагается, что даты предложений и ConfirmedUnavailable проверены Parse для Request.
 // Варианты дополнительно сверяются по категории и числу взрослых. Входные данные не меняются.
 func NormalizeCategoryStock(result bnovo.SearchResult) []CategoryStock {
+	if result.Source == "travelline" {
+		return travelline.NormalizeCategoryStock(result)
+	}
+
 	stocks := make([]CategoryStock, 0, len(result.Categories))
 	seen := make(map[string]bool, len(result.Categories))
 	for _, category := range result.Categories {

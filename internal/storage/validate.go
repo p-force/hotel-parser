@@ -159,7 +159,7 @@ func normalizeAttempt(in AttemptInput) (AttemptInput, []byte, error) {
 		})
 		for j := range o.Offers {
 			offer := &o.Offers[j]
-			if !validID(offer.VariantID) || !validID(offer.RateID) || (offer.Price != nil && !decimalPattern.MatchString(*offer.Price)) || (offer.Currency != nil && !currencyPattern.MatchString(*offer.Currency)) || (offer.DataAvailable != nil && *offer.DataAvailable < 0) {
+			if (offer.ReportedQuantity != nil && *offer.ReportedQuantity < 0) || !validID(offer.VariantID) || !validID(offer.RateID) || (offer.Price != nil && !decimalPattern.MatchString(*offer.Price)) || (offer.Currency != nil && !currencyPattern.MatchString(*offer.Currency)) || (offer.DataAvailable != nil && *offer.DataAvailable < 0) {
 				return fail()
 			}
 			if j > 0 && o.Offers[j-1].VariantID == offer.VariantID && o.Offers[j-1].RateID == offer.RateID {

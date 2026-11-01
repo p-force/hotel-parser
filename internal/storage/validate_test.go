@@ -94,3 +94,37 @@ func TestDatabaseErrorsDoNotExposeWrappedCredentials(t *testing.T) {
 		}
 	}
 }
+
+func TestReportedQuantityValidationAndLegacyHash(t *testing.T) {
+	a := validAttempt()
+	a.StartedAt = time.Date(2026, 11, 1, 0, 0, 0, 0, time.UTC)
+	a.FinishedAt = a.StartedAt.Add(time.Millisecond)
+	_, hash, err := normalizeAttempt(a)
+	if err != nil {
+		t.Fatal(err)
+	}
+	// Снимок получен на PR #46 до добавления ReportedQuantity.
+	const legacy = "abfe9ed14f184b8465539c2fbf06126b819d6443a6e15120970428f04aa9b577"
+	if fmt.Sprintf("%x", hash) != legacy {
+		t.Fatal("legacy idempotency hash changed")
+	}
+	for _, quantity := range []int{-1, 0, 9, 10} {
+		input := a
+		input.Observations = append([]Observation(nil), a.Observations...)
+		input.Observations[0].Offers = append([]Offer(nil), a.Observations[0].Offers...)
+		input.Observations[0].Offers[0].ReportedQuantity = value(quantity)
+		_, changed, err := normalizeAttempt(input)
+		if quantity < 0 {
+			if err == nil {
+				t.Fatal("negative quota accepted")
+			}
+			continue
+		}
+		if err != nil {
+			t.Fatal(err)
+		}
+		if bytes.Equal(changed, hash) {
+			t.Fatal("native quantity missing from idempotency hash")
+		}
+	}
+}
