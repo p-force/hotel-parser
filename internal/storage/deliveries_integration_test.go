@@ -110,3 +110,82 @@ func TestPostgresDeliveryClaimsRecoveryAndIsolation(t *testing.T) {
 		t.Fatal("schema leak", ds, err)
 	}
 }
+
+func TestPostgresDeliverySlotPaths(t *testing.T) {
+	ctx := context.Background()
+	a, db, schema := storagetest.Open(t)
+	b, _, _ := storagetest.Open(t)
+	create := func(s *storage.Store, at time.Time) storage.Run {
+		t.Helper()
+		sc := scenario("same-hotel")
+		run, err := s.CreateRun(ctx, storage.RunInput{PropertyID: sc.PropertyID, PeriodStart: sc.CheckIn, PeriodEnd: sc.CheckOut, StartedAt: at})
+		if err != nil {
+			t.Fatal(err)
+		}
+		job, err := s.CreateJob(ctx, run.ID, sc)
+		if err != nil {
+			t.Fatal(err)
+		}
+		if _, err := s.SaveAttempt(ctx, attempt(job.ID)); err != nil {
+			t.Fatal(err)
+		}
+		run, err = s.FinishRun(ctx, run.ID)
+		if err != nil {
+			t.Fatal(err)
+		}
+		return run
+	}
+	slot := time.Date(2026, 11, 2, 5, 0, 0, 0, time.UTC) // 08:00 МСК, независимо от фактического исполнения.
+	first := create(a, slot)
+	second := create(a, slot.Add(4*time.Hour))
+	legacy := create(a, slot.Add(-24*time.Hour))
+	create(b, slot)
+	old := "/old/v1/" + schema + "/group-a/same-hotel/timestamp/" + legacy.ID + ".csv"
+	if _, err := db.Exec(`INSERT INTO "`+schema+`".csv_deliveries(group_id,run_id,remote_path) VALUES($1,$2,$3)`, "group-a", legacy.ID, old); err != nil {
+		t.Fatal(err)
+	}
+	for _, tc := range []struct {
+		s     *storage.Store
+		group string
+	}{{a, "group-a"}, {b, "group-b"}} {
+		if err := tc.s.EnsureDeliveries(ctx, tc.group, "/reports"); err != nil {
+			t.Fatal(err)
+		}
+		ds, err := tc.s.Deliveries(ctx, tc.group, 10)
+		if err != nil {
+			t.Fatal(err)
+		}
+		for _, d := range ds {
+			want := "/reports/" + tc.group + "/same-hotel/2026-11-02_08-00.csv"
+			if d.RunID == second.ID {
+				want = "/reports/group-a/same-hotel/2026-11-02_12-00.csv"
+			}
+			if d.RunID == legacy.ID {
+				want = old
+			}
+			if d.RemotePath != want {
+				t.Fatalf("path: got %q want %q", d.RemotePath, want)
+			}
+		}
+	}
+	// Повторное enqueue/root change не обновляет ни новый, ни legacy путь.
+	before, err := a.Deliveries(ctx, "group-a", 10)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := a.EnsureDeliveries(ctx, "group-a", "/changed"); err != nil {
+		t.Fatal(err)
+	}
+	after, err := a.Deliveries(ctx, "group-a", 10)
+	if err != nil || len(after) != 3 {
+		t.Fatal(after, err)
+	}
+	for i := range before {
+		if before[i].RemotePath != after[i].RemotePath {
+			t.Fatal("path changed")
+		}
+	}
+	if first.ID == second.ID {
+		t.Fatal("distinct slot runs expected")
+	}
+}

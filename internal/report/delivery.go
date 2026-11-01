@@ -24,7 +24,6 @@ func (u *YandexDiskUploader) Deliver(ctx context.Context, store *storage.Store, 
 		slog.WarnContext(ctx, "collection.delivery.failed", "group_id", groupID, "error_code", "disk_directory_invalid")
 		return nil
 	}
-	root = path.Join(root, "v1", pathComponent(store.Schema()), pathComponent(groupID))
 	if err := store.EnsureDeliveries(ctx, groupID, root); err != nil {
 		slog.WarnContext(ctx, "collection.delivery.failed", "group_id", groupID, "error_code", "delivery_enqueue_failed")
 		return nil

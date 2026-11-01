@@ -17,6 +17,9 @@
 
 ### Fixed
 
+- Новые CSV на Яндекс Диске используют путь `<root>/<group>/<property>/<слот МСК>.csv`;
+  ранее сохранённые пути доставки остаются неизменными.
+
 - Изоляция TravelLine client cache по source property ID и тарифной политике;
   проверка валюты до storage, безопасный mixed Bnovo/TravelLine runtime и сохранение
   исходных квот предложений в nullable `reported_quantity` (миграция 0004).
