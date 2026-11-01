@@ -28,7 +28,7 @@ func TestSourceFactoryAndPublicRateIsolation(t *testing.T) {
 		t.Fatal(tl, err)
 	}
 	other := cfg
-	other.ID = "other"
+	other.Source.PropertyID = "586"
 	if SourceClientKey(cfg, travelline.PublicOrigin) == SourceClientKey(other, travelline.PublicOrigin) {
 		t.Fatal("public tariff lists shared across properties")
 	}
@@ -95,5 +95,45 @@ func TestTravelLineRetryUsesExistingPool(t *testing.T) {
 	}
 	if known != 8 {
 		t.Fatalf("normalization dispatch lost: %v", stocks)
+	}
+}
+
+func TestTravelLineClientPolicyIdentity(t *testing.T) {
+	cfg, err := config.Load("../../configs/aerostar.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	cfg.Rates = []config.RateConfig{{ID: "128299", Enabled: true}, {ID: "128301", Enabled: true}}
+	base := SourceClientKey(cfg, cfg.Source.BaseURL)
+	for _, tc := range []struct {
+		name   string
+		change func(*config.Config)
+		origin string
+		equal  bool
+	}{
+		{"reordered", func(c *config.Config) {
+			c.Rates = []config.RateConfig{{ID: "128301", Enabled: true}, {ID: "128299", Enabled: true}}
+		}, cfg.Source.BaseURL, true},
+		{"duplicate", func(c *config.Config) { c.Rates = append(c.Rates, c.Rates[0]) }, cfg.Source.BaseURL, true},
+		{"disabled rate", func(c *config.Config) { c.Rates = append(c.Rates, config.RateConfig{ID: "other", Enabled: false}) }, cfg.Source.BaseURL, true},
+		{"local identity", func(c *config.Config) { c.ID = "another"; c.Collection.Enabled = !c.Collection.Enabled }, cfg.Source.BaseURL, true},
+		{"canonical origin", func(*config.Config) {}, "https://RU-IBE.TLINTEGRATION.RU:443/", true},
+		{"different rates", func(c *config.Config) { c.Rates = c.Rates[:1] }, cfg.Source.BaseURL, false},
+		{"different property", func(c *config.Config) { c.Source.PropertyID = "586" }, cfg.Source.BaseURL, false},
+		{"different origin", func(*config.Config) {}, "https://another.example", false},
+		{"different source", func(c *config.Config) { c.Source.Type = "bnovo" }, cfg.Source.BaseURL, false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			copy := cfg
+			copy.Rates = append([]config.RateConfig(nil), cfg.Rates...)
+			tc.change(&copy)
+			if equal := SourceClientKey(copy, tc.origin) == base; equal != tc.equal {
+				t.Fatalf("key equality=%v want=%v", equal, tc.equal)
+			}
+		})
+	}
+	cfg.Source.Type = "bnovo"
+	if got := SourceClientKey(cfg, "https://EXAMPLE.com:443/"); got != "bnovo/https://EXAMPLE.com:443/" {
+		t.Fatal("Bnovo key changed", got)
 	}
 }
