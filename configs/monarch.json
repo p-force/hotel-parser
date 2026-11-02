@@ -1,0 +1,165 @@
+{
+  "id": "monarch",
+  "name": "МонАрх Москва Отель",
+  "type": "hotel",
+  "role": "competitor",
+  "timezone": "Europe/Moscow",
+  "source": {
+    "type": "travelline",
+    "base_url": "https://ru-ibe.tlintegration.ru",
+    "property_id": "17249"
+  },
+  "inventory": {
+    "total_rooms": null,
+    "source": "public_observed_max",
+    "categories": [
+      {
+        "id": "tl_122847",
+        "name": "Номер Делюкс с одной большой кроватью",
+        "source_room_id": "122847",
+        "total_rooms": null
+      },
+      {
+        "id": "tl_170376",
+        "name": "Номер Делюкс с двумя раздельными кроватями",
+        "source_room_id": "170376",
+        "total_rooms": null
+      },
+      {
+        "id": "tl_122840",
+        "name": "Полулюкс",
+        "source_room_id": "122840",
+        "total_rooms": null
+      },
+      {
+        "id": "tl_122845",
+        "name": "Угловой Люкс",
+        "source_room_id": "122845",
+        "total_rooms": null
+      },
+      {
+        "id": "tl_185327",
+        "name": "Премьер Люкс",
+        "source_room_id": "185327",
+        "total_rooms": null
+      },
+      {
+        "id": "tl_201805",
+        "name": "Президентский  Люкс",
+        "source_room_id": "201805",
+        "total_rooms": null
+      },
+      {
+        "id": "tl_202026",
+        "name": "Двухкомнатные апартаменты с кухней и одной большой кроватью для длительного проживания",
+        "source_room_id": "202026",
+        "total_rooms": null
+      },
+      {
+        "id": "tl_202027",
+        "name": "Двухкомнатные апартаменты с кухней и двумя раздельными кроватями для длительного проживания",
+        "source_room_id": "202027",
+        "total_rooms": null
+      }
+    ]
+  },
+  "rates": [
+    {
+      "id": "951554",
+      "name": "Линнер \"Пикник на крыше\"",
+      "enabled": false
+    },
+    {
+      "id": "626675",
+      "name": "Раннее бронирование",
+      "enabled": true
+    },
+    {
+      "id": "626679",
+      "name": "Раннее бронирование с завтраком",
+      "enabled": true
+    },
+    {
+      "id": "920899",
+      "name": "Лучшая цена дня полупансион: завтрак+ужин",
+      "enabled": true
+    },
+    {
+      "id": "246133",
+      "name": "Лучшая цена дня",
+      "enabled": false
+    },
+    {
+      "id": "373411",
+      "name": "Лучшая цена дня с завтраком",
+      "enabled": true
+    },
+    {
+      "id": "641534",
+      "name": "Семейное проживание с завтраком",
+      "enabled": false
+    },
+    {
+      "id": "878182",
+      "name": "СПА день в МонАрх Москва",
+      "enabled": true
+    },
+    {
+      "id": "816956",
+      "name": "Горящее предложение!",
+      "enabled": false
+    },
+    {
+      "id": "659661",
+      "name": "Длительное проживание от 3 ночей",
+      "enabled": false
+    },
+    {
+      "id": "659656",
+      "name": "Длительное проживание от 3 ночей с завтраком",
+      "enabled": false
+    },
+    {
+      "id": "422908",
+      "name": "Длительное проживание с завтраком",
+      "enabled": false
+    },
+    {
+      "id": "422907",
+      "name": "Длительное проживание",
+      "enabled": false
+    },
+    {
+      "id": "433701",
+      "name": "Длительное проживание",
+      "enabled": false
+    },
+    {
+      "id": "370599",
+      "name": "Лучшая цена дня",
+      "enabled": true
+    },
+    {
+      "id": "433025",
+      "name": "Романтическое Предложение",
+      "enabled": true
+    },
+    {
+      "id": "641514",
+      "name": "Семейное проживание",
+      "enabled": false
+    }
+  ],
+  "collection": {
+    "enabled": true,
+    "days_ahead": 60,
+    "adults": [
+      1
+    ],
+    "children_ages": [],
+    "rooms": 1,
+    "nights": [
+      1
+    ]
+  }
+}

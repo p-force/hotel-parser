@@ -60,12 +60,13 @@ CLI использует источник из `configs/arena33.json` и вып�
 
 ## TravelLine
 
-Первый адаптер — AZIMUT Аэростар (`configs/aerostar.json`, TravelLine ID `585`).
+В группе `arena33` включены МонАрх (`17249`), Бега (`61`), AZIMUT Аэростар (`585`),
+Советский (`333`) и Петровский Путевой Дворец (`5787`).
 Анонимные GET BookingForm `hotel_info` / `hotel_availability` собирают категории,
 публичные тарифы, цены и квоты через существующий PostgreSQL runtime.
 Адаптер выбирается по `source.type=travelline`; очередь, leases/fencing,
-retry и shutdown общие с Bnovo. Конфигурация выключена и не включена в `groups.json`.
-Для подключения добавьте её в нужную группу и явно включите сбор.
+retry и shutdown общие с Bnovo. Неизвестный номерной фонд остаётся `null`.
+[Проверка пяти отелей, отсутствующих категорий и PostgreSQL/CSV](docs/verification/2026-11-02-travelline-competitors/README.md).
 
 `rates[].enabled` для TravelLine задаёт allowlist обычных публичных тарифов:
 BONUS и персональные цены исключаются. Пустые/неоднозначные ответы сохраняют

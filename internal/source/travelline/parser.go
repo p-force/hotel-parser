@@ -103,7 +103,7 @@ func Parse(info, body []byte, req source.SearchRequest, publicRates []string) (s
 	}
 	categories := map[string]bool{}
 	for _, room := range meta.Hotels[0].RoomTypes {
-		if room.Code == "" || room.Name == "" || room.Kind != "room" || categories[room.Code] {
+		if room.Code == "" || room.Name == "" || (room.Kind != "room" && room.Kind != "apartment") || categories[room.Code] {
 			return result, fmt.Errorf("TravelLine room metadata invalid")
 		}
 		categories[room.Code] = true

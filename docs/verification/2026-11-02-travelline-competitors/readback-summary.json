@@ -1,0 +1,678 @@
+{
+  "schema": "hp_tl_competitors_20261102_0a0460dd",
+  "started_at": "2026-11-02T03:09:02.200989+03:00",
+  "duration_ms": 9543,
+  "counts": {
+    "collection_attempts": 5,
+    "collection_runs": 5,
+    "observation_offers": 128,
+    "observation_variants": 31,
+    "observations": 39,
+    "scenario_jobs": 5
+  },
+  "replay_http_requests": 0,
+  "summary": [
+    {
+      "hotel": "monarch",
+      "property_id": "17249",
+      "categories": 8,
+      "with_offers": 8,
+      "without_offers": 0,
+      "offered_public_rates": 7,
+      "enabled_rates": 7,
+      "offers": 42,
+      "stocks": {
+        "known": 8
+      },
+      "status": "success",
+      "run_id": "bd02ff1e-3b77-44f8-818f-4f8ad69cae86",
+      "csv_rows": 42
+    },
+    {
+      "hotel": "bega",
+      "property_id": "61",
+      "categories": 8,
+      "with_offers": 8,
+      "without_offers": 0,
+      "offered_public_rates": 4,
+      "enabled_rates": 4,
+      "offers": 32,
+      "stocks": {
+        "known": 8
+      },
+      "status": "success",
+      "run_id": "dd6aeb38-4d3f-4498-9ac4-2ba36316c956",
+      "csv_rows": 32
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "property_id": "585",
+      "categories": 10,
+      "with_offers": 8,
+      "without_offers": 2,
+      "offered_public_rates": 5,
+      "enabled_rates": 11,
+      "offers": 40,
+      "stocks": {
+        "known": 8,
+        "unknown": 2
+      },
+      "status": "partial",
+      "run_id": "571bef00-296e-419e-b625-bc1fce9994b2",
+      "csv_rows": 42
+    },
+    {
+      "hotel": "sovietsky",
+      "property_id": "333",
+      "categories": 7,
+      "with_offers": 6,
+      "without_offers": 1,
+      "offered_public_rates": 2,
+      "enabled_rates": 2,
+      "offers": 12,
+      "stocks": {
+        "known": 6,
+        "unknown": 1
+      },
+      "status": "partial",
+      "run_id": "27780b51-0e60-4d0a-9689-ab880b571f62",
+      "csv_rows": 13
+    },
+    {
+      "hotel": "petroff",
+      "property_id": "5787",
+      "categories": 6,
+      "with_offers": 1,
+      "without_offers": 5,
+      "offered_public_rates": 2,
+      "enabled_rates": 3,
+      "offers": 2,
+      "stocks": {
+        "known": 1,
+        "unknown": 5
+      },
+      "status": "partial",
+      "run_id": "dc0f920b-0cfa-4f90-b54e-66806b50e36d",
+      "csv_rows": 7
+    }
+  ],
+  "categories": [
+    {
+      "hotel": "monarch",
+      "category_id": "122840",
+      "category_name": "Полулюкс",
+      "area_m2": 45,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 7,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "13600.0",
+      "warnings": []
+    },
+    {
+      "hotel": "monarch",
+      "category_id": "122845",
+      "category_name": "Угловой Люкс",
+      "area_m2": 56,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 7,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "15300.0",
+      "warnings": []
+    },
+    {
+      "hotel": "monarch",
+      "category_id": "122847",
+      "category_name": "Номер Делюкс с одной большой кроватью",
+      "area_m2": 31,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 7,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "10200.0",
+      "warnings": []
+    },
+    {
+      "hotel": "monarch",
+      "category_id": "170376",
+      "category_name": "Номер Делюкс с двумя раздельными кроватями",
+      "area_m2": 31,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 7,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "10200.0",
+      "warnings": []
+    },
+    {
+      "hotel": "monarch",
+      "category_id": "185327",
+      "category_name": "Премьер Люкс",
+      "area_m2": 75,
+      "stock_status": "known",
+      "available": 9,
+      "offers": 7,
+      "raw_quantities": [
+        9
+      ],
+      "minimum_public_price": "18700.0",
+      "warnings": []
+    },
+    {
+      "hotel": "monarch",
+      "category_id": "201805",
+      "category_name": "Президентский  Люкс",
+      "area_m2": 160,
+      "stock_status": "known",
+      "available": 1,
+      "offers": 5,
+      "raw_quantities": [
+        1
+      ],
+      "minimum_public_price": "81800.0",
+      "warnings": []
+    },
+    {
+      "hotel": "monarch",
+      "category_id": "202026",
+      "category_name": "Двухкомнатные апартаменты с кухней и одной большой кроватью для длительного проживания",
+      "area_m2": 80,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 1,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "20250.0",
+      "warnings": []
+    },
+    {
+      "hotel": "monarch",
+      "category_id": "202027",
+      "category_name": "Двухкомнатные апартаменты с кухней и двумя раздельными кроватями для длительного проживания",
+      "area_m2": 80,
+      "stock_status": "known",
+      "available": 8,
+      "offers": 1,
+      "raw_quantities": [
+        8
+      ],
+      "minimum_public_price": "20250.0",
+      "warnings": []
+    },
+    {
+      "hotel": "bega",
+      "category_id": "342440",
+      "category_name": "SMART Стандарт",
+      "area_m2": null,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 4,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "10800.0",
+      "warnings": []
+    },
+    {
+      "hotel": "bega",
+      "category_id": "342441",
+      "category_name": "SMART Люкс",
+      "area_m2": null,
+      "stock_status": "known",
+      "available": 1,
+      "offers": 4,
+      "raw_quantities": [
+        1
+      ],
+      "minimum_public_price": "14300.0",
+      "warnings": []
+    },
+    {
+      "hotel": "bega",
+      "category_id": "415406",
+      "category_name": "SMART Стандарт ИППОДРОМ",
+      "area_m2": 17,
+      "stock_status": "known",
+      "available": 3,
+      "offers": 4,
+      "raw_quantities": [
+        3
+      ],
+      "minimum_public_price": "11100.0",
+      "warnings": []
+    },
+    {
+      "hotel": "bega",
+      "category_id": "415436",
+      "category_name": "SMART Люкс ИППОДРОМ",
+      "area_m2": 25,
+      "stock_status": "known",
+      "available": 1,
+      "offers": 4,
+      "raw_quantities": [
+        1
+      ],
+      "minimum_public_price": "14600.0",
+      "warnings": []
+    },
+    {
+      "hotel": "bega",
+      "category_id": "560",
+      "category_name": "Стандартный",
+      "area_m2": 17,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 4,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "7700.0",
+      "warnings": []
+    },
+    {
+      "hotel": "bega",
+      "category_id": "561",
+      "category_name": "Стандартный с видом на Ипподром",
+      "area_m2": 16,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 4,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "8000.0",
+      "warnings": []
+    },
+    {
+      "hotel": "bega",
+      "category_id": "562",
+      "category_name": "Люкс",
+      "area_m2": 45,
+      "stock_status": "known",
+      "available": 8,
+      "offers": 4,
+      "raw_quantities": [
+        8
+      ],
+      "minimum_public_price": "10200.0",
+      "warnings": []
+    },
+    {
+      "hotel": "bega",
+      "category_id": "563",
+      "category_name": "Люкс с видом на Ипподром",
+      "area_m2": 48,
+      "stock_status": "known",
+      "available": 5,
+      "offers": 4,
+      "raw_quantities": [
+        5
+      ],
+      "minimum_public_price": "11100.0",
+      "warnings": []
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "category_id": "103578",
+      "category_name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+      "area_m2": 20,
+      "stock_status": "known",
+      "available": 7,
+      "offers": 5,
+      "raw_quantities": [
+        7
+      ],
+      "minimum_public_price": "7650.0",
+      "warnings": []
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "category_id": "103580",
+      "category_name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+      "area_m2": 20,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 5,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "7650.0",
+      "warnings": []
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "category_id": "133917",
+      "category_name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "area_m2": 65,
+      "stock_status": "unknown",
+      "available": null,
+      "offers": 0,
+      "raw_quantities": [],
+      "minimum_public_price": null,
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "133917"
+        }
+      ]
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "category_id": "250899",
+      "category_name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "area_m2": 65,
+      "stock_status": "unknown",
+      "available": null,
+      "offers": 0,
+      "raw_quantities": [],
+      "minimum_public_price": null,
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "250899"
+        }
+      ]
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "category_id": "4347",
+      "category_name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+      "area_m2": 20,
+      "stock_status": "known",
+      "available": 7,
+      "offers": 5,
+      "raw_quantities": [
+        7
+      ],
+      "minimum_public_price": "6375.0",
+      "warnings": []
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "category_id": "4348",
+      "category_name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+      "area_m2": 36,
+      "stock_status": "known",
+      "available": 1,
+      "offers": 5,
+      "raw_quantities": [
+        1
+      ],
+      "minimum_public_price": "8075.0",
+      "warnings": []
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "category_id": "4349",
+      "category_name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+      "area_m2": 42,
+      "stock_status": "known",
+      "available": 6,
+      "offers": 5,
+      "raw_quantities": [
+        6
+      ],
+      "minimum_public_price": "9775.0",
+      "warnings": []
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "category_id": "4350",
+      "category_name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+      "area_m2": 20,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 5,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "6375.0",
+      "warnings": []
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "category_id": "8875",
+      "category_name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+      "area_m2": 36,
+      "stock_status": "known",
+      "available": 4,
+      "offers": 5,
+      "raw_quantities": [
+        4
+      ],
+      "minimum_public_price": "8075.0",
+      "warnings": []
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "category_id": "8876",
+      "category_name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+      "area_m2": 42,
+      "stock_status": "known",
+      "available": 3,
+      "offers": 5,
+      "raw_quantities": [
+        3
+      ],
+      "minimum_public_price": "9775.0",
+      "warnings": []
+    },
+    {
+      "hotel": "sovietsky",
+      "category_id": "2416",
+      "category_name": "Стандартный с двумя раздельными кроватями",
+      "area_m2": 18,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 2,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "5990.0",
+      "warnings": []
+    },
+    {
+      "hotel": "sovietsky",
+      "category_id": "2420",
+      "category_name": "Полулюкс",
+      "area_m2": 30,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 2,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "9560.0",
+      "warnings": []
+    },
+    {
+      "hotel": "sovietsky",
+      "category_id": "2422",
+      "category_name": "Клубный Люкс",
+      "area_m2": 55,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 2,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "10750.0",
+      "warnings": []
+    },
+    {
+      "hotel": "sovietsky",
+      "category_id": "24281",
+      "category_name": "Делюкс",
+      "area_m2": 25,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 2,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "6840.0",
+      "warnings": []
+    },
+    {
+      "hotel": "sovietsky",
+      "category_id": "24386",
+      "category_name": "Стандарт с одной кроватью",
+      "area_m2": null,
+      "stock_status": "known",
+      "available": 10,
+      "offers": 2,
+      "raw_quantities": [
+        10
+      ],
+      "minimum_public_price": "5990.0",
+      "warnings": []
+    },
+    {
+      "hotel": "sovietsky",
+      "category_id": "29344",
+      "category_name": "«Сталинские апартаменты» / «Апартаменты Яръ»",
+      "area_m2": null,
+      "stock_status": "known",
+      "available": 1,
+      "offers": 2,
+      "raw_quantities": [
+        1
+      ],
+      "minimum_public_price": "34000.0",
+      "warnings": []
+    },
+    {
+      "hotel": "sovietsky",
+      "category_id": "2992",
+      "category_name": "Апартаменты",
+      "area_m2": 70,
+      "stock_status": "unknown",
+      "available": null,
+      "offers": 0,
+      "raw_quantities": [],
+      "minimum_public_price": null,
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "2992"
+        }
+      ]
+    },
+    {
+      "hotel": "petroff",
+      "category_id": "34187",
+      "category_name": "Стандартный номер с 1 двуспальной кроватью",
+      "area_m2": 30,
+      "stock_status": "known",
+      "available": 2,
+      "offers": 2,
+      "raw_quantities": [
+        2
+      ],
+      "minimum_public_price": "10000.0",
+      "warnings": []
+    },
+    {
+      "hotel": "petroff",
+      "category_id": "34188",
+      "category_name": "Делюкс с 1 двуспальной кроватью",
+      "area_m2": 40,
+      "stock_status": "unknown",
+      "available": null,
+      "offers": 0,
+      "raw_quantities": [],
+      "minimum_public_price": null,
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "34188"
+        }
+      ]
+    },
+    {
+      "hotel": "petroff",
+      "category_id": "34189",
+      "category_name": "Представительский двухкомнатный Люкс с 1 спальней",
+      "area_m2": 60,
+      "stock_status": "unknown",
+      "available": null,
+      "offers": 0,
+      "raw_quantities": [],
+      "minimum_public_price": null,
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "34189"
+        }
+      ]
+    },
+    {
+      "hotel": "petroff",
+      "category_id": "34190",
+      "category_name": "Императорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней",
+      "area_m2": 120,
+      "stock_status": "unknown",
+      "available": null,
+      "offers": 0,
+      "raw_quantities": [],
+      "minimum_public_price": null,
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "34190"
+        }
+      ]
+    },
+    {
+      "hotel": "petroff",
+      "category_id": "34191",
+      "category_name": "Семейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями",
+      "area_m2": 120,
+      "stock_status": "unknown",
+      "available": null,
+      "offers": 0,
+      "raw_quantities": [],
+      "minimum_public_price": null,
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "34191"
+        }
+      ]
+    },
+    {
+      "hotel": "petroff",
+      "category_id": "34493",
+      "category_name": "Стандартный номер с 2 односпальными кроватями",
+      "area_m2": 25,
+      "stock_status": "unknown",
+      "available": null,
+      "offers": 0,
+      "raw_quantities": [],
+      "minimum_public_price": null,
+      "warnings": [
+        {
+          "Code": "category_availability_unknown",
+          "Context": "34493"
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "source_DB_CSV": "passed",
+    "offers": 128,
+    "observations": 39,
+    "csv_rows": 136,
+    "replay_http_requests": 0
+  }
+}

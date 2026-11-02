@@ -20,8 +20,8 @@ func TestSourceFactoryAndPublicRateIsolation(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if cfg.Collection.Enabled {
-		t.Fatal("new source enabled for mass collection")
+	if !cfg.Collection.Enabled {
+		t.Fatal("verified Aerostar source is not enabled")
 	}
 	tl, err := NewSourceClient(cfg)
 	if err != nil || tl.SourceType() != "travelline" || tl.SourceOrigin() != travelline.PublicOrigin {

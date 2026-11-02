@@ -84,7 +84,7 @@ func TestTimezoneAndConfirmedLOSReplacement(t *testing.T) {
 
 func TestRegistryAndSlotValidation(t *testing.T) {
 	r, err := LoadRegistry("../../configs/groups.json")
-	if err != nil || len(r.Groups) != 1 || len(r.Groups[0].Properties) != 2 {
+	if err != nil || len(r.Groups) != 1 || len(r.Groups[0].Properties) != 7 {
 		t.Fatalf("registry: %+v %v", r, err)
 	}
 	for _, bad := range []time.Time{time.Time{}, slot(9), slot(8).Add(time.Minute), slot(8).Add(time.Nanosecond)} {
@@ -110,5 +110,42 @@ func TestRegistryAndSlotValidation(t *testing.T) {
 	r.Groups[1].Schema = r.Groups[0].Schema
 	if r.Validate() == nil {
 		t.Fatal("shared schema accepted")
+	}
+}
+
+func TestTravelLineCompetitorRegistry(t *testing.T) {
+	r, err := LoadRegistry("../../configs/groups.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := map[string]string{"monarch": "17249", "bega": "61", "azimut_aerostar": "585", "sovietsky": "333", "petroff": "5787"}
+	for _, g := range r.Groups {
+		if g.ID != "arena33" {
+			continue
+		}
+		for _, p := range g.Properties {
+			if code, ok := want[p.Hotel.ID]; ok {
+				if !p.Hotel.Collection.Enabled || p.Hotel.Source.Type != "travelline" || p.Hotel.Source.PropertyID != code || p.LOS != 0 || p.LOS2Evidence != "" {
+					t.Fatal(p)
+				}
+				delete(want, p.Hotel.ID)
+			}
+		}
+	}
+	if len(want) != 0 {
+		t.Fatal("missing competitors", want)
+	}
+	plans, err := BuildPlans(r, slot(20))
+	if err != nil || len(plans) != 6 {
+		t.Fatal(plans, err)
+	}
+	for _, plan := range plans {
+		if len(plan.Scenarios) != 1 {
+			t.Fatal(plan)
+		}
+		s := plan.Scenarios[0]
+		if s.LOS != 1 || s.Adults != 1 || s.Rooms != 1 {
+			t.Fatal(s)
+		}
 	}
 }
