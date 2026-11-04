@@ -1,0 +1,33 @@
+{
+  "make check": {
+    "result": "PASS",
+    "log_sha256": "063b97e9895b52792ab9189eb2070c6870a200422ac2c9025a4229a1d1e0cd16"
+  },
+  "make test-integration-docker": {
+    "result": "FAIL",
+    "failed_test": "TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery",
+    "package": "internal/collect",
+    "phase": "Bnovo mock warm-up",
+    "error": "timeout before HTTP-start-gate assertion",
+    "note": "Storage tests passed; collect suite had one failure; script did not reach schedule. No Bnovo code changed."
+  },
+  "isolated failed-test recheck": {
+    "result": "PASS",
+    "test": "TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery",
+    "duration_s": 0.29
+  },
+  "PostgreSQL schedule tests": {
+    "result": "PASS",
+    "pattern": "^TestPostgres"
+  },
+  "PostgreSQL TravelLine competitors -race": {
+    "result": "PASS",
+    "test": "TestPostgresTravelLineCompetitors"
+  },
+  "offline artifact audit": {
+    "result": "PASS"
+  },
+  "git diff --check": {
+    "result": "PASS"
+  }
+}

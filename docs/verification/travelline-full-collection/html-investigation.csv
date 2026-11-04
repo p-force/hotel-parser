@@ -1,0 +1,51 @@
+hotel,category_id,date,API,DOM,restrictions,conclusion
+17249,122840,2026-11-22,room_stays=[],На 22 ноября — 23 ноября нет доступных номеров,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+17249,122845,2026-11-22,room_stays=[],На 22 ноября — 23 ноября нет доступных номеров,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+17249,122847,2026-11-22,room_stays=[],На 22 ноября — 23 ноября нет доступных номеров,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+17249,170376,2026-11-22,room_stays=[],На 22 ноября — 23 ноября нет доступных номеров,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+17249,185327,2026-11-22,room_stays=[],На 22 ноября — 23 ноября нет доступных номеров,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+17249,201805,2026-11-22,room_stays=[],На 22 ноября — 23 ноября нет доступных номеров,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+17249,202026,2026-11-22,room_stays=[],На 22 ноября — 23 ноября нет доступных номеров,"[""forbidden=True"", ""min_adv_booking=1""]",unknown; no physical zero inferred
+17249,202027,2026-11-22,room_stays=[],На 22 ноября — 23 ноября нет доступных номеров,"[""forbidden=True"", ""min_adv_booking=1""]",unknown; no physical zero inferred
+17249,122840,2026-11-23,category absent,Распродано,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+17249,122845,2026-11-23,category absent,Распродано,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+17249,122847,2026-11-23,category absent,Распродано,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+17249,170376,2026-11-23,category absent,Распродано,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+17249,185327,2026-11-23,category absent,Распродано,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+17249,202026,2026-11-23,category absent,Распродано,"[""forbidden=True"", ""min_adv_booking=1""]",unknown; no physical zero inferred
+17249,202027,2026-11-23,category absent,Распродано,"[""forbidden=True"", ""min_adv_booking=1""]",unknown; no physical zero inferred
+17249,201805,2026-12-30,category absent,Распродано,"[""forbidden=True"", ""min_adv_booking=1"", ""min_adv_booking=3""]",unknown; no physical zero inferred
+61,342441,2026-11-05,category absent,Распродано,"[""forbidden=True""]",unknown; no physical zero inferred
+61,415436,2026-11-05,category absent,Распродано,"[""forbidden=True""]",unknown; no physical zero inferred
+585,103578,2026-12-04,room_stays=[],Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""max_los=31"", ""min_adv_booking=2"", ""min_los=14"", ""min_los=32""]",unknown; no physical zero inferred
+585,103580,2026-12-04,room_stays=[],Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""max_los=31"", ""min_adv_booking=2"", ""min_los=14"", ""min_los=32""]",unknown; no physical zero inferred
+585,133917,2026-12-04,room_stays=[],Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+585,250899,2026-12-04,room_stays=[],Номера закончились.,"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+585,4347,2026-12-04,room_stays=[],Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""max_los=31"", ""min_adv_booking=2"", ""min_los=14"", ""min_los=32""]",unknown; no physical zero inferred
+585,4348,2026-12-04,room_stays=[],Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+585,4349,2026-12-04,room_stays=[],Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+585,4350,2026-12-04,room_stays=[],Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""max_los=31"", ""min_adv_booking=2"", ""min_los=14"", ""min_los=32""]",unknown; no physical zero inferred
+585,8875,2026-12-04,room_stays=[],Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+585,8876,2026-12-04,room_stays=[],Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+585,133917,2026-12-31,category absent,Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+585,250899,2026-12-31,category absent,Сообщение не подтверждено (DOM не загружен/карточка не завершена),"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+585,4347,2026-12-31,category absent,Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""max_los=31"", ""min_adv_booking=2"", ""min_los=14"", ""min_los=32""]",unknown; no physical zero inferred
+585,4348,2026-12-31,category absent,Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+585,4349,2026-12-31,category absent,Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+585,4350,2026-12-31,category absent,Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""max_los=31"", ""min_adv_booking=2"", ""min_los=14"", ""min_los=32""]",unknown; no physical zero inferred
+585,8875,2026-12-31,category absent,Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+585,8876,2026-12-31,category absent,Номер недоступен в указанные даты или на выбранную продолжительность.,"[""forbidden=True"", ""min_adv_booking=2""]",unknown; no physical zero inferred
+333,29344,2026-11-15,category absent,Распродано,"[""forbidden=True""]",unknown; no physical zero inferred
+333,2992,2026-11-15,category absent,Распродано,"[""forbidden=True""]",unknown; no physical zero inferred
+5787,34187,2026-12-31,room_stays=[],Сообщение не подтверждено (DOM не загружен/карточка не завершена),"[""min_los_arrival=2""]",unknown; no physical zero inferred
+5787,34188,2026-12-31,room_stays=[],Сообщение не подтверждено (DOM не загружен/карточка не завершена),"[""forbidden=True"", ""min_los_arrival=2""]",unknown; no physical zero inferred
+5787,34189,2026-12-31,room_stays=[],Сообщение не подтверждено (DOM не загружен/карточка не завершена),"[""forbidden=True"", ""max_los=1"", ""min_adv_booking=7"", ""min_los_arrival=2""]",unknown; no physical zero inferred
+5787,34190,2026-12-31,room_stays=[],Сообщение не подтверждено (DOM не загружен/карточка не завершена),"[""max_los=1"", ""min_adv_booking=7"", ""min_los_arrival=2""]",unknown; no physical zero inferred
+5787,34191,2026-12-31,room_stays=[],Сообщение не подтверждено (DOM не загружен/карточка не завершена),"[""forbidden=True"", ""min_los_arrival=2""]",unknown; no physical zero inferred
+5787,34493,2026-12-31,room_stays=[],Сообщение не подтверждено (DOM не загружен/карточка не завершена),"[""min_los_arrival=2""]",unknown; no physical zero inferred
+5787,34188,2026-11-17,category absent,Распродано,"[""forbidden=True""]",unknown; no physical zero inferred
+5787,34189,2026-11-17,category absent,Распродано,"[""forbidden=True"", ""max_los=1"", ""min_adv_booking=7""]",unknown; no physical zero inferred
+5787,34190,2026-11-17,category absent,Распродано,"[""forbidden=True"", ""max_los=1"", ""min_adv_booking=7""]",unknown; no physical zero inferred
+5787,34191,2026-11-17,category absent,Распродано,"[""forbidden=True""]",unknown; no physical zero inferred
+5787,34493,2026-11-17,category absent,Распродано,"[""forbidden=True""]",unknown; no physical zero inferred
+5787,34187,2026-12-14,category absent,Сообщение не подтверждено (DOM не загружен/карточка не завершена),"[""forbidden=True""]",unknown; no physical zero inferred

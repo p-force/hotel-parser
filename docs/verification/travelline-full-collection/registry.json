@@ -1,0 +1,25 @@
+{
+  "groups": [
+    {
+      "id": "tl_full_diagnostic",
+      "schema": "hp_tl_full_20261103_7af4180a",
+      "properties": [
+        {
+          "config": "../../../configs/monarch.json"
+        },
+        {
+          "config": "../../../configs/bega.json"
+        },
+        {
+          "config": "../../../configs/aerostar.json"
+        },
+        {
+          "config": "../../../configs/sovietsky.json"
+        },
+        {
+          "config": "../../../configs/petroff.json"
+        }
+      ]
+    }
+  ]
+}

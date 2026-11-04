@@ -67,6 +67,7 @@ CLI использует источник из `configs/arena33.json` и вып�
 Адаптер выбирается по `source.type=travelline`; очередь, leases/fencing,
 retry и shutdown общие с Bnovo. Неизвестный номерной фонд остаётся `null`.
 [Проверка пяти отелей, отсутствующих категорий и PostgreSQL/CSV](docs/verification/2026-11-02-travelline-competitors/README.md).
+[Первый полный диагностический сбор: 305 сценариев, 03.11–02.01](docs/verification/travelline-full-collection/README.md).
 
 `rates[].enabled` для TravelLine задаёт allowlist обычных публичных тарифов:
 BONUS и персональные цены исключаются. Пустые/неоднозначные ответы сохраняют

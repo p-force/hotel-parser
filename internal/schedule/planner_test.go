@@ -149,3 +149,55 @@ func TestTravelLineCompetitorRegistry(t *testing.T) {
 		}
 	}
 }
+
+func TestFullTravelLineDiagnosticPlan(t *testing.T) {
+	r, err := LoadRegistry("../../docs/verification/travelline-full-collection/registry.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(r.Groups) != 1 || len(r.Groups[0].Properties) != 5 {
+		t.Fatal("diagnostic registry must contain only five hotels")
+	}
+	for _, p := range r.Groups[0].Properties {
+		if p.Hotel.Source.Type != "travelline" {
+			t.Fatal("Bnovo in diagnostic registry")
+		}
+	}
+	loc, err := time.LoadLocation("Europe/Moscow")
+	if err != nil {
+		t.Fatal(err)
+	}
+	slot := time.Date(2026, 11, 3, 8, 0, 0, 0, loc)
+	plans, err := BuildPlans(r, slot)
+	if err != nil || len(plans) != 5 {
+		t.Fatal(len(plans), err)
+	}
+	repeat, err := BuildPlans(r, slot)
+	if err != nil || !reflect.DeepEqual(plans, repeat) {
+		t.Fatal("unstable diagnostic resume plan", err)
+	}
+	jobs := 0
+	for _, p := range plans {
+		if len(p.Scenarios) != 61 || p.Run.PeriodStart.Format("2006-01-02") != "2026-11-03" || p.Run.PeriodEnd.Format("2006-01-02") != "2027-01-03" {
+			t.Fatal("incorrect horizon", p.Run, len(p.Scenarios))
+		}
+		dates := map[string]bool{}
+		for _, s := range p.Scenarios {
+			date := s.CheckIn.Format("2006-01-02")
+			if dates[date] || s.Adults != 1 || s.Rooms != 1 || s.LOS != 1 || len(s.ChildrenAges) != 0 || s.Language != "ru" {
+				t.Fatal("incorrect scenario", s)
+			}
+			dates[date] = true
+			if s.CheckOut.Format("2006-01-02") != s.CheckIn.AddDate(0, 0, 1).Format("2006-01-02") {
+				t.Fatal("incorrect checkout", s)
+			}
+		}
+		if !dates["2026-11-03"] || !dates["2027-01-02"] {
+			t.Fatal("horizon boundary missing")
+		}
+		jobs += len(p.Scenarios)
+	}
+	if jobs != 305 {
+		t.Fatal(jobs)
+	}
+}
