@@ -54,12 +54,11 @@ func TestSlotScenariosAndIdentity(t *testing.T) {
 	}
 }
 
-func TestTimezoneAndConfirmedLOSReplacement(t *testing.T) {
+func TestTimezoneAndRegularLOS1(t *testing.T) {
 	r := testRegistry(t)
 	p := &r.Groups[0].Properties[0]
 	p.Hotel.Timezone = "America/Los_Angeles"
-	p.LOS = 2
-	p.LOS2Evidence = "Recorded comparison: LOS=1 incomplete, LOS=2 returns all categories"
+	p.LOS = 1
 	plans, err := BuildPlans(r, slot(8))
 	if err != nil {
 		t.Fatal(err)
@@ -68,13 +67,14 @@ func TestTimezoneAndConfirmedLOSReplacement(t *testing.T) {
 		t.Fatalf("object timezone ignored: %+v", plans[0])
 	}
 	for _, sc := range plans[0].Scenarios {
-		if sc.LOS != 2 || sc.Adults != 1 || !sc.CheckOut.Equal(sc.CheckIn.AddDate(0, 0, 2)) {
+		if sc.LOS != 1 || sc.Adults != 1 || !sc.CheckOut.Equal(sc.CheckIn.AddDate(0, 0, 1)) {
 			t.Fatalf("LOS replacement: %+v", sc)
 		}
 	}
-	p.LOS2Evidence = ""
+	p.LOS = 2
+	p.LOS2Evidence = "Confirmed diagnostic evidence does not authorize regular LOS2"
 	if _, err := BuildPlans(r, slot(8)); err == nil {
-		t.Fatal("unconfirmed LOS=2 accepted")
+		t.Fatal("regular LOS=2 accepted despite LOS1-only contract")
 	}
 	p.LOS = 3
 	if _, err := BuildPlans(r, slot(8)); err == nil {

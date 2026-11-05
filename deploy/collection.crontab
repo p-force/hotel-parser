@@ -1,0 +1,6 @@
+# crond process timezone must be Europe/Moscow. Credentials come from environment.
+0 8 * * * /app/collection-cron tick 08 >> /proc/1/fd/1 2>> /proc/1/fd/2
+0 12 * * * /app/collection-cron tick 12 >> /proc/1/fd/1 2>> /proc/1/fd/2
+0 16 * * * /app/collection-cron tick 16 >> /proc/1/fd/1 2>> /proc/1/fd/2
+0 20 * * * /app/collection-cron tick 20 >> /proc/1/fd/1 2>> /proc/1/fd/2
+* * * * * /app/collection-cron minute >> /proc/1/fd/1 2>> /proc/1/fd/2

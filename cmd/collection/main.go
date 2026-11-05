@@ -35,6 +35,7 @@ func run(ctx context.Context, args []string) error {
 	flags := flag.NewFlagSet("collection", flag.ContinueOnError)
 	registryPath := flags.String("groups", "configs/groups.json", "group registry")
 	slotText := flags.String("slot", "", "logical slot, RFC3339 with timezone")
+	due := flags.Bool("due", false, "plan elapsed slots of the current Moscow day")
 	execution := flags.Duration("execution-timeout", 45*time.Second, "execution budget")
 	grace := flags.Duration("shutdown-grace-period", 5*time.Second, "total flush budget")
 	maxJobs := flags.Int("max-jobs", 64, "maximum claimed jobs per invocation")
@@ -46,6 +47,9 @@ func run(ctx context.Context, args []string) error {
 	if flags.NArg() != 0 {
 		return fmt.Errorf("unexpected arguments")
 	}
+	if *due && (action != "plan" || *slotText != "") {
+		return fmt.Errorf("--due requires plan without --slot")
+	}
 	var slot time.Time
 	var err error
 	if *slotText != "" {
@@ -54,7 +58,7 @@ func run(ctx context.Context, args []string) error {
 			return fmt.Errorf("invalid slot timestamp")
 		}
 	}
-	if action != "serve" && action != "migrate" {
+	if action != "serve" && action != "migrate" && !*due {
 		if err := schedule.ValidateRequest(schedule.Request{Action: action, Slot: slot}); err != nil {
 			return err
 		}
@@ -79,6 +83,27 @@ func run(ctx context.Context, args []string) error {
 		return err
 	}
 	defer service.Close()
+	if *due {
+		slots, err := schedule.DueSlots(time.Now())
+		if err != nil {
+			return err
+		}
+		budget := *execution
+		if budget == 0 {
+			budget = 45 * time.Second // Как default в schedule.Open.
+		}
+		planCtx, end := context.WithTimeout(ctx, budget)
+		defer end()
+		responses := make([]schedule.Response, 0, len(slots))
+		for _, slot := range slots {
+			response, err := service.Execute(planCtx, schedule.Request{Action: "plan", Slot: slot})
+			responses = append(responses, response)
+			if err != nil {
+				return errors.Join(err, json.NewEncoder(os.Stdout).Encode(responses))
+			}
+		}
+		return json.NewEncoder(os.Stdout).Encode(responses)
+	}
 	if action == "migrate" {
 		migrateCtx, end := context.WithTimeout(ctx, *execution)
 		defer end()
