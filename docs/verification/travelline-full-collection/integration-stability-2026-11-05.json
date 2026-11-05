@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-05",
+  "runs": [
+    {
+      "run": 1,
+      "phase": "до исправления",
+      "command": "make test-integration-docker",
+      "result": "PASS",
+      "packages_passed": 3,
+      "top_level_tests_passed": 55,
+      "failed_tests": [],
+      "log_sha256": "4aab008669a7c86d59cbdc7f7e40c0146ad8a282576940ff9ee459ef59ccc9cf"
+    },
+    {
+      "run": 2,
+      "phase": "до исправления",
+      "command": "make test-integration-docker",
+      "result": "FAIL",
+      "packages_passed": 2,
+      "top_level_tests_passed": 54,
+      "failed_tests": [
+        "TestPostgresAutomaticCSVAcrossResumeAndRestart (0.75s)"
+      ],
+      "log_sha256": "5eb9d3b8026d65d0c2db7c668672426545513559b25e8aa1be15c9f787eed4d1"
+    },
+    {
+      "run": 3,
+      "phase": "после исправления",
+      "command": "make test-integration-docker",
+      "result": "PASS",
+      "packages_passed": 3,
+      "top_level_tests_passed": 56,
+      "failed_tests": [],
+      "log_sha256": "dde7020e2a5a12dc7dc4b8f0cbeb29fb1b4787c8f88554957cb6101d704f082e"
+    },
+    {
+      "run": 4,
+      "phase": "после исправления",
+      "command": "make test-integration-docker",
+      "result": "PASS",
+      "packages_passed": 3,
+      "top_level_tests_passed": 56,
+      "failed_tests": [],
+      "log_sha256": "c7ce05270432171d6c6204d0f4822b5b36ca850958a438ca3715bbdfe6858356"
+    },
+    {
+      "run": 5,
+      "phase": "после исправления",
+      "command": "make test-integration-docker",
+      "result": "PASS",
+      "packages_passed": 3,
+      "top_level_tests_passed": 56,
+      "failed_tests": [],
+      "log_sha256": "1d9fa3c26b009326f624267127820e40dfe29c4ad48cfa1a0f5e6f7166aea4b7"
+    }
+  ],
+  "consecutive_full_passes_after_fix": 3,
+  "causes": [
+    {
+      "component": "storage.RunnerLock",
+      "problem": "overlapping QueryRowContext/Scan on one pinned pgx connection under concurrent workers",
+      "reproduction": "8 workers x 100 Check; before fix panic in pgx stdlib Rows.Next",
+      "fix": "serialize Check query/scan and Close on the same mutex",
+      "source_adapters_changed": false
+    },
+    {
+      "component": "collect integration test setup",
+      "problem": "long interval configured before warm-up despite retained origin start history",
+      "reproduction": "seed origin history; former warm-up times out after 20 seconds",
+      "fix": "seed old history, perform warm-up with interval=0, enable hour interval only for queued deadline gate",
+      "production_limiter_changed": false
+    }
+  ],
+  "make_check": "PASS",
+  "git_diff_check": "PASS",
+  "stress_race": {
+    "result": "PASS",
+    "count": 10,
+    "packages": [
+      "storage",
+      "collect",
+      "schedule"
+    ],
+    "test_pattern": "^TestPostgres(RunnerLock|RuntimeDeadlineAtHTTPStartGateAndRecovery|AutomaticCSVAcrossResumeAndRestart)",
+    "log_sha256": "aff603f1d141da7599aebc1a86356f98a24b4bd3b9889c3230a9a4394238cb10"
+  }
+}

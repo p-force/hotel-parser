@@ -1,0 +1,161 @@
+CSV failure
+=== RUN   TestPostgresDeliveryClaimsRecoveryAndIsolation
+--- PASS: TestPostgresDeliveryClaimsRecoveryAndIsolation (0.12s)
+=== RUN   TestPostgresDeliverySlotPaths
+--- PASS: TestPostgresDeliverySlotPaths (0.08s)
+=== RUN   TestPostgresConcurrentClaimsIndependentPools
+--- PASS: TestPostgresConcurrentClaimsIndependentPools (0.04s)
+=== RUN   TestPostgresCrashRecoveryAndFencing
+--- PASS: TestPostgresCrashRecoveryAndFencing (0.06s)
+=== RUN   TestPostgresLeaseRenewalAndCancellation
+--- PASS: TestPostgresLeaseRenewalAndCancellation (0.10s)
+=== RUN   TestPostgresLeaseBudgetAndRetryScheduling
+--- PASS: TestPostgresLeaseBudgetAndRetryScheduling (0.05s)
+=== RUN   TestPostgresHTTPRetriesShareLeaseAndBudget
+--- PASS: TestPostgresHTTPRetriesShareLeaseAndBudget (0.05s)
+=== RUN   TestPostgresConcurrentCompletionAndCanceledClaim
+--- PASS: TestPostgresConcurrentCompletionAndCanceledClaim (0.04s)
+=== RUN   TestPostgresPlanPublicationRollbackAndLedger
+--- PASS: TestPostgresPlanPublicationRollbackAndLedger (0.04s)
+=== RUN   TestPostgresRunnerLockAcrossPoolsAndConnectionLoss
+--- PASS: TestPostgresRunnerLockAcrossPoolsAndConnectionLoss (0.03s)
+=== RUN   TestPostgresReportedQuantityRoundTrip
+--- PASS: TestPostgresReportedQuantityRoundTrip (0.04s)
+=== RUN   TestPostgresReportedQuantityUpgrade
+--- PASS: TestPostgresReportedQuantityUpgrade (0.06s)
+=== RUN   TestPostgresRunCSVSemantics
+=== RUN   TestPostgresRunCSVSemantics/bnovo
+=== RUN   TestPostgresRunCSVSemantics/travelline
+--- PASS: TestPostgresRunCSVSemantics (0.08s)
+=== RUN   TestPostgresRunCSVStreaming
+--- PASS: TestPostgresRunCSVStreaming (0.23s)
+=== RUN   TestPostgresOutcomesAndReadback
+=== RUN   TestPostgresOutcomesAndReadback/success
+=== RUN   TestPostgresOutcomesAndReadback/partial
+=== RUN   TestPostgresOutcomesAndReadback/failed
+=== RUN   TestPostgresOutcomesAndReadback/retryable
+=== RUN   TestPostgresOutcomesAndReadback/unknown
+=== RUN   TestPostgresOutcomesAndReadback/confirmed_unavailable
+--- PASS: TestPostgresOutcomesAndReadback (0.05s)
+=== RUN   TestPostgresIdempotencyAndHistory
+--- PASS: TestPostgresIdempotencyAndHistory (0.08s)
+=== RUN   TestPostgresRollbackConstraintsAndAppendOnly
+--- PASS: TestPostgresRollbackConstraintsAndAppendOnly (0.03s)
+=== RUN   TestPostgresMigrationsAndIndexes
+--- PASS: TestPostgresMigrationsAndIndexes (0.03s)
+=== RUN   TestPostgresScenarioDimensions
+--- PASS: TestPostgresScenarioDimensions (0.03s)
+=== RUN   TestPostgresMixedJobFailures
+--- PASS: TestPostgresMixedJobFailures (0.03s)
+PASS
+=== RUN   TestPostgresRuntimeMissingExpectedCategory
+--- PASS: TestPostgresRuntimeMissingExpectedCategory (0.04s)
+=== RUN   TestPostgresRuntimeHistoryRetriesAndMultipleHotels
+--- PASS: TestPostgresRuntimeHistoryRetriesAndMultipleHotels (0.33s)
+=== RUN   TestPostgresRuntimeCancellationAndRecovery
+--- PASS: TestPostgresRuntimeCancellationAndRecovery (0.05s)
+=== RUN   TestPostgresRuntimeCanceledBeforeClaimAndDuringClaim
+--- PASS: TestPostgresRuntimeCanceledBeforeClaimAndDuringClaim (0.10s)
+=== RUN   TestPostgresRuntimeCancelRateAndBackoff
+=== RUN   TestPostgresRuntimeCancelRateAndBackoff/backoff=false
+=== RUN   TestPostgresRuntimeCancelRateAndBackoff/backoff=true
+--- PASS: TestPostgresRuntimeCancelRateAndBackoff (0.07s)
+=== RUN   TestPostgresRuntimeCompletedFlushAndFlushTimeout
+=== RUN   TestPostgresRuntimeCompletedFlushAndFlushTimeout/blocked=false
+=== RUN   TestPostgresRuntimeCompletedFlushAndFlushTimeout/blocked=true
+--- PASS: TestPostgresRuntimeCompletedFlushAndFlushTimeout (0.13s)
+=== RUN   TestPostgresRuntimeRenewsUntilExecutionDeadline
+--- PASS: TestPostgresRuntimeRenewsUntilExecutionDeadline (0.56s)
+=== RUN   TestPostgresRuntimeRejectsFencedHTTPResult
+--- PASS: TestPostgresRuntimeRejectsFencedHTTPResult (0.09s)
+=== RUN   TestPostgresRuntimeCanceledWaitingForGlobalWorker
+--- PASS: TestPostgresRuntimeCanceledWaitingForGlobalWorker (0.06s)
+=== RUN   TestPostgresRuntimeIndependentOutcomesAndDurableAttemptBudget
+--- PASS: TestPostgresRuntimeIndependentOutcomesAndDurableAttemptBudget (0.07s)
+=== RUN   TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery
+--- PASS: TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery (0.25s)
+=== RUN   TestPostgresConfirmedUnavailabilityWithoutPlans
+--- PASS: TestPostgresConfirmedUnavailabilityWithoutPlans (0.06s)
+=== RUN   TestPostgresAmbiguousUnavailabilityStaysUnknown
+=== RUN   TestPostgresAmbiguousUnavailabilityStaysUnknown/date_mismatch
+=== RUN   TestPostgresAmbiguousUnavailabilityStaysUnknown/missing_category
+=== RUN   TestPostgresAmbiguousUnavailabilityStaysUnknown/minimum_stay
+--- PASS: TestPostgresAmbiguousUnavailabilityStaysUnknown (0.12s)
+=== RUN   TestPostgresTravelLineCompetitors
+--- PASS: TestPostgresTravelLineCompetitors (0.08s)
+PASS
+=== RUN   TestPostgresAutomaticCSVAcrossResumeAndRestart
+    csv_integration_test.go:41: unfinished run exported {[] [{arena33 hp_test_qgamrdxor2muxysagqy3zxzxv3 [{{{2b4cd33d-f792-5b71-bf89-51984e68e9e2 arena33 2026-10-31 00:00:00 +0000 UTC 2026-11-08 00:00:00 +0000 UTC 2026-10-31 09:00:00 +0000 UTC} <nil> running} 4 4 0 0 0 0 0 0 8}]}] true [] []} check runner lock failed
+--- FAIL: TestPostgresAutomaticCSVAcrossResumeAndRestart (0.75s)
+=== RUN   TestPostgresCSVWriteFailureDoesNotChangeCollection
+--- PASS: TestPostgresCSVWriteFailureDoesNotChangeCollection (1.17s)
+=== RUN   TestPostgresCSVDoesNotHoldRunnerLock
+--- PASS: TestPostgresCSVDoesNotHoldRunnerLock (0.67s)
+=== RUN   TestPostgresCSVContextDoesNotPublish
+--- PASS: TestPostgresCSVContextDoesNotPublish (0.08s)
+=== RUN   TestPostgresAutomaticCSVSourceAndGroupIsolation
+--- PASS: TestPostgresAutomaticCSVSourceAndGroupIsolation (1.25s)
+=== RUN   TestPostgresAutomaticDiskDeliveryRecovery
+--- PASS: TestPostgresAutomaticDiskDeliveryRecovery (3.00s)
+=== RUN   TestPostgresDeliveryDoesNotHoldRunnerLock
+--- PASS: TestPostgresDeliveryDoesNotHoldRunnerLock (0.61s)
+=== RUN   TestPostgresDeliveryMissingToken
+--- PASS: TestPostgresDeliveryMissingToken (1.14s)
+=== RUN   TestPostgresDiskDeliveryCommittedCSVSemantics
+=== RUN   TestPostgresDiskDeliveryCommittedCSVSemantics/bnovo
+=== RUN   TestPostgresDiskDeliveryCommittedCSVSemantics/travelline
+--- PASS: TestPostgresDiskDeliveryCommittedCSVSemantics (0.15s)
+=== RUN   TestPostgresDiskDeliveryFailedRunsAndBound
+--- PASS: TestPostgresDiskDeliveryFailedRunsAndBound (0.04s)
+=== RUN   TestPostgresScheduleConcurrentPlanningAndSlotHistory
+--- PASS: TestPostgresScheduleConcurrentPlanningAndSlotHistory (0.12s)
+=== RUN   TestPostgresScheduleFairParallelGroupsAndRunnerExclusion
+--- PASS: TestPostgresScheduleFairParallelGroupsAndRunnerExclusion (0.65s)
+=== RUN   TestPostgresScheduleHTTPRecoveryAndTickOrder
+--- PASS: TestPostgresScheduleHTTPRecoveryAndTickOrder (1.68s)
+=== RUN   TestPostgresScheduleStopRecoverAndPersistentFairness
+--- PASS: TestPostgresScheduleStopRecoverAndPersistentFairness (1.70s)
+=== RUN   TestPostgresScheduleBnovoRunnerHandoffRate
+--- PASS: TestPostgresScheduleBnovoRunnerHandoffRate (1.18s)
+=== RUN   TestPostgresScheduleTickReservesPlanningBudget
+--- PASS: TestPostgresScheduleTickReservesPlanningBudget (1.45s)
+=== RUN   TestPostgresTravelLineQueuedPersistence
+--- PASS: TestPostgresTravelLineQueuedPersistence (1.13s)
+=== RUN   TestPostgresTravelLineClientPolicyIsolation
+=== RUN   TestPostgresTravelLineClientPolicyIsolation/forward
+=== RUN   TestPostgresTravelLineClientPolicyIsolation/forward_disabled
+=== RUN   TestPostgresTravelLineClientPolicyIsolation/reverse
+=== RUN   TestPostgresTravelLineClientPolicyIsolation/reverse_disabled
+=== RUN   TestPostgresTravelLineClientPolicyIsolation/equivalent_policies_reuse
+--- PASS: TestPostgresTravelLineClientPolicyIsolation (0.33s)
+=== RUN   TestPostgresMixedSourcesInvalidCurrency
+--- PASS: TestPostgresMixedSourcesInvalidCurrency (1.10s)
+=== RUN   TestPostgresTravelLineConflictingQuantitiesRoundTrip
+--- PASS: TestPostgresTravelLineConflictingQuantitiesRoundTrip (1.11s)
+=== RUN   TestPostgresVerificationProcessHelper
+=== RUN   TestPostgresVerificationIndependentProcessFencing
+--- PASS: TestPostgresVerificationIndependentProcessFencing (0.09s)
+FAIL
+
+Concurrent pinned connection before fix
+=== RUN   TestPostgresRunnerLockConcurrentChecks
+panic: runtime error: index out of range [0] with length 0
+github.com/jackc/pgx/v5/stdlib.(*Rows).Next(0x86dd7124500, {0x9b3d80, 0x0, 0x1?})
+
+Retained-origin warm-up before fix
+=== RUN   TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery
+    runtime_integration_test.go:486: warm-up: {Source: Request:{PropertyID:00000000-0000-0000-0000-000000000001 CheckIn:2026-10-26 00:00:00 +0000 UTC CheckOut:2026-10-28 00:00:00 +0000 UTC Adults:2 ChildrenAges:[] Language:ru} CollectedAt:2026-11-05 07:49:19.509753333 +0000 UTC Status:failed Categories:[] Variants:[] Offers:[] HTTPStatus:0 Error:timeout: Bnovo HTTP request failed Warnings:[] CategoryAvailability:[]}
+--- FAIL: TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery (20.11s)
+FAIL
+
+Runner lock after fix
+=== RUN   TestPostgresRunnerLockAcrossPoolsAndConnectionLoss
+--- PASS: TestPostgresRunnerLockAcrossPoolsAndConnectionLoss (0.06s)
+=== RUN   TestPostgresRunnerLockConcurrentChecks
+--- PASS: TestPostgresRunnerLockConcurrentChecks (0.08s)
+PASS
+
+Warm-up after fix
+=== RUN   TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery
+--- PASS: TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery (0.29s)
+PASS

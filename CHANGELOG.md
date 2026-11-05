@@ -17,6 +17,10 @@
 
 ### Fixed
 
+- Синхронизированы конкурентные проверки pinned PostgreSQL runner lock: workers
+  больше не пересекают query/Scan на одном pgx-соединении. Устранена зависимость
+  integration warm-up от сохранённой rate-limit истории mock origin.
+
 - TravelLine-категории `kind=apartment` Петровского дворца больше не отклоняют
   весь ответ; площади и предложения сохраняются наравне с `room`.
 

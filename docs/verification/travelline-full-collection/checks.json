@@ -1,15 +1,8 @@
 {
   "make check": {
+    "date": "2026-11-05",
     "result": "PASS",
-    "log_sha256": "063b97e9895b52792ab9189eb2070c6870a200422ac2c9025a4229a1d1e0cd16"
-  },
-  "make test-integration-docker": {
-    "result": "FAIL",
-    "failed_test": "TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery",
-    "package": "internal/collect",
-    "phase": "Bnovo mock warm-up",
-    "error": "timeout before HTTP-start-gate assertion",
-    "note": "Storage tests passed; collect suite had one failure; script did not reach schedule. No Bnovo code changed."
+    "log_sha256": "0ba07cc98ae872cbaa6f28bc4104256b3f4e69e0c7650713ffd9e3fc919e52d5"
   },
   "isolated failed-test recheck": {
     "result": "PASS",
@@ -29,5 +22,24 @@
   },
   "git diff --check": {
     "result": "PASS"
+  },
+  "historical make test-integration-docker 2026-11-03": {
+    "result": "FAIL",
+    "failed_test": "TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery",
+    "package": "internal/collect",
+    "phase": "Bnovo mock warm-up",
+    "error": "timeout before HTTP-start-gate assertion",
+    "note": "Storage tests passed; collect suite had one failure; script did not reach schedule. No Bnovo code changed."
+  },
+  "make test-integration-docker": {
+    "date": "2026-11-05",
+    "result": "PASS",
+    "consecutive_complete_runs": 3,
+    "evidence": "integration-stability-2026-11-05.json"
+  },
+  "PostgreSQL stability regressions -race -count=10": {
+    "date": "2026-11-05",
+    "result": "PASS",
+    "evidence": "integration-stability-2026-11-05.json"
   }
 }

@@ -156,19 +156,22 @@ UI и calendar получены после основного сбора: они
 
 ## Исправления и проверки
 
-Дополнительных воспроизводимых дефектов adapter/Parse/normalization/storage/CSV по этому прогону не обнаружено. Production-код не изменён. Исправление `kind=apartment` уже присутствовало в проверяемом HEAD PR #54; обе apartment-категории Петровского сохранялись штатно. Добавлен только regression границ диагностического плана: пять TravelLine-отелей, 305 jobs, первая/последняя дата, checkout, неизменные adults/rooms/LOS и детерминированный повтор.
+По полному TravelLine-прогону 03.11 потери данных adapter/Parse/normalization/storage/CSV не обнаружено. Исправление `kind=apartment` уже присутствовало в проверяемом HEAD PR #54; обе apartment-категории Петровского сохранялись штатно. Добавлен regression границ диагностического плана: пять TravelLine-отелей, 305 jobs, первая/последняя дата, checkout, adults/rooms/LOS и детерминированный повтор.
+
+Последующая проверка integration-стабильности **05.11** выявила и исправила две отдельные причины прежних сбоев: конкурентные Check одного pinned SQL-соединения в storage.RunnerLock и зависимую от истории origin подготовку warm-up теста. Production-адаптеры Bnovo/TravelLine не менялись. [Причины, воспроизведения и все полные прогоны](integration-stability-2026-11-05.md).
 
 | Проверка | Результат |
 |---|---|
 | make check (fmt/vet/unit/race/build) | PASS |
+| make test-integration-docker после исправлений, полный прогон 1 | PASS |
+| make test-integration-docker после исправлений, полный прогон 2 | PASS |
+| make test-integration-docker после исправлений, полный прогон 3 | PASS |
+| PostgreSQL stability regressions с -race -count=10 | PASS |
 | PostgreSQL TravelLine competitors с -race | PASS |
-| PostgreSQL schedule suite | PASS, выполнен отдельно |
 | audit.py сохранённых артефактов | PASS |
 | git diff --check | PASS |
-| make test-integration-docker, первоначальный общий запуск | FAIL: Bnovo mock warm-up timeout в TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery |
-| Тот же неуспешный тест в отдельном процессе | PASS, 0.29 с |
 
-Первоначальный общий integration-проход не объявляется зелёным. Storage suite прошёл; в collect упал один указанный Bnovo warm-up, после чего script не запускал schedule. Оставшиеся schedule tests выполнены отдельно, TravelLine integration — отдельно с race detector. Причина первоначального warm-up timeout не доказана; Bnovo и его тест не правились в рамках этой задачи. Это ограничение проверки, а не HTTP-ошибка диагностического TravelLine-сбора. [Машиночитаемый результат](checks.json).
+Первоначальный общий запуск 03.11 с Bnovo mock warm-up timeout и второй полный запуск 05.11 с CSV/runner-lock failure сохранены как исторические FAIL. До исправления направленные воспроизведения тоже падали; после исправления выполнены три полных успешных прогона подряд. Причины и минимальные изменения описаны в отдельном stability-отчёте. [Машиночитаемый результат](checks.json).
 
 ## Безопасность evidence и воспроизведение
 
