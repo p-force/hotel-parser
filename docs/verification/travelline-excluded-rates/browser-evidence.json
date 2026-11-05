@@ -1,0 +1,456 @@
+[
+  {
+    "hotel": "17249",
+    "date": "2026-11-07",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=17249&date=2026-11-07&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T10:52:35.794Z",
+    "anonymous": true,
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "error": "page.goto: Timeout 30000ms exceeded.",
+    "text_length": 0,
+    "official": null,
+    "xhr": [],
+    "snippets": [
+      {
+        "name": "Горящее предложение",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Пикник на крыше",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Романтические выходные",
+        "found": false,
+        "text": ""
+      }
+    ],
+    "cards": []
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-11-13",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=17249&date=2026-11-13&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T10:53:27.541Z",
+    "anonymous": true,
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "error": "",
+    "text_length": 3286,
+    "official": {
+      "url": "https://monarchhotels.ru/booking/",
+      "error": "page.goto: Timeout 25000ms exceeded."
+    },
+    "xhr": [
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:10.326Z",
+        "completed_at": "2026-11-05T10:53:11.338Z",
+        "status": 200,
+        "sha256": "25bf203b983160d77fc85c436104918b0be7b0805ef55c1cda7a5f0577eadaa4",
+        "bytes": 102824
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:11.377Z",
+        "completed_at": "2026-11-05T10:53:11.577Z",
+        "status": 200,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57",
+        "bytes": 27305
+      },
+      {
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "17249",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:12.427Z",
+        "completed_at": "2026-11-05T10:53:12.594Z",
+        "status": 200,
+        "sha256": "ccada30a7ae03e2cae84ec47c6953cab2ec72593c4c3d0cb642eb8735ea6fb52",
+        "bytes": 3109
+      },
+      {
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:13.477Z",
+        "completed_at": "2026-11-05T10:53:13.601Z",
+        "status": 200,
+        "sha256": "2514fe73877054f26ed98338c214106d6888de5a7009f5cc5c408b30b774e48d",
+        "bytes": 344
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-13;2026-11-14",
+          "criterions[0].hotels[0].code": "17249",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:14.529Z",
+        "completed_at": "2026-11-05T10:53:15.204Z",
+        "status": 200,
+        "sha256": "761bea5945183c48a4a2f9326afb8e78d56e406f43b8483df7388c0b04315826",
+        "bytes": 138402
+      },
+      {
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "17249",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:16.630Z",
+        "completed_at": "2026-11-05T10:53:16.977Z",
+        "status": 200,
+        "sha256": "171ac7c567574563e75b8a6670d2c7ed8b6fbe2b86b6df8ffc0d25f4333eb957",
+        "bytes": 200
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "17249",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:15.579Z",
+        "completed_at": "2026-11-05T10:53:17.165Z",
+        "status": 200,
+        "sha256": "23166577c0fbc1d95c39d7cfadd39f2c24e78dee8f9df45251748ccef2025722",
+        "bytes": 7352
+      }
+    ],
+    "snippets": [
+      {
+        "name": "Горящее предложение",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Пикник на крыше",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Романтические выходные",
+        "found": false,
+        "text": ""
+      }
+    ],
+    "cards": []
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-11-13",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-11-13&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T10:54:10.745Z",
+    "anonymous": true,
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "error": "",
+    "text_length": 2271,
+    "official": {
+      "url": "https://petroffpalacehotel.ru/booking/",
+      "error": "page.goto: Timeout 25000ms exceeded."
+    },
+    "xhr": [
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:54.113Z",
+        "completed_at": "2026-11-05T10:53:54.849Z",
+        "status": 200,
+        "sha256": "0716b0a5eada9146395e7078ededc647452ae5135ada22687edb54cde4634a44",
+        "bytes": 72198
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:55.164Z",
+        "completed_at": "2026-11-05T10:53:55.337Z",
+        "status": 200,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57",
+        "bytes": 27305
+      },
+      {
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "5787",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:56.216Z",
+        "completed_at": "2026-11-05T10:53:56.436Z",
+        "status": 200,
+        "sha256": "5dff04dcc2c4df6b1eb4cd8c8b22f5ba0f40f5297cfdc760ef582bffdeb77f87",
+        "bytes": 3262
+      },
+      {
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:57.266Z",
+        "completed_at": "2026-11-05T10:53:57.403Z",
+        "status": 200,
+        "sha256": "1f11892737ba7a68c1dce53179d0fce1f0c2bf3de88f18b284b4ef48d3104ea1",
+        "bytes": 108
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-13;2026-11-14",
+          "criterions[0].hotels[0].code": "5787",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:58.318Z",
+        "completed_at": "2026-11-05T10:53:58.791Z",
+        "status": 200,
+        "sha256": "1cd3dd2a8e869449d7314aaae72996e7f138fcf581c452b1a7f9ff23c8e177aa",
+        "bytes": 50653
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "5787",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:53:59.368Z",
+        "completed_at": "2026-11-05T10:53:59.568Z",
+        "status": 200,
+        "sha256": "765b8ec5e8f5c56eea3c1c7a5a98f68c3776d826402c5f6826b238304fd350fd",
+        "bytes": 5894
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2026-11-30",
+          "hotel": "5787",
+          "rate_plans[0].code": "49957",
+          "rate_plans[1].code": "35114",
+          "rate_plans[2].code": "145557",
+          "rate_plans[3].code": "622569",
+          "rate_plans[4].code": "633705",
+          "start_date": "2026-11-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:54:00.419Z",
+        "completed_at": "2026-11-05T10:54:00.650Z",
+        "status": 200,
+        "sha256": "c382100fc1d318817c71714256fa95daec131b548c7632ac40452debc46d43b0",
+        "bytes": 15702
+      },
+      {
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "5787",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:54:01.471Z",
+        "completed_at": "2026-11-05T10:54:01.632Z",
+        "status": 200,
+        "sha256": "9dc7f9b8200c355c7fcccee54277e1f55544367f04163c8d8d114c90fd85b37c",
+        "bytes": 139
+      }
+    ],
+    "snippets": [
+      {
+        "name": "Горящее предложение",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Пикник на крыше",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Романтические выходные",
+        "found": false,
+        "text": ""
+      }
+    ],
+    "cards": []
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-11-20",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-11-20&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T10:54:31.865Z",
+    "anonymous": true,
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "error": "",
+    "text_length": 2235,
+    "official": null,
+    "xhr": [
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:54:14.830Z",
+        "completed_at": "2026-11-05T10:54:15.556Z",
+        "status": 200,
+        "sha256": "64a75bb271beb0aeba271ef83f64aa1dda2c6cd81f7bc3c755d033991806e877",
+        "bytes": 72198
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:54:15.880Z",
+        "completed_at": "2026-11-05T10:54:16.140Z",
+        "status": 200,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57",
+        "bytes": 27305
+      },
+      {
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "5787",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:54:16.932Z",
+        "completed_at": "2026-11-05T10:54:17.093Z",
+        "status": 200,
+        "sha256": "5dff04dcc2c4df6b1eb4cd8c8b22f5ba0f40f5297cfdc760ef582bffdeb77f87",
+        "bytes": 3262
+      },
+      {
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:54:17.983Z",
+        "completed_at": "2026-11-05T10:54:18.114Z",
+        "status": 200,
+        "sha256": "1f11892737ba7a68c1dce53179d0fce1f0c2bf3de88f18b284b4ef48d3104ea1",
+        "bytes": 108
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-20;2026-11-21",
+          "criterions[0].hotels[0].code": "5787",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:54:19.035Z",
+        "completed_at": "2026-11-05T10:54:19.475Z",
+        "status": 200,
+        "sha256": "559ec337b4014e39db212a680b9686e3caa80e52c89aaab732c27b7ef9538e5b",
+        "bytes": 50466
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "5787",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:54:20.085Z",
+        "completed_at": "2026-11-05T10:54:20.276Z",
+        "status": 200,
+        "sha256": "765b8ec5e8f5c56eea3c1c7a5a98f68c3776d826402c5f6826b238304fd350fd",
+        "bytes": 5894
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2026-11-30",
+          "hotel": "5787",
+          "rate_plans[0].code": "49957",
+          "rate_plans[1].code": "35114",
+          "rate_plans[2].code": "145557",
+          "rate_plans[3].code": "622569",
+          "rate_plans[4].code": "633705",
+          "start_date": "2026-11-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:54:21.135Z",
+        "completed_at": "2026-11-05T10:54:21.340Z",
+        "status": 200,
+        "sha256": "c382100fc1d318817c71714256fa95daec131b548c7632ac40452debc46d43b0",
+        "bytes": 15702
+      },
+      {
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "5787",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:54:22.186Z",
+        "completed_at": "2026-11-05T10:54:22.429Z",
+        "status": 200,
+        "sha256": "9dc7f9b8200c355c7fcccee54277e1f55544367f04163c8d8d114c90fd85b37c",
+        "bytes": 139
+      }
+    ],
+    "snippets": [
+      {
+        "name": "Горящее предложение",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Пикник на крыше",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Романтические выходные",
+        "found": false,
+        "text": ""
+      }
+    ],
+    "cards": []
+  }
+]

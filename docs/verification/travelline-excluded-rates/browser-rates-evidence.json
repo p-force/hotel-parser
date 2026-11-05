@@ -1,0 +1,484 @@
+[
+  {
+    "hotel": "17249",
+    "date": "2026-11-07",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=17249&date=2026-11-07&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T10:57:08.763Z",
+    "anonymous": true,
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "error": "",
+    "text_length": 2292,
+    "official": null,
+    "xhr": [
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:56:59.165Z",
+        "completed_at": "2026-11-05T10:57:00.207Z",
+        "status": 200,
+        "sha256": "b7087101dec4110545383c7165f97d15b5808fd2f7cb8f36ba034ab95e9ea4be",
+        "bytes": 102824
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:00.215Z",
+        "completed_at": "2026-11-05T10:57:00.398Z",
+        "status": 200,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57",
+        "bytes": 27305
+      },
+      {
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "17249",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:01.267Z",
+        "completed_at": "2026-11-05T10:57:01.431Z",
+        "status": 200,
+        "sha256": "ccada30a7ae03e2cae84ec47c6953cab2ec72593c4c3d0cb642eb8735ea6fb52",
+        "bytes": 3109
+      },
+      {
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:02.317Z",
+        "completed_at": "2026-11-05T10:57:02.460Z",
+        "status": 200,
+        "sha256": "2514fe73877054f26ed98338c214106d6888de5a7009f5cc5c408b30b774e48d",
+        "bytes": 344
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-07;2026-11-08",
+          "criterions[0].hotels[0].code": "17249",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:03.368Z",
+        "completed_at": "2026-11-05T10:57:03.989Z",
+        "status": 200,
+        "sha256": "2a71b7a40abeb280fe99d1131aed78b81c1869205aad3f6718aca69a0ba53775",
+        "bytes": 108391
+      },
+      {
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "17249",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:05.471Z",
+        "completed_at": "2026-11-05T10:57:05.789Z",
+        "status": 200,
+        "sha256": "171ac7c567574563e75b8a6670d2c7ed8b6fbe2b86b6df8ffc0d25f4333eb957",
+        "bytes": 200
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "17249",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:04.419Z",
+        "completed_at": "2026-11-05T10:57:05.791Z",
+        "status": 200,
+        "sha256": "23166577c0fbc1d95c39d7cfadd39f2c24e78dee8f9df45251748ccef2025722",
+        "bytes": 7352
+      }
+    ],
+    "snippets": [
+      {
+        "name": "Горящее предложение",
+        "found": true,
+        "text": "платная отмена\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−15%\n13 250 ₽\n13250 рублей\nСкидка 15%. Без учёта скидки 13250 рублей\n11 262,50 ₽\n11262,50 рубля\nВыбрать\nГорящее предложение! Подробнее​\nЗавтрак \"Шведский стол\"\nБесплатная отмена до 6 ноября, 23:59\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−20%\n13 250 ₽\n13250 рублей\nСкидка 20%. Без учёта скидки 13250 рублей\n10 540 ₽\n10540 рублей\nВыбрать\nРомантическое Предложение Подробнее​\nЗавтрак \"Шведский стол\"\nУсловия отмены\nБез предоплаты\nДоступ в Фитнес и бассейнПоздний выездСпециальный комплимент от отеля\nСтоимость за 1 ночь\n15 350 ₽\n15350 рублей\nВыбрать\n© Модуль онлайн-бронирования TravelLine: Booking Engine\nНомер записи в Едином реестре объектов классификации: С772024001562\nДетализация "
+      },
+      {
+        "name": "Пикник на крыше",
+        "found": true,
+        "text": "латная отмена\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−15%\n11 500 ₽\n11500 рублей\nСкидка 15%. Без учёта скидки 11500 рублей\n9 775 ₽\n9775 рублей\nВыбрать\nЛиннер \"Пикник на крыше\" Подробнее​\nЗавтрак\nУсловия отмены\nБез предоплаты\nДоступ в Фитнес и бассейнПоздний выезд до 17:00\nСтоимость за 1 ночь\n12 000 ₽\n12000 рублей\nВыбрать\nЛучшая цена дня полупансион: завтрак+ужин Подробнее​\nЗавтрак \"Шведский стол\"\nУсловия отмены\nБез предоплаты\nДоступ в Фитнес и бассейнУжин\nСтоимость за 1 ночь\n13 505 ₽\n13505 рублей\nВыбрать\nЛучшая цена дня с завтраком Подробнее​\nЗавтрак \"Шведский стол\"\nБесплатная отмена\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−15%\n13 250 ₽\n13250 рублей\nСкидка 15%. Без учёта скидки 13250 рублей\n11 262,50 ₽\n11262,50 рубля\nВыбрать\nГор"
+      },
+      {
+        "name": "Романтические выходные",
+        "found": false,
+        "text": ""
+      }
+    ],
+    "cards": [
+      {
+        "tag": "DIV",
+        "attributes": [
+          [
+            "tl-id",
+            "rate-plan-list-item"
+          ]
+        ],
+        "text": "Линнер \"Пикник на крыше\" Подробнее​\nЗавтрак\nУсловия отмены\nБез предоплаты\nДоступ в Фитнес и бассейнПоздний выезд до 17:00\nСтоимость за 1 ночь\n12 000 ₽\n12000 рублей\nВыбрать"
+      },
+      {
+        "tag": "DIV",
+        "attributes": [
+          [
+            "tl-id",
+            "rate-plan-list-item"
+          ]
+        ],
+        "text": "Горящее предложение! Подробнее​\nЗавтрак \"Шведский стол\"\nБесплатная отмена до 6 ноября, 23:59\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−20%\n13 250 ₽\n13250 рублей\nСкидка 20%. Без учёта скидки 13250 рублей\n10 540 ₽\n10540 рублей\nВыбрать"
+      }
+    ]
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-11-14",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=17249&date=2026-11-14&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T10:57:19.827Z",
+    "anonymous": true,
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "error": "",
+    "text_length": 3107,
+    "official": null,
+    "xhr": [
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:10.182Z",
+        "completed_at": "2026-11-05T10:57:10.949Z",
+        "status": 200,
+        "sha256": "a7d4e6b32d8d2ffd6299860033618998d61f97b844c94e434bc71e33629aaf9a",
+        "bytes": 102824
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:11.233Z",
+        "completed_at": "2026-11-05T10:57:11.412Z",
+        "status": 200,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57",
+        "bytes": 27305
+      },
+      {
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "17249",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:12.284Z",
+        "completed_at": "2026-11-05T10:57:12.454Z",
+        "status": 200,
+        "sha256": "ccada30a7ae03e2cae84ec47c6953cab2ec72593c4c3d0cb642eb8735ea6fb52",
+        "bytes": 3109
+      },
+      {
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:13.335Z",
+        "completed_at": "2026-11-05T10:57:13.467Z",
+        "status": 200,
+        "sha256": "2514fe73877054f26ed98338c214106d6888de5a7009f5cc5c408b30b774e48d",
+        "bytes": 344
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-14;2026-11-15",
+          "criterions[0].hotels[0].code": "17249",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:14.386Z",
+        "completed_at": "2026-11-05T10:57:15.068Z",
+        "status": 200,
+        "sha256": "dc5bd7d4313b1cc3136360fc716774cf5f6d1fb6390adf821ca10abc74ac7421",
+        "bytes": 152789
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "17249",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:15.436Z",
+        "completed_at": "2026-11-05T10:57:15.675Z",
+        "status": 200,
+        "sha256": "23166577c0fbc1d95c39d7cfadd39f2c24e78dee8f9df45251748ccef2025722",
+        "bytes": 7352
+      },
+      {
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "17249",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:57:16.487Z",
+        "completed_at": "2026-11-05T10:57:17.299Z",
+        "status": 200,
+        "sha256": "171ac7c567574563e75b8a6670d2c7ed8b6fbe2b86b6df8ffc0d25f4333eb957",
+        "bytes": 200
+      }
+    ],
+    "snippets": [
+      {
+        "name": "Горящее предложение",
+        "found": true,
+        "text": "трак \"Шведский стол\"\nБесплатная отмена до 13 ноября, 23:59\nБез предоплаты\nДоступ в Фитнес и бассейнРасслабляющий массаж в AMO SPA\nСтоимость за 1 ночь\n18 250 ₽\n18250 рублей\nВыбрать\nГорящее предложение! Подробнее​\nЗавтрак \"Шведский стол\"\nБесплатная отмена до 13 ноября, 23:59\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−20%\n13 250 ₽\n13250 рублей\nСкидка 20%. Без учёта скидки 13250 рублей\n10 540 ₽\n10540 рублей\nВыбрать\nРомантическое Предложение Подробнее​\nЗавтрак \"Шведский стол\"\nУсловия отмены\nБез предоплаты\nДоступ в Фитнес и бассейнПоздний выездСпециальный комплимент от отеля\nСтоимость за 1 ночь\n15 350 ₽\n15350 рублей\nВыбрать\n© Модуль онлайн-бронирования TravelLine: Booking Engine\nНомер записи в Едином реестре объектов классификации: С772024001562\nДетализация"
+      },
+      {
+        "name": "Пикник на крыше",
+        "found": true,
+        "text": "латная отмена\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−15%\n11 500 ₽\n11500 рублей\nСкидка 15%. Без учёта скидки 11500 рублей\n9 775 ₽\n9775 рублей\nВыбрать\nЛиннер \"Пикник на крыше\" Подробнее​\nЗавтрак\nУсловия отмены\nБез предоплаты\nДоступ в Фитнес и бассейнПоздний выезд до 17:00\nСтоимость за 1 ночь\n12 000 ₽\n12000 рублей\nВыбрать\nРаннее бронирование Подробнее​\nБесплатная отмена до 13 ноября, 23:59\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−10%\n11 500 ₽\n11500 рублей\nСкидка 10%. Без учёта скидки 11500 рублей\n10 350 ₽\n10350 рублей\nВыбрать\nРаннее бронирование с завтраком Подробнее​\nЗавтрак\nБесплатная отмена до 13 ноября, 23:59\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−10%\n13 250 ₽\n13250 рублей\nСкидка 10%. Без учёта скидки 1"
+      },
+      {
+        "name": "Романтические выходные",
+        "found": false,
+        "text": ""
+      }
+    ],
+    "cards": [
+      {
+        "tag": "DIV",
+        "attributes": [
+          [
+            "tl-id",
+            "rate-plan-list-item"
+          ]
+        ],
+        "text": "Линнер \"Пикник на крыше\" Подробнее​\nЗавтрак\nУсловия отмены\nБез предоплаты\nДоступ в Фитнес и бассейнПоздний выезд до 17:00\nСтоимость за 1 ночь\n12 000 ₽\n12000 рублей\nВыбрать"
+      },
+      {
+        "tag": "DIV",
+        "attributes": [
+          [
+            "tl-id",
+            "rate-plan-list-item"
+          ]
+        ],
+        "text": "Горящее предложение! Подробнее​\nЗавтрак \"Шведский стол\"\nБесплатная отмена до 13 ноября, 23:59\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−20%\n13 250 ₽\n13250 рублей\nСкидка 20%. Без учёта скидки 13250 рублей\n10 540 ₽\n10540 рублей\nВыбрать"
+      }
+    ]
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-11-13",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-11-13&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T10:58:03.395Z",
+    "anonymous": true,
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "error": "page.waitForFunction: Timeout 40000ms exceeded.",
+    "text_length": 0,
+    "official": null,
+    "xhr": [],
+    "snippets": [
+      {
+        "name": "Горящее предложение",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Пикник на крыше",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Романтические выходные",
+        "found": false,
+        "text": ""
+      }
+    ],
+    "cards": []
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-11-20",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-11-20&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T10:58:17.520Z",
+    "anonymous": true,
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "error": "",
+    "text_length": 1231,
+    "official": null,
+    "xhr": [
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:58:06.297Z",
+        "completed_at": "2026-11-05T10:58:07.195Z",
+        "status": 200,
+        "sha256": "4baf018d6ebef88970b7be13453ea1b4dece8204724a49c4c13aed25c5bb1983",
+        "bytes": 72198
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:58:07.348Z",
+        "completed_at": "2026-11-05T10:58:07.528Z",
+        "status": 200,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57",
+        "bytes": 27305
+      },
+      {
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "5787",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:58:08.399Z",
+        "completed_at": "2026-11-05T10:58:08.587Z",
+        "status": 200,
+        "sha256": "5dff04dcc2c4df6b1eb4cd8c8b22f5ba0f40f5297cfdc760ef582bffdeb77f87",
+        "bytes": 3262
+      },
+      {
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:58:09.450Z",
+        "completed_at": "2026-11-05T10:58:09.583Z",
+        "status": 200,
+        "sha256": "1f11892737ba7a68c1dce53179d0fce1f0c2bf3de88f18b284b4ef48d3104ea1",
+        "bytes": 108
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-20;2026-11-21",
+          "criterions[0].hotels[0].code": "5787",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:58:10.501Z",
+        "completed_at": "2026-11-05T10:58:10.969Z",
+        "status": 200,
+        "sha256": "5315beeaf42588ca8e7b8e1cc92a46f1a98569252c15e9890fa96cbfa6f02e06",
+        "bytes": 50488
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "5787",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:58:11.553Z",
+        "completed_at": "2026-11-05T10:58:11.773Z",
+        "status": 200,
+        "sha256": "765b8ec5e8f5c56eea3c1c7a5a98f68c3776d826402c5f6826b238304fd350fd",
+        "bytes": 5894
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2026-11-30",
+          "hotel": "5787",
+          "rate_plans[0].code": "49957",
+          "rate_plans[1].code": "35114",
+          "rate_plans[2].code": "145557",
+          "rate_plans[3].code": "622569",
+          "rate_plans[4].code": "633705",
+          "start_date": "2026-11-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:58:12.603Z",
+        "completed_at": "2026-11-05T10:58:12.813Z",
+        "status": 200,
+        "sha256": "c382100fc1d318817c71714256fa95daec131b548c7632ac40452debc46d43b0",
+        "bytes": 15702
+      },
+      {
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "5787",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:58:13.654Z",
+        "completed_at": "2026-11-05T10:58:13.799Z",
+        "status": 200,
+        "sha256": "9dc7f9b8200c355c7fcccee54277e1f55544367f04163c8d8d114c90fd85b37c",
+        "bytes": 139
+      }
+    ],
+    "snippets": [
+      {
+        "name": "Горящее предложение",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Пикник на крыше",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Романтические выходные",
+        "found": true,
+        "text": "аком Подробнее​\nЗавтрак\nБесплатная отмена до 20 ноября, 00:00\nБез предоплаты\nПосещение Wellness&Fitness центраОхраняемая парковка\nСтоимость за 1 ночь\n13 400 ₽\n13400 рублей\nВыбрать\nРомантические выходные в Петровском Путевом Дворце Подробнее​\nЗавтрак в номер\nБесплатная отмена до 17 ноября, 15:00\nБез предоплаты\nПосещение Wellness&Fitness центраОхраняемая парковкаЧайная церемонияПодарочный сертификат на посещение смотровой площадки \"Выше Только Любовь\"\nСтоимость за 1 ночь\n20 600 ₽\n20600 рублей\nВыбрать\n© Модуль онлайн-бронирования TravelLine: Booking Engine\nНомер записи в Едином реестре объектов классификации: С772024006084\nДетализация цены\nДетализация цены\nДетализация цены\n1 взрослый\n1 взрослый\n2 взрослых"
+      }
+    ],
+    "cards": [
+      {
+        "tag": "DIV",
+        "attributes": [
+          [
+            "tl-id",
+            "rate-plan-list-item"
+          ]
+        ],
+        "text": "Романтические выходные в Петровском Путевом Дворце Подробнее​\nЗавтрак в номер\nБесплатная отмена до 17 ноября, 15:00\nБез предоплаты\nПосещение Wellness&Fitness центраОхраняемая парковкаЧайная церемонияПодарочный сертификат на посещение смотровой площадки \"Выше Только Любовь\"\nСтоимость за 1 ночь\n20 600 ₽\n20600 рублей\nВыбрать"
+      }
+    ]
+  }
+]

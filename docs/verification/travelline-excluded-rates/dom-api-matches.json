@@ -1,0 +1,925 @@
+[
+  {
+    "hotel": "17249",
+    "date": "2026-11-07",
+    "category_id": "122847",
+    "category_name": "Номер Делюкс с одной большой кроватью",
+    "rate_id": "951554",
+    "rate_name": "Линнер \"Пикник на крыше\"",
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "dom_rate_wrapper": "[tl-id=\"rpls-951554\"]",
+    "dom_rate_id": "[tl-id=\"rp-951554\"]",
+    "dom_card_text": "Линнер \"Пикник на крыше\" Подробнее​\nЗавтрак\nУсловия отмены\nБез предоплаты\nДоступ в Фитнес и бассейнПоздний выезд до 17:00\nСтоимость за 1 ночь\n12 000 ₽\n12000 рублей\nВыбрать",
+    "dom_source_sha256": "9ce69af74682aca0281a1e99635be2eb5398a482a371c429eddda211bb430b16",
+    "api_response_sha256": "2a71b7a40abeb280fe99d1131aed78b81c1869205aad3f6718aca69a0ba53775",
+    "api_query": {
+      "language": "ru-ru",
+      "criterions[0].adults": "1",
+      "criterions[0].dates": "2026-11-07;2026-11-08",
+      "criterions[0].hotels[0].code": "17249",
+      "audience": "BookingForm"
+    },
+    "api_started_at": "2026-11-05T10:57:03.368Z",
+    "dom_captured_at": "2026-11-05T10:57:08.763Z",
+    "api_offer": {
+      "hotel_ref": {
+        "code": "17249"
+      },
+      "guests": [
+        {
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          },
+          "count": 1
+        }
+      ],
+      "room_types": [
+        {
+          "placements": [
+            {
+              "index": 1,
+              "price_before_tax": 12000.0,
+              "price_after_tax": 12000.0,
+              "kind": "adult",
+              "code": "275321",
+              "capacity": 1,
+              "currency": "RUB",
+              "taxes": []
+            }
+          ],
+          "code": "122847",
+          "room_type_quota_rph": "1680546197"
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "951554",
+          "cancel_penalty_group": {
+            "code": "37942",
+            "cancel_penalties": [
+              {
+                "code": "73801",
+                "description": "При отмене в любое время взимается стоимость первых суток"
+              }
+            ],
+            "description": "<p>Бесплатная отмена возможна до 16:00 по Московскому времени дня заезда. В случае отмены после указанного времени взимается стоимость&nbsp;первых суток проживания.</p>",
+            "free_cancellation": false,
+            "show_description": true
+          },
+          "promo": false
+        }
+      ],
+      "placement_rates": [
+        {
+          "room_type_code": "122847",
+          "rate_plan_code": "951554",
+          "placement": {
+            "index": 1,
+            "kind": "adult",
+            "code": "275321"
+          },
+          "rates": [
+            {
+              "date": "2026-11-07",
+              "price_after_tax": 12000.0,
+              "currency": "RUB"
+            }
+          ]
+        }
+      ],
+      "criterion_ref": "0",
+      "total": {
+        "price_before_tax": 12000.0,
+        "price_after_tax": 12000.0,
+        "currency": "RUB",
+        "taxes": []
+      },
+      "services": [
+        {
+          "rph": 695106147,
+          "placement_index": 1,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 1195102634,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 1014488903,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 612063215,
+          "applicability_type": "all_guests"
+        }
+      ],
+      "stay_dates": {
+        "start_date": "2026-11-07 15:00:00",
+        "end_date": "2026-11-08 12:00:00"
+      },
+      "guarantees": [
+        {
+          "code": "113212",
+          "primary_guarantee_code": "113212",
+          "type": "credit_card"
+        },
+        {
+          "code": "214871",
+          "primary_guarantee_code": "214871",
+          "type": "sbp"
+        },
+        {
+          "code": "335717",
+          "primary_guarantee_code": "335717",
+          "type": "guarantee"
+        },
+        {
+          "code": "313994",
+          "primary_guarantee_code": "313994",
+          "type": "credit_card"
+        }
+      ],
+      "transfers": []
+    },
+    "price_matched_direct_api_and_browser": "12000",
+    "currency": "RUB",
+    "anonymous_offer_confirmed": true,
+    "checkout_not_attempted": true
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-11-07",
+    "category_id": "122847",
+    "category_name": "Номер Делюкс с одной большой кроватью",
+    "rate_id": "816956",
+    "rate_name": "Горящее предложение!",
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "dom_rate_wrapper": "[tl-id=\"rpls-816956\"]",
+    "dom_rate_id": "[tl-id=\"rp-816956\"]",
+    "dom_card_text": "Горящее предложение! Подробнее​\nЗавтрак \"Шведский стол\"\nБесплатная отмена до 6 ноября, 23:59\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−20%\n13 250 ₽\n13250 рублей\nСкидка 20%. Без учёта скидки 13250 рублей\n10 540 ₽\n10540 рублей\nВыбрать",
+    "dom_source_sha256": "9ce69af74682aca0281a1e99635be2eb5398a482a371c429eddda211bb430b16",
+    "api_response_sha256": "2a71b7a40abeb280fe99d1131aed78b81c1869205aad3f6718aca69a0ba53775",
+    "api_query": {
+      "language": "ru-ru",
+      "criterions[0].adults": "1",
+      "criterions[0].dates": "2026-11-07;2026-11-08",
+      "criterions[0].hotels[0].code": "17249",
+      "audience": "BookingForm"
+    },
+    "api_started_at": "2026-11-05T10:57:03.368Z",
+    "dom_captured_at": "2026-11-05T10:57:08.763Z",
+    "api_offer": {
+      "hotel_ref": {
+        "code": "17249"
+      },
+      "guests": [
+        {
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          },
+          "count": 1
+        }
+      ],
+      "room_types": [
+        {
+          "placements": [
+            {
+              "index": 1,
+              "price_before_tax": 10540.0,
+              "price_after_tax": 10540.0,
+              "discount": {
+                "basic_before_tax": 13250.0,
+                "basic_after_tax": 13250.0,
+                "amount": 2710.0
+              },
+              "kind": "adult",
+              "code": "275321",
+              "capacity": 1,
+              "currency": "RUB",
+              "taxes": []
+            }
+          ],
+          "code": "122847",
+          "room_type_quota_rph": "1680546197"
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "816956",
+          "cancel_penalty_group": {
+            "code": "210628",
+            "cancel_penalties": [
+              {
+                "code": "226785",
+                "description": "При отмене с 2026-11-06 23:59:00 (UTC +03:00) по 2026-11-07 14:59:00 (UTC +03:00) взимается стоимость первых суток"
+              }
+            ],
+            "description": "Бесплатная отмена бронирования возможна до 06.11.2026 23:59 (UTC +03:00). При отмене бронирования после 06.11.2026 23:59 (UTC +03:00) взимается стоимость первых суток.",
+            "free_cancellation": true,
+            "show_description": true,
+            "free_cancellation_deadline_date": "2026-11-06 20:59:00Z"
+          },
+          "promo": false
+        }
+      ],
+      "placement_rates": [
+        {
+          "room_type_code": "122847",
+          "rate_plan_code": "816956",
+          "placement": {
+            "index": 1,
+            "kind": "adult",
+            "code": "275321"
+          },
+          "rates": [
+            {
+              "date": "2026-11-07",
+              "price_after_tax": 10540.0,
+              "currency": "RUB"
+            }
+          ]
+        }
+      ],
+      "criterion_ref": "0",
+      "total": {
+        "price_before_tax": 10540.0,
+        "price_after_tax": 10540.0,
+        "discount": {
+          "basic_before_tax": 13250.0,
+          "basic_after_tax": 13250.0,
+          "amount": 2710.0
+        },
+        "currency": "RUB",
+        "taxes": []
+      },
+      "services": [
+        {
+          "rph": 1195102634,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 174833639,
+          "placement_index": 1,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 1014488903,
+          "applicability_type": "all_guests"
+        }
+      ],
+      "stay_dates": {
+        "start_date": "2026-11-07 15:00:00",
+        "end_date": "2026-11-08 12:00:00"
+      },
+      "guarantees": [
+        {
+          "code": "113212",
+          "primary_guarantee_code": "113212",
+          "type": "credit_card"
+        },
+        {
+          "code": "214871",
+          "primary_guarantee_code": "214871",
+          "type": "sbp"
+        },
+        {
+          "code": "335717",
+          "primary_guarantee_code": "335717",
+          "type": "guarantee"
+        },
+        {
+          "code": "313994",
+          "primary_guarantee_code": "313994",
+          "type": "credit_card"
+        },
+        {
+          "code": "112713",
+          "primary_guarantee_code": "112713",
+          "type": "money_order"
+        }
+      ],
+      "transfers": []
+    },
+    "price_matched_direct_api_and_browser": "10540",
+    "currency": "RUB",
+    "anonymous_offer_confirmed": true,
+    "checkout_not_attempted": true
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-11-14",
+    "category_id": "122847",
+    "category_name": "Номер Делюкс с одной большой кроватью",
+    "rate_id": "951554",
+    "rate_name": "Линнер \"Пикник на крыше\"",
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "dom_rate_wrapper": "[tl-id=\"rpls-951554\"]",
+    "dom_rate_id": "[tl-id=\"rp-951554\"]",
+    "dom_card_text": "Линнер \"Пикник на крыше\" Подробнее​\nЗавтрак\nУсловия отмены\nБез предоплаты\nДоступ в Фитнес и бассейнПоздний выезд до 17:00\nСтоимость за 1 ночь\n12 000 ₽\n12000 рублей\nВыбрать",
+    "dom_source_sha256": "64b53f4aec5a28dac8976d2f7758771d1a039608503d502d43529d29e3624e3a",
+    "api_response_sha256": "dc5bd7d4313b1cc3136360fc716774cf5f6d1fb6390adf821ca10abc74ac7421",
+    "api_query": {
+      "language": "ru-ru",
+      "criterions[0].adults": "1",
+      "criterions[0].dates": "2026-11-14;2026-11-15",
+      "criterions[0].hotels[0].code": "17249",
+      "audience": "BookingForm"
+    },
+    "api_started_at": "2026-11-05T10:57:14.386Z",
+    "dom_captured_at": "2026-11-05T10:57:19.827Z",
+    "api_offer": {
+      "hotel_ref": {
+        "code": "17249"
+      },
+      "guests": [
+        {
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          },
+          "count": 1
+        }
+      ],
+      "room_types": [
+        {
+          "placements": [
+            {
+              "index": 1,
+              "price_before_tax": 12000.0,
+              "price_after_tax": 12000.0,
+              "kind": "adult",
+              "code": "275321",
+              "capacity": 1,
+              "currency": "RUB",
+              "taxes": []
+            }
+          ],
+          "code": "122847",
+          "room_type_quota_rph": "1930003192"
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "951554",
+          "cancel_penalty_group": {
+            "code": "37942",
+            "cancel_penalties": [
+              {
+                "code": "73801",
+                "description": "При отмене в любое время взимается стоимость первых суток"
+              }
+            ],
+            "description": "<p>Бесплатная отмена возможна до 16:00 по Московскому времени дня заезда. В случае отмены после указанного времени взимается стоимость&nbsp;первых суток проживания.</p>",
+            "free_cancellation": false,
+            "show_description": true
+          },
+          "promo": false
+        }
+      ],
+      "placement_rates": [
+        {
+          "room_type_code": "122847",
+          "rate_plan_code": "951554",
+          "placement": {
+            "index": 1,
+            "kind": "adult",
+            "code": "275321"
+          },
+          "rates": [
+            {
+              "date": "2026-11-14",
+              "price_after_tax": 12000.0,
+              "currency": "RUB"
+            }
+          ]
+        }
+      ],
+      "criterion_ref": "0",
+      "total": {
+        "price_before_tax": 12000.0,
+        "price_after_tax": 12000.0,
+        "currency": "RUB",
+        "taxes": []
+      },
+      "services": [
+        {
+          "rph": 109851605,
+          "placement_index": 1,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 1451836035,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 324634221,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 1969921569,
+          "applicability_type": "all_guests"
+        }
+      ],
+      "stay_dates": {
+        "start_date": "2026-11-14 15:00:00",
+        "end_date": "2026-11-15 12:00:00"
+      },
+      "guarantees": [
+        {
+          "code": "113212",
+          "primary_guarantee_code": "113212",
+          "type": "credit_card"
+        },
+        {
+          "code": "214871",
+          "primary_guarantee_code": "214871",
+          "type": "sbp"
+        },
+        {
+          "code": "335717",
+          "primary_guarantee_code": "335717",
+          "type": "guarantee"
+        },
+        {
+          "code": "313994",
+          "primary_guarantee_code": "313994",
+          "type": "credit_card"
+        }
+      ],
+      "transfers": []
+    },
+    "price_matched_direct_api_and_browser": "12000",
+    "currency": "RUB",
+    "anonymous_offer_confirmed": true,
+    "checkout_not_attempted": true
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-11-14",
+    "category_id": "122847",
+    "category_name": "Номер Делюкс с одной большой кроватью",
+    "rate_id": "816956",
+    "rate_name": "Горящее предложение!",
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "dom_rate_wrapper": "[tl-id=\"rpls-816956\"]",
+    "dom_rate_id": "[tl-id=\"rp-816956\"]",
+    "dom_card_text": "Горящее предложение! Подробнее​\nЗавтрак \"Шведский стол\"\nБесплатная отмена до 13 ноября, 23:59\nБез предоплаты\nДоступ в Фитнес и бассейн\nСтоимость за 1 ночь\n−20%\n13 250 ₽\n13250 рублей\nСкидка 20%. Без учёта скидки 13250 рублей\n10 540 ₽\n10540 рублей\nВыбрать",
+    "dom_source_sha256": "64b53f4aec5a28dac8976d2f7758771d1a039608503d502d43529d29e3624e3a",
+    "api_response_sha256": "dc5bd7d4313b1cc3136360fc716774cf5f6d1fb6390adf821ca10abc74ac7421",
+    "api_query": {
+      "language": "ru-ru",
+      "criterions[0].adults": "1",
+      "criterions[0].dates": "2026-11-14;2026-11-15",
+      "criterions[0].hotels[0].code": "17249",
+      "audience": "BookingForm"
+    },
+    "api_started_at": "2026-11-05T10:57:14.386Z",
+    "dom_captured_at": "2026-11-05T10:57:19.827Z",
+    "api_offer": {
+      "hotel_ref": {
+        "code": "17249"
+      },
+      "guests": [
+        {
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          },
+          "count": 1
+        }
+      ],
+      "room_types": [
+        {
+          "placements": [
+            {
+              "index": 1,
+              "price_before_tax": 10540.0,
+              "price_after_tax": 10540.0,
+              "discount": {
+                "basic_before_tax": 13250.0,
+                "basic_after_tax": 13250.0,
+                "amount": 2710.0
+              },
+              "kind": "adult",
+              "code": "275321",
+              "capacity": 1,
+              "currency": "RUB",
+              "taxes": []
+            }
+          ],
+          "code": "122847",
+          "room_type_quota_rph": "1930003192"
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "816956",
+          "cancel_penalty_group": {
+            "code": "210628",
+            "cancel_penalties": [
+              {
+                "code": "226785",
+                "description": "При отмене с 2026-11-13 23:59:00 (UTC +03:00) по 2026-11-14 14:59:00 (UTC +03:00) взимается стоимость первых суток"
+              }
+            ],
+            "description": "Бесплатная отмена бронирования возможна до 13.11.2026 23:59 (UTC +03:00). При отмене бронирования после 13.11.2026 23:59 (UTC +03:00) взимается стоимость первых суток.",
+            "free_cancellation": true,
+            "show_description": true,
+            "free_cancellation_deadline_date": "2026-11-13 20:59:00Z"
+          },
+          "promo": false
+        }
+      ],
+      "placement_rates": [
+        {
+          "room_type_code": "122847",
+          "rate_plan_code": "816956",
+          "placement": {
+            "index": 1,
+            "kind": "adult",
+            "code": "275321"
+          },
+          "rates": [
+            {
+              "date": "2026-11-14",
+              "price_after_tax": 10540.0,
+              "currency": "RUB"
+            }
+          ]
+        }
+      ],
+      "criterion_ref": "0",
+      "total": {
+        "price_before_tax": 10540.0,
+        "price_after_tax": 10540.0,
+        "discount": {
+          "basic_before_tax": 13250.0,
+          "basic_after_tax": 13250.0,
+          "amount": 2710.0
+        },
+        "currency": "RUB",
+        "taxes": []
+      },
+      "services": [
+        {
+          "rph": 1451836035,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 1935637563,
+          "placement_index": 1,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 324634221,
+          "applicability_type": "all_guests"
+        }
+      ],
+      "stay_dates": {
+        "start_date": "2026-11-14 15:00:00",
+        "end_date": "2026-11-15 12:00:00"
+      },
+      "guarantees": [
+        {
+          "code": "113212",
+          "primary_guarantee_code": "113212",
+          "type": "credit_card"
+        },
+        {
+          "code": "214871",
+          "primary_guarantee_code": "214871",
+          "type": "sbp"
+        },
+        {
+          "code": "335717",
+          "primary_guarantee_code": "335717",
+          "type": "guarantee"
+        },
+        {
+          "code": "313994",
+          "primary_guarantee_code": "313994",
+          "type": "credit_card"
+        },
+        {
+          "code": "112713",
+          "primary_guarantee_code": "112713",
+          "type": "money_order"
+        }
+      ],
+      "transfers": []
+    },
+    "price_matched_direct_api_and_browser": "10540",
+    "currency": "RUB",
+    "anonymous_offer_confirmed": true,
+    "checkout_not_attempted": true
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-11-20",
+    "category_id": "34188",
+    "category_name": "Делюкс с 1 двуспальной кроватью",
+    "rate_id": "633705",
+    "rate_name": "Романтические выходные в Петровском Путевом Дворце",
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "dom_rate_wrapper": "[tl-id=\"rpls-633705\"]",
+    "dom_rate_id": "[tl-id=\"rp-633705\"]",
+    "dom_card_text": "Романтические выходные в Петровском Путевом Дворце Подробнее​\nЗавтрак в номер\nБесплатная отмена до 17 ноября, 15:00\nБез предоплаты\nПосещение Wellness&Fitness центраОхраняемая парковкаЧайная церемонияПодарочный сертификат на посещение смотровой площадки \"Выше Только Любовь\"\nСтоимость за 1 ночь\n20 600 ₽\n20600 рублей\nВыбрать",
+    "dom_source_sha256": "e5a492843b969080258a92ed2e3d19ef9a25577dcd1e17d5d669ee33bae92576",
+    "api_response_sha256": "5315beeaf42588ca8e7b8e1cc92a46f1a98569252c15e9890fa96cbfa6f02e06",
+    "api_query": {
+      "language": "ru-ru",
+      "criterions[0].adults": "1",
+      "criterions[0].dates": "2026-11-20;2026-11-21",
+      "criterions[0].hotels[0].code": "5787",
+      "audience": "BookingForm"
+    },
+    "api_started_at": "2026-11-05T10:58:10.501Z",
+    "dom_captured_at": "2026-11-05T10:58:17.520Z",
+    "api_offer": {
+      "hotel_ref": {
+        "code": "5787"
+      },
+      "guests": [
+        {
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          },
+          "count": 1
+        }
+      ],
+      "room_types": [
+        {
+          "placements": [
+            {
+              "index": 1,
+              "price_before_tax": 20600.0,
+              "price_after_tax": 20600.0,
+              "kind": "adult",
+              "code": "63015",
+              "capacity": 2,
+              "currency": "RUB",
+              "taxes": []
+            }
+          ],
+          "code": "34188",
+          "room_type_quota_rph": "2867959666"
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "633705",
+          "cancel_penalty_group": {
+            "code": "99278",
+            "cancel_penalties": [
+              {
+                "code": "110415",
+                "description": "При отмене после 2026-11-17 15:00:00 (UTC +03:00) взимается 100% от размера предоплаты"
+              }
+            ],
+            "description": "Бесплатная отмена бронирования возможна до 17.11.2026 15:00 (UTC +03:00). При отмене бронирования после 17.11.2026 15:00 (UTC +03:00) взимается 100% от размера предоплаты.",
+            "free_cancellation": true,
+            "show_description": true,
+            "free_cancellation_deadline_date": "2026-11-17 12:00:00Z"
+          },
+          "promo": false
+        }
+      ],
+      "placement_rates": [
+        {
+          "room_type_code": "34188",
+          "rate_plan_code": "633705",
+          "placement": {
+            "index": 1,
+            "kind": "adult",
+            "code": "63015"
+          },
+          "rates": [
+            {
+              "date": "2026-11-20",
+              "price_after_tax": 20600.0,
+              "currency": "RUB"
+            }
+          ]
+        }
+      ],
+      "criterion_ref": "0",
+      "total": {
+        "price_before_tax": 20600.0,
+        "price_after_tax": 20600.0,
+        "currency": "RUB",
+        "taxes": []
+      },
+      "services": [
+        {
+          "rph": 162829749,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 1997755717,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 755854230,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 2110474782,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 2039221438,
+          "applicability_type": "all_guests"
+        }
+      ],
+      "stay_dates": {
+        "start_date": "2026-11-20 15:00:00",
+        "end_date": "2026-11-21 12:00:00"
+      },
+      "guarantees": [
+        {
+          "code": "206043",
+          "primary_guarantee_code": "206043",
+          "type": "credit_card"
+        },
+        {
+          "code": "210127",
+          "primary_guarantee_code": "210127",
+          "type": "sbp"
+        },
+        {
+          "code": "332199",
+          "primary_guarantee_code": "332199",
+          "type": "guarantee"
+        }
+      ],
+      "transfers": []
+    },
+    "price_matched_direct_api_and_browser": "20600",
+    "currency": "RUB",
+    "anonymous_offer_confirmed": true,
+    "checkout_not_attempted": true
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-11-13",
+    "category_id": "34188",
+    "category_name": "Делюкс с 1 двуспальной кроватью",
+    "rate_id": "633705",
+    "rate_name": "Романтические выходные в Петровском Путевом Дворце",
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "dom_rate_wrapper": "[tl-id=\"rpls-633705\"]",
+    "dom_rate_id": "[tl-id=\"rp-633705\"]",
+    "dom_card_text": "Романтические выходные в Петровском Путевом Дворце Подробнее​\nЗавтрак в номер\nБесплатная отмена до 10 ноября, 15:00\nБез предоплаты\nПосещение Wellness&Fitness центраОхраняемая парковкаЧайная церемонияПодарочный сертификат на посещение смотровой площадки \"Выше Только Любовь\"\nСтоимость за 1 ночь\n20 600 ₽\n20600 рублей\nВыбрать",
+    "dom_source_sha256": "d94a2add4ae43690e77fd0acc86bed02c50a2b9c28dda661bbab2afaba07f3a7",
+    "api_response_sha256": "63c429fc07e5af127fb4fa289b2a7610c668687387ece15dcae1e0706daabe76",
+    "api_query": {
+      "language": "ru-ru",
+      "criterions[0].adults": "1",
+      "criterions[0].dates": "2026-11-13;2026-11-14",
+      "criterions[0].hotels[0].code": "5787",
+      "audience": "BookingForm"
+    },
+    "api_started_at": "2026-11-05T10:59:05.853Z",
+    "dom_captured_at": "2026-11-05T10:59:12.795Z",
+    "api_offer": {
+      "hotel_ref": {
+        "code": "5787"
+      },
+      "guests": [
+        {
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          },
+          "count": 1
+        }
+      ],
+      "room_types": [
+        {
+          "placements": [
+            {
+              "index": 1,
+              "price_before_tax": 20600.0,
+              "price_after_tax": 20600.0,
+              "kind": "adult",
+              "code": "63015",
+              "capacity": 2,
+              "currency": "RUB",
+              "taxes": []
+            }
+          ],
+          "code": "34188",
+          "limited_inventory_count": 3,
+          "room_type_quota_rph": "2746585748"
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "633705",
+          "cancel_penalty_group": {
+            "code": "99278",
+            "cancel_penalties": [
+              {
+                "code": "110415",
+                "description": "При отмене после 2026-11-10 15:00:00 (UTC +03:00) взимается 100% от размера предоплаты"
+              }
+            ],
+            "description": "Бесплатная отмена бронирования возможна до 10.11.2026 15:00 (UTC +03:00). При отмене бронирования после 10.11.2026 15:00 (UTC +03:00) взимается 100% от размера предоплаты.",
+            "free_cancellation": true,
+            "show_description": true,
+            "free_cancellation_deadline_date": "2026-11-10 12:00:00Z"
+          },
+          "promo": false
+        }
+      ],
+      "placement_rates": [
+        {
+          "room_type_code": "34188",
+          "rate_plan_code": "633705",
+          "placement": {
+            "index": 1,
+            "kind": "adult",
+            "code": "63015"
+          },
+          "rates": [
+            {
+              "date": "2026-11-13",
+              "price_after_tax": 20600.0,
+              "currency": "RUB"
+            }
+          ]
+        }
+      ],
+      "criterion_ref": "0",
+      "total": {
+        "price_before_tax": 20600.0,
+        "price_after_tax": 20600.0,
+        "currency": "RUB",
+        "taxes": []
+      },
+      "services": [
+        {
+          "rph": 1461602329,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 514420021,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 375695942,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 1728280102,
+          "applicability_type": "all_guests"
+        },
+        {
+          "rph": 1915279133,
+          "applicability_type": "all_guests"
+        }
+      ],
+      "stay_dates": {
+        "start_date": "2026-11-13 15:00:00",
+        "end_date": "2026-11-14 12:00:00"
+      },
+      "guarantees": [
+        {
+          "code": "206043",
+          "primary_guarantee_code": "206043",
+          "type": "credit_card"
+        },
+        {
+          "code": "210127",
+          "primary_guarantee_code": "210127",
+          "type": "sbp"
+        },
+        {
+          "code": "332199",
+          "primary_guarantee_code": "332199",
+          "type": "guarantee"
+        }
+      ],
+      "transfers": []
+    },
+    "price_matched_direct_api_and_browser": "20600",
+    "currency": "RUB",
+    "anonymous_offer_confirmed": true,
+    "checkout_not_attempted": true
+  }
+]
