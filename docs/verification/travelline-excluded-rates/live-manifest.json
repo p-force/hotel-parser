@@ -1,0 +1,92 @@
+[
+  {
+    "method": "GET",
+    "url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_info?hotels%5B0%5D.code=17249&language=ru-ru&audience=BookingForm",
+    "started_at": "2026-11-05T10:51:30.480267+00:00",
+    "completed_at": "2026-11-05T10:51:31.627600+00:00",
+    "http_status": 200,
+    "bytes": 102824,
+    "sha256": "7e4707cc5de6c6564c703f30e843127a40e9c7d4dfff411a744a8a8d773fab8f",
+    "error_code": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules?hotel=17249&start_date=2026-11-07&end_date=2026-11-13&audience=BookingForm&rate_plans%5B0%5D.code=816956&rate_plans%5B1%5D.code=951554",
+    "started_at": "2026-11-05T10:51:32.684142+00:00",
+    "completed_at": "2026-11-05T10:51:33.233854+00:00",
+    "http_status": 200,
+    "bytes": 2016,
+    "sha256": "e78a8b39934451c98714d70e96c4f849f23d47b40060e9b946a233c3065864e6",
+    "error_code": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_availability?criterions%5B0%5D.hotels%5B0%5D.code=17249&criterions%5B0%5D.adults=1&criterions%5B0%5D.dates=2026-11-07%3B2026-11-08&include_all_placements=false&include_promo_restricted=true&include_rates=true&include_transfers=true&language=ru-ru&audience=BookingForm",
+    "started_at": "2026-11-05T10:51:34.284693+00:00",
+    "completed_at": "2026-11-05T10:51:35.415590+00:00",
+    "http_status": 200,
+    "bytes": 108312,
+    "sha256": "3c0e72db32bc5adee5b76b7502bbbb4e584e44dad8b85183eaf7ba7d3ac2f9f1",
+    "error_code": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_availability?criterions%5B0%5D.hotels%5B0%5D.code=17249&criterions%5B0%5D.adults=1&criterions%5B0%5D.dates=2026-11-13%3B2026-11-14&include_all_placements=false&include_promo_restricted=true&include_rates=true&include_transfers=true&language=ru-ru&audience=BookingForm",
+    "started_at": "2026-11-05T10:51:36.471348+00:00",
+    "completed_at": "2026-11-05T10:51:38.036926+00:00",
+    "http_status": 200,
+    "bytes": 138431,
+    "sha256": "d25ec625ac0c11efe3bff376864e9e1a3fb251419628fc2e75ff705b501ad6c8",
+    "error_code": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_info?hotels%5B0%5D.code=5787&language=ru-ru&audience=BookingForm",
+    "started_at": "2026-11-05T10:51:39.096824+00:00",
+    "completed_at": "2026-11-05T10:51:40.063141+00:00",
+    "http_status": 200,
+    "bytes": 72198,
+    "sha256": "893d8e7494696aad49437b252166b5ad910da8f90e4fda30c620412e17c64d8e",
+    "error_code": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules?hotel=5787&start_date=2026-11-13&end_date=2026-11-20&audience=BookingForm&rate_plans%5B0%5D.code=633705",
+    "started_at": "2026-11-05T10:51:41.118843+00:00",
+    "completed_at": "2026-11-05T10:51:41.629252+00:00",
+    "http_status": 200,
+    "bytes": 1074,
+    "sha256": "b4c36192c7fe61436af230eb28894a0715c3b1280af9bb6864aed2ffd0dc39f7",
+    "error_code": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_availability?criterions%5B0%5D.hotels%5B0%5D.code=5787&criterions%5B0%5D.adults=1&criterions%5B0%5D.dates=2026-11-13%3B2026-11-14&include_all_placements=false&include_promo_restricted=true&include_rates=true&include_transfers=true&language=ru-ru&audience=BookingForm",
+    "started_at": "2026-11-05T10:51:42.685378+00:00",
+    "completed_at": "2026-11-05T10:51:43.504697+00:00",
+    "http_status": 200,
+    "bytes": 50629,
+    "sha256": "047d1ab738b946c1f265093f0b2306cf9a4fb82e7707f9bfcdd0a88629e502a0",
+    "error_code": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_availability?criterions%5B0%5D.hotels%5B0%5D.code=5787&criterions%5B0%5D.adults=1&criterions%5B0%5D.dates=2026-11-20%3B2026-11-21&include_all_placements=false&include_promo_restricted=true&include_rates=true&include_transfers=true&language=ru-ru&audience=BookingForm",
+    "started_at": "2026-11-05T10:51:44.556925+00:00",
+    "completed_at": "2026-11-05T10:51:45.417859+00:00",
+    "http_status": 200,
+    "bytes": 50462,
+    "sha256": "d834322569142e8d498bb8e0c22d49bae97b602dfeac2ea6bc7449a0c48d868b",
+    "error_code": null
+  },
+  {
+    "method": "GET",
+    "url": "https://ru-ibe.tlintegration.ru/ApiWebDistribution/BookingForm/hotel_availability?criterions%5B0%5D.hotels%5B0%5D.code=17249&criterions%5B0%5D.adults=1&criterions%5B0%5D.dates=2026-11-14%3B2026-11-15&include_all_placements=false&include_promo_restricted=true&include_rates=true&include_transfers=true&language=ru-ru&audience=BookingForm",
+    "started_at": "2026-11-05T10:54:44.660108+00:00",
+    "completed_at": "2026-11-05T10:54:46.929974+00:00",
+    "http_status": 200,
+    "bytes": 152875,
+    "sha256": "2a8ed8c3d11149bfea3a18dfd82bdc20e55241f22a106dc9247403275d59540e",
+    "error_code": null
+  }
+]

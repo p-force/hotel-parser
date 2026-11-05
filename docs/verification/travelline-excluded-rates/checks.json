@@ -1,0 +1,80 @@
+{
+  "checked_at": "2026-11-05T11:04:48.445102+00:00",
+  "base_commit": "2d7e174",
+  "scope": "documentation and safe evidence only; no production/configuration changes",
+  "historical_offers": 167,
+  "direct_api_gets": 9,
+  "recorded_browser_api_gets": 76,
+  "successful_dom_api_price_matches": 6,
+  "checks": {
+    "excluded_rates_offline_audit": "PASS",
+    "original_full_collection_offline_audit": "PASS",
+    "go_test_travelline_count_1": "PASS",
+    "make_check": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "limitations": [
+    "Offer visibility confirmed anonymously; checkout/payment not attempted.",
+    "Petroff official-site final DOM did not load within budget; direct public TravelLine form did.",
+    "951554 cancellation structured flags and text disagree.",
+    "633705 prepayment description and no-prepayment UI are not sufficient to establish final payment terms."
+  ],
+  "files": {
+    "README.md": {
+      "bytes": 19168,
+      "sha256": "eaa12994efb94db2f690f37c501e67e549fdf785656fa37bbf422f4a4ab31d2e"
+    },
+    "audit.py": {
+      "bytes": 5212,
+      "sha256": "41a71c0de0b6bc5eac5ad58854f9484f6cedbb5a597275663785ce81081177a0"
+    },
+    "browser-details-evidence.json": {
+      "bytes": 14309,
+      "sha256": "a2e414aa6ecd99e13bd5bedbe9cf4cceb4a0d6f015d5ffcada5e85458b44d67d"
+    },
+    "browser-evidence.json": {
+      "bytes": 14517,
+      "sha256": "b278830c857908403c22c8b2ca5da93cac14e84fe34e3a799a75a620d342e96c"
+    },
+    "browser-rates-evidence.json": {
+      "bytes": 23467,
+      "sha256": "b09981a7d0e11ad157c0f9de0c7243b781433f8180a2d0f926d422b564f261b4"
+    },
+    "browser-retry-evidence.json": {
+      "bytes": 6756,
+      "sha256": "05a04859369c4053877ee3365ca4647dd281e138b660b363797d34ca2c9802d5"
+    },
+    "dom-api-matches.json": {
+      "bytes": 29636,
+      "sha256": "3b79820930485be3896279de90924feb46dd346e860e488ed1bbecc60348b9bd"
+    },
+    "historical-manifest.json": {
+      "bytes": 49982,
+      "sha256": "ef21df6293da6a81bc2f565b87fe0acb29135bd3ebf4bbf621d40b44f7459670"
+    },
+    "historical-metadata.json": {
+      "bytes": 21157,
+      "sha256": "736dd5ae03577ecebb65157b270d82d2576fbfa428114092f46cc0c8218a8813"
+    },
+    "historical-offers.json": {
+      "bytes": 574936,
+      "sha256": "c8043592595e07794d7309ffa33c0074e67c798dff10bb8ecfd84bbf3220513a"
+    },
+    "historical-summary.json": {
+      "bytes": 3423,
+      "sha256": "86d9c186143e453960662c13e40972450980e647a92cd2222d49d15be5b6843a"
+    },
+    "live-api.json": {
+      "bytes": 189695,
+      "sha256": "8ab5c06b29fce5f331e94ab00123a8f439c7c5635dbd2242a4b0c9e533afe6c8"
+    },
+    "live-manifest.json": {
+      "bytes": 5115,
+      "sha256": "a491ed6a304a32ddbe9468b5c908a7c76fca6ae8ada53260625f2f0bb6bc8084"
+    },
+    "official-pages.json": {
+      "bytes": 1204,
+      "sha256": "1157fc5dcc469144c2bf4df7a50afeacde2742f5c55de5aa06bed69ef772ee36"
+    }
+  }
+}

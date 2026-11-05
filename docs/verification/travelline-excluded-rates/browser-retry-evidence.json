@@ -1,0 +1,158 @@
+[
+  {
+    "hotel": "5787",
+    "date": "2026-11-13",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-11-13&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T10:59:12.795Z",
+    "anonymous": true,
+    "adults": 1,
+    "rooms": 1,
+    "los": 1,
+    "error": "",
+    "text_length": 1231,
+    "official": null,
+    "xhr": [
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:59:01.647Z",
+        "completed_at": "2026-11-05T10:59:02.554Z",
+        "status": 200,
+        "sha256": "43e0acd39cda9283beb6e8dac27121d00253689c3bd6cea1d08b1a71d5165a84",
+        "bytes": 71988
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:59:02.699Z",
+        "completed_at": "2026-11-05T10:59:02.884Z",
+        "status": 200,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57",
+        "bytes": 27305
+      },
+      {
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "5787",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:59:03.751Z",
+        "completed_at": "2026-11-05T10:59:04.031Z",
+        "status": 200,
+        "sha256": "5dff04dcc2c4df6b1eb4cd8c8b22f5ba0f40f5297cfdc760ef582bffdeb77f87",
+        "bytes": 3262
+      },
+      {
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:59:04.801Z",
+        "completed_at": "2026-11-05T10:59:05.845Z",
+        "status": 200,
+        "sha256": "1f11892737ba7a68c1dce53179d0fce1f0c2bf3de88f18b284b4ef48d3104ea1",
+        "bytes": 108
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-13;2026-11-14",
+          "criterions[0].hotels[0].code": "5787",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:59:05.853Z",
+        "completed_at": "2026-11-05T10:59:06.400Z",
+        "status": 200,
+        "sha256": "63c429fc07e5af127fb4fa289b2a7610c668687387ece15dcae1e0706daabe76",
+        "bytes": 50647
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "5787",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:59:06.905Z",
+        "completed_at": "2026-11-05T10:59:07.814Z",
+        "status": 200,
+        "sha256": "765b8ec5e8f5c56eea3c1c7a5a98f68c3776d826402c5f6826b238304fd350fd",
+        "bytes": 5894
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2026-11-30",
+          "hotel": "5787",
+          "rate_plans[0].code": "49957",
+          "rate_plans[1].code": "35114",
+          "rate_plans[2].code": "145557",
+          "rate_plans[3].code": "622569",
+          "rate_plans[4].code": "633705",
+          "start_date": "2026-11-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:59:07.958Z",
+        "completed_at": "2026-11-05T10:59:08.138Z",
+        "status": 200,
+        "sha256": "c382100fc1d318817c71714256fa95daec131b548c7632ac40452debc46d43b0",
+        "bytes": 15702
+      },
+      {
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "5787",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T10:59:09.010Z",
+        "completed_at": "2026-11-05T10:59:09.202Z",
+        "status": 200,
+        "sha256": "9dc7f9b8200c355c7fcccee54277e1f55544367f04163c8d8d114c90fd85b37c",
+        "bytes": 139
+      }
+    ],
+    "snippets": [
+      {
+        "name": "Горящее предложение",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Пикник на крыше",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Романтические выходные",
+        "found": true,
+        "text": "аком Подробнее​\nЗавтрак\nБесплатная отмена до 13 ноября, 00:00\nБез предоплаты\nПосещение Wellness&Fitness центраОхраняемая парковка\nСтоимость за 1 ночь\n13 400 ₽\n13400 рублей\nВыбрать\nРомантические выходные в Петровском Путевом Дворце Подробнее​\nЗавтрак в номер\nБесплатная отмена до 10 ноября, 15:00\nБез предоплаты\nПосещение Wellness&Fitness центраОхраняемая парковкаЧайная церемонияПодарочный сертификат на посещение смотровой площадки \"Выше Только Любовь\"\nСтоимость за 1 ночь\n20 600 ₽\n20600 рублей\nВыбрать\n© Модуль онлайн-бронирования TravelLine: Booking Engine\nНомер записи в Едином реестре объектов классификации: С772024006084\nДетализация цены\nДетализация цены\nДетализация цены\n1 взрослый\n1 взрослый\n2 взрослых"
+      }
+    ],
+    "cards": [
+      {
+        "tag": "DIV",
+        "attributes": [
+          [
+            "tl-id",
+            "rate-plan-list-item"
+          ]
+        ],
+        "text": "Романтические выходные в Петровском Путевом Дворце Подробнее​\nЗавтрак в номер\nБесплатная отмена до 10 ноября, 15:00\nБез предоплаты\nПосещение Wellness&Fitness центраОхраняемая парковкаЧайная церемонияПодарочный сертификат на посещение смотровой площадки \"Выше Только Любовь\"\nСтоимость за 1 ночь\n20 600 ₽\n20600 рублей\nВыбрать"
+      }
+    ]
+  }
+]
