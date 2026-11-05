@@ -1,0 +1,346 @@
+[
+  {
+    "hotel": "5787",
+    "check_in": "2026-12-31",
+    "adults": 1,
+    "los": 2,
+    "provenance": "live",
+    "raw_offers_all_categories": 6,
+    "raw_category_ids": [
+      "34187",
+      "34190",
+      "34493"
+    ],
+    "target_category": null,
+    "target_offers": 6,
+    "target_rates": [
+      "35114",
+      "49957"
+    ]
+  },
+  {
+    "hotel": "5787",
+    "check_in": "2026-12-30",
+    "adults": 1,
+    "los": 2,
+    "provenance": "live",
+    "raw_offers_all_categories": 6,
+    "raw_category_ids": [
+      "34187",
+      "34190",
+      "34493"
+    ],
+    "target_category": null,
+    "target_offers": 6,
+    "target_rates": [
+      "35114",
+      "49957"
+    ]
+  },
+  {
+    "hotel": "585",
+    "check_in": "2027-01-15",
+    "adults": 1,
+    "los": 1,
+    "provenance": "live",
+    "raw_offers_all_categories": 80,
+    "raw_category_ids": [
+      "103578",
+      "103580",
+      "4347",
+      "4348",
+      "4349",
+      "4350",
+      "8875",
+      "8876"
+    ],
+    "target_category": "250899",
+    "target_offers": 0,
+    "target_rates": []
+  },
+  {
+    "hotel": "585",
+    "check_in": "2027-01-15",
+    "adults": 2,
+    "los": 1,
+    "provenance": "live",
+    "raw_offers_all_categories": 80,
+    "raw_category_ids": [
+      "103578",
+      "103580",
+      "4347",
+      "4348",
+      "4349",
+      "4350",
+      "8875",
+      "8876"
+    ],
+    "target_category": "250899",
+    "target_offers": 0,
+    "target_rates": []
+  },
+  {
+    "hotel": "585",
+    "check_in": "2027-01-15",
+    "adults": 2,
+    "los": 2,
+    "provenance": "live",
+    "raw_offers_all_categories": 80,
+    "raw_category_ids": [
+      "103578",
+      "103580",
+      "4347",
+      "4348",
+      "4349",
+      "4350",
+      "8875",
+      "8876"
+    ],
+    "target_category": "250899",
+    "target_offers": 0,
+    "target_rates": []
+  },
+  {
+    "hotel": "585",
+    "check_in": "2027-02-19",
+    "adults": 1,
+    "los": 1,
+    "provenance": "live",
+    "raw_offers_all_categories": 90,
+    "raw_category_ids": [
+      "103578",
+      "103580",
+      "133917",
+      "4347",
+      "4348",
+      "4349",
+      "4350",
+      "8875",
+      "8876"
+    ],
+    "target_category": "250899",
+    "target_offers": 0,
+    "target_rates": []
+  },
+  {
+    "hotel": "585",
+    "check_in": "2027-02-19",
+    "adults": 2,
+    "los": 1,
+    "provenance": "live",
+    "raw_offers_all_categories": 90,
+    "raw_category_ids": [
+      "103578",
+      "103580",
+      "133917",
+      "4347",
+      "4348",
+      "4349",
+      "4350",
+      "8875",
+      "8876"
+    ],
+    "target_category": "250899",
+    "target_offers": 0,
+    "target_rates": []
+  },
+  {
+    "hotel": "585",
+    "check_in": "2027-02-19",
+    "adults": 2,
+    "los": 2,
+    "provenance": "live",
+    "raw_offers_all_categories": 90,
+    "raw_category_ids": [
+      "103578",
+      "103580",
+      "133917",
+      "4347",
+      "4348",
+      "4349",
+      "4350",
+      "8875",
+      "8876"
+    ],
+    "target_category": "250899",
+    "target_offers": 0,
+    "target_rates": []
+  },
+  {
+    "hotel": "333",
+    "check_in": "2027-01-15",
+    "adults": 1,
+    "los": 1,
+    "provenance": "live",
+    "raw_offers_all_categories": 21,
+    "raw_category_ids": [
+      "2416",
+      "2420",
+      "2422",
+      "24281",
+      "24386",
+      "29344",
+      "2992"
+    ],
+    "target_category": "2992",
+    "target_offers": 3,
+    "target_rates": [
+      "131363",
+      "38564",
+      "49218"
+    ]
+  },
+  {
+    "hotel": "333",
+    "check_in": "2027-01-15",
+    "adults": 2,
+    "los": 1,
+    "provenance": "live",
+    "raw_offers_all_categories": 21,
+    "raw_category_ids": [
+      "2416",
+      "2420",
+      "2422",
+      "24281",
+      "24386",
+      "29344",
+      "2992"
+    ],
+    "target_category": "2992",
+    "target_offers": 3,
+    "target_rates": [
+      "131363",
+      "38564",
+      "49218"
+    ]
+  },
+  {
+    "hotel": "333",
+    "check_in": "2027-01-15",
+    "adults": 2,
+    "los": 2,
+    "provenance": "live",
+    "raw_offers_all_categories": 21,
+    "raw_category_ids": [
+      "2416",
+      "2420",
+      "2422",
+      "24281",
+      "24386",
+      "29344",
+      "2992"
+    ],
+    "target_category": "2992",
+    "target_offers": 3,
+    "target_rates": [
+      "131363",
+      "38564",
+      "49218"
+    ]
+  },
+  {
+    "hotel": "333",
+    "check_in": "2027-02-19",
+    "adults": 1,
+    "los": 1,
+    "provenance": "live",
+    "raw_offers_all_categories": 21,
+    "raw_category_ids": [
+      "2416",
+      "2420",
+      "2422",
+      "24281",
+      "24386",
+      "29344",
+      "2992"
+    ],
+    "target_category": "2992",
+    "target_offers": 3,
+    "target_rates": [
+      "131363",
+      "38564",
+      "49218"
+    ]
+  },
+  {
+    "hotel": "333",
+    "check_in": "2027-02-19",
+    "adults": 2,
+    "los": 1,
+    "provenance": "live",
+    "raw_offers_all_categories": 21,
+    "raw_category_ids": [
+      "2416",
+      "2420",
+      "2422",
+      "24281",
+      "24386",
+      "29344",
+      "2992"
+    ],
+    "target_category": "2992",
+    "target_offers": 3,
+    "target_rates": [
+      "131363",
+      "38564",
+      "49218"
+    ]
+  },
+  {
+    "hotel": "333",
+    "check_in": "2027-02-19",
+    "adults": 2,
+    "los": 2,
+    "provenance": "live",
+    "raw_offers_all_categories": 21,
+    "raw_category_ids": [
+      "2416",
+      "2420",
+      "2422",
+      "24281",
+      "24386",
+      "29344",
+      "2992"
+    ],
+    "target_category": "2992",
+    "target_offers": 3,
+    "target_rates": [
+      "131363",
+      "38564",
+      "49218"
+    ]
+  },
+  {
+    "hotel": "5787",
+    "check_in": "2026-12-31",
+    "adults": 1,
+    "los": 1,
+    "provenance": "historical 2026-11-03",
+    "raw_offers_all_categories": 0,
+    "raw_category_ids": [],
+    "target_category": null,
+    "target_offers": 0,
+    "target_rates": []
+  },
+  {
+    "hotel": "5787",
+    "check_in": "2027-01-01",
+    "adults": 1,
+    "los": 1,
+    "provenance": "historical 2026-11-03",
+    "raw_offers_all_categories": 9,
+    "raw_category_ids": [
+      "34187",
+      "34188",
+      "34190",
+      "34493"
+    ],
+    "target_category": null,
+    "target_offers": 9,
+    "target_rates": [
+      "35114",
+      "49957",
+      "622569"
+    ]
+  }
+]
