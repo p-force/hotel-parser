@@ -1,0 +1,24 @@
+[
+  {
+    "hotel": "333",
+    "date": "2027-01-15",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=333&date=2027-01-15&nights=2&adults=2&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T12:23:04.503Z",
+    "anonymous": true,
+    "adults": 2,
+    "rooms": 1,
+    "los": 2,
+    "error": "page.waitForFunction: Timeout 40000ms exceeded.",
+    "text_length": 0,
+    "official": null,
+    "xhr": [],
+    "snippets": [
+      {
+        "name": "Апартаменты",
+        "found": false,
+        "text": ""
+      }
+    ],
+    "cards": []
+  }
+]

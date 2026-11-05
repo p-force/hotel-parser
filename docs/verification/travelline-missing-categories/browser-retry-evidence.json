@@ -1,0 +1,561 @@
+[
+  {
+    "hotel": "5787",
+    "date": "2026-12-31",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-12-31&nights=2&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T12:18:40.621Z",
+    "anonymous": true,
+    "adults": 1,
+    "rooms": 1,
+    "los": 2,
+    "error": "",
+    "text_length": 2354,
+    "official": null,
+    "xhr": [
+      {
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:18:29.858Z",
+        "completed_at": "2026-11-05T12:18:30.201Z",
+        "status": 200,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57",
+        "bytes": 27305
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:18:28.807Z",
+        "completed_at": "2026-11-05T12:18:30.350Z",
+        "status": 200,
+        "sha256": "19fe21483347884a7a59d5f4ca58fdbde488c374ce21dcb42cbfe57b6dd4b862",
+        "bytes": 72198
+      },
+      {
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "5787",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:18:30.910Z",
+        "completed_at": "2026-11-05T12:18:31.062Z",
+        "status": 200,
+        "sha256": "5dff04dcc2c4df6b1eb4cd8c8b22f5ba0f40f5297cfdc760ef582bffdeb77f87",
+        "bytes": 3262
+      },
+      {
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:18:31.961Z",
+        "completed_at": "2026-11-05T12:18:32.084Z",
+        "status": 200,
+        "sha256": "1f11892737ba7a68c1dce53179d0fce1f0c2bf3de88f18b284b4ef48d3104ea1",
+        "bytes": 108
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-12-31;2027-01-02",
+          "criterions[0].hotels[0].code": "5787",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:18:33.013Z",
+        "completed_at": "2026-11-05T12:18:33.509Z",
+        "status": 200,
+        "sha256": "a8b6ed0037cc7b9b0e9816498fd4334f2a57e56c926e5b2f2eb83ff1a4ecc093",
+        "bytes": 20501
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "5787",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:18:34.064Z",
+        "completed_at": "2026-11-05T12:18:34.689Z",
+        "status": 200,
+        "sha256": "43af9b2b0404d46eed382eb4d5a8f41b20141efcf48d3d7ac655b2a4b04f784f",
+        "bytes": 5886
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "5787",
+          "rate_plans[0].code": "49957",
+          "rate_plans[1].code": "35114",
+          "rate_plans[2].code": "145557",
+          "rate_plans[3].code": "622569",
+          "rate_plans[4].code": "633705",
+          "start_date": "2026-12-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:18:35.116Z",
+        "completed_at": "2026-11-05T12:18:35.463Z",
+        "status": 200,
+        "sha256": "ffbaf58b33a7b70e2b18455f921a62862ddb45ddce79b586e4d9c99b9640ed78",
+        "bytes": 16993
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2027-01-31",
+          "hotel": "5787",
+          "rate_plans[0].code": "49957",
+          "rate_plans[1].code": "35114",
+          "rate_plans[2].code": "145557",
+          "rate_plans[3].code": "622569",
+          "rate_plans[4].code": "633705",
+          "start_date": "2027-01-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:18:36.169Z",
+        "completed_at": "2026-11-05T12:18:36.519Z",
+        "status": 200,
+        "sha256": "33db01aea8f1c4c49018e9fe277510e79e958ebbc6f8a310f659930663171e95",
+        "bytes": 17039
+      },
+      {
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "5787",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:18:37.221Z",
+        "completed_at": "2026-11-05T12:18:37.347Z",
+        "status": 200,
+        "sha256": "9dc7f9b8200c355c7fcccee54277e1f55544367f04163c8d8d114c90fd85b37c",
+        "bytes": 139
+      }
+    ],
+    "snippets": [
+      {
+        "name": "Стандартный двухместный",
+        "found": false,
+        "text": ""
+      },
+      {
+        "name": "Петровские Палаты",
+        "found": true,
+        "text": "8 975 ₽\n28975 рублей\nЗа регистрацию 28975 рублей. Открыть окно регистрации\nот 30 500 ₽\n30500 рублей\n2 ночи / 1 гость\nВыбрать\nСмотреть фотогалерею\nИмператорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней\nВместимость.\nдо 4 мест\nПлощадь.\n120 м²\n​За регистрацию 93 575 ₽\n93575 рублей\nЗа регистрацию 93575 рублей. Открыть окно регистрации\nот 98 500 ₽\n98500 рублей\n2 ночи / 1 гость\nВыбрать\nЧто есть рядом\nПарк\nПопулярные удобства\nРанний заезд и поздний выезд\nБесплатная крытая парковка\nЗавтрак\nРесторан, бар\nБесплатный крытый бассейн\nСпа-зона\nТренажерный зал\nБесплатный Wi-Fi\nРазмещение с питомцами\nСмотреть всё\nСмотреть фотогалерею\nДелюкс с 1 двуспальной кроватью\nВместимость.\nдо 3 мест\nПлощадь.\n40 м²\nРаспродано\nДоступные даты заезда\nЛидер продаж\nСмотреть фотогалерею\nПредста"
+      },
+      {
+        "name": "Екатерининские",
+        "found": true,
+        "text": "огалерею\nПредставительский двухкомнатный Люкс с 1 спальней\nВместимость.\nдо 3 мест\nПлощадь.\n60 м²\nРаспродано\nДоступные даты заезда\nСмотреть фотогалерею\nСемейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями\nВместимость.\nдо 6 мест\nПлощадь.\n120 м²\nРаспродано\nДоступные даты заезда\n© Модуль онлайн-бронирования TravelLine: Booking Engine\nНомер записи в Едином реестре объектов классификации: С772024006084\nТелевизор\nКондиционер\nWi-Fi\nСейф\nЧайный набор\nДетализация цены\nВаш выбор\nТелевизор\nКондиционер\nДве односпальные кровати\nWi-Fi\nСейф\nДетализация цены\nВаш выбор\nТри комнаты\nWi-Fi\nКровать «King size»\nЧайный набор\nКондиционер\nДетализация цены\nВаш выбор\nWi-Fi\nКондиционер\nТелевизор\nСейф\nЧайный набор\nВаш выбор\nWi-Fi\nКондиционер\nДве комнаты\nДва телевизора\nЧайник\nВаш выбор\nК"
+      }
+    ],
+    "cards": [
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-34187"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Смотреть фотогалерею\nСтандартный номер с 1 двуспальной кроватью\nВместимость.\nдо 2 мест\nПлощадь.\n30 м²\n​За регистрацию 28 975 ₽\n28975 рублей\nЗа регистрацию 28975 рублей. Открыть окно регистрации\nот 30 500 ₽\n30500 рублей\n2 ночи / 1 гость\nВыбрать"
+      },
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-34493"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Остался 1 номер\nСмотреть фотогалерею\nСтандартный номер с 2 односпальными кроватями\nВместимость.\nдо 2 мест\nПлощадь.\n25 м²\n​За регистрацию 28 975 ₽\n28975 рублей\nЗа регистрацию 28975 рублей. Открыть окно регистрации\nот 30 500 ₽\n30500 рублей\n2 ночи / 1 гость\nВыбрать"
+      },
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-34190"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Смотреть фотогалерею\nИмператорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней\nВместимость.\nдо 4 мест\nПлощадь.\n120 м²\n​За регистрацию 93 575 ₽\n93575 рублей\nЗа регистрацию 93575 рублей. Открыть окно регистрации\nот 98 500 ₽\n98500 рублей\n2 ночи / 1 гость\nВыбрать"
+      },
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-34188"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Смотреть фотогалерею\nДелюкс с 1 двуспальной кроватью\nВместимость.\nдо 3 мест\nПлощадь.\n40 м²\nРаспродано\nДоступные даты заезда"
+      },
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-34189"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Лидер продаж\nСмотреть фотогалерею\nПредставительский двухкомнатный Люкс с 1 спальней\nВместимость.\nдо 3 мест\nПлощадь.\n60 м²\nРаспродано\nДоступные даты заезда"
+      },
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-34191"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Смотреть фотогалерею\nСемейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями\nВместимость.\nдо 6 мест\nПлощадь.\n120 м²\nРаспродано\nДоступные даты заезда"
+      }
+    ]
+  },
+  {
+    "hotel": "585",
+    "date": "2027-01-15",
+    "url": "https://azimuthotels.com/ru/tl/availability?hotel=101&checkIn=2027-01-15&checkOut=2027-01-17&adults=2&children=0&rooms=1&nights=2&promo=",
+    "captured_at": "2026-11-05T12:18:52.660Z",
+    "anonymous": true,
+    "adults": 2,
+    "rooms": 1,
+    "los": 2,
+    "error": "",
+    "text_length": 12789,
+    "official": null,
+    "xhr": [],
+    "snippets": [
+      {
+        "name": "Бизнес Апартаменты",
+        "found": true,
+        "text": "\n26\n8 033 ₽\n\t\n27\n8 033 ₽\n\t\n28\n7 727 ₽\nПодробнее о номере\nПодробнее о номере\nПодробнее о номере\nПодробнее о номере\nПодробнее о номере\nПодробнее о номере\nПодробнее о номере\nУдобства\nБизнес Апартаменты65m2\n3\nПодробнее про номер\nНомера закончились.\nЗдесь лучшая цена\n15.01.2027 – 17.01.2027 , 2 гостя\nЦена\nот 8 110 ₽ *\n* После регистрации\n+ баллы за каждое проживание\n+ привилегии AZIMUT BONUS\nЦена в сервисах бронирования отелей\nот 9 010 ₽"
+      },
+      {
+        "name": "Бизнес апартаменты",
+        "found": false,
+        "text": ""
+      }
+    ],
+    "cards": []
+  },
+  {
+    "hotel": "585",
+    "date": "2027-02-19",
+    "url": "https://azimuthotels.com/ru/tl/availability?hotel=101&checkIn=2027-02-19&checkOut=2027-02-21&adults=2&children=0&rooms=1&nights=2&promo=",
+    "captured_at": "2026-11-05T12:19:04.371Z",
+    "anonymous": true,
+    "adults": 2,
+    "rooms": 1,
+    "los": 2,
+    "error": "",
+    "text_length": 13775,
+    "official": null,
+    "xhr": [],
+    "snippets": [
+      {
+        "name": "Бизнес Апартаменты",
+        "found": true,
+        "text": " 750 ₽\nЗабронировать\n+ 27 750 бонусов\nПодробнее о номере\nПодробнее о номере\nПодробнее о номере\nПодробнее о номере\nПодробнее о номере\nПодробнее о номере\nПодробнее о номере\nУдобства\nБизнес Апартаменты65m2\n3\nПодробнее про номер\nНомера закончились.\nЗдесь лучшая цена\n19.02.2027 – 21.02.2027 , 2 гостя\nЦена\nот 8 416 ₽ *\n* После регистрации\n+ баллы за каждое проживание\n+ привилегии AZIMUT BONUS\nЦена в сервисах бронирования отелей\nот 9 350 ₽"
+      },
+      {
+        "name": "Бизнес апартаменты",
+        "found": false,
+        "text": ""
+      }
+    ],
+    "cards": []
+  },
+  {
+    "hotel": "333",
+    "date": "2027-01-15",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=333&date=2027-01-15&nights=2&adults=2&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T12:19:17.573Z",
+    "anonymous": true,
+    "adults": 2,
+    "rooms": 1,
+    "los": 2,
+    "error": "",
+    "text_length": 2608,
+    "official": null,
+    "xhr": [
+      {
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "333",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:19:07.806Z",
+        "completed_at": "2026-11-05T12:19:08.273Z",
+        "status": 200,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57",
+        "bytes": 27305
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "333",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:19:06.754Z",
+        "completed_at": "2026-11-05T12:19:08.310Z",
+        "status": 200,
+        "sha256": "cdbff07ab31d3ada76662bc8741a5a1580091d57854e2a1f5053d26490eec135",
+        "bytes": 49949
+      },
+      {
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "333",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:19:08.858Z",
+        "completed_at": "2026-11-05T12:19:09.028Z",
+        "status": 200,
+        "sha256": "e8b2b14129056bfe157afe9fb4fb4d00077143924a996dc2c8012d72b1696a30",
+        "bytes": 2622
+      },
+      {
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "333",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:19:09.910Z",
+        "completed_at": "2026-11-05T12:19:10.048Z",
+        "status": 200,
+        "sha256": "1f11892737ba7a68c1dce53179d0fce1f0c2bf3de88f18b284b4ef48d3104ea1",
+        "bytes": 108
+      },
+      {
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "2",
+          "criterions[0].dates": "2027-01-15;2027-01-17",
+          "criterions[0].hotels[0].code": "333",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:19:10.963Z",
+        "completed_at": "2026-11-05T12:19:11.411Z",
+        "status": 200,
+        "sha256": "9c72febb4f752c10bc7d160bbd840a95be8f711f6314f29396cdceceb44c0d1f",
+        "bytes": 59796
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2027-03-31",
+          "hotel": "333",
+          "start_date": "2027-01-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:19:12.015Z",
+        "completed_at": "2026-11-05T12:19:12.395Z",
+        "status": 200,
+        "sha256": "697e6d767f1e5dafad70cdc7c18cdf3dd7a8798d4276f9e7daee482fc0d14991",
+        "bytes": 7971
+      },
+      {
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2027-01-31",
+          "hotel": "333",
+          "rate_plans[0].code": "38564",
+          "rate_plans[1].code": "49218",
+          "rate_plans[2].code": "145383",
+          "rate_plans[3].code": "131363",
+          "rate_plans[4].code": "303387",
+          "start_date": "2027-01-01",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:19:13.067Z",
+        "completed_at": "2026-11-05T12:19:13.458Z",
+        "status": 200,
+        "sha256": "d31238af6cba86969e444202c8b297f6100a648f8388ba545168c05d0e14bf47",
+        "bytes": 16947
+      },
+      {
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "333",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "started_at": "2026-11-05T12:19:14.119Z",
+        "completed_at": "2026-11-05T12:19:14.254Z",
+        "status": 200,
+        "sha256": "0648735bb65cd22289102cad2f921c0161b3c5cd23dc380ce251288a8ecca808",
+        "bytes": 169
+      }
+    ],
+    "snippets": [
+      {
+        "name": "Апартаменты",
+        "found": true,
+        "text": "о 3 мест\nПлощадь.\n55 м²\n−13%\n30 000 ₽\n30000 рублей\nСкидка 13%. Без учёта скидки 30000 рублей\nот 26 000 ₽\n26000 рублей\n2 ночи / 2 гостя\nВыбрать\nОстался 1 номер\nСмотреть фотогалерею\nАпартаменты\nВместимость.\nдо 3 мест\nПлощадь.\n70 м²\n−8%\n50 000 ₽\n50000 рублей\nСкидка 8%. Без учёта скидки 50000 рублей\nот 46 000 ₽\n46000 рублей\n2 ночи / 2 гостя\nВыбрать\nОстался 1 номер\nСмотреть фотогалерею\n«Сталинские апартаменты» / «Апартаменты Яръ»\nВместимость.\nдо 3 мест\n−6%\n72 000 ₽\n72000 рублей\nСкидка 6%. Без учёта скидки 72000 рублей\nот 68 000 ₽\n68000 рублей\n2 ночи / 2 гостя\nВыбрать\n© Модуль онлайн-бронирования TravelLine: Booking Engine\nНомер записи в Едином реестре объектов классификации: С772024011839\nWi-Fi\nДвуспальная кровать\nКровать «King size»\nТелевизор\nТелефон\nДетализация цены\nВаш вы"
+      }
+    ],
+    "cards": [
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-24386"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Смотреть фотогалерею\nСтандарт с одной кроватью\nВместимость.\nдо 2 мест\n−21%\n18 800 ₽\n18800 рублей\nСкидка 21%. Без учёта скидки 18800 рублей\nот 14 800 ₽\n14800 рублей\n2 ночи / 2 гостя\nВыбрать"
+      },
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-2416"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Смотреть фотогалерею\nСтандартный с двумя раздельными кроватями\nВместимость.\nдо 2 мест\nПлощадь.\n18 м²\n−21%\n18 800 ₽\n18800 рублей\nСкидка 21%. Без учёта скидки 18800 рублей\nот 14 800 ₽\n14800 рублей\n2 ночи / 2 гостя\nВыбрать"
+      },
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-24281"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Смотреть фотогалерею\nДелюкс\nВместимость.\nдо 2 мест\nПлощадь.\n25 м²\n−19%\n20 800 ₽\n20800 рублей\nСкидка 19%. Без учёта скидки 20800 рублей\nот 16 800 ₽\n16800 рублей\n2 ночи / 2 гостя\nВыбрать"
+      },
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-2420"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Лидер продаж\nСмотреть фотогалерею\nПолулюкс\nВместимость.\nдо 3 мест\nПлощадь.\n30 м²\n−15%\n27 200 ₽\n27200 рублей\nСкидка 15%. Без учёта скидки 27200 рублей\nот 23 200 ₽\n23200 рублей\n2 ночи / 2 гостя\nВыбрать"
+      },
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-2422"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Смотреть фотогалерею\nКлубный Люкс\nВместимость.\nдо 3 мест\nПлощадь.\n55 м²\n−13%\n30 000 ₽\n30000 рублей\nСкидка 13%. Без учёта скидки 30000 рублей\nот 26 000 ₽\n26000 рублей\n2 ночи / 2 гостя\nВыбрать"
+      },
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-2992"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Остался 1 номер\nСмотреть фотогалерею\nАпартаменты\nВместимость.\nдо 3 мест\nПлощадь.\n70 м²\n−8%\n50 000 ₽\n50000 рублей\nСкидка 8%. Без учёта скидки 50000 рублей\nот 46 000 ₽\n46000 рублей\n2 ночи / 2 гостя\nВыбрать"
+      },
+      {
+        "tag": "ARTICLE",
+        "attributes": [
+          [
+            "id",
+            "room-id-29344"
+          ],
+          [
+            "rel",
+            "room-preview"
+          ]
+        ],
+        "text": "Остался 1 номер\nСмотреть фотогалерею\n«Сталинские апартаменты» / «Апартаменты Яръ»\nВместимость.\nдо 3 мест\n−6%\n72 000 ₽\n72000 рублей\nСкидка 6%. Без учёта скидки 72000 рублей\nот 68 000 ₽\n68000 рублей\n2 ночи / 2 гостя\nВыбрать"
+      }
+    ]
+  },
+  {
+    "hotel": "333",
+    "date": "2027-02-19",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=333&date=2027-02-19&nights=2&adults=2&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T12:20:01.159Z",
+    "anonymous": true,
+    "adults": 2,
+    "rooms": 1,
+    "los": 2,
+    "error": "page.waitForFunction: Timeout 40000ms exceeded.",
+    "text_length": 0,
+    "official": null,
+    "xhr": [],
+    "snippets": [
+      {
+        "name": "Апартаменты",
+        "found": false,
+        "text": ""
+      }
+    ],
+    "cards": []
+  }
+]
