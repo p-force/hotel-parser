@@ -473,19 +473,27 @@ func TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery(t *testing.T) {
 	var calls atomic.Int32
 	properties, run, jobs := runtimeFixture(t, store, 1, func(w http.ResponseWriter, r *http.Request) { calls.Add(1); fmt.Fprint(w, propertySuccessHTML) })
 	origin := properties[0].Hotel.Source.BaseURL
-	testLimits(t, Limits{Sources: map[string]SourceLimit{origin: {StartInterval: time.Hour}}})
+	// httptest может переиспользовать origin предыдущего сервера; limiter хранит
+	// историю между ConfigureLimits. Детерминированно воспроизводим эту историю.
+	testLimits(t, Limits{Sources: map[string]SourceLimit{origin: {StartInterval: 0}}})
+	if result := properties[0].Client.Collect(context.Background(), batchRequests(1)[0]); result.Status != bnovo.SearchStatusSuccess {
+		t.Fatalf("seed existing origin history: %+v", result)
+	}
 	// A direct request consumes the transport interval, but no scheduler admission.
 	// The queued job can therefore reach RenewLease/Collect and wait at HTTP gate.
 	if result := properties[0].Client.Collect(context.Background(), batchRequests(1)[0]); result.Status != bnovo.SearchStatusSuccess {
 		t.Fatalf("warm-up: %+v", result)
 	}
+	// Сначала warm-up без задержки, затем длинный интервал: существующая
+	// история origin блокирует именно queued HTTP, а не подготовку теста.
+	testLimits(t, Limits{Sources: map[string]SourceLimit{origin: {StartInterval: time.Hour}}})
 	started := signalLog(t, "bnovo.collect.started")
 	options := runtimeOptions(run.ID, 1)
 	options.ExecutionTimeout = 200 * time.Millisecond
 	options.RenewInterval = 20 * time.Millisecond
 	outcome := receive(t, launchRuntime(context.Background(), store, properties, options))
 	receive(t, started)
-	if !errors.Is(outcome.err, context.DeadlineExceeded) || calls.Load() != 1 || outcome.result.Progress.Remaining != 1 || outcome.result.Progress.Canceled != 0 {
+	if !errors.Is(outcome.err, context.DeadlineExceeded) || calls.Load() != 2 || outcome.result.Progress.Remaining != 1 || outcome.result.Progress.Canceled != 0 {
 		t.Fatalf("transport wait deadline lost job or sent HTTP: %+v calls=%d", outcome, calls.Load())
 	}
 	job, err := store.GetJob(context.Background(), jobs[0].ID)
@@ -505,7 +513,7 @@ func TestPostgresRuntimeDeadlineAtHTTPStartGateAndRecovery(t *testing.T) {
 	options = runtimeOptions(run.ID, 1)
 	options.Claim.Owner = "worker-b"
 	recovered, err := RunQueued(context.Background(), runtimeSecondPool(t, schema), properties, options)
-	if err != nil || recovered.Progress.Completed != 1 || calls.Load() != 2 {
+	if err != nil || recovered.Progress.Completed != 1 || calls.Load() != 3 {
 		t.Fatalf("recover: %+v %v calls=%d", recovered, err, calls.Load())
 	}
 	current, err := store.GetJob(context.Background(), job.ID)

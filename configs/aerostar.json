@@ -133,7 +133,7 @@
     }
   ],
   "collection": {
-    "enabled": false,
+    "enabled": true,
     "days_ahead": 60,
     "adults": 2,
     "children_ages": [],

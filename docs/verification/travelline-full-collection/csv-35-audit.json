@@ -1,0 +1,8 @@
+{
+  "rows": 8280,
+  "columns": 35,
+  "cells": 289800,
+  "differences": 0,
+  "timestamp_comparison": "UTC instants",
+  "numeric_comparison": "exact Decimal; no float arithmetic"
+}

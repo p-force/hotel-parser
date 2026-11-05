@@ -1,0 +1,166 @@
+{
+  "schema": "hp_tl_full_20261103_7af4180a",
+  "date_start": "2026-11-03",
+  "date_end": "2027-01-02",
+  "adults": 1,
+  "rooms": 1,
+  "LOS": 1,
+  "language": "ru",
+  "counts": {
+    "collection_attempts": 305,
+    "collection_runs": 5,
+    "csv_deliveries": 0,
+    "observation_offers": 7972,
+    "observation_variants": 2167,
+    "observations": 2379,
+    "scenario_jobs": 305
+  },
+  "results": [
+    {
+      "property": "monarch",
+      "hotel": "17249",
+      "run_id": "7bc56fb1-2a7f-52cf-a7b4-014adb6b662a",
+      "run_status": "partial",
+      "planned": 61,
+      "terminal": 61,
+      "statuses": {
+        "partial": 15,
+        "succeeded": 46
+      },
+      "attempts": 61,
+      "metadata_categories": 8,
+      "categories_ever_offered": 8,
+      "offers": 2310,
+      "priced_offers": 2310,
+      "priced_with_native_quota": 2310,
+      "stock_observations": {
+        "known": 449,
+        "unknown": 39
+      },
+      "csv_data_rows": 2349,
+      "csv_bytes": 1245585,
+      "csv_sha256": "e4818db7d571f905f0a79cceb03dfb223e78201a4c0fc5930a9af7c0938446bc"
+    },
+    {
+      "property": "bega",
+      "hotel": "61",
+      "run_id": "259695fc-b074-5856-b4d6-eb71910e51c2",
+      "run_status": "partial",
+      "planned": 61,
+      "terminal": 61,
+      "statuses": {
+        "partial": 4,
+        "succeeded": 57
+      },
+      "attempts": 61,
+      "metadata_categories": 8,
+      "categories_ever_offered": 8,
+      "offers": 1932,
+      "priced_offers": 1932,
+      "priced_with_native_quota": 1932,
+      "stock_observations": {
+        "known": 483,
+        "unknown": 5
+      },
+      "csv_data_rows": 1937,
+      "csv_bytes": 930698,
+      "csv_sha256": "0651987ba2cc4f4857e7dc7fb8863045ff233d0cd9b400f6e4b9807b6bdbdad3"
+    },
+    {
+      "property": "azimut_aerostar",
+      "hotel": "585",
+      "run_id": "5659d923-fd40-5550-93da-74dea71ad1ff",
+      "run_status": "partial",
+      "planned": 61,
+      "terminal": 61,
+      "statuses": {
+        "partial": 61
+      },
+      "attempts": 61,
+      "metadata_categories": 10,
+      "categories_ever_offered": 9,
+      "offers": 2276,
+      "priced_offers": 2276,
+      "priced_with_native_quota": 2276,
+      "stock_observations": {
+        "known": 460,
+        "unknown": 150
+      },
+      "csv_data_rows": 2426,
+      "csv_bytes": 1376112,
+      "csv_sha256": "9090cab0d2227019e769ac7a443cf82d5474b1378892fca35ca45bbdb97cab96"
+    },
+    {
+      "property": "sovietsky",
+      "hotel": "333",
+      "run_id": "46408820-1c17-53ae-98fe-c62ebb215cd4",
+      "run_status": "partial",
+      "planned": 61,
+      "terminal": 61,
+      "statuses": {
+        "partial": 61
+      },
+      "attempts": 61,
+      "metadata_categories": 7,
+      "categories_ever_offered": 6,
+      "offers": 724,
+      "priced_offers": 724,
+      "priced_with_native_quota": 724,
+      "stock_observations": {
+        "known": 362,
+        "unknown": 65
+      },
+      "csv_data_rows": 789,
+      "csv_bytes": 385750,
+      "csv_sha256": "1420d0769dc71a42d5782ca88cd1b9919d9d31120c85be22999f9428c3eb8ab5"
+    },
+    {
+      "property": "petroff",
+      "hotel": "5787",
+      "run_id": "ea0c84ac-d697-5f69-8721-c43f2b03f400",
+      "run_status": "partial",
+      "planned": 61,
+      "terminal": 61,
+      "statuses": {
+        "partial": 24,
+        "succeeded": 37
+      },
+      "attempts": 61,
+      "metadata_categories": 6,
+      "categories_ever_offered": 6,
+      "offers": 730,
+      "priced_offers": 730,
+      "priced_with_native_quota": 730,
+      "stock_observations": {
+        "known": 317,
+        "unknown": 49
+      },
+      "csv_data_rows": 779,
+      "csv_bytes": 428301,
+      "csv_sha256": "330c2c59213672f6df23c1bae9febdf24c6453ec01b0429f01e3c843ea28f93e"
+    }
+  ],
+  "metrics": {
+    "planned_initial_http_requests": 610,
+    "actual_http_requests": 610,
+    "http_statuses": {
+      "200": 610
+    },
+    "network_errors": 0,
+    "actual_peak_http": 2,
+    "minimum_start_interval_s": 1.000041,
+    "median_start_interval_s": 1.001094,
+    "maximum_start_interval_s": 2.335712,
+    "total_duration_ms": 632277,
+    "http_phase_s": 628.97036,
+    "retry_attempts": 0,
+    "replay_http_requests": 0
+  },
+  "audits": {
+    "raw_to_Parse_differences": 0,
+    "normalization_DB_CSV_differences": 0,
+    "source_diagnostics": 0,
+    "raw_room_stays": 10773,
+    "excluded_room_stays": 2801
+  }
+}

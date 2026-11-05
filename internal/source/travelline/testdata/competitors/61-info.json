@@ -1,0 +1,117 @@
+{
+  "hotels": [
+    {
+      "code": "61",
+      "name": "Гостиница Бега",
+      "currency": "RUB",
+      "room_types": [
+        {
+          "code": "560",
+          "name": "Стандартный",
+          "kind": "room",
+          "size": {
+            "value": 17,
+            "unit": "square_metre"
+          }
+        },
+        {
+          "code": "561",
+          "name": "Стандартный с видом на Ипподром",
+          "kind": "room",
+          "size": {
+            "value": 16,
+            "unit": "square_metre"
+          }
+        },
+        {
+          "code": "342440",
+          "name": "SMART Стандарт",
+          "kind": "room"
+        },
+        {
+          "code": "415406",
+          "name": "SMART Стандарт ИППОДРОМ",
+          "kind": "room",
+          "size": {
+            "value": 17,
+            "unit": "square_metre"
+          }
+        },
+        {
+          "code": "342441",
+          "name": "SMART Люкс",
+          "kind": "room"
+        },
+        {
+          "code": "562",
+          "name": "Люкс",
+          "kind": "room",
+          "size": {
+            "value": 45,
+            "unit": "square_metre"
+          }
+        },
+        {
+          "code": "563",
+          "name": "Люкс с видом на Ипподром",
+          "kind": "room",
+          "size": {
+            "value": 48,
+            "unit": "square_metre"
+          }
+        },
+        {
+          "code": "415436",
+          "name": "SMART Люкс ИППОДРОМ",
+          "kind": "room",
+          "size": {
+            "value": 25,
+            "unit": "square_metre"
+          }
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "29023",
+          "name": "Новогоднее Предложение с завтраком!"
+        },
+        {
+          "code": "25836",
+          "name": "Московские Каникулы"
+        },
+        {
+          "code": "25833",
+          "name": "4 по цене 3"
+        },
+        {
+          "code": "34768",
+          "name": "Май в Бегах"
+        },
+        {
+          "code": "143499",
+          "name": "Лучшая цена дня"
+        },
+        {
+          "code": "25825",
+          "name": "Лучшая цена дня"
+        },
+        {
+          "code": "419670",
+          "name": "Тариф с завтраком"
+        },
+        {
+          "code": "419701",
+          "name": "Полный пансион"
+        },
+        {
+          "code": "422732",
+          "name": "Полупансион"
+        },
+        {
+          "code": "449975",
+          "name": "4 Ночи по цене 3 с Завтраком"
+        }
+      ]
+    }
+  ]
+}

@@ -4,8 +4,27 @@
       "id": "arena33",
       "schema": "hotel_parser_arena33",
       "properties": [
-        { "config": "arena33.json" },
-        { "config": "lindsay.json" }
+        {
+          "config": "arena33.json"
+        },
+        {
+          "config": "lindsay.json"
+        },
+        {
+          "config": "monarch.json"
+        },
+        {
+          "config": "bega.json"
+        },
+        {
+          "config": "aerostar.json"
+        },
+        {
+          "config": "sovietsky.json"
+        },
+        {
+          "config": "petroff.json"
+        }
       ]
     }
   ]

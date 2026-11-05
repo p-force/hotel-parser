@@ -1,0 +1,206 @@
+{
+  "room_type_quotas": [
+    {
+      "rph": "954811647",
+      "quantity": 1
+    }
+  ],
+  "availability_result": [],
+  "room_stays": [
+    {
+      "hotel_ref": {
+        "code": "17249"
+      },
+      "stay_dates": {
+        "start_date": "2026-11-23 15:00:00",
+        "end_date": "2026-11-24 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "201805",
+          "room_type_quota_rph": "954811647",
+          "placements": [
+            {
+              "code": "477489"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "920899",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 81800.0,
+        "currency": "RUB"
+      }
+    },
+    {
+      "hotel_ref": {
+        "code": "17249"
+      },
+      "stay_dates": {
+        "start_date": "2026-11-23 15:00:00",
+        "end_date": "2026-11-24 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "201805",
+          "room_type_quota_rph": "954811647",
+          "placements": [
+            {
+              "code": "477489"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "373411",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 91750.0,
+        "currency": "RUB"
+      }
+    },
+    {
+      "hotel_ref": {
+        "code": "17249"
+      },
+      "stay_dates": {
+        "start_date": "2026-11-23 15:00:00",
+        "end_date": "2026-11-24 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "201805",
+          "room_type_quota_rph": "954811647",
+          "placements": [
+            {
+              "code": "477489"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "878182",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 96750.0,
+        "currency": "RUB"
+      }
+    },
+    {
+      "hotel_ref": {
+        "code": "17249"
+      },
+      "stay_dates": {
+        "start_date": "2026-11-23 15:00:00",
+        "end_date": "2026-11-24 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "201805",
+          "room_type_quota_rph": "954811647",
+          "placements": [
+            {
+              "code": "477489"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "370599",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 90000.0,
+        "currency": "RUB"
+      }
+    },
+    {
+      "hotel_ref": {
+        "code": "17249"
+      },
+      "stay_dates": {
+        "start_date": "2026-11-23 15:00:00",
+        "end_date": "2026-11-24 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "201805",
+          "room_type_quota_rph": "954811647",
+          "placements": [
+            {
+              "code": "477489"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "433025",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 86000.0,
+        "currency": "RUB"
+      }
+    }
+  ]
+}

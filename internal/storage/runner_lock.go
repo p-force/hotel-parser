@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"database/sql/driver"
 	"errors"
+	"sync"
 )
 
 var ErrRunnerBusy = errors.New("another Bnovo runner is active")
@@ -12,7 +13,12 @@ var ErrRunnerBusy = errors.New("another Bnovo runner is active")
 // Один ключ на БД, общий для всех group schemas и экземпляров приложения.
 const runnerLockKey int64 = 726182731
 
-type RunnerLock struct{ conn *sql.Conn }
+type RunnerLock struct {
+	// QueryRowContext и Scan должны завершаться вместе: параллельные workers
+	// не могут держать пересекающиеся pgx rows на одном pinned соединении.
+	mu   sync.Mutex
+	conn *sql.Conn
+}
 
 // TryRunnerLock требует session/direct connection (не transaction-pooling DSN).
 // Lock удерживается до окончания runtime, flush и всех HTTP goroutine.
@@ -36,6 +42,8 @@ func (s *Store) TryRunnerLock(ctx context.Context) (*RunnerLock, error) {
 
 // Check использует то же pinned соединение, не переподключаясь после его потери.
 func (l *RunnerLock) Check(ctx context.Context) error {
+	l.mu.Lock()
+	defer l.mu.Unlock()
 	var held bool
 	err := l.conn.QueryRowContext(ctx, `SELECT EXISTS(SELECT 1 FROM pg_locks WHERE locktype='advisory' AND pid=pg_backend_pid() AND classid=0 AND objid=$1 AND objsubid=1 AND granted)`, runnerLockKey).Scan(&held)
 	if err != nil {
@@ -48,6 +56,8 @@ func (l *RunnerLock) Check(ctx context.Context) error {
 }
 
 func (l *RunnerLock) Close() error {
+	l.mu.Lock()
+	defer l.mu.Unlock()
 	// Не возвращаем session lock в пул даже при ошибке/отмене unlock.
 	_ = l.conn.Raw(func(any) error { return driver.ErrBadConn })
 	_ = l.conn.Close()

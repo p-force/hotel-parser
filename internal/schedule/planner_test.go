@@ -84,7 +84,7 @@ func TestTimezoneAndConfirmedLOSReplacement(t *testing.T) {
 
 func TestRegistryAndSlotValidation(t *testing.T) {
 	r, err := LoadRegistry("../../configs/groups.json")
-	if err != nil || len(r.Groups) != 1 || len(r.Groups[0].Properties) != 2 {
+	if err != nil || len(r.Groups) != 1 || len(r.Groups[0].Properties) != 7 {
 		t.Fatalf("registry: %+v %v", r, err)
 	}
 	for _, bad := range []time.Time{time.Time{}, slot(9), slot(8).Add(time.Minute), slot(8).Add(time.Nanosecond)} {
@@ -110,5 +110,94 @@ func TestRegistryAndSlotValidation(t *testing.T) {
 	r.Groups[1].Schema = r.Groups[0].Schema
 	if r.Validate() == nil {
 		t.Fatal("shared schema accepted")
+	}
+}
+
+func TestTravelLineCompetitorRegistry(t *testing.T) {
+	r, err := LoadRegistry("../../configs/groups.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := map[string]string{"monarch": "17249", "bega": "61", "azimut_aerostar": "585", "sovietsky": "333", "petroff": "5787"}
+	for _, g := range r.Groups {
+		if g.ID != "arena33" {
+			continue
+		}
+		for _, p := range g.Properties {
+			if code, ok := want[p.Hotel.ID]; ok {
+				if !p.Hotel.Collection.Enabled || p.Hotel.Source.Type != "travelline" || p.Hotel.Source.PropertyID != code || p.LOS != 0 || p.LOS2Evidence != "" {
+					t.Fatal(p)
+				}
+				delete(want, p.Hotel.ID)
+			}
+		}
+	}
+	if len(want) != 0 {
+		t.Fatal("missing competitors", want)
+	}
+	plans, err := BuildPlans(r, slot(20))
+	if err != nil || len(plans) != 6 {
+		t.Fatal(plans, err)
+	}
+	for _, plan := range plans {
+		if len(plan.Scenarios) != 1 {
+			t.Fatal(plan)
+		}
+		s := plan.Scenarios[0]
+		if s.LOS != 1 || s.Adults != 1 || s.Rooms != 1 {
+			t.Fatal(s)
+		}
+	}
+}
+
+func TestFullTravelLineDiagnosticPlan(t *testing.T) {
+	r, err := LoadRegistry("../../docs/verification/travelline-full-collection/registry.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(r.Groups) != 1 || len(r.Groups[0].Properties) != 5 {
+		t.Fatal("diagnostic registry must contain only five hotels")
+	}
+	for _, p := range r.Groups[0].Properties {
+		if p.Hotel.Source.Type != "travelline" {
+			t.Fatal("Bnovo in diagnostic registry")
+		}
+	}
+	loc, err := time.LoadLocation("Europe/Moscow")
+	if err != nil {
+		t.Fatal(err)
+	}
+	slot := time.Date(2026, 11, 3, 8, 0, 0, 0, loc)
+	plans, err := BuildPlans(r, slot)
+	if err != nil || len(plans) != 5 {
+		t.Fatal(len(plans), err)
+	}
+	repeat, err := BuildPlans(r, slot)
+	if err != nil || !reflect.DeepEqual(plans, repeat) {
+		t.Fatal("unstable diagnostic resume plan", err)
+	}
+	jobs := 0
+	for _, p := range plans {
+		if len(p.Scenarios) != 61 || p.Run.PeriodStart.Format("2006-01-02") != "2026-11-03" || p.Run.PeriodEnd.Format("2006-01-02") != "2027-01-03" {
+			t.Fatal("incorrect horizon", p.Run, len(p.Scenarios))
+		}
+		dates := map[string]bool{}
+		for _, s := range p.Scenarios {
+			date := s.CheckIn.Format("2006-01-02")
+			if dates[date] || s.Adults != 1 || s.Rooms != 1 || s.LOS != 1 || len(s.ChildrenAges) != 0 || s.Language != "ru" {
+				t.Fatal("incorrect scenario", s)
+			}
+			dates[date] = true
+			if s.CheckOut.Format("2006-01-02") != s.CheckIn.AddDate(0, 0, 1).Format("2006-01-02") {
+				t.Fatal("incorrect checkout", s)
+			}
+		}
+		if !dates["2026-11-03"] || !dates["2027-01-02"] {
+			t.Fatal("horizon boundary missing")
+		}
+		jobs += len(p.Scenarios)
+	}
+	if jobs != 305 {
+		t.Fatal(jobs)
 	}
 }

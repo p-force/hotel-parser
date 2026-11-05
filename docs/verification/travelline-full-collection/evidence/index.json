@@ -1,0 +1,182 @@
+[
+  {
+    "hotel": "17249",
+    "date": "2026-11-22",
+    "kind": "info",
+    "request_seq": 511,
+    "original_sha256": "fff06bda28832ad1b1ef50be54626a9183ed5b5a28bdf8c24a6f8f9924d233c6",
+    "projection_file": "evidence/17249-2026-11-22-info.json",
+    "projection_sha256": "68072a79746ccf43afeeb0dee3ff289465e39b3511e92ece5dd2984294c5c0e6"
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-11-22",
+    "kind": "availability",
+    "request_seq": 512,
+    "original_sha256": "07f184fcca1e9a2add3c17b90916268e522c57a70c335b2dabc5ff66d9ad40a2",
+    "projection_file": "evidence/17249-2026-11-22-availability.json",
+    "projection_sha256": "b2994f23afb7dc340b35b3f24260a92fc5415ed57f0111de823e3e0422de1e59"
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-11-23",
+    "kind": "info",
+    "request_seq": 601,
+    "original_sha256": "e8b473edd8444971c761b9c44220833a8adc41849f9c664693a521f8a4a038a4",
+    "projection_file": "evidence/17249-2026-11-23-info.json",
+    "projection_sha256": "68072a79746ccf43afeeb0dee3ff289465e39b3511e92ece5dd2984294c5c0e6"
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-11-23",
+    "kind": "availability",
+    "request_seq": 604,
+    "original_sha256": "4a127d8fd903366cd142d012038af2119e3c8613fdab8237631305e29c9488fd",
+    "projection_file": "evidence/17249-2026-11-23-availability.json",
+    "projection_sha256": "502750fbf9359fdc7edbde4fccb37bf539a8a54440f16e005a1c2c04e73bb137"
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-12-30",
+    "kind": "info",
+    "request_seq": 431,
+    "original_sha256": "02074ca4a77c9dd127313f015bb6cf0a61dc2e56adc734d7788f6aab067c0958",
+    "projection_file": "evidence/17249-2026-12-30-info.json",
+    "projection_sha256": "68072a79746ccf43afeeb0dee3ff289465e39b3511e92ece5dd2984294c5c0e6"
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-12-30",
+    "kind": "availability",
+    "request_seq": 432,
+    "original_sha256": "f6f11261bce0a6136c6a0051e7eb9d5f15888914ca7a23e49325cab67b3abd46",
+    "projection_file": "evidence/17249-2026-12-30-availability.json",
+    "projection_sha256": "cba1177be92e8719b1318026065ef03acab342734822a8927d84ff50cbe22d85"
+  },
+  {
+    "hotel": "61",
+    "date": "2026-11-05",
+    "kind": "info",
+    "request_seq": 553,
+    "original_sha256": "4c07e147e9f3df5ec3d444a645a4ded740a21bac7ce78427362038e128140105",
+    "projection_file": "evidence/61-2026-11-05-info.json",
+    "projection_sha256": "dfab52d21dc01968decc1defafd182d7c38d5a937bcda0c9c1b9f556b544c32b"
+  },
+  {
+    "hotel": "61",
+    "date": "2026-11-05",
+    "kind": "availability",
+    "request_seq": 554,
+    "original_sha256": "a4bfdd96f3c1d28d326660cdcbb2c36bfa946077cf18796cf5ea64009e4d2f8e",
+    "projection_file": "evidence/61-2026-11-05-availability.json",
+    "projection_sha256": "ba474b8f9dc4b3ae6eca9a006f6f1d95d46ba7784fa83d6baa14f787231f2e39"
+  },
+  {
+    "hotel": "585",
+    "date": "2026-12-04",
+    "kind": "info",
+    "request_seq": 574,
+    "original_sha256": "12f4c5e9aed02cfae7bb337cc92489de1eaacf76e68ebcf5574b45993fdb3d45",
+    "projection_file": "evidence/585-2026-12-04-info.json",
+    "projection_sha256": "e747fabde61cd6f5f084113177baecb65b55ef8a2c39b3ff0500c6091ebf5979"
+  },
+  {
+    "hotel": "585",
+    "date": "2026-12-04",
+    "kind": "availability",
+    "request_seq": 575,
+    "original_sha256": "07f184fcca1e9a2add3c17b90916268e522c57a70c335b2dabc5ff66d9ad40a2",
+    "projection_file": "evidence/585-2026-12-04-availability.json",
+    "projection_sha256": "b2994f23afb7dc340b35b3f24260a92fc5415ed57f0111de823e3e0422de1e59"
+  },
+  {
+    "hotel": "585",
+    "date": "2026-12-31",
+    "kind": "info",
+    "request_seq": 494,
+    "original_sha256": "459ab56fe844d97acc7b5ede9d633e6470962296894c19b7b9128ab6b48ca8dc",
+    "projection_file": "evidence/585-2026-12-31-info.json",
+    "projection_sha256": "e747fabde61cd6f5f084113177baecb65b55ef8a2c39b3ff0500c6091ebf5979"
+  },
+  {
+    "hotel": "585",
+    "date": "2026-12-31",
+    "kind": "availability",
+    "request_seq": 495,
+    "original_sha256": "c8f20804fdf19c576ce8dbcf767faded6b41869544d42d55593508059ba5ca56",
+    "projection_file": "evidence/585-2026-12-31-availability.json",
+    "projection_sha256": "c457a97a6470a3104ef92601893eb5e8d23f5599a4b29d1b6c104e989616b9bf"
+  },
+  {
+    "hotel": "333",
+    "date": "2026-11-15",
+    "kind": "info",
+    "request_seq": 426,
+    "original_sha256": "9d82725281d977baa9be061b352811e80c2e5800173657c23a8ef9dd49d1795c",
+    "projection_file": "evidence/333-2026-11-15-info.json",
+    "projection_sha256": "6fcf84b32ed34bcb263f600158e5328537181e327b9091495885d75b90841e51"
+  },
+  {
+    "hotel": "333",
+    "date": "2026-11-15",
+    "kind": "availability",
+    "request_seq": 427,
+    "original_sha256": "07dd174b21261822a89b90538fe5ec2a7723f5b0bae8978ef9bdedf6d3eb619d",
+    "projection_file": "evidence/333-2026-11-15-availability.json",
+    "projection_sha256": "658e3d1ef471f446c2b5c8a13b41fea6edb4515ec2ffd383b43588e6930049e4"
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-12-31",
+    "kind": "info",
+    "request_seq": 38,
+    "original_sha256": "73043d18f0d78ad067f78b1de93e8580e58b7725a57ec5630a530e93a76f836b",
+    "projection_file": "evidence/5787-2026-12-31-info.json",
+    "projection_sha256": "de2e08f102fe635fd8e7732b4968507d02854e24f145a0369d312fa4960cc087"
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-12-31",
+    "kind": "availability",
+    "request_seq": 39,
+    "original_sha256": "07f184fcca1e9a2add3c17b90916268e522c57a70c335b2dabc5ff66d9ad40a2",
+    "projection_file": "evidence/5787-2026-12-31-availability.json",
+    "projection_sha256": "b2994f23afb7dc340b35b3f24260a92fc5415ed57f0111de823e3e0422de1e59"
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-11-17",
+    "kind": "info",
+    "request_seq": 249,
+    "original_sha256": "7bee15922c1f61bc48bcdaa70bd9e61f51e115c1391c1ce75e2e25fc4880923e",
+    "projection_file": "evidence/5787-2026-11-17-info.json",
+    "projection_sha256": "de2e08f102fe635fd8e7732b4968507d02854e24f145a0369d312fa4960cc087"
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-11-17",
+    "kind": "availability",
+    "request_seq": 252,
+    "original_sha256": "6d52328caf4dbd313cb77ba2e54cab85d2459dba5da4024ce44400352817d5d1",
+    "projection_file": "evidence/5787-2026-11-17-availability.json",
+    "projection_sha256": "842f27d803a91971e944d89161e8801cbc62ad235734766d7499c258e1e8d7b9"
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-12-14",
+    "kind": "info",
+    "request_seq": 189,
+    "original_sha256": "ff78a309239230745b149c97f55b86c6cdf0ee98ace12b78055697872c70e678",
+    "projection_file": "evidence/5787-2026-12-14-info.json",
+    "projection_sha256": "de2e08f102fe635fd8e7732b4968507d02854e24f145a0369d312fa4960cc087"
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-12-14",
+    "kind": "availability",
+    "request_seq": 190,
+    "original_sha256": "821b0c936e14743faed9a962d65a4727ac066a7aeaba69212e87535d50414d85",
+    "projection_file": "evidence/5787-2026-12-14-availability.json",
+    "projection_sha256": "e6b82b1e64a0179118fdec83b6e57531a4b6feb18b0a57ea30feab15d2b74603"
+  }
+]

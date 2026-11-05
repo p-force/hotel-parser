@@ -1,0 +1,331 @@
+{
+  "room_type_quotas": [
+    {
+      "rph": "3202811925",
+      "quantity": 3
+    },
+    {
+      "rph": "3034705863",
+      "quantity": 2
+    },
+    {
+      "rph": "3630737411",
+      "quantity": 2
+    }
+  ],
+  "availability_result": [],
+  "room_stays": [
+    {
+      "hotel_ref": {
+        "code": "5787"
+      },
+      "stay_dates": {
+        "start_date": "2026-12-14 15:00:00",
+        "end_date": "2026-12-15 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "34189",
+          "room_type_quota_rph": "3202811925",
+          "placements": [
+            {
+              "code": "63664"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "49957",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 17000.0,
+        "currency": "RUB"
+      }
+    },
+    {
+      "hotel_ref": {
+        "code": "5787"
+      },
+      "stay_dates": {
+        "start_date": "2026-12-14 15:00:00",
+        "end_date": "2026-12-15 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "34189",
+          "room_type_quota_rph": "3202811925",
+          "placements": [
+            {
+              "code": "63664"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "35114",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 18700.0,
+        "currency": "RUB"
+      }
+    },
+    {
+      "hotel_ref": {
+        "code": "5787"
+      },
+      "stay_dates": {
+        "start_date": "2026-12-14 15:00:00",
+        "end_date": "2026-12-15 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "34189",
+          "room_type_quota_rph": "3202811925",
+          "placements": [
+            {
+              "code": "63016"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "622569",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 25400.0,
+        "currency": "RUB"
+      }
+    },
+    {
+      "hotel_ref": {
+        "code": "5787"
+      },
+      "stay_dates": {
+        "start_date": "2026-12-14 15:00:00",
+        "end_date": "2026-12-15 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "34191",
+          "room_type_quota_rph": "3034705863",
+          "placements": [
+            {
+              "code": "223997"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "49957",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 31000.0,
+        "currency": "RUB"
+      }
+    },
+    {
+      "hotel_ref": {
+        "code": "5787"
+      },
+      "stay_dates": {
+        "start_date": "2026-12-14 15:00:00",
+        "end_date": "2026-12-15 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "34191",
+          "room_type_quota_rph": "3034705863",
+          "placements": [
+            {
+              "code": "223997"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "35114",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 32700.0,
+        "currency": "RUB"
+      }
+    },
+    {
+      "hotel_ref": {
+        "code": "5787"
+      },
+      "stay_dates": {
+        "start_date": "2026-12-14 15:00:00",
+        "end_date": "2026-12-15 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "34190",
+          "room_type_quota_rph": "3630737411",
+          "placements": [
+            {
+              "code": "63665"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "49957",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 39000.0,
+        "currency": "RUB"
+      }
+    },
+    {
+      "hotel_ref": {
+        "code": "5787"
+      },
+      "stay_dates": {
+        "start_date": "2026-12-14 15:00:00",
+        "end_date": "2026-12-15 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "34190",
+          "room_type_quota_rph": "3630737411",
+          "placements": [
+            {
+              "code": "63665"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "35114",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 40700.0,
+        "currency": "RUB"
+      }
+    },
+    {
+      "hotel_ref": {
+        "code": "5787"
+      },
+      "stay_dates": {
+        "start_date": "2026-12-14 15:00:00",
+        "end_date": "2026-12-15 12:00:00"
+      },
+      "guests": [
+        {
+          "count": 1,
+          "placement": {
+            "index": 1,
+            "kind": "adult"
+          }
+        }
+      ],
+      "room_types": [
+        {
+          "code": "34190",
+          "room_type_quota_rph": "3630737411",
+          "placements": [
+            {
+              "code": "63017"
+            }
+          ]
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "622569",
+          "promo": false
+        }
+      ],
+      "total": {
+        "price_after_tax": 48400.0,
+        "currency": "RUB"
+      }
+    }
+  ]
+}
