@@ -1,6 +1,0 @@
-{
-  "result": "PASS",
-  "availability_http_starts_checked": 374,
-  "availability_http_starts_after_final_result": 0,
-  "reason": "All repeated requests preceded the latest committed attempt completion; completed queue replay generated zero HTTP separately."
-}

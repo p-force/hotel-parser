@@ -1,7 +1,0 @@
-{
-  "result": "PASS",
-  "travel_line_scenarios": 305,
-  "travel_line_offers": 7859,
-  "comparison": "raw availability (final attempt time window) to committed PostgreSQL price/currency/native quota and complete key sets",
-  "bnovo": "unchanged adapter validated by integration tests; all Bnovo CSV cells compared to PostgreSQL separately"
-}

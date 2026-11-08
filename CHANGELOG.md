@@ -9,12 +9,6 @@
 
 ## [Unreleased]
 
-### Added
-
-- Восстановление наступивших слотов текущего дня МСК через `collection plan --due`,
-  Docker/VPS cron-конфигурация и SQL контроля очереди/CSV/доставки.
-  Регулярный planner ограничен LOS=1; диагностические LOS API сохранены.
-
 ### Removed
 
 - Legacy-путь `CollectPropertiesStored`, DTO `StoredBatch` и неиспользуемые
@@ -22,9 +16,6 @@
   существующий lease-aware runtime `RunQueued` / `RunGroups` (#43).
 
 ### Fixed
-
-- Бюджет delivery step увеличен с 10 до 40 секунд в пределах execution deadline,
-  чтобы создание директорий, PUT и checksum укладывались в попытку uploader.
 
 - Синхронизированы конкурентные проверки pinned PostgreSQL runner lock: workers
   больше не пересекают query/Scan на одном pgx-соединении. Устранена зависимость

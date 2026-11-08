@@ -21,10 +21,5 @@ WORKDIR /app
 COPY --from=builder /hotel-parser /app/hotel-parser
 COPY --from=builder /collection /app/collection
 COPY --from=builder /app/configs /app/configs
-COPY deploy/collection.crontab deploy/collection-cron.sh /app/deploy/
-RUN cp /app/deploy/collection.crontab /etc/crontabs/root \
-    && cp /app/deploy/collection-cron.sh /app/collection-cron \
-    && chmod 600 /etc/crontabs/root \
-    && chmod 755 /app/collection-cron
 
 ENTRYPOINT ["/app/hotel-parser"]

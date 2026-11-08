@@ -282,9 +282,10 @@ leases и fenced-записью наблюдений. `RunQueued` — обёрт
 `pg_*` и повторное использование схемы двумя группами запрещены.
 
 Регулярный сценарий: **1 взрослый, 1 номер, LOS=1, без детей**, независимо от
-диагностических `adults`/`nights` в конфигурации отеля. Регулярный planner
-отклоняет LOS=2, даже при наличии evidence; исследования не включают его автоматически.
-Существующие диагностические API сохраняют явные LOS-сценарии.
+диагностических `adults`/`nights` в конфигурации отеля. Для документированной
+замены LOS=1 на LOS=2 у property задаются `"los": 2` и непустое
+`"los2_evidence"` с результатом сравнения/ссылкой на исследование. Оба LOS вместе
+не запускаются. Существующие диагностические API сохраняют явные сценарии.
 
 | Слот МСК | Cron UTC | Даты заезда в timezone отеля | Сценариев/отель |
 |---|---|---|---:|
@@ -307,7 +308,6 @@ CLI (DSN берётся только из `HOTEL_PARSER_DATABASE_URL`, `.env` н
 make build
 ./bin/collection migrate                     # Явный DDL во всех настроенных схемах.
 ./bin/collection plan --slot=2026-10-31T08:00:00+03:00
-./bin/collection plan --due                  # Пропущенные слоты текущего дня МСК.
 ./bin/collection resume --execution-timeout=45s --shutdown-grace-period=5s --max-jobs=64
 ./bin/collection tick --slot=2026-10-31T12:00:00+03:00
 ./bin/collection serve --listen=127.0.0.1:8080
@@ -351,7 +351,7 @@ curl --fail-with-body -X POST http://127.0.0.1:8080/trigger \
 0 9 * * * cd /opt/hotel-parser && ./bin/collection plan --slot="$(TZ=Europe/Moscow date +\%Y-\%m-\%dT12:00:00+03:00)"
 0 13 * * * cd /opt/hotel-parser && ./bin/collection plan --slot="$(TZ=Europe/Moscow date +\%Y-\%m-\%dT16:00:00+03:00)"
 0 17 * * * cd /opt/hotel-parser && ./bin/collection plan --slot="$(TZ=Europe/Moscow date +\%Y-\%m-\%dT20:00:00+03:00)"
-* * * * * cd /opt/hotel-parser && (./bin/collection plan --due --execution-timeout=45s; ./bin/collection resume --execution-timeout=45s --shutdown-grace-period=5s)
+* * * * * cd /opt/hotel-parser && ./bin/collection resume --execution-timeout=45s --shutdown-grace-period=5s
 ```
 
 Для HTTP/serverless внешний scheduler отправляет `plan` в те же четыре слота
@@ -653,11 +653,3 @@ WHERE group_id='<group>' AND run_id='<run_id>' AND state='retryable_failed';
 существующий совпадающий файл не загружается заново, отличающийся не перезаписывается.
 Реализация не обещает distributed exactly-once. Для повторов нужен следующий вызов
 `resume`/`tick`; фонового процесса отправки нет.
-
-### Docker/VPS: регулярный запуск и контроль
-
-Готовые crontab/скрипт и опциональный Compose overlay: [deploy](deploy/README.md).
-`plan --due` идемпотентно восстанавливает наступившие слоты **текущего** московского дня;
-вчерашние пропущенные snapshots автоматически не запрашиваются задним числом.
-Очередь уже опубликованных старых runs продолжает обычный `resume`.
-Состояние по отелям/CSV/delivery: [deploy/status.sql](deploy/status.sql).

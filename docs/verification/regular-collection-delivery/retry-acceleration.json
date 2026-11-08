@@ -1,7 +1,0 @@
-{
-  "run_id": "2ca433d0-4da1-5c2a-90d0-803b216b3cf8",
-  "schema": "hp_regular_20261105_92f01e86",
-  "field": "next_attempt_at",
-  "reason": "test-only time acceleration of six-hour backoff after HTTP 423; state/attempts/observations/remote files unchanged",
-  "rows": 1
-}

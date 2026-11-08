@@ -1,6 +1,0 @@
-{
-  "bnovo_offers": 1230,
-  "bnovo_scenarios": 61,
-  "comparison": "actual final-attempt HTML re-parsed by unchanged Bnovo Parse/Normalize vs committed PostgreSQL keys, prices, currencies and stocks; offline only",
-  "result": "PASS"
-}

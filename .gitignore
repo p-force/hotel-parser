@@ -1,6 +1,5 @@
 .env
 .env.local
-.env.collection
 
 bin/
 dist/
