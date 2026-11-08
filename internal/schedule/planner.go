@@ -17,6 +17,28 @@ type Plan struct {
 	Scenarios []storage.Scenario
 }
 
+// DueSlots возвращает наступившие слоты текущего московского дня.
+// Прошлые дни не восстанавливаются автоматически: историческую доступность
+// уже нельзя получить новым запросом к отелю. Повторный PlanRun идемпотентен.
+func DueSlots(now time.Time) ([]time.Time, error) {
+	if now.IsZero() {
+		return nil, fmt.Errorf("current time is required")
+	}
+	loc, err := time.LoadLocation("Europe/Moscow")
+	if err != nil {
+		return nil, err
+	}
+	local := now.In(loc)
+	var slots []time.Time
+	for _, hour := range []int{8, 12, 16, 20} {
+		slot := time.Date(local.Year(), local.Month(), local.Day(), hour, 0, 0, 0, loc)
+		if !slot.After(now) {
+			slots = append(slots, slot)
+		}
+	}
+	return slots, nil
+}
+
 func SlotHorizon(slot time.Time) (int, error) {
 	if slot.IsZero() {
 		return 0, fmt.Errorf("slot timestamp is required")
@@ -62,10 +84,10 @@ func BuildPlans(registry Registry, slot time.Time) ([]Plan, error) {
 			}
 			local := slot.In(loc)
 			today := time.Date(local.Year(), local.Month(), local.Day(), 0, 0, 0, 0, loc)
-			los := property.LOS
-			if los == 0 {
-				los = 1
+			if property.LOS > 1 {
+				return nil, fmt.Errorf("regular collection requires LOS=1")
 			}
+			const los = 1
 			// UUID включает слот/group/property; не зависит от времени доставки trigger.
 			identity, _ := json.Marshal([]string{"hotel-parser/schedule/v1", group.ID, hotel.ID, slot.UTC().Format(time.RFC3339)})
 			hash := sha256.Sum256(identity)

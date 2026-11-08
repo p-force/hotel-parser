@@ -1,0 +1,139 @@
+{
+  "checked_at": "2026-11-05T14:14:04.266210+00:00",
+  "tests": {
+    "make_check": "PASS",
+    "make_test_integration_docker": "PASS",
+    "new_postgres_tests_with_race": "PASS",
+    "regression_old_10s_step": "EXPECTED_FAIL_REPRODUCED",
+    "csv_all_35_columns_vs_committed_postgres": "PASS",
+    "raw_travelline_vs_postgres": "PASS",
+    "bnovo_actual_html_parse_normalization_vs_postgres": "PASS",
+    "completed_run_resume_no_http_no_put": "PASS",
+    "six_real_disk_metadata_size_sha256": "PASS",
+    "compose_placeholder_render": "PASS",
+    "docker_image_build": "PASS",
+    "cron_in_image_with_echo_network_none": "PASS",
+    "diagnostic_sql_isolated_schema": "PASS",
+    "git_diff_check": "PASS",
+    "local_secret_value_scan": "PASS"
+  },
+  "limitations": [
+    "One real 6-hour delivery backoff was accelerated only in one isolated test ledger next_attempt_at.",
+    "Current-day due-slot catch-up only; missing past-day snapshots cannot be recovered faithfully.",
+    "UTC probe did not preserve monotonic timestamps; measured TravelLine minimum UTC gap is 0.998397s.",
+    "No VPS/production deployment or actual production cron enabled."
+  ],
+  "local_logs": {
+    "check-final.log": {
+      "sha256": "ea470486fe84dbdee6ab913a3a4836fe8f46251dc5bfbb59f87c2b2281fd1b02"
+    },
+    "integration-final.log": {
+      "sha256": "a0aef8016f3f3daf601c28a70fdbbf48eb559ea99403481d3089dff3096f6f2b"
+    },
+    "targeted-race.log": {
+      "sha256": "91db3b9c34fb7e95f079fb5a96eb515db69997611f19235de8971bb2d3b35cc9"
+    },
+    "budget-before.log": {
+      "sha256": "8303ad16aabd197e48a8be869cb475022a4525404292880404d7e73d6b0e6d8d"
+    },
+    "docker-build-final.log": {
+      "sha256": "34aac6e38505d8f27012d0e5ffeeb91e95f0fef73185ae353fa492f1f571156a"
+    },
+    "cron-image.log": {
+      "sha256": "9af6d9ca6e92a5d64dc324c885ba0f9528686dcf5786d1e7823ddd209b7156dd"
+    },
+    "status-sql.log": {
+      "sha256": "3c9209f7dc20ede11cad9afab1996ad868bed26d10349afe8c8d18d860aa0bf1"
+    }
+  },
+  "artifacts": {
+    "README.md": {
+      "bytes": 22321,
+      "sha256": "3677bd8473d8410dca17f3b4192aa1cac6bfc8b94fa21968a88f0c3d186085da"
+    },
+    "audit.py": {
+      "bytes": 6895,
+      "sha256": "59ad36a30f19d12870731a003aab272b87ad9aa69973a37474046365f21ff82f"
+    },
+    "bnovo-raw-audit.json": {
+      "bytes": 236,
+      "sha256": "eb8d449470c09cedcfcf381e6cc5aa7b16a7edf92f33d7f3c930fbbeb606beb1"
+    },
+    "budget-regression.txt": {
+      "bytes": 273,
+      "sha256": "d59c1dd285ed791875f48297990b75f6322bc4c5abd6c0755c22fc28dbc6e416"
+    },
+    "csv-audit.json": {
+      "bytes": 134,
+      "sha256": "201e87c2e4e873793ef071d5e338e551b2165b714c335a73cf8fea176a8261f0"
+    },
+    "delivery-ledger.json": {
+      "bytes": 1792,
+      "sha256": "526aa9e25454b3eb27232b888813270eda951353a910fcd35651d51b1decbb94"
+    },
+    "disk-verification.json": {
+      "bytes": 2612,
+      "sha256": "0594db63f38bc90b4eea18106b8e6b4f280331e328c1625ebd4db17d1314df88"
+    },
+    "files/arena33.csv": {
+      "bytes": 660085,
+      "sha256": "0a68062ef085b6b70fc3712d1b20cc1764357d34381a4a056aa1056a1849c48f"
+    },
+    "files/azimut_aerostar.csv": {
+      "bytes": 1318024,
+      "sha256": "97ec23af2c73098bbec93240aa4fe7ab982d3a5ac4746fcdaf8a98b9f444cad4"
+    },
+    "files/bega.csv": {
+      "bytes": 910947,
+      "sha256": "a23e2d334216328c0b037cb487e67e8bd989a419f00cfdfb9195934c63e29de5"
+    },
+    "files/monarch.csv": {
+      "bytes": 1203721,
+      "sha256": "fad830b277b3ff557bf47c9276f9fa14bb2011bafd258e9d58f2eb477f7f74f2"
+    },
+    "files/petroff.csv": {
+      "bytes": 418025,
+      "sha256": "eb8c7eb29fa8a369330366b8d4f427eb62bcd590404dbc0ba9e0b10bb33f1a75"
+    },
+    "files/sovietsky.csv": {
+      "bytes": 377047,
+      "sha256": "7ee9f5fda587c0e1ca31d8e69f1b7fd95a15725598621b9bdd5e7a6efe7f61e6"
+    },
+    "http-starts.csv": {
+      "bytes": 251448,
+      "sha256": "77006520afc16419b3959b0d8623558aefe98adcec8a0fad3ecb4bfcbe0c0f74"
+    },
+    "http-summary.json": {
+      "bytes": 1219,
+      "sha256": "35476f5c6549d5962dcc298c3fced9d192f78a46ddc3c6b22f57ce4db126a602"
+    },
+    "idempotency.json": {
+      "bytes": 159,
+      "sha256": "162506e0d5286161096ce03dc42627908344e5f140ce33a86498dc2d5f9bc8af"
+    },
+    "invocations.json": {
+      "bytes": 13929,
+      "sha256": "c02b3e8e774288930da5b00ab43618eddca245a13e5287d6ffc29a95b560bde1"
+    },
+    "raw-audit.json": {
+      "bytes": 341,
+      "sha256": "65c4f5db10496b3d2a3b74f6e294903281690ef298192b40c7b8e9ebed0d8740"
+    },
+    "replay-audit.json": {
+      "bytes": 260,
+      "sha256": "9ba944935d2db599c20511b92986182c3704cac821debde5d236b6319aced85b"
+    },
+    "retry-acceleration.json": {
+      "bytes": 272,
+      "sha256": "7d37028ba82a44d6740c48dab17ed777da5ffdbb450046e7e185948bbb3763dd"
+    },
+    "summary.json": {
+      "bytes": 5648,
+      "sha256": "206ed59d76918e177341fb1ff00897409772ac8bc06954f2a3b076408b5e1e24"
+    },
+    "timing.json": {
+      "bytes": 596,
+      "sha256": "b366114f0f6b25a036e9b9b3d085ad37b23af9ae390be87c0d2c42526423012d"
+    }
+  }
+}

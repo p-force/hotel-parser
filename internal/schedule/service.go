@@ -149,7 +149,10 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 		response.Exports = s.exportCSV(ctx, response.Groups)
 		// После публикации слота, остановки workers и освобождения runner lock.
 		// Upload не задерживает следующий слот и не изменяет collection error.
-		deliveryCtx, stopDelivery := context.WithTimeout(ctx, 10*time.Second)
+		// Две попытки uploader (до 20s каждая) включают каталоги, PUT и checksum.
+		// Более короткий внешний budget обрывает вторую корректную загрузку.
+		// Общий deadline сохраняется; workers завершены, runner lock освобождён.
+		deliveryCtx, stopDelivery := context.WithTimeout(ctx, 40*time.Second)
 		defer stopDelivery()
 		remaining := 2
 		for _, g := range s.groups {

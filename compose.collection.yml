@@ -1,0 +1,19 @@
+# Optional local/VPS overlay; not enabled by the default docker compose command.
+services:
+  postgres:
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-hotel_parser}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in the protected environment file}
+  collector:
+    build: .
+    init: true
+    entrypoint: ["/usr/sbin/crond"]
+    command: ["-f", "-l", "5", "-L", "/dev/stdout"]
+    restart: unless-stopped
+    env_file: ${COLLECTION_ENV_FILE:-.env.collection}
+    environment:
+      TZ: Europe/Moscow
+      HOTEL_PARSER_LOG_FORMAT: json
+    depends_on:
+      - postgres
