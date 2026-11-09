@@ -1,0 +1,421 @@
+[
+  {
+    "uid": "64a67259-6aba-4f1a-80e9-7787eb269be1",
+    "scenario_url": "https://reservationsteps.ru/rooms/index/64a67259-6aba-4f1a-80e9-7787eb269be1?adults=1&dfrom=17-11-2026&dto=18-11-2026&lang=ru",
+    "html_source_sha256": "7a9cf3ef727a08b80ddb36bdf8b4589e57dc9a4eaeba7c2b4bed81d89bd3abd6",
+    "mode": "Replay saved anonymous live HTML at its exact URL; scripts/CSS live; XHR/fetch/POST/images blocked. No new search request.",
+    "captured_at": "2026-11-09T00:27:16.397Z",
+    "error": "",
+    "script_errors": [
+      "Failed to fetch"
+    ],
+    "resources": [
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/vendor/jquery-3.5-1210800790.0.min.js",
+        "status": 200
+      },
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/vendors-9bd44c214e.min.js",
+        "status": 200
+      },
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/translates_ru-00b7f76ecf.min.js",
+        "status": 200
+      },
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/metrics-f6f08d6074.min.js",
+        "status": 200
+      },
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/main-b2f1553dca.js",
+        "status": 200
+      },
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/iframe_behavior-4472598330.js",
+        "status": 200
+      }
+    ],
+    "blocked_count": 11,
+    "show_more_tariff_clicks": 2,
+    "before": [
+      {
+        "category": "547086",
+        "rate": "777965",
+        "visible": true
+      },
+      {
+        "category": "547086",
+        "rate": "751387",
+        "visible": true
+      },
+      {
+        "category": "547086",
+        "rate": "761740",
+        "visible": false
+      },
+      {
+        "category": "547086",
+        "rate": "777998",
+        "visible": false
+      },
+      {
+        "category": "547087",
+        "rate": "777965",
+        "visible": true
+      },
+      {
+        "category": "547087",
+        "rate": "751387",
+        "visible": true
+      },
+      {
+        "category": "547087",
+        "rate": "761740",
+        "visible": false
+      },
+      {
+        "category": "547087",
+        "rate": "777998",
+        "visible": false
+      }
+    ],
+    "after": [
+      {
+        "category": "547086",
+        "visible": true,
+        "name": "Teta Premium",
+        "rates": [
+          {
+            "id": "777965",
+            "visible": true,
+            "name": "Акция \"Листопад\""
+          },
+          {
+            "id": "751387",
+            "visible": true,
+            "name": "Онлайн бронирование. От 1 дня. СКИДКА 3%"
+          },
+          {
+            "id": "761740",
+            "visible": true,
+            "name": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%"
+          },
+          {
+            "id": "777998",
+            "visible": true,
+            "name": "Корпоративный"
+          }
+        ]
+      },
+      {
+        "category": "547087",
+        "visible": true,
+        "name": "Teta Comfort",
+        "rates": [
+          {
+            "id": "777965",
+            "visible": true,
+            "name": "Акция \"Листопад\""
+          },
+          {
+            "id": "751387",
+            "visible": true,
+            "name": "Онлайн бронирование. От 1 дня. СКИДКА 3%"
+          },
+          {
+            "id": "761740",
+            "visible": true,
+            "name": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%"
+          },
+          {
+            "id": "777998",
+            "visible": true,
+            "name": "Корпоративный"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uid": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9",
+    "scenario_url": "https://reservationsteps.ru/rooms/index/5b94117e-e3ec-4aaf-84cc-c8797ea3cee9?adults=1&dfrom=17-11-2026&dto=18-11-2026&lang=ru",
+    "html_source_sha256": "698be6d4f8ceeba10e382d1904f1f0b9b85deb81b027d2917aba6ab64f8a5f52",
+    "mode": "Replay saved anonymous live HTML at its exact URL; scripts/CSS live; XHR/fetch/POST/images blocked. No new search request.",
+    "captured_at": "2026-11-09T00:27:38.627Z",
+    "error": "",
+    "script_errors": [
+      "Failed to fetch"
+    ],
+    "resources": [
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/css/main-a4961f6974.css",
+        "status": 200
+      },
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/vendor/jquery-3.5-1210800790.0.min.js",
+        "status": 200
+      },
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/vendors-9bd44c214e.min.js",
+        "status": 200
+      },
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/translates_ru-00b7f76ecf.min.js",
+        "status": 200
+      },
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/metrics-f6f08d6074.min.js",
+        "status": 200
+      },
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/main-b2f1553dca.js",
+        "status": 200
+      },
+      {
+        "host": "reservationsteps.ru",
+        "path": "/dist/js/iframe_behavior-4472598330.js",
+        "status": 200
+      }
+    ],
+    "blocked_count": 34,
+    "show_more_tariff_clicks": 6,
+    "before": [
+      {
+        "category": "497998",
+        "rate": "777964",
+        "visible": true
+      },
+      {
+        "category": "497998",
+        "rate": "751390",
+        "visible": true
+      },
+      {
+        "category": "497998",
+        "rate": "761743",
+        "visible": false
+      },
+      {
+        "category": "506402",
+        "rate": "777964",
+        "visible": true
+      },
+      {
+        "category": "506402",
+        "rate": "751390",
+        "visible": true
+      },
+      {
+        "category": "506402",
+        "rate": "761743",
+        "visible": false
+      },
+      {
+        "category": "505325",
+        "rate": "777964",
+        "visible": true
+      },
+      {
+        "category": "505325",
+        "rate": "751390",
+        "visible": true
+      },
+      {
+        "category": "505325",
+        "rate": "761743",
+        "visible": false
+      },
+      {
+        "category": "497999",
+        "rate": "777964",
+        "visible": true
+      },
+      {
+        "category": "497999",
+        "rate": "751390",
+        "visible": true
+      },
+      {
+        "category": "497999",
+        "rate": "761743",
+        "visible": false
+      },
+      {
+        "category": "512526",
+        "rate": "777964",
+        "visible": true
+      },
+      {
+        "category": "512526",
+        "rate": "751390",
+        "visible": true
+      },
+      {
+        "category": "512526",
+        "rate": "761743",
+        "visible": false
+      },
+      {
+        "category": "540625",
+        "rate": "777964",
+        "visible": true
+      },
+      {
+        "category": "540625",
+        "rate": "751390",
+        "visible": true
+      },
+      {
+        "category": "540625",
+        "rate": "761743",
+        "visible": false
+      }
+    ],
+    "after": [
+      {
+        "category": "497998",
+        "visible": true,
+        "name": "Комфорт+ 24м кровать",
+        "rates": [
+          {
+            "id": "777964",
+            "visible": true,
+            "name": "Акция \"Листопад\""
+          },
+          {
+            "id": "751390",
+            "visible": true,
+            "name": "Онлайн бронирование. От 1 дня. СКИДКА 3%"
+          },
+          {
+            "id": "761743",
+            "visible": true,
+            "name": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%"
+          }
+        ]
+      },
+      {
+        "category": "506402",
+        "visible": true,
+        "name": "Комфорт 18м кровать",
+        "rates": [
+          {
+            "id": "777964",
+            "visible": true,
+            "name": "Акция \"Листопад\""
+          },
+          {
+            "id": "751390",
+            "visible": true,
+            "name": "Онлайн бронирование. От 1 дня. СКИДКА 3%"
+          },
+          {
+            "id": "761743",
+            "visible": true,
+            "name": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%"
+          }
+        ]
+      },
+      {
+        "category": "505325",
+        "visible": true,
+        "name": "Стандарт+ 24м диван",
+        "rates": [
+          {
+            "id": "777964",
+            "visible": true,
+            "name": "Акция \"Листопад\""
+          },
+          {
+            "id": "751390",
+            "visible": true,
+            "name": "Онлайн бронирование. От 1 дня. СКИДКА 3%"
+          },
+          {
+            "id": "761743",
+            "visible": true,
+            "name": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%"
+          }
+        ]
+      },
+      {
+        "category": "497999",
+        "visible": true,
+        "name": "Стандарт 18м диван",
+        "rates": [
+          {
+            "id": "777964",
+            "visible": true,
+            "name": "Акция \"Листопад\""
+          },
+          {
+            "id": "751390",
+            "visible": true,
+            "name": "Онлайн бронирование. От 1 дня. СКИДКА 3%"
+          },
+          {
+            "id": "761743",
+            "visible": true,
+            "name": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%"
+          }
+        ]
+      },
+      {
+        "category": "512526",
+        "visible": true,
+        "name": "Комфорт+ 24м кровать и кресло",
+        "rates": [
+          {
+            "id": "777964",
+            "visible": true,
+            "name": "Акция \"Листопад\""
+          },
+          {
+            "id": "751390",
+            "visible": true,
+            "name": "Онлайн бронирование. От 1 дня. СКИДКА 3%"
+          },
+          {
+            "id": "761743",
+            "visible": true,
+            "name": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%"
+          }
+        ]
+      },
+      {
+        "category": "540625",
+        "visible": true,
+        "name": "Семейный 30м кровать и диван",
+        "rates": [
+          {
+            "id": "777964",
+            "visible": true,
+            "name": "Акция \"Листопад\""
+          },
+          {
+            "id": "751390",
+            "visible": true,
+            "name": "Онлайн бронирование. От 1 дня. СКИДКА 3%"
+          },
+          {
+            "id": "761743",
+            "visible": true,
+            "name": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%"
+          }
+        ]
+      }
+    ]
+  }
+]
