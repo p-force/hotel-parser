@@ -1,0 +1,142 @@
+{
+  "verified_on": "2026-11-10",
+  "timezone": "Europe/Moscow",
+  "deployment": {
+    "project": "hotel-parser",
+    "project_id": "prj_8LrZh5Obv8pUw8jpj6YGFzbK5fSz",
+    "team": "dianas-projects-a75fd820",
+    "production_branch": "deploy/vercel",
+    "url": "https://hotel-parser-murex.vercel.app",
+    "code_commit": "c8d52f7",
+    "go_version": "1.26.0",
+    "region": "fra1",
+    "function_max_duration_seconds": 60,
+    "state": "READY",
+    "deployment_protection": "retained"
+  },
+  "database": {
+    "project_id": "shiny-grass-79482545",
+    "branch": "production",
+    "database": "neondb",
+    "schema": "hotel_parser_arena33",
+    "direct_tls": true,
+    "session_runner_lock_checked": true,
+    "migration_versions": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "migration_replayed": true,
+    "tables": 9,
+    "indexes": 24,
+    "constraints": 141
+  },
+  "smoke": {
+    "run_id": "224d752f-4a96-4411-9fff-e9f414a32c43",
+    "run_status": "succeeded",
+    "scenario": {
+      "property_id": "arena33",
+      "source": "bnovo",
+      "check_in": "2026-11-17",
+      "check_out": "2026-11-18",
+      "adults": 1,
+      "rooms": 1,
+      "los": 1,
+      "language": "ru"
+    },
+    "logical_slot": "2026-11-10T12:00:00+03:00",
+    "finished_at": "2026-11-10T18:38:25.357353+03:00",
+    "outcome": "success",
+    "http_status": 200,
+    "counts_before_replay": {
+      "collection_attempts": 1,
+      "collection_runs": 1,
+      "csv_deliveries": 1,
+      "observation_offers": 14,
+      "observation_variants": 7,
+      "observations": 3,
+      "scenario_jobs": 1
+    },
+    "counts_after_replay": {
+      "collection_attempts": 1,
+      "collection_runs": 1,
+      "csv_deliveries": 1,
+      "observation_offers": 14,
+      "observation_variants": 7,
+      "observations": 3,
+      "scenario_jobs": 1
+    },
+    "csv": {
+      "bytes": 7933,
+      "columns": 35,
+      "md5": "e9f746cba66d65242cd8ee43f730adb1",
+      "rows_without_header": 14,
+      "sha256": "e9d3a378156d64e5ba6898a1bb8f08e590138a3a1dc582d2abbe050b7709c5de"
+    },
+    "delivery": {
+      "group_id": "arena33",
+      "run_id": "224d752f-4a96-4411-9fff-e9f414a32c43",
+      "remote_path": "/hotel-parser-vercel-smoke-2026-11-10/arena33/arena33/2026-11-10_12-00.csv",
+      "state": "delivered",
+      "attempts": 1
+    },
+    "source_metrics": [
+      {
+        "time": "2026-11-10T18:38:25.301181901+03:00",
+        "msg": "bnovo.collect.completed",
+        "status": "success",
+        "http_status": 200,
+        "http_duration_ms": 1432,
+        "parse_duration_ms": 11,
+        "collection_duration_ms": 1443
+      }
+    ],
+    "replayed_resume_http_status": 200,
+    "additional_delivery_attempts": 0,
+    "categories": [
+      {
+        "category_id": "459946",
+        "name": "Арена 33 \"Garden\"",
+        "stock_status": "known",
+        "available": 2,
+        "offers": 2
+      },
+      {
+        "category_id": "561429",
+        "name": "Арена 33 \"Stadium\"",
+        "stock_status": "known",
+        "available": 1,
+        "offers": 6
+      },
+      {
+        "category_id": "639687",
+        "name": "Арена 33 \"Premium\"",
+        "stock_status": "known",
+        "available": 1,
+        "offers": 6
+      }
+    ]
+  },
+  "checks": {
+    "make_check": "PASS",
+    "make_test_integration_docker": "PASS",
+    "git_diff_check": "PASS",
+    "authenticated_health_http": 200,
+    "unauthenticated_health_http": 401,
+    "authenticated_status_http": 200,
+    "collection_disabled_http": 503,
+    "all_csv_prices_and_quantities_match_postgres": true,
+    "sql_null_reported_quantities": 14
+  },
+  "activation": {
+    "collection_enabled": false,
+    "cron_configured": false,
+    "vercel_plan": "hobby",
+    "legacy_cron_minimum_interval": "1 day",
+    "schedules_beta_minimum_interval": "15 minutes",
+    "required_resume_interval": "1 minute",
+    "remaining_blocker": "Pro or an explicitly agreed external trigger; confirm exclusive production collector before enabling"
+  }
+}

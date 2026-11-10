@@ -2,6 +2,8 @@
 
 Только ветка `deploy/vercel`. Не сливать её в `dev`/`main`. Основной CLI, scheduler, очередь, адаптеры, миграции, CSV и доставка переиспользуются без изменения их реализации.
 
+Фактический ограниченный E2E и оставшиеся ограничения: [проверка 10.11.2026](verification/2026-11-10.md).
+
 ## Целевые ресурсы
 
 - Vercel: команда `dianas-projects-a75fd820`, проект `hotel-parser`, ID `prj_8LrZh5Obv8pUw8jpj6YGFzbK5fSz` (предоставлен пользователем).
@@ -82,7 +84,7 @@ PY
 
 Времена Europe/Moscow: 08:00 → 61 job на отель; 12:00 и 16:00 → по 8; 20:00 → 1. Регулярный сценарий остаётся adults=1, rooms=1, LOS=1, без детей, `ru`. LOS=2/3 не добавляются. UTC cron для plan: `0 5,9,13,17 * * *`; resume: `* * * * *`. Повторное планирование использует существующую идентичность слота и PlanRun.
 
-По [документации Vercel Cron](https://vercel.com/docs/cron-jobs/usage-and-pricing) на 10.11.2026: Hobby — не чаще одного запуска в день для каждого cron, точность ±59 минут; Pro/Enterprise — раз в минуту; до 100 cron на проект. **Hobby не обеспечивает требуемый контракт.** Не заменять ежеминутный resume более редким. Корректные варианты: подтверждённый Pro/Enterprise либо отдельный согласованный внешний HTTP trigger каждую минуту, либо перенос на VPS. Внешний trigger сейчас не создан. Не менять тариф аккаунта автоматически.
+По [документации Vercel Cron](https://vercel.com/docs/cron-jobs/usage-and-pricing) на 10.11.2026: Hobby — не чаще одного запуска в день для каждого cron, точность ±59 минут; Pro/Enterprise — раз в минуту; до 100 cron на проект. **Hobby не обеспечивает требуемый контракт.** Не заменять ежеминутный resume более редким. Корректные варианты: подтверждённый Pro/Enterprise либо отдельный согласованный внешний HTTP trigger каждую минуту, либо перенос на VPS. Новый [Schedules beta](https://vercel.com/docs/schedules/limits) на Hobby разрешает минимум 15 минут с 15-минутным jitter, поэтому также не обеспечивает ежеминутный resume. Внешний trigger сейчас не создан; ему потребуется штатный доступ через Deployment Protection и Bearer-авторизация. Не менять тариф аккаунта автоматически.
 
 [Go runtime](https://vercel.com/docs/functions/runtimes/go) поддерживает Go Functions и выбор версии из `go.mod`; [duration](https://vercel.com/docs/functions/configuring-functions/duration) для выбранного Go server preset задан в настройке проекта. `functions` glob на `cmd/api/main.go` платформой не принимается; в `vercel.json` его нет. Здесь выбран консервативный предел 60 s; облачная применимость и фактический план должны быть подтверждены deployment. Наличие production URL само по себе не подтверждает обработку очереди.
 
