@@ -6,7 +6,7 @@
 
 - Vercel: команда `dianas-projects-a75fd820`, проект `hotel-parser`, ID `prj_8LrZh5Obv8pUw8jpj6YGFzbK5fSz` (предоставлен пользователем).
 - Git: `p-force/hotel-parser`, Production Branch **`deploy/vercel`**. Framework Preset: **Go**; entrypoint `cmd/api/main.go`, build command `go build -o server ./cmd/api`. Install/Output overrides отсутствуют. Один Go HTTP-server Function обслуживает четыре защищённых маршрута.
-- Регион: `fra1`, предел HTTP Function 60 s. Адаптер ограничивает запрос 55 s, подключение 8 s, существующий service — 40 s, graceful flush — 5 s. Рабочих потоков 8, максимум jobs на invocation по умолчанию 8.
+- Регион: `fra1`, предел HTTP Function 60 s (настройка проекта `resourceConfig.functionDefaultTimeout`). Адаптер ограничивает запрос 55 s, подключение 8 s, существующий service — 40 s, graceful flush — 5 s. Рабочих потоков 8, максимум jobs на invocation по умолчанию 8.
 - Новый Neon: `shiny-grass-79482545`, `hotel-parser`, `aws-eu-central-1`, PostgreSQL 18, `production` / `br-odd-pine-b9f2vemz`, БД `neondb`.
 - Direct host: `ep-hidden-breeze-b9oouvds.c-7.eu-central-1.aws.neon.tech`. Runtime отклоняет другой host, другую БД, отсутствие TLS и fallback без TLS, включая transaction pooler.
 - В текущем `configs/groups.json` одна группа `arena33` и схема `hotel_parser_arena33`. Будущая `hotel_parser_ni_teta` не создаётся до отдельного подключения группы.
@@ -84,7 +84,7 @@ PY
 
 По [документации Vercel Cron](https://vercel.com/docs/cron-jobs/usage-and-pricing) на 10.11.2026: Hobby — не чаще одного запуска в день для каждого cron, точность ±59 минут; Pro/Enterprise — раз в минуту; до 100 cron на проект. **Hobby не обеспечивает требуемый контракт.** Не заменять ежеминутный resume более редким. Корректные варианты: подтверждённый Pro/Enterprise либо отдельный согласованный внешний HTTP trigger каждую минуту, либо перенос на VPS. Внешний trigger сейчас не создан. Не менять тариф аккаунта автоматически.
 
-[Go runtime](https://vercel.com/docs/functions/runtimes/go) поддерживает Go Functions и выбор версии из `go.mod`; [duration](https://vercel.com/docs/functions/configuring-functions/duration) задаётся для Go через `vercel.json`. Здесь выбран консервативный предел 60 s; облачная применимость и фактический план должны быть подтверждены deployment. Наличие production URL само по себе не подтверждает обработку очереди.
+[Go runtime](https://vercel.com/docs/functions/runtimes/go) поддерживает Go Functions и выбор версии из `go.mod`; [duration](https://vercel.com/docs/functions/configuring-functions/duration) для выбранного Go server preset задан в настройке проекта. `functions` glob на `cmd/api/main.go` платформой не принимается; в `vercel.json` его нет. Здесь выбран консервативный предел 60 s; облачная применимость и фактический план должны быть подтверждены deployment. Наличие production URL само по себе не подтверждает обработку очереди.
 
 ## Удаление адаптера при переходе на VPS
 
