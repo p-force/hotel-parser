@@ -1,0 +1,10 @@
+.git
+.env*
+.vercel
+bin
+dist
+tmp
+docs
+deploy
+**/testdata
+**/*_test.go

@@ -32,7 +32,7 @@ check: fmt-check vet test-race build
 
 # Явный локальный DSN; .env автоматически не загружается.
 test-integration:
-	go test -tags=integration -count=1 ./internal/storage/... ./internal/collect/... ./internal/schedule/...
+	go test -tags=integration -count=1 ./internal/storage/... ./internal/collect/... ./internal/schedule/... ./internal/vercelapp/...
 
 # PostgreSQL существующего docker compose, без подбора credentials/портов хоста.
 test-integration-docker:

@@ -48,13 +48,13 @@ def docker_environment():
 def main():
     container, env = docker_environment()
     remote = "/tmp/hotel-parser-integration-" + uuid.uuid4().hex
-    subprocess.run(["docker", "exec", container, "mkdir", "-p", remote + "/internal/storage", remote + "/internal/collect", remote + "/internal/schedule", remote + "/internal/source/travelline"], check=True)
+    subprocess.run(["docker", "exec", container, "mkdir", "-p", remote + "/internal/storage", remote + "/internal/collect", remote + "/internal/schedule", remote + "/internal/vercelapp", remote + "/internal/source/travelline"], check=True)
     subprocess.run(["docker", "cp", str(ROOT / "configs"), container + ":" + remote + "/configs"], check=True)
     subprocess.run(["docker", "cp", str(ROOT / "internal/collect/testdata"), container + ":" + remote + "/internal/collect/testdata"], check=True)
     subprocess.run(["docker", "cp", str(ROOT / "internal/source/travelline/testdata"), container + ":" + remote + "/internal/source/travelline/testdata"], check=True)
     try:
         with tempfile.TemporaryDirectory(prefix="hotel-parser-tests-") as directory:
-            for package in ("storage", "collect", "schedule"):
+            for package in ("storage", "collect", "schedule", "vercelapp"):
                 binary = str(pathlib.Path(directory) / (package + ".test"))
                 subprocess.run(["go", "test", "-c", "-tags=integration", "-o", binary,
                                 "./internal/" + package], cwd=ROOT, env=env, check=True)
