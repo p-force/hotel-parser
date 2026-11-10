@@ -2,6 +2,7 @@ package collect
 
 import (
 	"context"
+	"log/slog"
 	"regexp"
 	"strings"
 	"time"
@@ -30,6 +31,10 @@ func storedWarnings(warnings []bnovo.ParseWarning) []storage.Warning {
 }
 func publicLabel(value string) string { return publicLink.ReplaceAllString(value, "[link omitted]") }
 func storageAttemptContext(ctx context.Context, result bnovo.SearchResult, jobID string, number int, started, finished time.Time, duration int64, queue *int64, next *time.Time) (storage.AttemptInput, error) {
+	measured := time.Now()
+	defer func() {
+		slog.DebugContext(ctx, "collection.normalization.measured", "job_id", jobID, "attempt", number, "normalization_duration_ns", time.Since(measured).Nanoseconds())
+	}()
 	if err := ctx.Err(); err != nil {
 		return storage.AttemptInput{}, err
 	}

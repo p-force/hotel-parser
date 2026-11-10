@@ -1,0 +1,645 @@
+{
+  "schema": "hp_audit_20261110_244d372941",
+  "docker_image": "postgres:17",
+  "docker_running": true,
+  "native_execution": true,
+  "dotenv_loaded": false,
+  "delivery_disabled": true,
+  "code_base": "b4d6380cab2238b71b028adbeeb1fd23c9d66c37",
+  "base_commit": "b4d6380cab2238b71b028adbeeb1fd23c9d66c37",
+  "binary_sha256": "fbd207ebf7e132436993fc58cdb82223cec404c06f9cf7c95312f1a245caed97",
+  "source_sha256": {
+    "docs/diagnostics/full-collection-audit-2026-11-10/harness/main.go": "67230abf50ea32c4add4dcf01fd94ae5c2b392d21201cc2dee04e86aa9fc1535",
+    "internal/collect/persistence.go": "47ea3d4097466383cbe5efdaea1ad52749f86a0d29b7844473fbcc8e690ae5f7",
+    "internal/storage/attempts.go": "6a21af4a477a96e5c8fce099d2a7b17383c808d3d6053d1991b294299c1fb264"
+  },
+  "started_at": "2026-11-10T19:32:55.262505Z",
+  "finished_at": "2026-11-10T19:46:40.185985Z",
+  "expected_http_without_retries": 976,
+  "go_version": "go1.26.0",
+  "os": "darwin",
+  "arch": "arm64",
+  "source_duration": "monotonic time.Now/time.Since",
+  "limits": {
+    "global": 8,
+    "property": 4,
+    "bnovo": {
+      "concurrency": 8,
+      "start_interval_ms": 500
+    },
+    "travelline": {
+      "concurrency": 2,
+      "start_interval_ms": 1000
+    }
+  },
+  "execution_timeout_seconds": 3300,
+  "shutdown_grace_seconds": 5,
+  "max_jobs": 1830,
+  "command": [
+    "/tmp/hotel-parser-full-audit-20261110/harness",
+    "--live",
+    "--out",
+    "/tmp/hotel-parser-full-audit-20261110",
+    "--schema",
+    "hp_audit_20261110_244d372941"
+  ],
+  "hotels": [
+    {
+      "id": "arena33",
+      "source": {
+        "type": "bnovo",
+        "base_url": "https://reservationsteps.ru",
+        "property_id": "7f3f84ae-1f13-419f-af60-ae782d454666"
+      },
+      "collection": {
+        "enabled": true,
+        "days_ahead": 60,
+        "adults": 2,
+        "children_ages": [],
+        "rooms": 1,
+        "nights": [
+          1,
+          2,
+          3
+        ]
+      },
+      "categories": [
+        {
+          "id": "561429",
+          "name": "Stadium"
+        },
+        {
+          "id": "459946",
+          "name": "Garden"
+        },
+        {
+          "id": "639687",
+          "name": "Premium"
+        }
+      ],
+      "rate_policy": []
+    },
+    {
+      "id": "monarch",
+      "source": {
+        "type": "travelline",
+        "base_url": "https://ru-ibe.tlintegration.ru",
+        "property_id": "17249"
+      },
+      "collection": {
+        "enabled": true,
+        "days_ahead": 60,
+        "adults": 1,
+        "children_ages": [],
+        "rooms": 1,
+        "nights": [
+          1
+        ]
+      },
+      "categories": [
+        {
+          "id": "122847",
+          "name": "Номер Делюкс с одной большой кроватью"
+        },
+        {
+          "id": "170376",
+          "name": "Номер Делюкс с двумя раздельными кроватями"
+        },
+        {
+          "id": "122840",
+          "name": "Полулюкс"
+        },
+        {
+          "id": "122845",
+          "name": "Угловой Люкс"
+        },
+        {
+          "id": "185327",
+          "name": "Премьер Люкс"
+        },
+        {
+          "id": "201805",
+          "name": "Президентский  Люкс"
+        },
+        {
+          "id": "202026",
+          "name": "Двухкомнатные апартаменты с кухней и одной большой кроватью для длительного проживания"
+        },
+        {
+          "id": "202027",
+          "name": "Двухкомнатные апартаменты с кухней и двумя раздельными кроватями для длительного проживания"
+        }
+      ],
+      "rate_policy": [
+        {
+          "id": "951554",
+          "name": "Линнер \"Пикник на крыше\"",
+          "enabled": false
+        },
+        {
+          "id": "626675",
+          "name": "Раннее бронирование",
+          "enabled": true
+        },
+        {
+          "id": "626679",
+          "name": "Раннее бронирование с завтраком",
+          "enabled": true
+        },
+        {
+          "id": "920899",
+          "name": "Лучшая цена дня полупансион: завтрак+ужин",
+          "enabled": true
+        },
+        {
+          "id": "246133",
+          "name": "Лучшая цена дня",
+          "enabled": false
+        },
+        {
+          "id": "373411",
+          "name": "Лучшая цена дня с завтраком",
+          "enabled": true
+        },
+        {
+          "id": "641534",
+          "name": "Семейное проживание с завтраком",
+          "enabled": false
+        },
+        {
+          "id": "878182",
+          "name": "СПА день в МонАрх Москва",
+          "enabled": true
+        },
+        {
+          "id": "816956",
+          "name": "Горящее предложение!",
+          "enabled": false
+        },
+        {
+          "id": "659661",
+          "name": "Длительное проживание от 3 ночей",
+          "enabled": false
+        },
+        {
+          "id": "659656",
+          "name": "Длительное проживание от 3 ночей с завтраком",
+          "enabled": false
+        },
+        {
+          "id": "422908",
+          "name": "Длительное проживание с завтраком",
+          "enabled": false
+        },
+        {
+          "id": "422907",
+          "name": "Длительное проживание",
+          "enabled": false
+        },
+        {
+          "id": "433701",
+          "name": "Длительное проживание",
+          "enabled": false
+        },
+        {
+          "id": "370599",
+          "name": "Лучшая цена дня",
+          "enabled": true
+        },
+        {
+          "id": "433025",
+          "name": "Романтическое Предложение",
+          "enabled": true
+        },
+        {
+          "id": "641514",
+          "name": "Семейное проживание",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "id": "bega",
+      "source": {
+        "type": "travelline",
+        "base_url": "https://ru-ibe.tlintegration.ru",
+        "property_id": "61"
+      },
+      "collection": {
+        "enabled": true,
+        "days_ahead": 60,
+        "adults": 1,
+        "children_ages": [],
+        "rooms": 1,
+        "nights": [
+          1
+        ]
+      },
+      "categories": [
+        {
+          "id": "560",
+          "name": "Стандартный"
+        },
+        {
+          "id": "561",
+          "name": "Стандартный с видом на Ипподром"
+        },
+        {
+          "id": "342440",
+          "name": "SMART Стандарт"
+        },
+        {
+          "id": "415406",
+          "name": "SMART Стандарт ИППОДРОМ"
+        },
+        {
+          "id": "342441",
+          "name": "SMART Люкс"
+        },
+        {
+          "id": "562",
+          "name": "Люкс"
+        },
+        {
+          "id": "563",
+          "name": "Люкс с видом на Ипподром"
+        },
+        {
+          "id": "415436",
+          "name": "SMART Люкс ИППОДРОМ"
+        }
+      ],
+      "rate_policy": [
+        {
+          "id": "29023",
+          "name": "Новогоднее Предложение с завтраком!",
+          "enabled": false
+        },
+        {
+          "id": "25836",
+          "name": "Московские Каникулы",
+          "enabled": false
+        },
+        {
+          "id": "25833",
+          "name": "4 по цене 3",
+          "enabled": false
+        },
+        {
+          "id": "34768",
+          "name": "Май в Бегах",
+          "enabled": false
+        },
+        {
+          "id": "143499",
+          "name": "Лучшая цена дня",
+          "enabled": false
+        },
+        {
+          "id": "25825",
+          "name": "Лучшая цена дня",
+          "enabled": true
+        },
+        {
+          "id": "419670",
+          "name": "Тариф с завтраком",
+          "enabled": true
+        },
+        {
+          "id": "419701",
+          "name": "Полный пансион",
+          "enabled": true
+        },
+        {
+          "id": "422732",
+          "name": "Полупансион",
+          "enabled": true
+        },
+        {
+          "id": "449975",
+          "name": "4 Ночи по цене 3 с Завтраком",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "id": "azimut_aerostar",
+      "source": {
+        "type": "travelline",
+        "base_url": "https://ru-ibe.tlintegration.ru",
+        "property_id": "585"
+      },
+      "collection": {
+        "enabled": true,
+        "days_ahead": 60,
+        "adults": 2,
+        "children_ages": [],
+        "rooms": 1,
+        "nights": [
+          1
+        ]
+      },
+      "categories": [
+        {
+          "id": "4347",
+          "name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м."
+        },
+        {
+          "id": "4350",
+          "name": "Стандартный номер (с двумя кроватями) - 20 кв.м."
+        },
+        {
+          "id": "103578",
+          "name": "Комфорт (с двуспальной кроватью)- 20 кв.м."
+        },
+        {
+          "id": "103580",
+          "name": "Комфорт (с двумя кроватями) - 20 кв.м."
+        },
+        {
+          "id": "4348",
+          "name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м."
+        },
+        {
+          "id": "8875",
+          "name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м."
+        },
+        {
+          "id": "4349",
+          "name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м."
+        },
+        {
+          "id": "8876",
+          "name": "Полулюкс (с двумя кроватями)  - 42 кв.м."
+        },
+        {
+          "id": "133917",
+          "name": "Апартаменты (с двуспальной кроватью) - 65 кв.м."
+        },
+        {
+          "id": "250899",
+          "name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м."
+        }
+      ],
+      "rate_policy": [
+        {
+          "id": "128311",
+          "name": "Заранее выгодно!  Тариф без завтрака",
+          "enabled": true
+        },
+        {
+          "id": "128337",
+          "name": "Заранее выгодно!  Тариф с завтраком",
+          "enabled": true
+        },
+        {
+          "id": "128299",
+          "name": "Лучшая цена дня без завтрака",
+          "enabled": true
+        },
+        {
+          "id": "128301",
+          "name": "Лучшая цена дня с завтраком",
+          "enabled": true
+        },
+        {
+          "id": "917131",
+          "name": "Тариф полупансион с включенным питанием",
+          "enabled": true
+        },
+        {
+          "id": "932011",
+          "name": "Длительное проживание без завтрака",
+          "enabled": true
+        },
+        {
+          "id": "932016",
+          "name": "Длительное проживание без завтрака",
+          "enabled": true
+        },
+        {
+          "id": "932023",
+          "name": "Длительное проживание с завтраком",
+          "enabled": true
+        },
+        {
+          "id": "932027",
+          "name": "Длительное проживание с завтраком",
+          "enabled": true
+        },
+        {
+          "id": "965189",
+          "name": "Осень в ритме города, тариф с завтраком",
+          "enabled": true
+        },
+        {
+          "id": "965190",
+          "name": "Осень в ритме города",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "sovietsky",
+      "source": {
+        "type": "travelline",
+        "base_url": "https://ru-ibe.tlintegration.ru",
+        "property_id": "333"
+      },
+      "collection": {
+        "enabled": true,
+        "days_ahead": 60,
+        "adults": 1,
+        "children_ages": [],
+        "rooms": 1,
+        "nights": [
+          1
+        ]
+      },
+      "categories": [
+        {
+          "id": "24386",
+          "name": "Стандарт с одной кроватью"
+        },
+        {
+          "id": "2416",
+          "name": "Стандартный с двумя раздельными кроватями"
+        },
+        {
+          "id": "24281",
+          "name": "Делюкс"
+        },
+        {
+          "id": "2420",
+          "name": "Полулюкс"
+        },
+        {
+          "id": "2422",
+          "name": "Клубный Люкс"
+        },
+        {
+          "id": "2992",
+          "name": "Апартаменты"
+        },
+        {
+          "id": "29344",
+          "name": "«Сталинские апартаменты» / «Апартаменты Яръ»"
+        }
+      ],
+      "rate_policy": [
+        {
+          "id": "38564",
+          "name": "Цена дня",
+          "enabled": true
+        },
+        {
+          "id": "49218",
+          "name": "Тариф без завтрака",
+          "enabled": true
+        },
+        {
+          "id": "145383",
+          "name": "Лучшая цена дня",
+          "enabled": false
+        },
+        {
+          "id": "131363",
+          "name": "Привилегия",
+          "enabled": false
+        },
+        {
+          "id": "303387",
+          "name": "Выгодное предложение",
+          "enabled": false
+        }
+      ]
+    },
+    {
+      "id": "petroff",
+      "source": {
+        "type": "travelline",
+        "base_url": "https://ru-ibe.tlintegration.ru",
+        "property_id": "5787"
+      },
+      "collection": {
+        "enabled": true,
+        "days_ahead": 60,
+        "adults": 1,
+        "children_ages": [],
+        "rooms": 1,
+        "nights": [
+          1
+        ]
+      },
+      "categories": [
+        {
+          "id": "34187",
+          "name": "Стандартный номер с 1 двуспальной кроватью"
+        },
+        {
+          "id": "34493",
+          "name": "Стандартный номер с 2 односпальными кроватями"
+        },
+        {
+          "id": "34188",
+          "name": "Делюкс с 1 двуспальной кроватью"
+        },
+        {
+          "id": "34189",
+          "name": "Представительский двухкомнатный Люкс с 1 спальней"
+        },
+        {
+          "id": "34191",
+          "name": "Семейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями"
+        },
+        {
+          "id": "34190",
+          "name": "Императорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней"
+        }
+      ],
+      "rate_policy": [
+        {
+          "id": "49957",
+          "name": "Тариф дня",
+          "enabled": true
+        },
+        {
+          "id": "35114",
+          "name": "Тариф дня с завтраком",
+          "enabled": true
+        },
+        {
+          "id": "145557",
+          "name": "Лучшая цена дня",
+          "enabled": false
+        },
+        {
+          "id": "622569",
+          "name": "Свадебное предложение",
+          "enabled": true
+        },
+        {
+          "id": "633705",
+          "name": "Романтические выходные в Петровском Путевом Дворце",
+          "enabled": false
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "ID": "14687f6c-4362-4928-b9b0-b45c0daba428",
+      "PropertyID": "azimut_aerostar",
+      "PeriodStart": "2026-11-10T00:00:00Z",
+      "PeriodEnd": "2027-01-10T00:00:00Z",
+      "StartedAt": "2026-11-10T22:32:55.426263+03:00",
+      "FinishedAt": "2026-11-10T22:46:40.062305+03:00",
+      "Status": "partial"
+    },
+    {
+      "ID": "22c9f3e0-b6ed-4fa1-8abe-514a1945ee49",
+      "PropertyID": "bega",
+      "PeriodStart": "2026-11-10T00:00:00Z",
+      "PeriodEnd": "2027-01-10T00:00:00Z",
+      "StartedAt": "2026-11-10T22:32:55.426263+03:00",
+      "FinishedAt": "2026-11-10T22:46:40.037077+03:00",
+      "Status": "partial"
+    },
+    {
+      "ID": "2b9898dd-f0f9-4a48-a84f-c393c242b8af",
+      "PropertyID": "monarch",
+      "PeriodStart": "2026-11-10T00:00:00Z",
+      "PeriodEnd": "2027-01-10T00:00:00Z",
+      "StartedAt": "2026-11-10T22:32:55.426263+03:00",
+      "FinishedAt": "2026-11-10T22:46:40.001182+03:00",
+      "Status": "partial"
+    },
+    {
+      "ID": "9245ae1d-a16f-45de-9c6f-5fdc43ba87a3",
+      "PropertyID": "sovietsky",
+      "PeriodStart": "2026-11-10T00:00:00Z",
+      "PeriodEnd": "2027-01-10T00:00:00Z",
+      "StartedAt": "2026-11-10T22:32:55.426263+03:00",
+      "FinishedAt": "2026-11-10T22:46:40.129271+03:00",
+      "Status": "partial"
+    },
+    {
+      "ID": "c3736ae1-0fc2-4574-946c-4729190bd7aa",
+      "PropertyID": "arena33",
+      "PeriodStart": "2026-11-10T00:00:00Z",
+      "PeriodEnd": "2027-01-12T00:00:00Z",
+      "StartedAt": "2026-11-10T22:32:55.426263+03:00",
+      "FinishedAt": "2026-11-10T22:46:39.903583+03:00",
+      "Status": "succeeded"
+    },
+    {
+      "ID": "ceb379c4-06c8-49dd-a63e-1f0207fb83b6",
+      "PropertyID": "petroff",
+      "PeriodStart": "2026-11-10T00:00:00Z",
+      "PeriodEnd": "2027-01-10T00:00:00Z",
+      "StartedAt": "2026-11-10T22:32:55.426263+03:00",
+      "FinishedAt": "2026-11-10T22:46:40.143453+03:00",
+      "Status": "partial"
+    }
+  ]
+}

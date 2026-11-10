@@ -6,6 +6,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
+	"log/slog"
 	"math/rand/v2"
 	"time"
 )
@@ -13,6 +14,10 @@ import (
 // SaveAttempt атомарно добавляет неизменяемые факты и меняет состояние задания.
 // Один (job,number) с тем же payload — no-op, с другим — ErrConflict.
 func (s *Store) SaveAttempt(ctx context.Context, input AttemptInput) (string, error) {
+	started := time.Now()
+	defer func() {
+		slog.DebugContext(ctx, "collection.persistence.measured", "job_id", input.JobID, "attempt", input.Number, "save_attempt_duration_ns", time.Since(started).Nanoseconds())
+	}()
 	return s.saveAttempt(ctx, input, nil)
 }
 

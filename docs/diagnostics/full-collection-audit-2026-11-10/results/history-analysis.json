@@ -1,0 +1,231 @@
+{
+  "base_commit": "0f4e8417554ae191582de0c854458699641e84de",
+  "timing": {
+    "logical_slot": "2026-11-05T08:00:00+03:00",
+    "plan_invocation_finished_at": "2026-11-05T13:06:24.566962+00:00",
+    "all_jobs_and_runs_terminal_at": "2026-11-05T13:23:17.298942Z",
+    "all_deliveries_confirmed_by_service_at": "2026-11-05T13:45:29.784067+00:00",
+    "plan_to_terminal_seconds": 1012.73198,
+    "plan_to_delivered_seconds": 2345.217105,
+    "source_wall_seconds": 982.081409,
+    "note": "Includes diagnostic PostgreSQL relay recovery pause, lease waits, delivery timeout investigation, tests and one explicit test-ledger backoff acceleration. Not an unattended throughput benchmark."
+  },
+  "counts": {
+    "collection_attempts": 367,
+    "csv_deliveries": 6,
+    "observation_offers": 9089,
+    "observation_variants": 2527,
+    "observations": 2562,
+    "scenario_jobs": 366
+  },
+  "stocks": {
+    "known": 2225,
+    "unknown": 337
+  },
+  "source_invocations": 19,
+  "all_invocations_recorded": 54,
+  "source_invocation_duration_seconds": 705.631,
+  "all_invocation_duration_seconds": 919.424,
+  "source_http_summary": {
+    "source_requests": 699,
+    "source_statuses": {
+      "200": 688,
+      "0": 11
+    },
+    "source_transport_or_read_interruptions": 11,
+    "persisted_attempt_errors": [
+      {
+        "property": "petroff",
+        "check_in": "2026-12-06",
+        "attempt": 1,
+        "error": {
+          "Code": "transport_error",
+          "Retryable": true
+        },
+        "http_status": 0
+      }
+    ],
+    "peak_active_http_observed": 4,
+    "limits": {
+      "reservationsteps.ru": {
+        "requests": 61,
+        "configured_start_interval_ms": 500,
+        "minimum_utc_gap_seconds": 0.501799,
+        "utc_clock_only": true
+      },
+      "ru-ibe.tlintegration.ru": {
+        "requests": 638,
+        "configured_start_interval_ms": 1000,
+        "minimum_utc_gap_seconds": 0.998397,
+        "utc_clock_only": true
+      }
+    },
+    "first_source_start": "2026-11-05T13:06:44.924226Z",
+    "last_source_end": "2026-11-05T13:23:07.005635Z",
+    "source_wall_seconds": 982.081409,
+    "disk_upload_puts": {
+      "0": 8,
+      "201": 3
+    },
+    "clock_note": "UTC log does not preserve Go monotonic timestamps. Small sub-millisecond/millisecond gaps cannot distinguish wall-clock adjustment from callback scheduling; existing monotonic start-gate tests pass; adapter limits unchanged."
+  },
+  "sources": {
+    "reservationsteps.ru": {
+      "requests": 61,
+      "codes": {
+        "200": 61
+      },
+      "latency_seconds": {
+        "p50": 1.584507,
+        "p95": 2.847197,
+        "p99": 2.886912,
+        "sum": 105.286469
+      },
+      "gap_seconds": {
+        "min": 0.501799,
+        "p50": 11.107607,
+        "max": 265.081592
+      },
+      "five_largest_gaps": [
+        {
+          "start": "2026-11-05T13:07:25.003671+00:00",
+          "end": "2026-11-05T13:11:50.085263+00:00",
+          "seconds": 265.081592
+        },
+        {
+          "start": "2026-11-05T13:18:28.349424+00:00",
+          "end": "2026-11-05T13:18:42.957241+00:00",
+          "seconds": 14.607817
+        },
+        {
+          "start": "2026-11-05T13:19:02.823835+00:00",
+          "end": "2026-11-05T13:19:17.328087+00:00",
+          "seconds": 14.504252
+        },
+        {
+          "start": "2026-11-05T13:06:56.458502+00:00",
+          "end": "2026-11-05T13:07:10.862924+00:00",
+          "seconds": 14.404422
+        },
+        {
+          "start": "2026-11-05T13:13:34.859342+00:00",
+          "end": "2026-11-05T13:13:49.133188+00:00",
+          "seconds": 14.273846
+        }
+      ]
+    },
+    "ru-ibe.tlintegration.ru": {
+      "requests": 638,
+      "codes": {
+        "200": 627,
+        "0": 11
+      },
+      "latency_seconds": {
+        "p50": 0.471462,
+        "p95": 1.110744,
+        "p99": 2.403576,
+        "sum": 346.353994
+      },
+      "gap_seconds": {
+        "min": 0.998397,
+        "p50": 1.001077,
+        "max": 261.048189
+      },
+      "five_largest_gaps": [
+        {
+          "start": "2026-11-05T13:07:29.029016+00:00",
+          "end": "2026-11-05T13:11:50.077205+00:00",
+          "seconds": 261.048189
+        },
+        {
+          "start": "2026-11-05T13:22:09.452425+00:00",
+          "end": "2026-11-05T13:22:46.770912+00:00",
+          "seconds": 37.318487
+        },
+        {
+          "start": "2026-11-05T13:22:50.038600+00:00",
+          "end": "2026-11-05T13:23:02.809688+00:00",
+          "seconds": 12.771088
+        },
+        {
+          "start": "2026-11-05T13:21:55.989861+00:00",
+          "end": "2026-11-05T13:22:02.781155+00:00",
+          "seconds": 6.791294
+        },
+        {
+          "start": "2026-11-05T13:22:46.770912+00:00",
+          "end": "2026-11-05T13:22:50.038600+00:00",
+          "seconds": 3.267688
+        }
+      ]
+    }
+  },
+  "evidence_missing": [
+    "CPU",
+    "RSS",
+    "goroutine samples",
+    "per-attempt normalization/save timings",
+    "exact subprocess command line"
+  ],
+  "evidence_paths": [
+    "docs/verification/regular-collection-delivery/README.md",
+    "docs/verification/regular-collection-delivery/timing.json",
+    "docs/verification/regular-collection-delivery/summary.json",
+    "docs/verification/regular-collection-delivery/http-starts.csv",
+    "docs/verification/regular-collection-delivery/invocations.json",
+    "docs/verification/regular-collection-delivery/http-summary.json",
+    "docs/verification/regular-collection-delivery/checks.json",
+    "docs/verification/regular-collection-delivery/replay-audit.json"
+  ],
+  "combined_largest_start_gap": {
+    "seconds": 261.048189,
+    "start": "2026-11-05T13:07:29.029016Z",
+    "end": "2026-11-05T13:11:50.077205Z",
+    "previous_response_finished": "2026-11-05T13:07:29.282728Z"
+  },
+  "excess_requests_vs_base": {
+    "metadata": 20,
+    "availability": 8,
+    "all": 28
+  },
+  "recovered_read_only_database": {
+    "schema": "hp_regular_20261105_92f01e86",
+    "row_counts": {
+      "attempts": 367,
+      "jobs": 366,
+      "observations": 2562,
+      "offers": 9089,
+      "runs": 6,
+      "variants": 2527
+    },
+    "job_statuses": {
+      "succeeded": 201,
+      "partial": 165
+    },
+    "batch_queue_wait_ms": {
+      "count": 367,
+      "sum": 1095292.0,
+      "p50": 2001.0,
+      "p95": 8431.0,
+      "p99": 9740.0,
+      "max": 10988.0
+    },
+    "durable_queue_age_seconds": {
+      "count": 367,
+      "sum": 211834.214024,
+      "p50": 592.394125,
+      "p95": 901.072786,
+      "p99": 942.621821,
+      "max": 999.528683
+    },
+    "attempt_duration_ms": {
+      "count": 367,
+      "sum": 1169375.0,
+      "p50": 2659.0,
+      "p95": 6750.0,
+      "p99": 8212.0,
+      "max": 10656.0
+    },
+    "active_leases": 0
+  }
+}
