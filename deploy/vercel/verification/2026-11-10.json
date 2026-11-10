@@ -12,7 +12,8 @@
     "region": "fra1",
     "function_max_duration_seconds": 60,
     "state": "READY",
-    "deployment_protection": "retained"
+    "deployment_protection": "retained",
+    "build_command": "go build -buildvcs=false -o server ./cmd/api"
   },
   "database": {
     "project_id": "shiny-grass-79482545",

@@ -7,7 +7,7 @@
 ## Целевые ресурсы
 
 - Vercel: команда `dianas-projects-a75fd820`, проект `hotel-parser`, ID `prj_8LrZh5Obv8pUw8jpj6YGFzbK5fSz` (предоставлен пользователем).
-- Git: `p-force/hotel-parser`, Production Branch **`deploy/vercel`**. Framework Preset: **Go**; entrypoint `cmd/api/main.go`, build command `go build -o server ./cmd/api`. Install/Output overrides отсутствуют. Один Go HTTP-server Function обслуживает четыре защищённых маршрута.
+- Git: `p-force/hotel-parser`, Production Branch **`deploy/vercel`**. Framework Preset: **Go**; entrypoint `cmd/api/main.go`, build command `go build -buildvcs=false -o server ./cmd/api`. Install/Output overrides отсутствуют. Один Go HTTP-server Function обслуживает четыре защищённых маршрута.
 - Регион: `fra1`, предел HTTP Function 60 s (настройка проекта `resourceConfig.functionDefaultTimeout`). Адаптер ограничивает запрос 55 s, подключение 8 s, существующий service — 40 s, graceful flush — 5 s. Рабочих потоков 8, максимум jobs на invocation по умолчанию 8.
 - Новый Neon: `shiny-grass-79482545`, `hotel-parser`, `aws-eu-central-1`, PostgreSQL 18, `production` / `br-odd-pine-b9f2vemz`, БД `neondb`.
 - Direct host: `ep-hidden-breeze-b9oouvds.c-7.eu-central-1.aws.neon.tech`. Runtime отклоняет другой host, другую БД, отсутствие TLS и fallback без TLS, включая transaction pooler.
@@ -46,7 +46,7 @@ Query-параметры и body запрещены. GET Cron преобразу
 
 `resume` синхронно завершает service и закрывает соединения до HTTP-ответа. Нет фонового вызова после ответа, self-invocation или нового scheduler. При истечении бюджета сохраняется существующая семантика lease/fencing и восстановления. `Service` освобождает runner lock до CSV/upload; ledger доставки и исходные записи находятся в PostgreSQL. CSV можно заново сформировать на другом инстансе: `/tmp` не является источником истины.
 
-Публичные JSON-конфигурации встроены через `configs/vercel_assets.go`. Для штатного `LoadRegistry()` они кратковременно материализуются в `/tmp`, после чтения удаляются. Дублирования конфигураций и зависимости от runtime cwd нет. Секреты не встраиваются. Файловые `/api/*.go` Functions переписывают имя модуля и ломают существующие Go internal-импорты; HTTP-server preset выбран после воспроизведения этой ошибки в облачной сборке. Ни `go.mod`, ни версия Go не меняются: Vercel читает `go 1.26.0`; официальный builder `@vercel/go@28.0.1` проверяется отдельно от облачного deployment.
+Публичные JSON-конфигурации встроены через `configs/vercel_assets.go`. Для штатного `LoadRegistry()` они кратковременно материализуются в `/tmp`, после чтения удаляются. Дублирования конфигураций и зависимости от runtime cwd нет. Секреты не встраиваются. `.git` исключён из deployment; `-buildvcs=false` предотвращает ошибку Go VCS stamping после Git checkout и обработки `.vercelignore`. Файловые `/api/*.go` Functions переписывают имя модуля и ломают существующие Go internal-импорты; HTTP-server preset выбран после воспроизведения этой ошибки в облачной сборке. Ни `go.mod`, ни версия Go не меняются: Vercel читает `go 1.26.0`; официальный builder `@vercel/go@28.0.1` проверяется отдельно от облачного deployment.
 
 ## Контролируемые миграции
 
