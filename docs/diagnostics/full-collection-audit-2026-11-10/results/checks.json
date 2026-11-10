@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-11-10T20:11:04.349643+00:00",
+  "checks": {
+    "make check": "PASS: fmt/vet/all race tests/builds",
+    "make test-integration-docker": "PASS: storage/collect/schedule, local isolated schemas, mock source/Disk HTTP",
+    "go test -race ./docs/diagnostics/full-collection-audit-2026-11-10/... -count=1": "PASS after recorded-config fixture test update",
+    "offline full CSV/committed readback": "PASS: 610 scenarios, 15721 rows, 550235 cells",
+    "secret scan": "PASS: known local secret values and credential patterns, only safe public data",
+    "active PostgreSQL peak": "NOT MEASURED: incorrect application_name in measured harness; null in results",
+    "git diff --check": "PASS",
+    "git diff --cached --check": "PASS",
+    "make fmt-check (including staged diagnostic Go files)": "PASS"
+  },
+  "live_http_requests": 976,
+  "production_changes": false,
+  "delivery_http": 0
+}
