@@ -5,7 +5,7 @@
 ## Целевые ресурсы
 
 - Vercel: команда `dianas-projects-a75fd820`, проект `hotel-parser`, ID `prj_8LrZh5Obv8pUw8jpj6YGFzbK5fSz` (предоставлен пользователем).
-- Git: `p-force/hotel-parser`, Production Branch **`deploy/vercel`**. Framework Preset: **Other**, без пользовательских Build/Install/Output overrides. Используются четыре Go Functions из `api/`, а не HTTP-server preset `go`.
+- Git: `p-force/hotel-parser`, Production Branch **`deploy/vercel`**. Framework Preset: **Go**; entrypoint `cmd/api/main.go`, build command `go build -o server ./cmd/api`. Install/Output overrides отсутствуют. Один Go HTTP-server Function обслуживает четыре защищённых маршрута.
 - Регион: `fra1`, предел HTTP Function 60 s. Адаптер ограничивает запрос 55 s, подключение 8 s, существующий service — 40 s, graceful flush — 5 s. Рабочих потоков 8, максимум jobs на invocation по умолчанию 8.
 - Новый Neon: `shiny-grass-79482545`, `hotel-parser`, `aws-eu-central-1`, PostgreSQL 18, `production` / `br-odd-pine-b9f2vemz`, БД `neondb`.
 - Direct host: `ep-hidden-breeze-b9oouvds.c-7.eu-central-1.aws.neon.tech`. Runtime отклоняет другой host, другую БД, отсутствие TLS и fallback без TLS, включая transaction pooler.
@@ -44,7 +44,7 @@ Query-параметры и body запрещены. GET Cron преобразу
 
 `resume` синхронно завершает service и закрывает соединения до HTTP-ответа. Нет фонового вызова после ответа, self-invocation или нового scheduler. При истечении бюджета сохраняется существующая семантика lease/fencing и восстановления. `Service` освобождает runner lock до CSV/upload; ledger доставки и исходные записи находятся в PostgreSQL. CSV можно заново сформировать на другом инстансе: `/tmp` не является источником истины.
 
-Публичные JSON-конфигурации встроены через `configs/vercel_assets.go`. Для штатного `LoadRegistry()` они кратковременно материализуются в `/tmp`, после чтения удаляются. Дублирования конфигураций и зависимости от runtime cwd нет. Секреты не встраиваются. Ни `go.mod`, ни версия Go не меняются: Vercel читает `go 1.26.0`; официальный builder `@vercel/go@28.0.1` проверяется отдельно от облачного deployment.
+Публичные JSON-конфигурации встроены через `configs/vercel_assets.go`. Для штатного `LoadRegistry()` они кратковременно материализуются в `/tmp`, после чтения удаляются. Дублирования конфигураций и зависимости от runtime cwd нет. Секреты не встраиваются. Файловые `/api/*.go` Functions переписывают имя модуля и ломают существующие Go internal-импорты; HTTP-server preset выбран после воспроизведения этой ошибки в облачной сборке. Ни `go.mod`, ни версия Go не меняются: Vercel читает `go 1.26.0`; официальный builder `@vercel/go@28.0.1` проверяется отдельно от облачного deployment.
 
 ## Контролируемые миграции
 
@@ -70,7 +70,7 @@ PY
 
 ## Последовательность запуска
 
-1. Проверить точные team/project/repository и Production Branch. Пределы/план аккаунта проверить в Dashboard; не делать вывод о плане по одному названию команды.
+1. Проверить точные team/project/repository и Production Branch. CLI API подтвердил Hobby: встроенный ежеминутный Cron недоступен. Не делать вывод о плане по одному названию команды.
 2. Развернуть код ветки с **отсутствующим `crons`** в `vercel.json`; секреты для сборки не нужны. Проверить облачный build, Go version, регион и URL deployment. Deployment Protection проверять штатным доступом Vercel, не отключать её ради обхода авторизации.
 3. Добавить секреты самостоятельно, оставив `COLLECTION_ENABLED=false`. Redeploy. Проверить health с Trigger Bearer и отказ без него; затем соединение/миграции отдельным действием и GET status. Передача заголовков через переменные окружения допустима, печатать их или включать curl trace нельзя.
 4. Согласовать отсутствие второго производственного collector. Только затем временно включить collection, `MAX_JOBS=1`, отдельный `YANDEX_DISK_DIR` и провести ограниченный smoke. `plan` планирует **всех включённых отелей группы**: не вызывать его ради одного fixture-job. Для одного smoke подготовить явный изолированный fixture-run штатным storage API, без изменения scheduler; resume должен видеть только его очередь.
@@ -88,4 +88,4 @@ PY
 
 ## Удаление адаптера при переходе на VPS
 
-Основная ветка `dev` не содержит этих изменений: для VPS использовать её штатные `cmd/collection` и `deploy/README.md`. Остановить Vercel Cron/внешний trigger перед запуском VPS; оставить один active runner. Перенести нужные секреты защищённым способом, использовать тот же direct PostgreSQL и существующие миграции/ledger — повторно собирать завершённые runs не нужно. Адаптер можно оставить только в `deploy/vercel` либо удалить `api/`, `internal/vercelapp/`, `configs/vercel_assets.go`, `vercel.json`, `.vercelignore` и эти инструкции; вернуть добавления к Makefile/test script. Не удалять PostgreSQL history или delivery ledger.
+Основная ветка `dev` не содержит этих изменений: для VPS использовать её штатные `cmd/collection` и `deploy/README.md`. Остановить Vercel Cron/внешний trigger перед запуском VPS; оставить один active runner. Перенести нужные секреты защищённым способом, использовать тот же direct PostgreSQL и существующие миграции/ledger — повторно собирать завершённые runs не нужно. Адаптер можно оставить только в `deploy/vercel` либо удалить `cmd/api/`, `internal/vercelapp/`, `configs/vercel_assets.go`, `vercel.json`, `.vercelignore` и эти инструкции; вернуть добавления к Makefile/test script. Не удалять PostgreSQL history или delivery ledger.
