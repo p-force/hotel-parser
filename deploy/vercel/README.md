@@ -1,14 +1,14 @@
 # Временный deployment на Vercel
 
-Только ветка `deploy/vercel`. Не сливать её в `dev`/`main`. Основной CLI, scheduler, очередь, адаптеры, миграции, CSV и доставка переиспользуются без изменения их реализации.
+Только ветка `deploy/vercel`. Не сливать её в `dev`/`main`. Основной CLI, очередь, адаптеры, миграции, CSV и доставка переиспользуются. Для `/start` в существующий service добавлен порядок plan-before-run, а в claim — опциональные фильтр слота и приоритет новых runs; без новых таблиц/очередей.
 
 Фактический ограниченный E2E и оставшиеся ограничения: [проверка 10.11.2026](verification/2026-11-10.md).
 
 ## Целевые ресурсы
 
 - Vercel: команда `dianas-projects-a75fd820`, проект `hotel-parser`, ID `prj_8LrZh5Obv8pUw8jpj6YGFzbK5fSz` (предоставлен пользователем).
-- Git: `p-force/hotel-parser`, Production Branch **`deploy/vercel`**. Framework Preset: **Go**; entrypoint `cmd/api/main.go`, build command `go build -buildvcs=false -o server ./cmd/api`. Install/Output overrides отсутствуют. Один Go HTTP-server Function обслуживает четыре защищённых маршрута.
-- Регион: `fra1`, предел HTTP Function 60 s (настройка проекта `resourceConfig.functionDefaultTimeout`). Адаптер ограничивает запрос 55 s, подключение 8 s, существующий service — 40 s, graceful flush — 5 s. Рабочих потоков 8, максимум jobs на invocation по умолчанию 8.
+- Git: `p-force/hotel-parser`, Production Branch **`deploy/vercel`**. Framework Preset: **Go**; entrypoint `cmd/api/main.go`, build command `go build -buildvcs=false -o server ./cmd/api`. Install/Output overrides отсутствуют. Один Go HTTP-server Function обслуживает пять защищённых маршрутов.
+- Регион: `fra1`, предел HTTP Function **260 s** (настройка проекта `resourceConfig.functionDefaultTimeout`, проверять также timeout lambda deployment). Адаптер ограничивает запрос/HTTP write 250 s, подключение 8 s, service — 220 s, graceful flush — 5 s. Workers=8, max-jobs по умолчанию64. Source HTTP timeouts, rate limits и retry не меняются.
 - Новый Neon: `shiny-grass-79482545`, `hotel-parser`, `aws-eu-central-1`, PostgreSQL 18, `production` / `br-odd-pine-b9f2vemz`, БД `neondb`.
 - Direct host: `ep-hidden-breeze-b9oouvds.c-7.eu-central-1.aws.neon.tech`. Runtime отклоняет другой host, другую БД, отсутствие TLS и fallback без TLS, включая transaction pooler.
 - В текущем `configs/groups.json` одна группа `arena33` и схема `hotel_parser_arena33`. Будущая `hotel_parser_ni_teta` не создаётся до отдельного подключения группы.
@@ -29,7 +29,7 @@
 | `HOTEL_PARSER_LOG_FORMAT` | `json` |
 | `HOTEL_PARSER_LOG_LEVEL` | `INFO` |
 | `HOTEL_PARSER_COLLECTION_ENABLED` | **`false`** до проверки секретов, миграций и отсутствия второго сборщика. Только буквальное `true` разрешает plan/resume |
-| `HOTEL_PARSER_MAX_JOBS` | `1` для ограниченного smoke, `8` штатно; допустимо 1..64 |
+| `HOTEL_PARSER_MAX_JOBS` | `1` для ограниченного smoke, `64` штатно; допустимо 1..64 |
 
 Шаблон без значений секретов: [env.example](env.example). Если обязательной настройки нет, plan/resume возвращает 503 до вызова application service. Секреты не принимаются в URL/body и не возвращаются в ответах. Значения ошибок источников и DSN также не возвращаются.
 
@@ -40,6 +40,7 @@
 | `/api/health` | GET | Trigger Bearer | Liveness, загрузка встроенных конфигураций, флаги наличия настроек. **Не проверяет соединение с БД или доставку** |
 | `/api/status` | GET | Trigger Bearer | Только чтение run progress и до 100 delivery records на группу; не завершает runs, не собирает и не загружает CSV |
 | `/api/plan` | GET или POST без body | Trigger Bearer; Cron Bearer разрешён только для GET | Существующие `DueSlots(now)` и `Service.Execute(plan)` для наступивших слотов текущего московского дня |
+| `/api/start` | GET или POST без body | Trigger Bearer; Cron Bearer только для GET | Только наступивший слот08:00 МСК текущего дня: commit всех планов, затем Runner только этого слота |
 | `/api/resume` | GET или POST без body | Trigger Bearer; Cron Bearer разрешён только для GET | Существующий `Service.Execute(resume)`, ограниченная пачка очереди, существующий экспорт и delivery |
 
 Query-параметры и body запрещены. GET Cron преобразуется во внутренний типизированный запрос, а не пересылается в POST Handler с ослабленной авторизацией. Ошибки: 401 unauthorized, 409 runner_busy, 503 configuration/collection_incomplete. Все ответы `Cache-Control: no-store`.
@@ -80,13 +81,27 @@ PY
 6. Зафиксировать API checksum/размер и `state=delivered` для тестовой доставки. До фактической проверки БД и загрузки не объявлять этап успешным.
 7. Только после проверки подготовить включение cron, не активируя параллельно старый collector. Готовая, **неактивная** секция: [cron.example.json](cron.example.json). Она не входит в корневой `vercel.json`.
 
-## Расписание и ограничения плана
+## Утренний запуск и продолжение
 
-Времена Europe/Moscow: 08:00 → 61 job на отель; 12:00 и 16:00 → по 8; 20:00 → 1. Регулярный сценарий остаётся adults=1, rooms=1, LOS=1, без детей, `ru`. LOS=2/3 не добавляются. UTC cron для plan: `0 5,9,13,17 * * *`; resume: `* * * * *`. Повторное планирование использует существующую идентичность слота и PlanRun.
+`GET /api/start` выбирает **08:00 Europe/Moscow текущего дня**. До08:00 отвечает `slot_not_due`, не открывая БД. Даже при ручном вызове вечером не создаёт12:00/16:00/20:00. В `Service.Execute(start)` сначала берётся session runner lock, затем последовательно и идемпотентно публикуются все `PlanRun`, после их commit вызывается прежний `RunGroups`. При ошибке любого плана HTTP-сбор не начинается; частично опубликованный план восстанавливается повтором.
 
-По [документации Vercel Cron](https://vercel.com/docs/cron-jobs/usage-and-pricing) на 10.11.2026: Hobby — не чаще одного запуска в день для каждого cron, точность ±59 минут; Pro/Enterprise — раз в минуту; до 100 cron на проект. **Hobby не обеспечивает требуемый контракт.** Не заменять ежеминутный resume более редким. Корректные варианты: подтверждённый Pro/Enterprise либо отдельный согласованный внешний HTTP trigger каждую минуту, либо перенос на VPS. Новый [Schedules beta](https://vercel.com/docs/schedules/limits) на Hobby разрешает минимум 15 минут с 15-минутным jitter, поэтому также не обеспечивает ежеминутный resume. Внешний trigger сейчас не создан; ему потребуется штатный доступ через Deployment Protection и Bearer-авторизация. Не менять тариф аккаунта автоматически.
+Claim `/start` ограничен точным `collection_runs.started_at=slot`, поэтому старая очередь не занимает его64jobs. `/resume` обрабатывает общий backlog с приоритетом новых slots **внутри каждого отеля**, сохраняя round-robin групп/отелей. Старый уже активный runner не прерывается: новый запрос получает409 `runner_busy`, его нужно повторить. Лишних source-запросов или выполнения terminal jobs нет. Без опций slot/latest штатный FIFO storage сохранён; миграция не требуется.
 
-[Go runtime](https://vercel.com/docs/functions/runtimes/go) поддерживает Go Functions и выбор версии из `go.mod`; [duration](https://vercel.com/docs/functions/configuring-functions/duration) для выбранного Go server preset задан в настройке проекта. `functions` glob на `cmd/api/main.go` платформой не принимается; в `vercel.json` его нет. Здесь выбран консервативный предел 60 s; облачная применимость и фактический план должны быть подтверждены deployment. Наличие production URL само по себе не подтверждает обработку очереди.
+Ответ содержит `results` существующего service и `summary`: `planned_jobs`, `completed_jobs`, `remaining_jobs`. Для `/start` это durable итоги текущего слота, для `/resume` — всей очереди, **не число HTTP/claim текущего invocation**. `summary=null` при недостоверном progress; это не нулевой остаток очереди. Ошибка/deadline возвращает безопасный код и доступный progress. CSV/delivery выполняются существующим service после workers/lock, в оставшемся бюджете; при его исчерпании восстановятся следующим вызовом.
+
+## Cron: подготовлен, не активирован
+
+В [cron.example.json](cron.example.json) оставлена ровно одна секция:
+
+```json
+{"crons":[{"path":"/api/start","schedule":"0 5 * * *"}]}
+```
+
+Она **не включена** в корневой `vercel.json`: до отдельной активации нужно добавить `CRON_SECRET` в Production, подтвердить единственный collector и включить сбор. Текущее `HOTEL_PARSER_COLLECTION_ENABLED=false` сохранено. Не добавлять другие слоты, ежеминутные cron или self-invocation.
+
+На [Hobby](https://vercel.com/docs/cron-jobs/usage-and-pricing) дневной Cron может прийти между05:00 и05:59UTC (08:00–08:59МСК); точный запуск08:00 не гарантируется. Один вызов обрабатывает не больше64jobs, утренний план шести отелей —366jobs. Для завершения нужны дополнительные авторизованные `/api/resume`; встроенный дневной Cron их не организует. Автоматическое продолжение требует отдельного согласованного trigger/плана. Пока его нет, нельзя обещать ежедневный полный сбор и доставку.
+
+[Настройка duration](https://vercel.com/docs/functions/configuring-functions/duration) применяется на уровне проекта, поскольку Go HTTP-server preset собирает одну lambda `go`. Неподдерживаемый `functions` glob на `cmd/api/main.go` не добавляется. API принял260s при Hobby/Fluid; окончательное подтверждение — `builds[].output[].lambda.timeout` нового deployment, не значение JSON или один HTTP200. Подробное evidence: [проверка11.11.2026](verification/2026-11-11.md).
 
 ## Удаление адаптера при переходе на VPS
 

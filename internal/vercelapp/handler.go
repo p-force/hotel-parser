@@ -100,7 +100,7 @@ func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
 		fail(503, "trigger_secret_missing_or_invalid")
 		return
 	}
-	cronAction := action == "plan" || action == "resume"
+	cronAction := action == "plan" || action == "resume" || action == "start"
 	authorized := bearer(r.Header.Get("Authorization"), trigger)
 	if cronAction && r.Method == http.MethodGet {
 		authorized = authorized || bearer(r.Header.Get("Authorization"), h.env("CRON_SECRET"))
@@ -144,7 +144,7 @@ func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
 		fail(503, "database_target_invalid_or_missing")
 		return
 	}
-	ctx, cancel := context.WithTimeout(r.Context(), 55*time.Second)
+	ctx, cancel := context.WithTimeout(r.Context(), 250*time.Second)
 	defer cancel()
 	if action == "status" {
 		result, err := h.status(ctx, dsn, registry)
@@ -164,7 +164,7 @@ func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
 		fail(503, "disk_token_missing")
 		return
 	}
-	maxJobs := 8
+	maxJobs := 64
 	if value := h.env("HOTEL_PARSER_MAX_JOBS"); value != "" {
 		maxJobs, err = strconv.Atoi(value)
 		if err != nil || maxJobs < 1 || maxJobs > 64 {
@@ -172,15 +172,25 @@ func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
 			return
 		}
 	}
+	requests := []schedule.Request{{Action: "resume"}}
+	if action == "start" {
+		loc, _ := time.LoadLocation("Europe/Moscow")
+		now := h.now().In(loc)
+		slot := time.Date(now.Year(), now.Month(), now.Day(), 8, 0, 0, 0, loc)
+		if slot.After(now) {
+			reply(200, map[string]any{"results": []schedule.Response{}, "status": "slot_not_due"})
+			return
+		}
+		requests = []schedule.Request{{Action: "start", Slot: slot}}
+	}
 	openCtx, stopOpen := context.WithTimeout(ctx, 8*time.Second)
-	service, err := h.open(openCtx, dsn, registry, collect.RuntimeOptions{Batch: collect.BatchOptions{Workers: 8}, ExecutionTimeout: 40 * time.Second, ShutdownGracePeriod: 5 * time.Second, MaxJobs: maxJobs})
+	service, err := h.open(openCtx, dsn, registry, collect.RuntimeOptions{Batch: collect.BatchOptions{Workers: 8}, Claim: storage.ClaimOptions{NewestRunFirst: true}, ExecutionTimeout: 220 * time.Second, ShutdownGracePeriod: 5 * time.Second, MaxJobs: maxJobs})
 	stopOpen()
 	if err != nil {
 		fail(503, "database_open_failed")
 		return
 	}
 	defer service.Close()
-	requests := []schedule.Request{{Action: "resume"}}
 	if action == "plan" {
 		slots, err := schedule.DueSlots(h.now())
 		if err != nil {
@@ -201,11 +211,40 @@ func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
 			if errors.Is(err, storage.ErrRunnerBusy) {
 				code, status = "runner_busy", http.StatusConflict
 			}
-			reply(status, map[string]any{"results": responses, "error": code})
+			reply(status, map[string]any{"results": responses, "summary": resultSummary(action, responses), "error": code})
 			return
 		}
 	}
-	reply(200, map[string]any{"results": responses})
+	reply(200, map[string]any{"results": responses, "summary": resultSummary(action, responses)})
+}
+
+func resultSummary(action string, responses []schedule.Response) any {
+	// Счётчики относятся к durable состоянию слота (start) или очереди (resume),
+	// а не выдают claim за подтверждённый commit текущего вызова.
+	var summary any
+	if len(responses) > 0 {
+		last := responses[len(responses)-1]
+		if last.ProgressKnown {
+			planned, completed, remaining := 0, 0, 0
+			selected := map[string]bool{}
+			for _, run := range last.Planned {
+				selected[run.ID] = true
+			}
+			for _, group := range last.Groups {
+				for _, run := range group.Runs {
+					if action == "start" && !selected[run.Run.ID] {
+						continue
+					}
+					terminal := run.Succeeded + run.Partial + run.NoOffers + run.Failed + run.Canceled
+					completed += terminal
+					remaining += run.Remaining
+					planned += terminal + run.Remaining
+				}
+			}
+			summary = map[string]int{"planned_jobs": planned, "completed_jobs": completed, "remaining_jobs": remaining}
+		}
+	}
+	return summary
 }
 
 // Фиксируем разрешённый новый Neon. Ошибочная/старая БД и transaction pooler

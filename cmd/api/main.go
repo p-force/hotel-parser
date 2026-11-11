@@ -19,14 +19,14 @@ func main() {
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 	mux := http.NewServeMux()
-	for _, action := range []string{"health", "plan", "resume", "status"} {
+	for _, action := range []string{"health", "plan", "start", "resume", "status"} {
 		mux.HandleFunc("/api/"+action, func(w http.ResponseWriter, r *http.Request) { vercelapp.Serve(action, w, r) })
 	}
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3000"
 	}
-	server := &http.Server{Addr: ":" + port, Handler: mux, ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 5 * time.Second, WriteTimeout: 60 * time.Second, IdleTimeout: 30 * time.Second, BaseContext: func(_ net.Listener) context.Context { return ctx }}
+	server := &http.Server{Addr: ":" + port, Handler: mux, ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 5 * time.Second, WriteTimeout: 250 * time.Second, IdleTimeout: 30 * time.Second, BaseContext: func(_ net.Listener) context.Context { return ctx }}
 	done := make(chan error, 1)
 	go func() { done <- server.ListenAndServe() }()
 	select {

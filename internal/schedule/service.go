@@ -120,7 +120,7 @@ func (s *Service) Migrate(ctx context.Context) error {
 
 func ValidateRequest(req Request) error {
 	switch req.Action {
-	case "plan", "tick":
+	case "plan", "tick", "start":
 		_, err := SlotHorizon(req.Slot)
 		return err
 	case "resume":
@@ -129,12 +129,13 @@ func ValidateRequest(req Request) error {
 		}
 		return nil
 	default:
-		return fmt.Errorf("action must be plan, resume or tick")
+		return fmt.Errorf("action must be plan, resume, tick or start")
 	}
 }
 
 // Execute — общий application service для CLI и HTTP. Tick сначала продолжает
 // ограниченную пачку старой очереди, затем публикует слот и продолжает исполнение.
+// Start публикует все планы слота до HTTP и обрабатывает только этот слот.
 func (s *Service) Execute(parent context.Context, req Request) (response Response, err error) {
 	if err := ValidateRequest(req); err != nil {
 		return response, err
@@ -170,6 +171,9 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 	}()
 	options := s.options
 	options.ExecutionTimeout = 0
+	if req.Action == "start" {
+		options.Claim.RunStartedAt = req.Slot
+	}
 	var guard *storage.RunnerLock
 	if req.Action != "plan" {
 		guard, err = s.groups[0].Store.TryRunnerLock(ctx)

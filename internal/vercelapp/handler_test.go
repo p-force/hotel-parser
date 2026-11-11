@@ -100,11 +100,15 @@ type fakeApplication struct {
 	closed   bool
 	err      error
 	context  context.Context
+	response schedule.Response
 }
 
 func (f *fakeApplication) Execute(ctx context.Context, r schedule.Request) (schedule.Response, error) {
 	f.context = ctx
 	f.requests = append(f.requests, r)
+	if f.response.ProgressKnown {
+		return f.response, f.err
+	}
 	return schedule.Response{ProgressKnown: true}, f.err
 }
 func (f *fakeApplication) Close() { f.closed = true }
@@ -115,7 +119,7 @@ func TestCronPlanUsesExistingDueSlotsAndClosesBeforeReturn(t *testing.T) {
 	h := testHandler(env)
 	f := &fakeApplication{}
 	h.open = func(ctx context.Context, dsn string, r schedule.Registry, o collect.RuntimeOptions) (application, error) {
-		if o.MaxJobs != 1 || o.Batch.Workers != 8 || o.ExecutionTimeout != 40*time.Second || o.ShutdownGracePeriod != 5*time.Second {
+		if o.MaxJobs != 1 || o.Batch.Workers != 8 || o.ExecutionTimeout != 220*time.Second || o.ShutdownGracePeriod != 5*time.Second || !o.Claim.NewestRunFirst {
 			t.Fatal(o)
 		}
 		if _, ok := ctx.Deadline(); !ok {
@@ -211,6 +215,50 @@ func TestEmbeddedRegistryDoesNotDependOnWorkingDirectory(t *testing.T) {
 			if property.Hotel.ID != expected.Groups[i].Properties[j].Hotel.ID || property.Hotel.Source != expected.Groups[i].Properties[j].Hotel.Source {
 				t.Fatal(property)
 			}
+		}
+	}
+}
+
+func TestStartCronUsesOnlyMorningSlotAndBoundedOptions(t *testing.T) {
+	h := testHandler(testEnv())
+	f := &fakeApplication{response: schedule.Response{ProgressKnown: true, Planned: []storage.Run{{RunInput: storage.RunInput{ID: "today"}}}, Groups: []schedule.GroupProgress{{Runs: []storage.RunProgress{{Run: storage.Run{RunInput: storage.RunInput{ID: "old"}}, Succeeded: 100}, {Run: storage.Run{RunInput: storage.RunInput{ID: "today"}}, Succeeded: 10, Partial: 2, Remaining: 49}}}}}}
+	h.open = func(ctx context.Context, _ string, _ schedule.Registry, o collect.RuntimeOptions) (application, error) {
+		if o.MaxJobs != 64 || o.ExecutionTimeout != 220*time.Second || o.Batch.Workers != 8 || o.ShutdownGracePeriod != 5*time.Second || !o.Claim.NewestRunFirst {
+			t.Fatal(o)
+		}
+		deadline, _ := ctx.Deadline()
+		if time.Until(deadline) > 8*time.Second {
+			t.Fatal("open budget")
+		}
+		return f, nil
+	}
+	w := call(h, "start", "GET", testCron, "", "")
+	if w.Code != 200 || !f.closed || len(f.requests) != 1 || f.requests[0].Action != "start" || f.requests[0].Slot.UTC() != time.Date(2026, 11, 10, 5, 0, 0, 0, time.UTC) {
+		t.Fatal(w.Code, w.Body, f.requests)
+	}
+	if !strings.Contains(w.Body.String(), `"planned_jobs":61`) || !strings.Contains(w.Body.String(), `"completed_jobs":12`) || !strings.Contains(w.Body.String(), `"remaining_jobs":49`) {
+		t.Fatal(w.Body)
+	}
+}
+
+func TestStartBeforeMorningAndFailureBoundaries(t *testing.T) {
+	h := testHandler(testEnv())
+	h.now = func() time.Time { return time.Date(2026, 11, 11, 4, 59, 0, 0, time.UTC) }
+	if w := call(h, "start", "GET", testCron, "", ""); w.Code != 200 || !strings.Contains(w.Body.String(), "slot_not_due") {
+		t.Fatal(w.Code, w.Body)
+	}
+	for _, tc := range []struct {
+		key, method, auth string
+		status            int
+	}{
+		{"CRON_SECRET", "GET", testCron, 401}, {"HOTEL_PARSER_COLLECTION_ENABLED", "GET", testCron, 503}, {"", "POST", testCron, 401}, {"", "GET", "wrong", 401},
+	} {
+		env := testEnv()
+		if tc.key != "" {
+			delete(env, tc.key)
+		}
+		if w := call(testHandler(env), "start", tc.method, tc.auth, "", ""); w.Code != tc.status {
+			t.Fatal(tc, w.Code, w.Body)
 		}
 	}
 }
