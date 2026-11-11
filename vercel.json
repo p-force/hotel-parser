@@ -4,5 +4,11 @@
   "buildCommand": "go build -buildvcs=false -o server ./cmd/api",
   "regions": [
     "fra1"
+  ],
+  "crons": [
+    {
+      "path": "/api/start",
+      "schedule": "0 5 * * *"
+    }
   ]
 }
