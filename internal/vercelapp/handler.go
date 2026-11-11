@@ -107,9 +107,15 @@ func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Cache-Control", "no-store")
 	w.Header().Set("Content-Type", "application/json")
+	var closeResources func()
 	reply := func(status int, value any) {
+		// The Function can freeze as soon as the response is published.
+		if closeResources != nil {
+			closeResources()
+		}
 		if execution != nil {
 			execution.httpStatus = status
+			execution.finish()
 		}
 		w.WriteHeader(status)
 		_ = json.NewEncoder(w).Encode(value)
@@ -241,7 +247,8 @@ func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
 		fail(503, "database_open_failed")
 		return
 	}
-	defer service.Close()
+	closeResources = sync.OnceFunc(service.Close)
+	defer closeResources()
 	if action == "plan" {
 		slots, err := schedule.DueSlots(h.now())
 		if err != nil {

@@ -175,6 +175,7 @@ func TestProgressScopeNoProgressAndRestart(t *testing.T) {
 	}
 	response.Groups[0].Runs[0].Queued++ // Different job set, not a false regression.
 	logs.Reset()
+	x.finished = false
 	x.responses = []schedule.Response{response}
 	x.finish()
 	if strings.Contains(logs.String(), "collection.no_progress") {
@@ -235,5 +236,35 @@ func TestWaitingAndEmptyProgress(t *testing.T) {
 	}
 	if v := resultSummary("resume", []schedule.Response{{ProgressKnown: false}}); v != nil {
 		t.Fatal("unknown progress replaced", v)
+	}
+}
+
+type responseBoundary struct {
+	*httptest.ResponseRecorder
+	before func()
+}
+
+func (w responseBoundary) WriteHeader(status int) { w.before(); w.ResponseRecorder.WriteHeader(status) }
+func TestFinalLogsAndResourcesPrecedeResponse(t *testing.T) {
+	h := testHandler(testEnv())
+	var logs bytes.Buffer
+	h.log = slog.New(slog.NewJSONHandler(&logs, nil))
+	f := &fakeApplication{}
+	h.open = func(context.Context, string, schedule.Registry, collect.RuntimeOptions) (application, error) {
+		return f, nil
+	}
+	r := httptest.NewRequest("GET", "/api/resume", nil)
+	r.Header.Set("Authorization", "Bearer "+testTrigger)
+	w := responseBoundary{httptest.NewRecorder(), func() {
+		if !f.closed {
+			t.Error("resources alive at HTTP publication")
+		}
+		if !strings.Contains(logs.String(), "schedule.execution.completed") {
+			t.Error("final log emitted after HTTP publication")
+		}
+	}}
+	h.serve("resume", w, r)
+	if strings.Count(logs.String(), "schedule.execution.completed") != 1 {
+		t.Fatal("duplicate terminal event", logs.String())
 	}
 }

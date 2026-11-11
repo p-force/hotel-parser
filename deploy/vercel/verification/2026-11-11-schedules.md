@@ -45,3 +45,19 @@ Root `crons` удалён; framework/buildCommand/fra1/Go version сохране
 - Unit regressions: Cron16/missing/wrong/invalid; Trigger не подделывает identity; CloudEvent/time/delay; skipped08:00resume; query/body; joined busy+SQL/timeout; no_progress после рестарта/advance/change-set; backoff/lease/unknown; root config безcrons, два GET schedules.
 - Existing PostgreSQL deadline/flush/recovery/stale fencing/CSV across resume/restart tests PASS.
 - Фактические registration, deployment и execution history будут дополнены после разрешённого автоматического deployment; ручной invoke не используется.
+
+## Первое естественное выполнение и найденная проблема логов
+
+Автоматический (не ручной) morning-start execution `schx_37G3S902ASCYWTZS8A6CJFF1F0`:
+
+- scheduled_at05:00UTC /08:00МСК; HTTP поступил05:01:35,805UTC, delay95805ms;
+- GET `/api/start`,200; CloudEvent ID совпал с CLI history, metadata_auth=cron_secret;
+- duration109729ms, claimed64, planned366, completed64, remaining302;
+- succeeded37, partial27, failed0, running/retryable0 после завершения;
+- PostgreSQL read-only подтвердил6новых runs/366jobs/64новых attempts. Всего с прежним fixture:7runs,367jobs,65attempts,456observations,432variants,1520offers,1старый delivery record.
+
+Таким образом корректность реального Bearer и запись первой пачки доказаны независимо от HTTP200. Ручные source HTTP/Planner/Schedule invoke не выполнялись; новые production-данные создал разрешённый штатный Schedule. Вся очередь ещё не завершена.
+
+Обнаружен облачный дефект жизненного цикла диагностики: terminal log, записанный defer после HTTP JSON, был заморожен платформой и попал в следующий `/api/status` (event time05:03:25, provider timestamp05:04:25 и другой requestId). Он не потерян, но был неверно привязан. Закрытие service/pools и финальные логи перенесены **до WriteHeader/Encode**, с once-защитой и regression тестом response boundary. После исправления make check и весь Docker integration-набор повторно PASS. Никаких фоновых flush/sleep/self-invocation не добавлено.
+
+CLI execution history пока показывает status=unavailable/recordedInvocations=0 для этого execution. Это ограничение correlation/observability: реальные request log200, совпавший ce-id, application counters и PostgreSQL доказывают выполнение. Статус history не исправляется искусственно.

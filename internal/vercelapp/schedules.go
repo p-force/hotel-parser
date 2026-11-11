@@ -78,6 +78,7 @@ type executionLog struct {
 	metadata     *scheduleMetadata
 	status, code string
 	httpStatus   int
+	finished     bool
 	responses    []schedule.Response
 }
 
@@ -94,9 +95,10 @@ func (x *executionLog) started() {
 	}
 }
 func (x *executionLog) finish() {
-	if x == nil {
+	if x == nil || x.finished {
 		return
 	}
+	x.finished = true
 	a := x.attrs()
 	a = append(a, "http_status", x.httpStatus, "duration_ms", time.Since(x.measured).Milliseconds())
 	if x.code != "" {
