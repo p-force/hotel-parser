@@ -39,6 +39,9 @@ type Response struct {
 	ProgressKnown bool               `json:"progress_known"`
 	Exports       []report.Artifact  `json:"exports,omitempty"`
 	Deliveries    []storage.Delivery `json:"deliveries,omitempty"`
+	Before        []GroupProgress    `json:"-"` // Тот же durable набор после plan, до runner.
+	ClaimedJobs   int                `json:"-"` // Не подтверждение commit.
+	Stage         string             `json:"-"`
 }
 
 // Open подключает все группы к одной БД. DDL выполняет только явный Migrate.
@@ -170,6 +173,7 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 		}
 	}()
 	options := s.options
+	response.Stage = "admission"
 	options.ExecutionTimeout = 0
 	if req.Action == "start" {
 		options.Claim.RunStartedAt = req.Slot
@@ -219,6 +223,7 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 		}
 	}
 	if req.Action != "resume" {
+		response.Stage = "planning"
 		plans, e := BuildPlans(s.registry, req.Slot)
 		if e != nil {
 			return response, e
@@ -236,7 +241,19 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 		}
 	}
 	if req.Action != "plan" && options.MaxJobs > 0 {
-		_, drainErr := collect.RunGroups(ctx, s.groups, options)
+		response.Stage = "progress_before"
+		for _, g := range s.groups {
+			runs, e := g.Store.RunProgress(ctx)
+			if e != nil {
+				return response, e
+			}
+			response.Before = append(response.Before, GroupProgress{GroupID: g.ID, Schema: g.Store.Schema(), Runs: runs})
+		}
+		response.Stage = "collection"
+		results, drainErr := collect.RunGroups(ctx, s.groups, options)
+		for _, result := range results {
+			response.ClaimedJobs += len(result.JobIDs)
+		}
 		err = errors.Join(err, drainErr)
 	}
 	return response, err

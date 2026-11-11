@@ -5,10 +5,18 @@
   "regions": [
     "fra1"
   ],
-  "crons": [
-    {
+  "schedules": {
+    "morning-start": {
+      "schedule": "0 8 * * *",
+      "timezone": "Europe/Moscow",
       "path": "/api/start",
-      "schedule": "0 5 * * *"
+      "requestMethod": "GET"
+    },
+    "morning-resume": {
+      "schedule": "*/15 8-11 * * *",
+      "timezone": "Europe/Moscow",
+      "path": "/api/resume",
+      "requestMethod": "GET"
     }
-  ]
+  }
 }

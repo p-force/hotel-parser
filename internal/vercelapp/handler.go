@@ -31,6 +31,7 @@ type application interface {
 	Close()
 }
 type handler struct {
+	log      *slog.Logger
 	env      func(string) string
 	now      func() time.Time
 	registry func() (schedule.Registry, error)
@@ -83,7 +84,10 @@ func loadRegistry() (schedule.Registry, error) {
 }
 
 func bearer(header, secret string) bool {
-	if len(secret) < 32 {
+	return bearerMinimum(header, secret, 32)
+}
+func bearerMinimum(header, secret string, minimum int) bool {
+	if !usableSecret(secret, minimum) {
 		return false
 	}
 	got, want := sha256.Sum256([]byte(header)), sha256.Sum256([]byte("Bearer "+secret))
@@ -91,10 +95,31 @@ func bearer(header, secret string) bool {
 }
 
 func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
+	actual := h.now()
+	var execution *executionLog
+	if action == "start" || action == "resume" {
+		log := h.log
+		if log == nil {
+			log = slog.Default()
+		}
+		execution = &executionLog{logger: log, ctx: r.Context(), action: action, actual: actual, measured: time.Now(), httpStatus: 500}
+		defer execution.finish()
+	}
 	w.Header().Set("Cache-Control", "no-store")
 	w.Header().Set("Content-Type", "application/json")
-	reply := func(status int, value any) { w.WriteHeader(status); _ = json.NewEncoder(w).Encode(value) }
-	fail := func(status int, code string) { reply(status, map[string]string{"error": code}) }
+	reply := func(status int, value any) {
+		if execution != nil {
+			execution.httpStatus = status
+		}
+		w.WriteHeader(status)
+		_ = json.NewEncoder(w).Encode(value)
+	}
+	fail := func(status int, code string) {
+		if execution != nil {
+			execution.code = code
+		}
+		reply(status, map[string]string{"error": code})
+	}
 	trigger := h.env("HOTEL_PARSER_TRIGGER_SECRET")
 	if len(trigger) < 32 {
 		fail(503, "trigger_secret_missing_or_invalid")
@@ -102,12 +127,26 @@ func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
 	}
 	cronAction := action == "plan" || action == "resume" || action == "start"
 	authorized := bearer(r.Header.Get("Authorization"), trigger)
+	cronAuthorized := false
 	if cronAction && r.Method == http.MethodGet {
-		authorized = authorized || bearer(r.Header.Get("Authorization"), h.env("CRON_SECRET"))
+		cronAuthorized = cronBearer(r.Header.Get("Authorization"), h.env("CRON_SECRET"))
+		authorized = authorized || cronAuthorized
 	}
 	if !authorized {
 		fail(401, "unauthorized")
 		return
+	}
+	if execution != nil {
+		execution.authorized = true
+		if cronAuthorized {
+			metadata, err := readScheduleMetadata(r.Header, action)
+			if err != nil {
+				fail(400, "schedule_metadata_invalid")
+				return
+			}
+			execution.metadata = metadata
+		}
+		execution.started()
 	}
 	if r.URL.RawQuery != "" {
 		fail(400, "query_not_allowed")
@@ -173,11 +212,23 @@ func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	requests := []schedule.Request{{Action: "resume"}}
+	if execution != nil && execution.metadata != nil && action == "resume" {
+		loc, _ := time.LoadLocation("Europe/Moscow")
+		at := execution.metadata.ScheduledAt.In(loc)
+		if at.Hour() == 8 && at.Minute() == 0 {
+			execution.status = "initial_resume_skipped"
+			reply(200, map[string]any{"results": []schedule.Response{}, "status": "initial_resume_skipped"})
+			return
+		}
+	}
 	if action == "start" {
 		loc, _ := time.LoadLocation("Europe/Moscow")
-		now := h.now().In(loc)
+		now := actual.In(loc)
 		slot := time.Date(now.Year(), now.Month(), now.Day(), 8, 0, 0, 0, loc)
 		if slot.After(now) {
+			if execution != nil {
+				execution.status = "slot_not_due"
+			}
 			reply(200, map[string]any{"results": []schedule.Response{}, "status": "slot_not_due"})
 			return
 		}
@@ -206,10 +257,22 @@ func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
 	for _, request := range requests {
 		response, err := service.Execute(ctx, request)
 		responses = append(responses, response)
+		if execution != nil {
+			execution.responses = responses
+		}
 		if err != nil {
 			code, status := "collection_incomplete", http.StatusServiceUnavailable
-			if errors.Is(err, storage.ErrRunnerBusy) {
+			if onlyRunnerBusy(err) {
 				code, status = "runner_busy", http.StatusConflict
+			} else if errors.Is(err, context.DeadlineExceeded) {
+				code = "timeout"
+			} else if errors.Is(err, context.Canceled) {
+				code = "canceled"
+			} else if response.Stage == "planning" {
+				code = "planning_failed"
+			}
+			if execution != nil {
+				execution.code = code
 			}
 			reply(status, map[string]any{"results": responses, "summary": resultSummary(action, responses), "error": code})
 			return
@@ -226,22 +289,28 @@ func resultSummary(action string, responses []schedule.Response) any {
 		last := responses[len(responses)-1]
 		if last.ProgressKnown {
 			planned, completed, remaining := 0, 0, 0
-			selected := map[string]bool{}
-			for _, run := range last.Planned {
-				selected[run.ID] = true
-			}
+			counts := map[string]int{}
 			for _, group := range last.Groups {
 				for _, run := range group.Runs {
-					if action == "start" && !selected[run.Run.ID] {
+					if !runSelected(action, last, group.GroupID, run) {
 						continue
 					}
 					terminal := run.Succeeded + run.Partial + run.NoOffers + run.Failed + run.Canceled
 					completed += terminal
 					remaining += run.Remaining
 					planned += terminal + run.Remaining
+					counts["queued"] += run.Queued
+					counts["running"] += run.Running
+					counts["retryable"] += run.Retryable
+					counts["succeeded"] += run.Succeeded
+					counts["partial"] += run.Partial
+					counts["no_offers"] += run.NoOffers
+					counts["failed"] += run.Failed
+					counts["canceled"] += run.Canceled
 				}
 			}
-			summary = map[string]int{"planned_jobs": planned, "completed_jobs": completed, "remaining_jobs": remaining}
+			counts["planned_jobs"], counts["completed_jobs"], counts["remaining_jobs"] = planned, completed, remaining
+			summary = counts
 		}
 	}
 	return summary

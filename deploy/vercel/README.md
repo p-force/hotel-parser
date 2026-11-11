@@ -23,12 +23,12 @@
 |---|---|
 | `HOTEL_PARSER_DATABASE_URL` | Direct PostgreSQL URL **нового** Neon: host выше, database `neondb`, `sslmode=require` или `verify-full`. Без `-pooler`; advisory locks используют сессию |
 | `HOTEL_PARSER_TRIGGER_SECRET` | Собственный случайный секрет, не менее 32 байт; только Bearer header |
-| `CRON_SECRET` | Другой случайный секрет, не менее 32 байт; необходим при включении Vercel Cron |
+| `CRON_SECRET` | Другой случайный секрет, не менее 32 байт; необходим для path-based Schedules; минимум16 символов |
 | `YANDEX_DISK_TOKEN` | OAuth-токен пользователя; вводить только в Dashboard |
 | `YANDEX_DISK_DIR` | Например `/hotel-parser`; для smoke отдельная тестовая папка |
 | `HOTEL_PARSER_LOG_FORMAT` | `json` |
 | `HOTEL_PARSER_LOG_LEVEL` | `INFO` |
-| `HOTEL_PARSER_COLLECTION_ENABLED` | **`false`** до проверки секретов, миграций и отсутствия второго сборщика. Только буквальное `true` разрешает plan/resume |
+| `HOTEL_PARSER_COLLECTION_ENABLED` | **`false`** до проверки секретов, миграций и отсутствия второго сборщика. Только буквальное `true` разрешает plan/start/resume |
 | `HOTEL_PARSER_MAX_JOBS` | `1` для ограниченного smoke, `64` штатно; допустимо 1..64 |
 
 Шаблон без значений секретов: [env.example](env.example). Если обязательной настройки нет, plan/resume возвращает 503 до вызова application service. Секреты не принимаются в URL/body и не возвращаются в ответах. Значения ошибок источников и DSN также не возвращаются.
@@ -89,19 +89,31 @@ Claim `/start` ограничен точным `collection_runs.started_at=slot`
 
 Ответ содержит `results` существующего service и `summary`: `planned_jobs`, `completed_jobs`, `remaining_jobs`. Для `/start` это durable итоги текущего слота, для `/resume` — всей очереди, **не число HTTP/claim текущего invocation**. `summary=null` при недостоверном progress; это не нулевой остаток очереди. Ошибка/deadline возвращает безопасный код и доступный progress. CSV/delivery выполняются существующим service после workers/lock, в оставшемся бюджете; при его исчерпании восстановятся следующим вызовом.
 
-## Cron: подготовлен, не активирован
+## Vercel Schedules
 
-В [cron.example.json](cron.example.json) оставлена ровно одна секция:
+Корневой `vercel.json` содержит только два path-based Schedules, без legacy `crons`:
 
-```json
-{"crons":[{"path":"/api/start","schedule":"0 5 * * *"}]}
-```
+- `morning-start`: `0 8 * * *`, Europe/Moscow, GET `/api/start`.
+- `morning-resume`: `*/15 8-11 * * *`, Europe/Moscow, GET `/api/resume`.
 
-Она **не включена** в корневой `vercel.json`: до отдельной активации нужно добавить `CRON_SECRET` в Production, подтвердить единственный collector и включить сбор. Текущее `HOTEL_PARSER_COLLECTION_ENABLED=false` сохранено. Не добавлять другие слоты, ежеминутные cron или self-invocation.
+Первый resume с **scheduled_at08:00** авторизуется, но возвращает `initial_resume_skipped` до открытия service. Таким образом рабочие resume —08:15…11:45 без удаления09:00/10:00/11:00. Это не исключает overlap из-за15минутного Hobby jitter:409 `runner_busy` является ожидаемым безопасным результатом, а не причиной скрывать SQL/timeout. Изменять cron expression на `15,30,45 8-11` не стали: он потерял бы ещё три запуска в начале часов.
 
-На [Hobby](https://vercel.com/docs/cron-jobs/usage-and-pricing) дневной Cron может прийти между05:00 и05:59UTC (08:00–08:59МСК); точный запуск08:00 не гарантируется. Один вызов обрабатывает не больше64jobs, утренний план шести отелей —366jobs. Для завершения нужны дополнительные авторизованные `/api/resume`; встроенный дневной Cron их не организует. Автоматическое продолжение требует отдельного согласованного trigger/плана. Пока его нет, нельзя обещать ежедневный полный сбор и доставку.
+[Path Schedules](https://vercel.com/docs/schedules/handle-runs) посылают Bearer `CRON_SECRET` из env текущего deployment. У секрета минимум16 printable ASCII символов без краевых пробелов/переводов строк; ручной Trigger сохраняет минимум32. Секреты нельзя передавать в query/body. Заголовки `ce-id`, `ce-vssschedulename`, `ce-vssscheduledat` и остальные CloudEvent поля проверяются только после Cron Bearer. Trigger-запрос не может выдать себя за Schedule через заголовки. Общий секрет не является криптографической аттестацией платформы: окончательный факт доставки проверяется по execution history Vercel.
 
-[Настройка duration](https://vercel.com/docs/functions/configuring-functions/duration) применяется на уровне проекта, поскольку Go HTTP-server preset собирает одну lambda `go`. Неподдерживаемый `functions` glob на `cmd/api/main.go` не добавляется. API принял260s при Hobby/Fluid; окончательное подтверждение — `builds[].output[].lambda.timeout` нового deployment, не значение JSON или один HTTP200. Подробное evidence: [проверка11.11.2026](verification/2026-11-11.md).
+`CRON_SECRET` фиксируется при сборке deployment: изменение секрета без redeploy не обновит отправителя. `HOTEL_PARSER_COLLECTION_ENABLED` остаётся обязательным выключателем, Deployment Protection не отключается.
+
+[Shedules на Hobby](https://vercel.com/docs/schedules/limits): минимальный интервал15минут, jitter всегда15минут, до5000запусков команды за billing period. Наши17вызовов/день включают один пропущенный начальный resume; лимит общий с другими проектами. Точное08:00 и завершение всех366jobs за утреннее окно не гарантируются. Path targets **не повторяются автоматически при409/5xx**. Если start не опубликовал слот, пустой resume не заменит Planner: нужны диагностика и отдельный повтор start, а не вывод об успехе по HTTP200.
+
+### Логи и прогресс
+
+- `schedule.execution.started/completed`: execution ID, проверенное имя, scheduled_at без jitter, actual_started_at, delay_ms, action, duration, stage, HTTP/status/error_code и durable counters.
+- `schedule.request.rejected`: отказ авторизации без доверия к клиентским `ce-*` и без секретов.
+- `collection.progress`: group/run ID, логический слот, все job statuses, remaining_before/after для того же immutable набора jobs, ready/lease/backoff.
+- `collection.no_progress`: нет подтверждённой активности30минут и remaining не уменьшился при том же наборе. Время берётся из PostgreSQL attempts/job creation, поэтому диагностика работает после рестарта без новой таблицы или глобальной карты.
+
+Summary start относится к опубликованному слоту. Summary resume — к runs, которые были незавершены в снимке до Runner (включая завершившиеся в этом вызове), без старого закрытого архива или нового слота, появившегося параллельно. Полная история остаётся в results/groups. При неизвестном progress —null, а не фиктивные нули. Completed/claimed различаются; сохранённые attempts являются активностью даже без уменьшения remaining при retry.
+
+Расширенные локальные проверки, облачная конфигурация и фактический статус миграции: [Schedules verification](verification/2026-11-11-schedules.md). Историческая проверка260s: [duration evidence](verification/2026-11-11.md). Root config сохраняет framework Go, build command, fra1; project default и фактическая lambda —260s, HTTP250s, service220s, jobs64/workers8/grace5s. Старый cron.example.json — только исторический пример, **не применять его поверх Schedules**.
 
 ## Удаление адаптера при переходе на VPS
 
