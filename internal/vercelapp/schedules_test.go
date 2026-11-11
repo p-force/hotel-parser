@@ -198,17 +198,19 @@ func TestSchedulesConfig(t *testing.T) {
 	if e = json.Unmarshal(config["schedules"], &entries); e != nil {
 		t.Fatal(e)
 	}
-	if _, ok := entries["morning-start"]; !ok {
-		t.Fatal("missing morning-start")
+	expected := map[string]struct{ Schedule, Path string }{
+		"morning-start":  {"0 8 * * *", "/api/start"},
+		"midday-plan":    {"0 12 * * *", "/api/plan"},
+		"afternoon-plan": {"0 16 * * *", "/api/plan"},
+		"evening-plan":   {"0 20 * * *", "/api/plan"},
+		"morning-resume": {"*/15 8-21 * * *", "/api/resume"},
 	}
-	if _, ok := entries["morning-resume"]; !ok {
-		t.Fatal("missing morning-resume")
-	}
-	if len(entries) != 2 {
+	if len(entries) != len(expected) {
 		t.Fatal(entries)
 	}
-	for name, v := range entries {
-		if v.Timezone != "Europe/Moscow" || v.RequestMethod != "GET" || (name == "morning-start" && (v.Schedule != "0 8 * * *" || v.Path != "/api/start")) || (name == "morning-resume" && (v.Schedule != "*/15 8-11 * * *" || v.Path != "/api/resume")) {
+	for name, want := range expected {
+		v, ok := entries[name]
+		if !ok || v.Timezone != "Europe/Moscow" || v.RequestMethod != "GET" || v.Schedule != want.Schedule || v.Path != want.Path {
 			t.Fatal(name, v)
 		}
 	}
