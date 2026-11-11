@@ -12,8 +12,26 @@
       "path": "/api/start",
       "requestMethod": "GET"
     },
+    "midday-plan": {
+      "schedule": "0 12 * * *",
+      "timezone": "Europe/Moscow",
+      "path": "/api/plan",
+      "requestMethod": "GET"
+    },
+    "afternoon-plan": {
+      "schedule": "0 16 * * *",
+      "timezone": "Europe/Moscow",
+      "path": "/api/plan",
+      "requestMethod": "GET"
+    },
+    "evening-plan": {
+      "schedule": "0 20 * * *",
+      "timezone": "Europe/Moscow",
+      "path": "/api/plan",
+      "requestMethod": "GET"
+    },
     "morning-resume": {
-      "schedule": "*/15 8-11 * * *",
+      "schedule": "*/15 8-21 * * *",
       "timezone": "Europe/Moscow",
       "path": "/api/resume",
       "requestMethod": "GET"

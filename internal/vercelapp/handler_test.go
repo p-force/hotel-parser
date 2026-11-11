@@ -223,7 +223,7 @@ func TestStartCronUsesOnlyMorningSlotAndBoundedOptions(t *testing.T) {
 	h := testHandler(testEnv())
 	f := &fakeApplication{response: schedule.Response{ProgressKnown: true, Planned: []storage.Run{{RunInput: storage.RunInput{ID: "today"}}}, Groups: []schedule.GroupProgress{{Runs: []storage.RunProgress{{Run: storage.Run{RunInput: storage.RunInput{ID: "old"}}, Succeeded: 100}, {Run: storage.Run{RunInput: storage.RunInput{ID: "today"}}, Succeeded: 10, Partial: 2, Remaining: 49}}}}}}
 	h.open = func(ctx context.Context, _ string, _ schedule.Registry, o collect.RuntimeOptions) (application, error) {
-		if o.MaxJobs != 64 || o.ExecutionTimeout != 220*time.Second || o.Batch.Workers != 8 || o.ShutdownGracePeriod != 5*time.Second || !o.Claim.NewestRunFirst {
+		if o.MaxJobs != 96 || o.ExecutionTimeout != 220*time.Second || o.Batch.Workers != 8 || o.ShutdownGracePeriod != 5*time.Second || !o.Claim.NewestRunFirst {
 			t.Fatal(o)
 		}
 		deadline, _ := ctx.Deadline()

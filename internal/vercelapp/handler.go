@@ -209,10 +209,10 @@ func (h handler) serve(action string, w http.ResponseWriter, r *http.Request) {
 		fail(503, "disk_token_missing")
 		return
 	}
-	maxJobs := 64
+	maxJobs := 96
 	if value := h.env("HOTEL_PARSER_MAX_JOBS"); value != "" {
 		maxJobs, err = strconv.Atoi(value)
-		if err != nil || maxJobs < 1 || maxJobs > 64 {
+		if err != nil || maxJobs < 1 || maxJobs > 96 {
 			fail(503, "max_jobs_invalid")
 			return
 		}
