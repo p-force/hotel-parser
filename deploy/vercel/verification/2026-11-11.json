@@ -1,0 +1,178 @@
+{
+  "verified_commit": "55a2fe5890ec52e32ee60577725aa340ab2160d4",
+  "project": "hotel-parser",
+  "project_id": "prj_8LrZh5Obv8pUw8jpj6YGFzbK5fSz",
+  "plan": "hobby",
+  "fluid": true,
+  "production_branch": "deploy/vercel",
+  "deployment": {
+    "id": "dpl_4QMvvC1dcWHN886XQFFiKTgqJ4T1",
+    "url": "hotel-parser-hys0kuzad-dianas-projects-a75fd820.vercel.app",
+    "state": "READY",
+    "target": "production",
+    "functions": [
+      {
+        "runtime": "executable",
+        "runtimeLanguage": "go",
+        "timeout": 260,
+        "memorySize": 2048,
+        "deployedTo": [
+          "fra1"
+        ]
+      }
+    ]
+  },
+  "before": {
+    "project_timeout": 60,
+    "functions": [
+      {
+        "runtime": "executable",
+        "runtimeLanguage": "go",
+        "timeout": 60,
+        "memorySize": 2048,
+        "deployedTo": [
+          "fra1"
+        ]
+      }
+    ]
+  },
+  "actual_project_timeout": 260,
+  "max_jobs_production_env_verified": 64,
+  "http_timeout_seconds": 250,
+  "execution_timeout_seconds": 220,
+  "workers": 8,
+  "shutdown_grace_seconds": 5,
+  "collection_enabled": false,
+  "cron_secret_present": false,
+  "cron_definitions": [],
+  "prepared_cron": {
+    "path": "/api/start",
+    "schedule": "0 5 * * *"
+  },
+  "protection_unchanged": true,
+  "production_status_unchanged": true,
+  "http_checks": [
+    {
+      "action": "health",
+      "authorized": false,
+      "http_status": 401,
+      "safe_result": {
+        "error": "unauthorized"
+      }
+    },
+    {
+      "action": "health",
+      "authorized": true,
+      "http_status": 200,
+      "safe_result": {
+        "collection_enabled": false,
+        "database_configured": true,
+        "delivery_configured": true,
+        "groups": 1,
+        "status": "ok"
+      }
+    },
+    {
+      "action": "start",
+      "authorized": false,
+      "http_status": 401,
+      "safe_result": {
+        "error": "unauthorized"
+      }
+    },
+    {
+      "action": "start",
+      "authorized": true,
+      "http_status": 503,
+      "safe_result": {
+        "error": "collection_disabled"
+      }
+    },
+    {
+      "action": "resume",
+      "authorized": true,
+      "http_status": 503,
+      "safe_result": {
+        "error": "collection_disabled"
+      }
+    },
+    {
+      "action": "status",
+      "authorized": true,
+      "http_status": 200,
+      "safe_result": {
+        "unchanged": true
+      }
+    }
+  ],
+  "request_logs": [
+    {
+      "timestamp": "2026-11-11T03:52:29.895Z",
+      "requestPath": "/api/status",
+      "requestMethod": "GET",
+      "httpStatus": 200,
+      "deploymentId": "dpl_4QMvvC1dcWHN886XQFFiKTgqJ4T1"
+    },
+    {
+      "timestamp": "2026-11-11T03:52:29.539Z",
+      "requestPath": "/api/resume",
+      "requestMethod": "GET",
+      "httpStatus": 503,
+      "deploymentId": "dpl_4QMvvC1dcWHN886XQFFiKTgqJ4T1"
+    },
+    {
+      "timestamp": "2026-11-11T03:52:29.293Z",
+      "requestPath": "/api/start",
+      "requestMethod": "GET",
+      "httpStatus": 503,
+      "deploymentId": "dpl_4QMvvC1dcWHN886XQFFiKTgqJ4T1"
+    },
+    {
+      "timestamp": "2026-11-11T03:52:28.867Z",
+      "requestPath": "/api/start",
+      "requestMethod": "GET",
+      "httpStatus": 401,
+      "deploymentId": "dpl_4QMvvC1dcWHN886XQFFiKTgqJ4T1"
+    },
+    {
+      "timestamp": "2026-11-11T03:52:28.418Z",
+      "requestPath": "/api/health",
+      "requestMethod": "GET",
+      "httpStatus": 200,
+      "deploymentId": "dpl_4QMvvC1dcWHN886XQFFiKTgqJ4T1"
+    },
+    {
+      "timestamp": "2026-11-11T03:52:28.009Z",
+      "requestPath": "/api/health",
+      "requestMethod": "GET",
+      "httpStatus": 401,
+      "deploymentId": "dpl_4QMvvC1dcWHN886XQFFiKTgqJ4T1"
+    },
+    {
+      "timestamp": "2026-11-11T03:51:33.215Z",
+      "requestPath": "/",
+      "requestMethod": "GET",
+      "httpStatus": 404,
+      "deploymentId": "dpl_4QMvvC1dcWHN886XQFFiKTgqJ4T1"
+    },
+    {
+      "timestamp": "2026-11-11T03:51:33.005Z",
+      "requestPath": "/",
+      "requestMethod": "GET",
+      "httpStatus": 404,
+      "deploymentId": "dpl_4QMvvC1dcWHN886XQFFiKTgqJ4T1"
+    }
+  ],
+  "runtime_log_records": 0,
+  "tests": {
+    "make check": "PASS",
+    "make test-integration-docker": "PASS, all four packages",
+    "new plan failure PostgreSQL regression": "PASS, targeted run after adding test",
+    "git diff --check": "PASS",
+    "native Go API build": "PASS",
+    "cloud Go build": "PASS, Go 1.26.0"
+  },
+  "new_production_source_http": 0,
+  "new_production_jobs": 0,
+  "new_production_deliveries": 0
+}
