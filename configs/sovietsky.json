@@ -10,50 +10,50 @@
     "property_id": "333"
   },
   "inventory": {
-    "total_rooms": null,
+    "total_rooms": 52,
     "source": "public_observed_max",
     "categories": [
       {
         "id": "tl_24386",
         "name": "Стандарт с одной кроватью",
         "source_room_id": "24386",
-        "total_rooms": null
+        "total_rooms": 10
       },
       {
         "id": "tl_2416",
         "name": "Стандартный с двумя раздельными кроватями",
         "source_room_id": "2416",
-        "total_rooms": null
+        "total_rooms": 10
       },
       {
         "id": "tl_24281",
         "name": "Делюкс",
         "source_room_id": "24281",
-        "total_rooms": null
+        "total_rooms": 10
       },
       {
         "id": "tl_2420",
         "name": "Полулюкс",
         "source_room_id": "2420",
-        "total_rooms": null
+        "total_rooms": 10
       },
       {
         "id": "tl_2422",
         "name": "Клубный Люкс",
         "source_room_id": "2422",
-        "total_rooms": null
+        "total_rooms": 10
       },
       {
         "id": "tl_2992",
         "name": "Апартаменты",
         "source_room_id": "2992",
-        "total_rooms": null
+        "total_rooms": 1
       },
       {
         "id": "tl_29344",
         "name": "«Сталинские апартаменты» / «Апартаменты Яръ»",
         "source_room_id": "29344",
-        "total_rooms": null
+        "total_rooms": 1
       }
     ]
   },
@@ -87,13 +87,9 @@
   "collection": {
     "enabled": true,
     "days_ahead": 60,
-    "adults": [
-      1
-    ],
+    "adults": [1],
     "children_ages": [],
     "rooms": 1,
-    "nights": [
-      1
-    ]
+    "nights": [1]
   }
 }

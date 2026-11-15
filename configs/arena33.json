@@ -37,9 +37,9 @@
   "collection": {
     "enabled": true,
     "days_ahead": 60,
-    "adults": 2,
+    "adults": 1,
     "children_ages": [],
     "rooms": 1,
-    "nights": [1, 2, 3]
+    "nights": [1]
   }
 }
