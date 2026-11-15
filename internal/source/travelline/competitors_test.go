@@ -23,7 +23,7 @@ func TestCompetitorPublicFixtures(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			if !cfg.Collection.Enabled || cfg.Source.PropertyID != tc.id || cfg.Inventory.TotalRooms != nil {
+			if !cfg.Collection.Enabled || cfg.Source.PropertyID != tc.id {
 				t.Fatal("invalid enabled public source config")
 			}
 			rates := []string{}

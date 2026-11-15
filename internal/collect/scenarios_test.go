@@ -25,6 +25,9 @@ func TestCollectConfiguredBatch(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
+			// Явная матрица batch API не зависит от регулярных сценариев в конфигах.
+			hotel.Collection.Adults = tc.adults
+			hotel.Collection.Nights = []int{1, 2, 3}
 			before := append(config.AdultCounts(nil), hotel.Collection.Adults...)
 			var calls atomic.Int32
 			client := poolClient(t, func(w http.ResponseWriter, r *http.Request) {

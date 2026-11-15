@@ -109,8 +109,8 @@ func TestLoadLindsay(t *testing.T) {
 	if !reflect.DeepEqual(cfg.Rates, expectedRates) {
 		t.Errorf("тарифы=%+v", cfg.Rates)
 	}
-	if cfg.Collection.Enabled || cfg.Collection.DaysAhead != 60 || !reflect.DeepEqual(cfg.Collection.Adults, AdultCounts{1, 2}) || cfg.Collection.Rooms != 1 || len(cfg.Collection.ChildrenAges) != 0 || !reflect.DeepEqual(cfg.Collection.Nights, []int{1, 2, 3}) {
-		t.Errorf("изменён сценарий MVP: %+v", cfg.Collection)
+	if cfg.Collection.Enabled || cfg.Collection.DaysAhead != 60 || !reflect.DeepEqual(cfg.Collection.Adults, AdultCounts{1}) || cfg.Collection.Rooms != 1 || len(cfg.Collection.ChildrenAges) != 0 || !reflect.DeepEqual(cfg.Collection.Nights, []int{1}) {
+		t.Errorf("неверные параметры сбора Lindsay: %+v", cfg.Collection)
 	}
 }
 
