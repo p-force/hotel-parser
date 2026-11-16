@@ -46,6 +46,12 @@ func propertyInputs(t *testing.T, client *bnovo.Client) []PropertyCollection {
 		if err != nil {
 			t.Fatal(err)
 		}
+		// Матрица проверяет явный batch API, независимо от регулярных LOS=1/adults=1.
+		hotel.Collection.Adults = config.AdultCounts{2}
+		if id == "lindsay" {
+			hotel.Collection.Adults = config.AdultCounts{1, 2}
+		}
+		hotel.Collection.Nights = []int{1, 2, 3}
 		properties = append(properties, PropertyCollection{Hotel: hotel, CheckIn: in, Client: client})
 	}
 	return properties
@@ -74,12 +80,13 @@ func assertPropertyIdentity(t *testing.T, properties []PropertyCollection, resul
 		if err != nil {
 			t.Fatal(err)
 		}
-		for i, req := range requests {
+		for _, req := range requests {
 			if index >= len(results) {
 				t.Fatal("scenario missing")
 			}
 			result := results[index]
-			if result.PropertyID != property.Hotel.ID || result.Source != property.Hotel.Source || result.LOS != property.Hotel.Collection.Nights[i%3] || !reflect.DeepEqual(result.Result.Request, req) {
+			wantLOS := int(req.CheckOut.Sub(req.CheckIn) / (24 * time.Hour))
+			if result.PropertyID != property.Hotel.ID || result.Source != property.Hotel.Source || result.LOS != wantLOS || !reflect.DeepEqual(result.Result.Request, req) {
 				t.Errorf("index=%d identity lost: %+v", index, result)
 			}
 			index++

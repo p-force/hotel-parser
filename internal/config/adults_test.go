@@ -2,17 +2,12 @@ package config
 
 import (
 	"encoding/json"
-	"os"
 	"reflect"
 	"strings"
 	"testing"
 )
 
 func TestAdultsConfiguration(t *testing.T) {
-	original, err := os.ReadFile("../../configs/arena33.json")
-	if err != nil {
-		t.Fatal(err)
-	}
 	for _, tc := range []struct {
 		value string
 		want  AdultCounts
@@ -21,8 +16,10 @@ func TestAdultsConfiguration(t *testing.T) {
 		{"[]", nil}, {"null", nil}, {"[1,1]", nil}, {"[1,3]", nil}, {"[null,2]", nil}, {"0", nil}, {"3", nil}, {"2.5", nil}, {`"2"`, nil}, {"[true]", nil},
 	} {
 		t.Run(tc.value, func(t *testing.T) {
-			data := strings.Replace(string(original), `"adults": 2`, `"adults": `+tc.value, 1)
-			cfg, err := Parse([]byte(data))
+			data := arenaJSON(t, func(fields map[string]any) {
+				fields["collection"].(map[string]any)["adults"] = json.RawMessage(tc.value)
+			})
+			cfg, err := Parse(data)
 			if tc.want == nil {
 				if err == nil {
 					t.Fatal("invalid adults accepted")
@@ -46,8 +43,12 @@ func TestAdultsConfiguration(t *testing.T) {
 		})
 	}
 	// Custom decoding must not bypass strict validation of unrelated fields.
-	invalid := strings.Replace(string(original), `"adults": 2`, `"adults": [1,2], "unexpected": true`, 1)
-	if _, err := Parse([]byte(invalid)); err == nil {
-		t.Fatal("unknown collection field accepted")
+	invalid := arenaJSON(t, func(fields map[string]any) {
+		collection := fields["collection"].(map[string]any)
+		collection["adults"] = []int{1, 2}
+		collection["unexpected"] = true
+	})
+	if _, err := Parse(invalid); err == nil || !strings.Contains(err.Error(), "unknown field") {
+		t.Fatalf("unknown collection field: %v", err)
 	}
 }
