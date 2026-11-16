@@ -1,0 +1,60 @@
+{
+  "code_commit": "698aa3b9d1e9b0abf76106e8a07d4a36d53862a7",
+  "deployment_id": "dpl_DdyuFrpoBwCT4aQDUhrDiF2GuJjJ",
+  "schedules": [
+    {
+      "scheduleId": "sch_01M74F57BSDQJC24F5QNQWG763",
+      "name": "morning-resume",
+      "namespace": "default",
+      "timezone": "Europe/Moscow",
+      "expression": {
+        "type": "cron",
+        "cron": "*/15 8-11 * * *"
+      },
+      "target": {
+        "type": "path",
+        "path": "/api/resume",
+        "requestMethod": "GET"
+      },
+      "state": "active",
+      "source": "static",
+      "createdAt": 1794372705657,
+      "updatedAt": 1794372705657
+    },
+    {
+      "scheduleId": "sch_01M74F57BX159N984C41FW47JD",
+      "name": "morning-start",
+      "namespace": "default",
+      "timezone": "Europe/Moscow",
+      "expression": {
+        "type": "cron",
+        "cron": "0 8 * * *"
+      },
+      "target": {
+        "type": "path",
+        "path": "/api/start",
+        "requestMethod": "GET"
+      },
+      "state": "active",
+      "source": "static",
+      "createdAt": 1794372705661,
+      "updatedAt": 1794372705661
+    }
+  ],
+  "legacy_cron_definitions": [],
+  "function_timeout": 260,
+  "collection_enabled": true,
+  "activation_authorized_by_user": true,
+  "tests": {
+    "make check": "PASS",
+    "make test-integration-docker": "PASS",
+    "targeted final vercelapp race": "PASS",
+    "native build": "PASS",
+    "cloud build": "PASS",
+    "git diff --check": "PASS"
+  },
+  "manual_schedule_invocations": 0,
+  "manual_hotel_http": 0,
+  "manual_production_writes": 0,
+  "natural_execution_status": "pending observation"
+}
