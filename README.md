@@ -661,3 +661,6 @@ WHERE group_id='<group>' AND run_id='<run_id>' AND state='retryable_failed';
 вчерашние пропущенные snapshots автоматически не запрашиваются задним числом.
 Очередь уже опубликованных старых runs продолжает обычный `resume`.
 Состояние по отелям/CSV/delivery: [deploy/status.sql](deploy/status.sql).
+
+VPS RUVDS / Debian 13: [инструкция развёртывания](deploy/VPS.md).
+Отдельный Compose без публичного PostgreSQL, env-лимиты, backup/restore; cron выключен до явного включения.

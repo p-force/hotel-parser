@@ -1,5 +1,10 @@
 # Регулярный сбор на Docker/VPS
 
+Production на RUVDS/Debian 13: [инструкция VPS](VPS.md), самостоятельный
+`compose.vps.yml` без открытого PostgreSQL. Сбор выключен по умолчанию через
+`HOTEL_PARSER_COLLECTION_ENABLED=false`; включение — отдельное действие оператора.
+Ниже описан прежний local overlay; для VPS используйте новую инструкцию.
+
 Это конфигурация запуска, не развёрнутый production. Нужны согласованный сервер,
 постоянный PostgreSQL volume, доступ к источникам и OAuth Яндекс Диска. Все активные
 отели берутся из `configs/groups.json`/`collection.enabled`; Lindsay не включается.
@@ -40,7 +45,7 @@ backups и эксплуатационная защита PostgreSQL требую
 
 ## Расписание и восстановление
 
-Cron-процесс работает в **Europe/Moscow** (`TZ`), четыре `tick`: 08:00/12:00/16:00/20:00,
+Cron-процесс работает в **Europe/Moscow** (`TZ`), четыре `start`: 08:00/12:00/16:00/20:00,
 горизонты 61/8/8/1 job на отель. Каждую минуту скрипт выполняет:
 
 1. `collection plan --due --execution-timeout=45s`: публикует все наступившие слоты

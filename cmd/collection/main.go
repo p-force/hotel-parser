@@ -29,17 +29,21 @@ func main() {
 }
 func run(ctx context.Context, args []string) error {
 	if len(args) == 0 {
-		return fmt.Errorf("usage: collection migrate|plan|resume|tick|serve [flags]")
+		return fmt.Errorf("usage: collection migrate|plan|resume|tick|start|serve [flags]")
+	}
+	defaults, err := optionsFromEnv()
+	if err != nil {
+		return err
 	}
 	action := args[0]
 	flags := flag.NewFlagSet("collection", flag.ContinueOnError)
 	registryPath := flags.String("groups", "configs/groups.json", "group registry")
 	slotText := flags.String("slot", "", "logical slot, RFC3339 with timezone")
 	due := flags.Bool("due", false, "plan elapsed slots of the current Moscow day")
-	execution := flags.Duration("execution-timeout", 45*time.Second, "execution budget")
-	grace := flags.Duration("shutdown-grace-period", 5*time.Second, "total flush budget")
-	maxJobs := flags.Int("max-jobs", 64, "maximum claimed jobs per invocation")
-	workers := flags.Int("workers", 8, "shared worker count")
+	execution := flags.Duration("execution-timeout", defaults.ExecutionTimeout, "execution budget")
+	grace := flags.Duration("shutdown-grace-period", defaults.ShutdownGracePeriod, "total flush budget")
+	maxJobs := flags.Int("max-jobs", defaults.MaxJobs, "maximum claimed jobs per invocation")
+	workers := flags.Int("workers", defaults.Batch.Workers, "shared worker count")
 	listen := flags.String("listen", "127.0.0.1:8080", "HTTP listen address")
 	if err := flags.Parse(args[1:]); err != nil {
 		return err
@@ -51,7 +55,6 @@ func run(ctx context.Context, args []string) error {
 		return fmt.Errorf("--due requires plan without --slot")
 	}
 	var slot time.Time
-	var err error
 	if *slotText != "" {
 		slot, err = time.Parse(time.RFC3339, *slotText)
 		if err != nil {
@@ -72,6 +75,13 @@ func run(ctx context.Context, args []string) error {
 		return err
 	}
 	slog.SetDefault(log)
+	// Настраиваем все process-wide допуски до создания клиентов и Runner.
+	if err := collect.ConfigureLimits(defaults.Limits); err != nil {
+		return err
+	}
+	if err := collect.ConfigureGlobalConcurrency(*workers); err != nil {
+		return err
+	}
 	registry, err := schedule.LoadRegistry(*registryPath)
 	if err != nil {
 		return err

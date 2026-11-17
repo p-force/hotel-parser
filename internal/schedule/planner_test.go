@@ -201,3 +201,39 @@ func TestFullTravelLineDiagnosticPlan(t *testing.T) {
 		t.Fatal(jobs)
 	}
 }
+
+func TestProductionRegistryDaily468Jobs(t *testing.T) {
+	r, err := LoadRegistry("../../configs/groups.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	counts := map[string]int{}
+	ids := map[string]bool{}
+	total := 0
+	for _, hour := range []int{8, 12, 16, 20} {
+		plans, err := BuildPlans(r, slot(hour))
+		if err != nil || len(plans) != 6 {
+			t.Fatal(plans, err)
+		}
+		replay, err := BuildPlans(r, slot(hour))
+		if err != nil || !reflect.DeepEqual(plans, replay) {
+			t.Fatal("unstable plan", err)
+		}
+		for _, p := range plans {
+			if ids[p.Run.ID] {
+				t.Fatal("duplicate run", p.Run.ID)
+			}
+			ids[p.Run.ID] = true
+			counts[p.Run.PropertyID] += len(p.Scenarios)
+			total += len(p.Scenarios)
+		}
+	}
+	if total != 468 || len(counts) != 6 {
+		t.Fatal(total, counts)
+	}
+	for id, n := range counts {
+		if n != 78 || id == "lindsay" {
+			t.Fatal(id, n)
+		}
+	}
+}

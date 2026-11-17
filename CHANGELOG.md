@@ -11,6 +11,8 @@
 
 ### Added
 
+- Подготовка VPS: переносимые start/claim/progress, env-лимиты, Compose с PostgreSQL 17 без публичного порта, управляемый cron/shutdown и backup/restore. Доставленные CSV не восстанавливаются автоматически при каждом resume.
+
 - Восстановление наступивших слотов текущего дня МСК через `collection plan --due`,
   Docker/VPS cron-конфигурация и SQL контроля очереди/CSV/доставки.
   Регулярный planner ограничен LOS=1; диагностические LOS API сохранены.
