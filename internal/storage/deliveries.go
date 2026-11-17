@@ -20,6 +20,28 @@ type Delivery struct {
 
 const deliveryColumns = `group_id,run_id::text,remote_path,state,attempts,next_attempt_at,error_code,COALESCE(lease_token::text,'')`
 
+// DeliveredRunIDs позволяет автоматическому экспорту не восстанавливать архив,
+// уже подтверждённый на Диске. Явный report.Generate по-прежнему читает любой run.
+func (s *Store) DeliveredRunIDs(ctx context.Context, groupID string) (map[string]bool, error) {
+	rows, err := s.db.QueryContext(ctx, `SELECT run_id::text FROM `+s.table("csv_deliveries")+` WHERE group_id=$1 AND state='delivered'`, groupID)
+	if err != nil {
+		return nil, dbError("read delivered runs", err)
+	}
+	defer rows.Close()
+	ids := make(map[string]bool)
+	for rows.Next() {
+		var id string
+		if err := rows.Scan(&id); err != nil {
+			return nil, dbError("scan delivered run", err)
+		}
+		ids[id] = true
+	}
+	if err := rows.Err(); err != nil {
+		return nil, dbError("iterate delivered runs", err)
+	}
+	return ids, nil
+}
+
 func scanDelivery(row scanner) (d Delivery, err error) {
 	err = row.Scan(&d.GroupID, &d.RunID, &d.RemotePath, &d.State, &d.Attempts, &d.NextAttemptAt, &d.ErrorCode, &d.LeaseToken)
 	return

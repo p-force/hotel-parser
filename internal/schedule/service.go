@@ -39,6 +39,9 @@ type Response struct {
 	ProgressKnown bool               `json:"progress_known"`
 	Exports       []report.Artifact  `json:"exports,omitempty"`
 	Deliveries    []storage.Delivery `json:"deliveries,omitempty"`
+	Before        []GroupProgress    `json:"-"` // Тот же durable набор после plan, до runner.
+	ClaimedJobs   int                `json:"-"` // Не подтверждение commit.
+	Stage         string             `json:"-"`
 }
 
 // Open подключает все группы к одной БД. DDL выполняет только явный Migrate.
@@ -120,7 +123,7 @@ func (s *Service) Migrate(ctx context.Context) error {
 
 func ValidateRequest(req Request) error {
 	switch req.Action {
-	case "plan", "tick":
+	case "plan", "tick", "start":
 		_, err := SlotHorizon(req.Slot)
 		return err
 	case "resume":
@@ -129,12 +132,13 @@ func ValidateRequest(req Request) error {
 		}
 		return nil
 	default:
-		return fmt.Errorf("action must be plan, resume or tick")
+		return fmt.Errorf("action must be plan, resume, tick or start")
 	}
 }
 
 // Execute — общий application service для CLI и HTTP. Tick сначала продолжает
 // ограниченную пачку старой очереди, затем публикует слот и продолжает исполнение.
+// Start публикует все планы слота до HTTP и обрабатывает только этот слот.
 func (s *Service) Execute(parent context.Context, req Request) (response Response, err error) {
 	if err := ValidateRequest(req); err != nil {
 		return response, err
@@ -169,7 +173,11 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 		}
 	}()
 	options := s.options
+	response.Stage = "admission"
 	options.ExecutionTimeout = 0
+	if req.Action == "start" {
+		options.Claim.RunStartedAt = req.Slot
+	}
 	var guard *storage.RunnerLock
 	if req.Action != "plan" {
 		guard, err = s.groups[0].Store.TryRunnerLock(ctx)
@@ -215,6 +223,7 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 		}
 	}
 	if req.Action != "resume" {
+		response.Stage = "planning"
 		plans, e := BuildPlans(s.registry, req.Slot)
 		if e != nil {
 			return response, e
@@ -232,7 +241,19 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 		}
 	}
 	if req.Action != "plan" && options.MaxJobs > 0 {
-		_, drainErr := collect.RunGroups(ctx, s.groups, options)
+		response.Stage = "progress_before"
+		for _, g := range s.groups {
+			runs, e := g.Store.RunProgress(ctx)
+			if e != nil {
+				return response, e
+			}
+			response.Before = append(response.Before, GroupProgress{GroupID: g.ID, Schema: g.Store.Schema(), Runs: runs})
+		}
+		response.Stage = "collection"
+		results, drainErr := collect.RunGroups(ctx, s.groups, options)
+		for _, result := range results {
+			response.ClaimedJobs += len(result.JobIDs)
+		}
 		err = errors.Join(err, drainErr)
 	}
 	return response, err
@@ -283,10 +304,15 @@ func (s *Service) exportCSV(ctx context.Context, groups []GroupProgress) []repor
 		stores[g.ID] = g.Store
 	}
 	for _, g := range groups {
+		delivered, err := stores[g.GroupID].DeliveredRunIDs(ctx, g.GroupID)
+		if err != nil {
+			slog.WarnContext(ctx, "collection.csv.failed", "group_id", g.GroupID, "error_code", "csv_delivery_state_unavailable")
+			continue
+		}
 		// Сначала свежие завершённые runs, чтобы старый архив не задерживал новые.
 		for i := len(g.Runs) - 1; i >= 0; i-- {
 			run := g.Runs[i].Run
-			if run.Status == storage.RunRunning || run.FinishedAt == nil {
+			if run.Status == storage.RunRunning || run.FinishedAt == nil || delivered[run.ID] {
 				continue
 			}
 			artifact, err := report.Generate(ctx, stores[g.GroupID], g.GroupID, s.csvDirectory, run.ID)

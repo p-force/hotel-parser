@@ -299,6 +299,7 @@ func TestPostgresTravelLineConflictingQuantitiesRoundTrip(t *testing.T) {
 	cfg.Collection.Enabled = true
 	cfg.Source.BaseURL = server.URL
 	cfg.Inventory.Categories = cfg.Inventory.Categories[:1]
+	cfg.Inventory.TotalRooms = cfg.Inventory.Categories[0].TotalRooms
 	cfg.Rates = []config.RateConfig{{ID: "128299", Name: "Public A", Enabled: true}, {ID: "128301", Name: "Public B", Enabled: true}}
 	registry := Registry{Groups: []Group{{ID: "aerostar", Schema: schema, Properties: []Property{{Hotel: cfg}}}}}
 	s := testService(t, registry, nil, collect.RuntimeOptions{MaxJobs: 1})

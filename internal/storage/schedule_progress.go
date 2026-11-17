@@ -9,6 +9,8 @@ type RunProgress struct {
 	Run                                                                        Run
 	Queued, Running, Retryable, Succeeded, Partial, NoOffers, Failed, Canceled int
 	Remaining                                                                  int
+	Ready, WaitingLease, WaitingBackoff                                        int
+	ObservedAt, LastActivityAt                                                 time.Time
 }
 
 func (s *Store) RunProgress(ctx context.Context) ([]RunProgress, error) {
@@ -16,7 +18,11 @@ func (s *Store) RunProgress(ctx context.Context) ([]RunProgress, error) {
  count(j.id) FILTER(WHERE j.status='queued'),count(j.id) FILTER(WHERE j.status='running'),
  count(j.id) FILTER(WHERE j.status='retryable'),count(j.id) FILTER(WHERE j.status='succeeded'),
  count(j.id) FILTER(WHERE j.status='partial'),count(j.id) FILTER(WHERE j.status='no_offers'),
- count(j.id) FILTER(WHERE j.status='failed'),count(j.id) FILTER(WHERE j.status='canceled')
+ count(j.id) FILTER(WHERE j.status='failed'),count(j.id) FILTER(WHERE j.status='canceled'),
+ count(j.id) FILTER(WHERE j.status='queued' OR (j.status IN ('running','retryable') AND (j.leased_until IS NULL OR j.leased_until<=clock_timestamp()) AND (j.status='running' OR j.next_retry_at<=clock_timestamp()))),
+ count(j.id) FILTER(WHERE j.status IN ('running','retryable') AND j.leased_until>clock_timestamp()),
+ count(j.id) FILTER(WHERE j.status='retryable' AND j.next_retry_at>clock_timestamp()),
+ clock_timestamp(), COALESCE((SELECT MAX(a.finished_at) FROM `+s.table("collection_attempts")+` a JOIN `+s.table("scenario_jobs")+` aj ON aj.id=a.job_id WHERE aj.run_id=r.id), MAX(j.created_at), r.started_at)
  FROM `+s.table("collection_runs")+` r LEFT JOIN `+s.table("scenario_jobs")+` j ON j.run_id=r.id GROUP BY r.id ORDER BY r.started_at,r.id`)
 	if err != nil {
 		return nil, dbError("read run progress", err)
@@ -25,7 +31,7 @@ func (s *Store) RunProgress(ctx context.Context) ([]RunProgress, error) {
 	result := make([]RunProgress, 0)
 	for rows.Next() {
 		var p RunProgress
-		err = rows.Scan(&p.Run.ID, &p.Run.PropertyID, &p.Run.PeriodStart, &p.Run.PeriodEnd, &p.Run.StartedAt, &p.Run.FinishedAt, &p.Run.Status, &p.Queued, &p.Running, &p.Retryable, &p.Succeeded, &p.Partial, &p.NoOffers, &p.Failed, &p.Canceled)
+		err = rows.Scan(&p.Run.ID, &p.Run.PropertyID, &p.Run.PeriodStart, &p.Run.PeriodEnd, &p.Run.StartedAt, &p.Run.FinishedAt, &p.Run.Status, &p.Queued, &p.Running, &p.Retryable, &p.Succeeded, &p.Partial, &p.NoOffers, &p.Failed, &p.Canceled, &p.Ready, &p.WaitingLease, &p.WaitingBackoff, &p.ObservedAt, &p.LastActivityAt)
 		if err != nil {
 			return nil, dbError("scan run progress", err)
 		}
