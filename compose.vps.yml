@@ -4,6 +4,8 @@ services:
   postgres:
     image: postgres:17
     restart: unless-stopped
+    ports:
+      - "127.0.0.1:15432:5432"
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-hotel_parser}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
