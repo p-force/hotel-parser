@@ -1,0 +1,43 @@
+{
+  "source_requests": 699,
+  "source_statuses": {
+    "200": 688,
+    "0": 11
+  },
+  "source_transport_or_read_interruptions": 11,
+  "persisted_attempt_errors": [
+    {
+      "property": "petroff",
+      "check_in": "2026-12-06",
+      "attempt": 1,
+      "error": {
+        "Code": "transport_error",
+        "Retryable": true
+      },
+      "http_status": 0
+    }
+  ],
+  "peak_active_http_observed": 4,
+  "limits": {
+    "reservationsteps.ru": {
+      "requests": 61,
+      "configured_start_interval_ms": 500,
+      "minimum_utc_gap_seconds": 0.501799,
+      "utc_clock_only": true
+    },
+    "ru-ibe.tlintegration.ru": {
+      "requests": 638,
+      "configured_start_interval_ms": 1000,
+      "minimum_utc_gap_seconds": 0.998397,
+      "utc_clock_only": true
+    }
+  },
+  "first_source_start": "2026-11-05T13:06:44.924226Z",
+  "last_source_end": "2026-11-05T13:23:07.005635Z",
+  "source_wall_seconds": 982.081409,
+  "disk_upload_puts": {
+    "0": 8,
+    "201": 3
+  },
+  "clock_note": "UTC log does not preserve Go monotonic timestamps. Small sub-millisecond/millisecond gaps cannot distinguish wall-clock adjustment from callback scheduling; existing monotonic start-gate tests pass; adapter limits unchanged."
+}

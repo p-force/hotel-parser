@@ -1,0 +1,68 @@
+{
+  "booking_rules": [
+    {
+      "room_types": [
+        "34187",
+        "34190",
+        "34493"
+      ],
+      "min_los_arrival": 2,
+      "code": "35114",
+      "date": "2026-12-31"
+    },
+    {
+      "room_types": [
+        "34188",
+        "34189",
+        "34191"
+      ],
+      "forbidden": true,
+      "min_los_arrival": 2,
+      "code": "35114",
+      "date": "2026-12-31"
+    },
+    {
+      "room_types": [
+        "34187",
+        "34190",
+        "34493"
+      ],
+      "min_los_arrival": 2,
+      "code": "49957",
+      "date": "2026-12-31"
+    },
+    {
+      "room_types": [
+        "34188",
+        "34189",
+        "34191"
+      ],
+      "forbidden": true,
+      "min_los_arrival": 2,
+      "code": "49957",
+      "date": "2026-12-31"
+    },
+    {
+      "room_types": [
+        "34189"
+      ],
+      "forbidden": true,
+      "min_los_arrival": 2,
+      "min_adv_booking": 7,
+      "max_los": 1,
+      "code": "622569",
+      "date": "2026-12-31"
+    },
+    {
+      "room_types": [
+        "34190"
+      ],
+      "min_los_arrival": 2,
+      "min_adv_booking": 7,
+      "max_los": 1,
+      "code": "622569",
+      "date": "2026-12-31"
+    }
+  ],
+  "hotel": 5787
+}

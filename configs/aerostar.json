@@ -1,0 +1,143 @@
+{
+  "id": "azimut_aerostar",
+  "name": "AZIMUT Отель Аэростар Москва",
+  "type": "hotel",
+  "role": "competitor",
+  "timezone": "Europe/Moscow",
+  "source": {
+    "type": "travelline",
+    "base_url": "https://ru-ibe.tlintegration.ru",
+    "property_id": "585"
+  },
+  "inventory": {
+    "total_rooms": 70,
+    "source": "public_observed_max",
+    "categories": [
+      {
+        "id": "tl_4347",
+        "name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+        "source_room_id": "4347",
+        "total_rooms": 10
+      },
+      {
+        "id": "tl_4350",
+        "name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+        "source_room_id": "4350",
+        "total_rooms": 10
+      },
+      {
+        "id": "tl_103578",
+        "name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+        "source_room_id": "103578",
+        "total_rooms": 10
+      },
+      {
+        "id": "tl_103580",
+        "name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+        "source_room_id": "103580",
+        "total_rooms": 10
+      },
+      {
+        "id": "tl_4348",
+        "name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+        "source_room_id": "4348",
+        "total_rooms": 10
+      },
+      {
+        "id": "tl_8875",
+        "name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+        "source_room_id": "8875",
+        "total_rooms": 5
+      },
+      {
+        "id": "tl_4349",
+        "name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+        "source_room_id": "4349",
+        "total_rooms": 10
+      },
+      {
+        "id": "tl_8876",
+        "name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+        "source_room_id": "8876",
+        "total_rooms": 4
+      },
+      {
+        "id": "tl_133917",
+        "name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+        "source_room_id": "133917",
+        "total_rooms": 1
+      },
+      {
+        "id": "tl_250899",
+        "name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+        "source_room_id": "250899",
+        "total_rooms": null
+      }
+    ]
+  },
+  "rates": [
+    {
+      "id": "128311",
+      "name": "Заранее выгодно!  Тариф без завтрака",
+      "enabled": true
+    },
+    {
+      "id": "128337",
+      "name": "Заранее выгодно!  Тариф с завтраком",
+      "enabled": true
+    },
+    {
+      "id": "128299",
+      "name": "Лучшая цена дня без завтрака",
+      "enabled": true
+    },
+    {
+      "id": "128301",
+      "name": "Лучшая цена дня с завтраком",
+      "enabled": true
+    },
+    {
+      "id": "917131",
+      "name": "Тариф полупансион с включенным питанием",
+      "enabled": true
+    },
+    {
+      "id": "932011",
+      "name": "Длительное проживание без завтрака",
+      "enabled": true
+    },
+    {
+      "id": "932016",
+      "name": "Длительное проживание без завтрака",
+      "enabled": true
+    },
+    {
+      "id": "932023",
+      "name": "Длительное проживание с завтраком",
+      "enabled": true
+    },
+    {
+      "id": "932027",
+      "name": "Длительное проживание с завтраком",
+      "enabled": true
+    },
+    {
+      "id": "965189",
+      "name": "Осень в ритме города, тариф с завтраком",
+      "enabled": true
+    },
+    {
+      "id": "965190",
+      "name": "Осень в ритме города",
+      "enabled": true
+    }
+  ],
+  "collection": {
+    "enabled": true,
+    "days_ahead": 60,
+    "adults": 1,
+    "children_ages": [],
+    "rooms": 1,
+    "nights": [1]
+  }
+}

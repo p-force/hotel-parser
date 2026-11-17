@@ -1,0 +1,2839 @@
+{
+  "5787": {
+    "code": "5787",
+    "name": "Бутик-отель \"Петровский Путевой Дворец\"",
+    "currency": "RUB",
+    "room_types": [
+      {
+        "code": "34187",
+        "name": "Стандартный номер с 1 двуспальной кроватью",
+        "description": "Номер площадью 30 кв. м., выдержанный в уникальном дворцовом стиле: теплые тона, натуральное дерево, богатый декор.",
+        "size": {
+          "value": 30,
+          "unit": "square_metre"
+        },
+        "amenities": [
+          {
+            "category_code": "2",
+            "kind": "tv",
+            "name": "телевизор",
+            "icon_position": 1
+          },
+          {
+            "category_code": "2",
+            "kind": "cable_television",
+            "name": "кабельное телевидение"
+          },
+          {
+            "category_code": "3",
+            "kind": "telephone",
+            "name": "телефон"
+          },
+          {
+            "category_code": "5",
+            "kind": "shower_cabin",
+            "name": "душевая кабина"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_aids",
+            "name": "гигиенические средства"
+          },
+          {
+            "category_code": "5",
+            "kind": "toilet_bowl",
+            "name": "унитаз"
+          },
+          {
+            "category_code": "5",
+            "kind": "beauty_aids",
+            "name": "косметические средства"
+          },
+          {
+            "category_code": "5",
+            "kind": "sink",
+            "name": "раковина"
+          },
+          {
+            "category_code": "5",
+            "kind": "slippers",
+            "name": "тапочки"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathrobe",
+            "name": "халаты"
+          },
+          {
+            "category_code": "5",
+            "kind": "bath_towels",
+            "name": "банные полотенца"
+          },
+          {
+            "category_code": "6",
+            "kind": "garden_view",
+            "name": "вид на сад"
+          },
+          {
+            "category_code": "6",
+            "kind": "city_view",
+            "name": "вид на город"
+          },
+          {
+            "category_code": "4",
+            "kind": "air_conditioning",
+            "name": "кондиционер",
+            "icon_position": 2
+          },
+          {
+            "category_code": "4",
+            "kind": "heater",
+            "name": "обогреватель"
+          },
+          {
+            "category_code": "4",
+            "kind": "hairdryer",
+            "name": "фен"
+          },
+          {
+            "category_code": "4",
+            "kind": "lamp",
+            "name": "светильник"
+          },
+          {
+            "category_code": "4",
+            "kind": "desk_lamps",
+            "name": "настольные лампы"
+          },
+          {
+            "category_code": "4",
+            "kind": "electronic_locks",
+            "name": "электронные замки"
+          },
+          {
+            "category_code": "7",
+            "kind": "king_bed",
+            "name": "кровать «King size»"
+          },
+          {
+            "category_code": "8",
+            "kind": "luggage_stand",
+            "name": "багажная тумба"
+          },
+          {
+            "category_code": "8",
+            "kind": "mirror",
+            "name": "зеркало"
+          },
+          {
+            "category_code": "8",
+            "kind": "armchair",
+            "name": "кресло"
+          },
+          {
+            "category_code": "8",
+            "kind": "closet_for_clothes",
+            "name": "шкаф для одежды"
+          },
+          {
+            "category_code": "8",
+            "kind": "desk",
+            "name": "письменный стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "hangers",
+            "name": "вешалки"
+          },
+          {
+            "category_code": "8",
+            "kind": "journal_table",
+            "name": "журнальный столик"
+          },
+          {
+            "category_code": "8",
+            "kind": "armchairs",
+            "name": "кресла"
+          },
+          {
+            "category_code": "8",
+            "kind": "padded_stools",
+            "name": "пуфики"
+          },
+          {
+            "category_code": "9",
+            "kind": "maid_service",
+            "name": "обслуживание номеров"
+          },
+          {
+            "category_code": "9",
+            "kind": "safe",
+            "name": "сейф",
+            "icon_position": 4
+          },
+          {
+            "category_code": "9",
+            "kind": "information_card",
+            "name": "информационная карта, меню"
+          },
+          {
+            "category_code": "9",
+            "kind": "kettle",
+            "name": "чайник"
+          },
+          {
+            "category_code": "9",
+            "kind": "writing_utensils",
+            "name": "письменные принадлежности"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_set",
+            "name": "чайный набор",
+            "icon_position": 5
+          },
+          {
+            "category_code": "5",
+            "kind": "bathroom_amenities",
+            "name": "банные принадлежности"
+          },
+          {
+            "category_code": "7",
+            "kind": "orthopedic_mattress",
+            "name": "ортопедический матрас"
+          },
+          {
+            "category_code": "3",
+            "kind": "wifi_internet",
+            "name": "Wi-Fi",
+            "icon_position": 3
+          },
+          {
+            "category_code": "9",
+            "kind": "ironing_board",
+            "name": "гладильная доска"
+          },
+          {
+            "category_code": "9",
+            "kind": "paid_minibar",
+            "name": "мини-бар (платно)"
+          },
+          {
+            "category_code": "4",
+            "kind": "iron",
+            "name": "утюг"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_shower",
+            "name": "гигиенический душ"
+          },
+          {
+            "category_code": "5",
+            "kind": "shower",
+            "name": "душ"
+          },
+          {
+            "category_code": "5",
+            "kind": "soap_bar",
+            "name": "мыло"
+          },
+          {
+            "category_code": "8",
+            "kind": "chair",
+            "name": "стул"
+          },
+          {
+            "category_code": "9",
+            "kind": "bottled_water",
+            "name": "бутилированная вода"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_and_coffee_making_facility",
+            "name": "набор для приготовления чая и кофе"
+          },
+          {
+            "category_code": "9",
+            "kind": "glasses",
+            "name": "стаканы"
+          }
+        ],
+        "preferences": [],
+        "kind": "room",
+        "max_adult_occupancy": 2,
+        "max_extra_bed_occupancy": 0,
+        "max_without_bed_occupancy": 0,
+        "max_occupancy": 2,
+        "accommodate_adults_on_extra_bed": false,
+        "child_bed_age_groups": [
+          {
+            "code": "4033"
+          },
+          {
+            "code": "4034"
+          }
+        ]
+      },
+      {
+        "code": "34493",
+        "name": "Стандартный номер с 2 односпальными кроватями",
+        "description": "Просторный номер площадью 25 кв.м. в классическом стиле с паркетным полом, стены украшены историческими фотографиями. Оборудован всем необходимым для работы и отдыха: рабочий стол, телевизор с подключенным кабельным ТВ, чайная станция.",
+        "size": {
+          "value": 25,
+          "unit": "square_metre"
+        },
+        "amenities": [
+          {
+            "category_code": "2",
+            "kind": "tv",
+            "name": "телевизор",
+            "icon_position": 1
+          },
+          {
+            "category_code": "2",
+            "kind": "cable_television",
+            "name": "кабельное телевидение"
+          },
+          {
+            "category_code": "3",
+            "kind": "telephone",
+            "name": "телефон"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_aids",
+            "name": "гигиенические средства"
+          },
+          {
+            "category_code": "5",
+            "kind": "shower_cabin",
+            "name": "душевая кабина"
+          },
+          {
+            "category_code": "5",
+            "kind": "toilet_bowl",
+            "name": "унитаз"
+          },
+          {
+            "category_code": "5",
+            "kind": "bath_towels",
+            "name": "банные полотенца"
+          },
+          {
+            "category_code": "5",
+            "kind": "sink",
+            "name": "раковина"
+          },
+          {
+            "category_code": "5",
+            "kind": "slippers",
+            "name": "тапочки"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathrobe",
+            "name": "халаты"
+          },
+          {
+            "category_code": "7",
+            "kind": "two_single_beds",
+            "name": "две односпальные кровати",
+            "icon_position": 3
+          },
+          {
+            "category_code": "6",
+            "kind": "garden_view",
+            "name": "вид на сад"
+          },
+          {
+            "category_code": "4",
+            "kind": "air_conditioning",
+            "name": "кондиционер",
+            "icon_position": 2
+          },
+          {
+            "category_code": "4",
+            "kind": "heater",
+            "name": "обогреватель"
+          },
+          {
+            "category_code": "4",
+            "kind": "hairdryer",
+            "name": "фен"
+          },
+          {
+            "category_code": "4",
+            "kind": "lamp",
+            "name": "светильник"
+          },
+          {
+            "category_code": "4",
+            "kind": "desk_lamps",
+            "name": "настольные лампы"
+          },
+          {
+            "category_code": "4",
+            "kind": "electronic_locks",
+            "name": "электронные замки"
+          },
+          {
+            "category_code": "8",
+            "kind": "luggage_stand",
+            "name": "багажная тумба"
+          },
+          {
+            "category_code": "8",
+            "kind": "mirror",
+            "name": "зеркало"
+          },
+          {
+            "category_code": "8",
+            "kind": "armchair",
+            "name": "кресло"
+          },
+          {
+            "category_code": "8",
+            "kind": "closet_for_clothes",
+            "name": "шкаф для одежды"
+          },
+          {
+            "category_code": "8",
+            "kind": "desk",
+            "name": "письменный стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "hangers",
+            "name": "вешалки"
+          },
+          {
+            "category_code": "8",
+            "kind": "journal_table",
+            "name": "журнальный столик"
+          },
+          {
+            "category_code": "8",
+            "kind": "padded_stools",
+            "name": "пуфики"
+          },
+          {
+            "category_code": "8",
+            "kind": "chairs",
+            "name": "стулья"
+          },
+          {
+            "category_code": "9",
+            "kind": "maid_service",
+            "name": "обслуживание номеров"
+          },
+          {
+            "category_code": "9",
+            "kind": "safe",
+            "name": "сейф",
+            "icon_position": 5
+          },
+          {
+            "category_code": "9",
+            "kind": "kettle",
+            "name": "чайник"
+          },
+          {
+            "category_code": "9",
+            "kind": "writing_utensils",
+            "name": "письменные принадлежности"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_set",
+            "name": "чайный набор"
+          },
+          {
+            "category_code": "3",
+            "kind": "wifi_internet",
+            "name": "Wi-Fi",
+            "icon_position": 4
+          },
+          {
+            "category_code": "4",
+            "kind": "iron",
+            "name": "утюг"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_shower",
+            "name": "гигиенический душ"
+          },
+          {
+            "category_code": "5",
+            "kind": "soap_bar",
+            "name": "мыло"
+          },
+          {
+            "category_code": "6",
+            "kind": "city_view",
+            "name": "вид на город"
+          },
+          {
+            "category_code": "9",
+            "kind": "bottled_water",
+            "name": "бутилированная вода"
+          },
+          {
+            "category_code": "9",
+            "kind": "ironing_board",
+            "name": "гладильная доска"
+          },
+          {
+            "category_code": "9",
+            "kind": "paid_minibar",
+            "name": "мини-бар (платно)"
+          },
+          {
+            "category_code": "9",
+            "kind": "non_smoking_room",
+            "name": "номер для некурящих"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_and_coffee_making_facility",
+            "name": "набор для приготовления чая и кофе"
+          },
+          {
+            "category_code": "9",
+            "kind": "heating",
+            "name": "отопление"
+          },
+          {
+            "category_code": "9",
+            "kind": "glasses",
+            "name": "стаканы"
+          }
+        ],
+        "preferences": [],
+        "kind": "room",
+        "max_adult_occupancy": 2,
+        "max_extra_bed_occupancy": 0,
+        "max_without_bed_occupancy": 0,
+        "max_occupancy": 2,
+        "accommodate_adults_on_extra_bed": false,
+        "child_bed_age_groups": [
+          {
+            "code": "4033"
+          },
+          {
+            "code": "4034"
+          }
+        ]
+      },
+      {
+        "code": "34188",
+        "name": "Делюкс с 1 двуспальной кроватью",
+        "description": "Номер площадью 40 кв. м., выдержанный в уникальном дворцовом стиле: теплые тона, натуральное дерево, богатый декор. В номере — одна большая кровать с ортопедическим матрасом.",
+        "size": {
+          "value": 40,
+          "unit": "square_metre"
+        },
+        "amenities": [
+          {
+            "category_code": "2",
+            "kind": "tv",
+            "name": "телевизор",
+            "icon_position": 3
+          },
+          {
+            "category_code": "2",
+            "kind": "cable_television",
+            "name": "кабельное телевидение"
+          },
+          {
+            "category_code": "3",
+            "kind": "telephone",
+            "name": "телефон"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_aids",
+            "name": "гигиенические средства"
+          },
+          {
+            "category_code": "5",
+            "kind": "shower_cabin",
+            "name": "душевая кабина"
+          },
+          {
+            "category_code": "5",
+            "kind": "toilet_bowl",
+            "name": "унитаз"
+          },
+          {
+            "category_code": "5",
+            "kind": "bath_towels",
+            "name": "банные полотенца"
+          },
+          {
+            "category_code": "5",
+            "kind": "sink",
+            "name": "раковина"
+          },
+          {
+            "category_code": "5",
+            "kind": "slippers",
+            "name": "тапочки"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathrobe",
+            "name": "халаты"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathroom_amenities",
+            "name": "банные принадлежности"
+          },
+          {
+            "category_code": "6",
+            "kind": "garden_view",
+            "name": "вид на сад"
+          },
+          {
+            "category_code": "4",
+            "kind": "air_conditioning",
+            "name": "кондиционер",
+            "icon_position": 2
+          },
+          {
+            "category_code": "4",
+            "kind": "heater",
+            "name": "обогреватель"
+          },
+          {
+            "category_code": "4",
+            "kind": "hairdryer",
+            "name": "фен"
+          },
+          {
+            "category_code": "4",
+            "kind": "lamp",
+            "name": "светильник"
+          },
+          {
+            "category_code": "4",
+            "kind": "desk_lamps",
+            "name": "настольные лампы"
+          },
+          {
+            "category_code": "4",
+            "kind": "electronic_locks",
+            "name": "электронные замки"
+          },
+          {
+            "category_code": "7",
+            "kind": "king_bed",
+            "name": "кровать «King size»"
+          },
+          {
+            "category_code": "8",
+            "kind": "luggage_stand",
+            "name": "багажная тумба"
+          },
+          {
+            "category_code": "8",
+            "kind": "mirror",
+            "name": "зеркало"
+          },
+          {
+            "category_code": "8",
+            "kind": "armchair",
+            "name": "кресло"
+          },
+          {
+            "category_code": "8",
+            "kind": "closet_for_clothes",
+            "name": "шкаф для одежды"
+          },
+          {
+            "category_code": "8",
+            "kind": "desk",
+            "name": "письменный стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "chairs",
+            "name": "стулья"
+          },
+          {
+            "category_code": "8",
+            "kind": "padded_stools",
+            "name": "пуфики"
+          },
+          {
+            "category_code": "8",
+            "kind": "hangers",
+            "name": "вешалки"
+          },
+          {
+            "category_code": "8",
+            "kind": "journal_table",
+            "name": "журнальный столик"
+          },
+          {
+            "category_code": "9",
+            "kind": "maid_service",
+            "name": "обслуживание номеров"
+          },
+          {
+            "category_code": "9",
+            "kind": "drinking_water",
+            "name": "питьевая вода"
+          },
+          {
+            "category_code": "9",
+            "kind": "safe",
+            "name": "сейф",
+            "icon_position": 4
+          },
+          {
+            "category_code": "9",
+            "kind": "information_card",
+            "name": "информационная карта, меню"
+          },
+          {
+            "category_code": "9",
+            "kind": "kettle",
+            "name": "чайник"
+          },
+          {
+            "category_code": "9",
+            "kind": "writing_utensils",
+            "name": "письменные принадлежности"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_set",
+            "name": "чайный набор",
+            "icon_position": 5
+          },
+          {
+            "category_code": "3",
+            "kind": "wifi_internet",
+            "name": "Wi-Fi",
+            "icon_position": 1
+          },
+          {
+            "category_code": "4",
+            "kind": "iron",
+            "name": "утюг"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_shower",
+            "name": "гигиенический душ"
+          },
+          {
+            "category_code": "5",
+            "kind": "warm_floor",
+            "name": "теплый пол"
+          },
+          {
+            "category_code": "5",
+            "kind": "shower",
+            "name": "душ"
+          },
+          {
+            "category_code": "5",
+            "kind": "soap_bar",
+            "name": "мыло"
+          },
+          {
+            "category_code": "8",
+            "kind": "nightstand",
+            "name": "тумба"
+          },
+          {
+            "category_code": "9",
+            "kind": "bottled_water",
+            "name": "бутилированная вода"
+          },
+          {
+            "category_code": "9",
+            "kind": "ironing_board",
+            "name": "гладильная доска"
+          },
+          {
+            "category_code": "9",
+            "kind": "paid_minibar",
+            "name": "мини-бар (платно)"
+          },
+          {
+            "category_code": "9",
+            "kind": "non_smoking_room",
+            "name": "номер для некурящих"
+          },
+          {
+            "category_code": "9",
+            "kind": "housekeeping",
+            "name": "уборка номера"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_and_coffee_making_facility",
+            "name": "набор для приготовления чая и кофе"
+          },
+          {
+            "category_code": "9",
+            "kind": "glasses",
+            "name": "стаканы"
+          }
+        ],
+        "preferences": [],
+        "kind": "room",
+        "max_adult_occupancy": 2,
+        "max_extra_bed_occupancy": 1,
+        "max_without_bed_occupancy": 0,
+        "max_occupancy": 3,
+        "accommodate_adults_on_extra_bed": true,
+        "child_bed_age_groups": [
+          {
+            "code": "4033"
+          },
+          {
+            "code": "4034"
+          }
+        ],
+        "child_extra_bed_age_groups": [
+          {
+            "code": "4033"
+          },
+          {
+            "code": "4034"
+          }
+        ]
+      },
+      {
+        "code": "34189",
+        "name": "Представительский двухкомнатный Люкс с 1 спальней",
+        "description": "Просторный номер площадью 60 кв. м., оформленный в классическом стиле. Двухкомнатные апартаменты идеально подойдут тем, кто совмещает отдых и рабочие встречи. Комфортабельная гостиная может использоваться для мини-приемов и проведения приватных переговоров.\nТакже в этом типе в определенных номерах предусмотрен дополнительный туалет.",
+        "size": {
+          "value": 60,
+          "unit": "square_metre"
+        },
+        "amenities": [
+          {
+            "category_code": "2",
+            "kind": "cable_television",
+            "name": "кабельное телевидение"
+          },
+          {
+            "category_code": "3",
+            "kind": "telephone",
+            "name": "телефон"
+          },
+          {
+            "category_code": "5",
+            "kind": "shower_cabin",
+            "name": "душевая кабина"
+          },
+          {
+            "category_code": "5",
+            "kind": "toilet_bowl",
+            "name": "унитаз"
+          },
+          {
+            "category_code": "5",
+            "kind": "bath_towels",
+            "name": "банные полотенца"
+          },
+          {
+            "category_code": "5",
+            "kind": "beauty_aids",
+            "name": "косметические средства"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_aids",
+            "name": "гигиенические средства"
+          },
+          {
+            "category_code": "5",
+            "kind": "sink",
+            "name": "раковина"
+          },
+          {
+            "category_code": "5",
+            "kind": "slippers",
+            "name": "тапочки"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathrobe",
+            "name": "халаты"
+          },
+          {
+            "category_code": "6",
+            "kind": "city_view",
+            "name": "вид на город"
+          },
+          {
+            "category_code": "6",
+            "kind": "garden_view",
+            "name": "вид на сад"
+          },
+          {
+            "category_code": "4",
+            "kind": "air_conditioning",
+            "name": "кондиционер",
+            "icon_position": 2
+          },
+          {
+            "category_code": "4",
+            "kind": "heater",
+            "name": "обогреватель"
+          },
+          {
+            "category_code": "4",
+            "kind": "hairdryer",
+            "name": "фен"
+          },
+          {
+            "category_code": "4",
+            "kind": "lamp",
+            "name": "светильник"
+          },
+          {
+            "category_code": "4",
+            "kind": "desk_lamps",
+            "name": "настольные лампы"
+          },
+          {
+            "category_code": "4",
+            "kind": "electronic_locks",
+            "name": "электронные замки"
+          },
+          {
+            "category_code": "7",
+            "kind": "king_bed",
+            "name": "кровать «King size»"
+          },
+          {
+            "category_code": "7",
+            "kind": "orthopedic_mattress",
+            "name": "ортопедический матрас"
+          },
+          {
+            "category_code": "8",
+            "kind": "luggage_stand",
+            "name": "багажная тумба"
+          },
+          {
+            "category_code": "8",
+            "kind": "mirror",
+            "name": "зеркало"
+          },
+          {
+            "category_code": "8",
+            "kind": "armchair",
+            "name": "кресло"
+          },
+          {
+            "category_code": "8",
+            "kind": "closet_for_clothes",
+            "name": "шкаф для одежды"
+          },
+          {
+            "category_code": "8",
+            "kind": "furniture set",
+            "name": "мебельный гарнитур"
+          },
+          {
+            "category_code": "8",
+            "kind": "desk",
+            "name": "письменный стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "hangers",
+            "name": "вешалки"
+          },
+          {
+            "category_code": "8",
+            "kind": "journal_table",
+            "name": "журнальный столик"
+          },
+          {
+            "category_code": "8",
+            "kind": "soft_furniture",
+            "name": "мягкая мебель"
+          },
+          {
+            "category_code": "8",
+            "kind": "padded_stools",
+            "name": "пуфики"
+          },
+          {
+            "category_code": "8",
+            "kind": "commode",
+            "name": "комод"
+          },
+          {
+            "category_code": "9",
+            "kind": "maid_service",
+            "name": "обслуживание номеров"
+          },
+          {
+            "category_code": "9",
+            "kind": "safe",
+            "name": "сейф"
+          },
+          {
+            "category_code": "9",
+            "kind": "living_area",
+            "name": "гостиная зона"
+          },
+          {
+            "category_code": "9",
+            "kind": "information_card",
+            "name": "информационная карта, меню"
+          },
+          {
+            "category_code": "9",
+            "kind": "carpet",
+            "name": "ковер"
+          },
+          {
+            "category_code": "9",
+            "kind": "kettle",
+            "name": "чайник",
+            "icon_position": 5
+          },
+          {
+            "category_code": "9",
+            "kind": "two_rooms",
+            "name": "две комнаты",
+            "icon_position": 3
+          },
+          {
+            "category_code": "9",
+            "kind": "writing_utensils",
+            "name": "письменные принадлежности"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_set",
+            "name": "чайный набор"
+          },
+          {
+            "category_code": "3",
+            "kind": "wifi_internet",
+            "name": "Wi-Fi",
+            "icon_position": 1
+          },
+          {
+            "category_code": "2",
+            "kind": "two_tv",
+            "name": "два телевизора",
+            "icon_position": 4
+          },
+          {
+            "category_code": "4",
+            "kind": "iron",
+            "name": "утюг"
+          },
+          {
+            "category_code": "5",
+            "kind": "warm_floor",
+            "name": "теплый пол"
+          },
+          {
+            "category_code": "5",
+            "kind": "soap_bar",
+            "name": "мыло"
+          },
+          {
+            "category_code": "8",
+            "kind": "table",
+            "name": "стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "sofa_bed",
+            "name": "диван"
+          },
+          {
+            "category_code": "8",
+            "kind": "armchairs",
+            "name": "кресла"
+          },
+          {
+            "category_code": "8",
+            "kind": "chair",
+            "name": "стул"
+          },
+          {
+            "category_code": "9",
+            "kind": "bottled_water",
+            "name": "бутилированная вода"
+          },
+          {
+            "category_code": "9",
+            "kind": "ironing_board",
+            "name": "гладильная доска"
+          },
+          {
+            "category_code": "9",
+            "kind": "paid_minibar",
+            "name": "мини-бар (платно)"
+          },
+          {
+            "category_code": "9",
+            "kind": "housekeeping",
+            "name": "уборка номера"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_and_coffee_making_facility",
+            "name": "набор для приготовления чая и кофе"
+          },
+          {
+            "category_code": "9",
+            "kind": "heating",
+            "name": "отопление"
+          },
+          {
+            "category_code": "9",
+            "kind": "glasses",
+            "name": "стаканы"
+          },
+          {
+            "category_code": "9",
+            "kind": "coffee_end_tables",
+            "name": "кофейный столик"
+          }
+        ],
+        "preferences": [],
+        "kind": "room",
+        "max_adult_occupancy": 2,
+        "max_extra_bed_occupancy": 1,
+        "max_without_bed_occupancy": 1,
+        "max_occupancy": 3,
+        "accommodate_adults_on_extra_bed": true,
+        "child_bed_age_groups": [
+          {
+            "code": "4033"
+          },
+          {
+            "code": "4034"
+          }
+        ],
+        "child_extra_bed_age_groups": [
+          {
+            "code": "4033"
+          },
+          {
+            "code": "4034"
+          }
+        ],
+        "child_without_bed_age_groups": [
+          {
+            "code": "4033"
+          }
+        ],
+        "restricted_child_without_bed_age_groups": [
+          {
+            "code": "4034"
+          }
+        ]
+      },
+      {
+        "code": "34191",
+        "name": "Семейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями",
+        "description": "Семейный номер. Апартаменты с просторной гостиной и двумя спальнями. К каждой спальне примыкает собственный санузел (один оборудован ванной, другой — душевой кабиной). В спальнях — по две раздельных кровати. Гостиная при необходимости может быть использована как рабочее помещение, удобное для организации камерных деловых мероприятий. Оформление номера выдержано в фирменном стиле Дворца: натуральные материалы, дорогой текстиль, много разнообразных источников света, со вкусом подобранные аксессуары.",
+        "size": {
+          "value": 120,
+          "unit": "square_metre"
+        },
+        "amenities": [
+          {
+            "category_code": "2",
+            "kind": "two_tv",
+            "name": "два телевизора"
+          },
+          {
+            "category_code": "2",
+            "kind": "cable_television",
+            "name": "кабельное телевидение"
+          },
+          {
+            "category_code": "3",
+            "kind": "telephone",
+            "name": "телефон"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathroom",
+            "name": "ванная комната"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_aids",
+            "name": "гигиенические средства"
+          },
+          {
+            "category_code": "5",
+            "kind": "additional_bathroom",
+            "name": "дополнительная ванная комната"
+          },
+          {
+            "category_code": "5",
+            "kind": "shower_cabin",
+            "name": "душевая кабина"
+          },
+          {
+            "category_code": "5",
+            "kind": "toilet_bowl",
+            "name": "унитаз"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathtub",
+            "name": "ванна",
+            "icon_position": 3
+          },
+          {
+            "category_code": "5",
+            "kind": "bath_towels",
+            "name": "банные полотенца"
+          },
+          {
+            "category_code": "5",
+            "kind": "additional_bathroom_with_wc",
+            "name": "дополнительный санузел"
+          },
+          {
+            "category_code": "5",
+            "kind": "beauty_aids",
+            "name": "косметические средства"
+          },
+          {
+            "category_code": "5",
+            "kind": "sink",
+            "name": "раковина"
+          },
+          {
+            "category_code": "5",
+            "kind": "slippers",
+            "name": "тапочки"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathrobe",
+            "name": "халаты"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathroom_amenities",
+            "name": "банные принадлежности"
+          },
+          {
+            "category_code": "6",
+            "kind": "garden_view",
+            "name": "вид на сад",
+            "icon_position": 5
+          },
+          {
+            "category_code": "4",
+            "kind": "air_conditioning",
+            "name": "кондиционер"
+          },
+          {
+            "category_code": "4",
+            "kind": "heater",
+            "name": "обогреватель"
+          },
+          {
+            "category_code": "4",
+            "kind": "hairdryer",
+            "name": "фен"
+          },
+          {
+            "category_code": "4",
+            "kind": "lamp",
+            "name": "светильник"
+          },
+          {
+            "category_code": "4",
+            "kind": "desk_lamps",
+            "name": "настольные лампы"
+          },
+          {
+            "category_code": "4",
+            "kind": "electronic_locks",
+            "name": "электронные замки"
+          },
+          {
+            "category_code": "7",
+            "kind": "orthopedic_mattress",
+            "name": "ортопедический матрас"
+          },
+          {
+            "category_code": "8",
+            "kind": "luggage_stand",
+            "name": "багажная тумба"
+          },
+          {
+            "category_code": "8",
+            "kind": "wardrobe",
+            "name": "гардеробная"
+          },
+          {
+            "category_code": "8",
+            "kind": "mirror",
+            "name": "зеркало"
+          },
+          {
+            "category_code": "8",
+            "kind": "armchair",
+            "name": "кресло"
+          },
+          {
+            "category_code": "8",
+            "kind": "dinner_table",
+            "name": "обеденный стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "closet_for_clothes",
+            "name": "шкаф для одежды"
+          },
+          {
+            "category_code": "8",
+            "kind": "sofa_bed",
+            "name": "диван"
+          },
+          {
+            "category_code": "8",
+            "kind": "furniture set",
+            "name": "мебельный гарнитур"
+          },
+          {
+            "category_code": "8",
+            "kind": "hangers",
+            "name": "вешалки"
+          },
+          {
+            "category_code": "8",
+            "kind": "journal_table",
+            "name": "журнальный столик"
+          },
+          {
+            "category_code": "8",
+            "kind": "chairs",
+            "name": "стулья"
+          },
+          {
+            "category_code": "9",
+            "kind": "maid_service",
+            "name": "обслуживание номеров"
+          },
+          {
+            "category_code": "9",
+            "kind": "drinking_water",
+            "name": "питьевая вода"
+          },
+          {
+            "category_code": "9",
+            "kind": "safe",
+            "name": "сейф"
+          },
+          {
+            "category_code": "9",
+            "kind": "living_area",
+            "name": "гостиная зона"
+          },
+          {
+            "category_code": "9",
+            "kind": "information_card",
+            "name": "информационная карта, меню"
+          },
+          {
+            "category_code": "9",
+            "kind": "kettle",
+            "name": "чайник"
+          },
+          {
+            "category_code": "9",
+            "kind": "three_rooms",
+            "name": "три комнаты"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_set",
+            "name": "чайный набор"
+          },
+          {
+            "category_code": "9",
+            "kind": "writing_utensils",
+            "name": "письменные принадлежности"
+          },
+          {
+            "category_code": "9",
+            "kind": "dinner_zone",
+            "name": "обеденная зона"
+          },
+          {
+            "category_code": "7",
+            "kind": "king_bed",
+            "name": "кровать «King size»",
+            "icon_position": 1
+          },
+          {
+            "category_code": "9",
+            "kind": "two_bedrooms",
+            "name": "две спальни",
+            "icon_position": 2
+          },
+          {
+            "category_code": "3",
+            "kind": "wifi_internet",
+            "name": "Wi-Fi",
+            "icon_position": 4
+          },
+          {
+            "category_code": "4",
+            "kind": "iron",
+            "name": "утюг"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_shower",
+            "name": "гигиенический душ"
+          },
+          {
+            "category_code": "5",
+            "kind": "warm_floor",
+            "name": "теплый пол"
+          },
+          {
+            "category_code": "5",
+            "kind": "two_bathrooms",
+            "name": "две ванные комнаты"
+          },
+          {
+            "category_code": "5",
+            "kind": "soap_bar",
+            "name": "мыло"
+          },
+          {
+            "category_code": "6",
+            "kind": "private_room_entrance",
+            "name": "отдельный вход в номер"
+          },
+          {
+            "category_code": "7",
+            "kind": "two_double_beds",
+            "name": "две двуспальные кровати"
+          },
+          {
+            "category_code": "8",
+            "kind": "antique_furniture",
+            "name": "антикварная мебель"
+          },
+          {
+            "category_code": "8",
+            "kind": "desk",
+            "name": "письменный стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "table",
+            "name": "стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "armchairs",
+            "name": "кресла"
+          },
+          {
+            "category_code": "9",
+            "kind": "bottled_water",
+            "name": "бутилированная вода"
+          },
+          {
+            "category_code": "9",
+            "kind": "ironing_board",
+            "name": "гладильная доска"
+          },
+          {
+            "category_code": "9",
+            "kind": "connecting_door",
+            "name": "межкомнатная дверь"
+          },
+          {
+            "category_code": "9",
+            "kind": "paid_minibar",
+            "name": "мини-бар (платно)"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_and_coffee_making_facility",
+            "name": "набор для приготовления чая и кофе"
+          },
+          {
+            "category_code": "9",
+            "kind": "heating",
+            "name": "отопление"
+          },
+          {
+            "category_code": "9",
+            "kind": "glasses",
+            "name": "стаканы"
+          }
+        ],
+        "preferences": [
+          {
+            "category_code": "2",
+            "category_name": "Кровати",
+            "code": "four_beds",
+            "name": "четыре односпальные кровати"
+          },
+          {
+            "category_code": "2",
+            "category_name": "Кровати",
+            "code": "double_bed_and_two_single",
+            "name": "двуспальная и две односпальные кровати"
+          },
+          {
+            "category_code": "2",
+            "category_name": "Кровати",
+            "code": "two_king_size_beds",
+            "name": "две кровати «King size»"
+          }
+        ],
+        "kind": "apartment",
+        "max_adult_occupancy": 4,
+        "max_extra_bed_occupancy": 2,
+        "max_without_bed_occupancy": 2,
+        "max_occupancy": 6,
+        "accommodate_adults_on_extra_bed": true,
+        "child_bed_age_groups": [
+          {
+            "code": "4033"
+          },
+          {
+            "code": "4034"
+          }
+        ],
+        "child_extra_bed_age_groups": [
+          {
+            "code": "4033"
+          },
+          {
+            "code": "4034"
+          }
+        ],
+        "child_without_bed_age_groups": [
+          {
+            "code": "4033"
+          }
+        ],
+        "restricted_child_without_bed_age_groups": [
+          {
+            "code": "4034"
+          }
+        ]
+      },
+      {
+        "code": "34190",
+        "name": "Императорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней",
+        "description": "Императорская роскошь — апартаменты общей площадью 120 кв.м., со спальней, собственным рабочим кабинетом и гостиной. \nСпальня Петровских палат с кроватью размера кинг-сайз, коврами и кушетками оформлена в уютных золотисто-бежевых тонах. Атмосферу изысканного комфорта поддерживает декор ванной комнаты: плитка теплых оттенков, золото и фаянс сантехники, большие зеркала. Рабочий кабинет Петровских палат оборудован всем необходимым для проведения совещаний.",
+        "size": {
+          "value": 120,
+          "unit": "square_metre"
+        },
+        "amenities": [
+          {
+            "category_code": "2",
+            "kind": "cable_television",
+            "name": "кабельное телевидение"
+          },
+          {
+            "category_code": "3",
+            "kind": "telephone",
+            "name": "телефон"
+          },
+          {
+            "category_code": "5",
+            "kind": "additional_bathroom_with_wc",
+            "name": "дополнительный санузел"
+          },
+          {
+            "category_code": "5",
+            "kind": "bath_towels",
+            "name": "банные полотенца"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathroom",
+            "name": "ванная комната"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_aids",
+            "name": "гигиенические средства"
+          },
+          {
+            "category_code": "5",
+            "kind": "toilet_bowl",
+            "name": "унитаз"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathtub",
+            "name": "ванна"
+          },
+          {
+            "category_code": "5",
+            "kind": "sink",
+            "name": "раковина"
+          },
+          {
+            "category_code": "5",
+            "kind": "slippers",
+            "name": "тапочки"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathrobe",
+            "name": "халаты"
+          },
+          {
+            "category_code": "5",
+            "kind": "beauty_aids",
+            "name": "косметические средства"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathroom_amenities",
+            "name": "банные принадлежности"
+          },
+          {
+            "category_code": "6",
+            "kind": "garden_view",
+            "name": "вид на сад"
+          },
+          {
+            "category_code": "4",
+            "kind": "air_conditioning",
+            "name": "кондиционер",
+            "icon_position": 5
+          },
+          {
+            "category_code": "4",
+            "kind": "heater",
+            "name": "обогреватель"
+          },
+          {
+            "category_code": "4",
+            "kind": "hairdryer",
+            "name": "фен"
+          },
+          {
+            "category_code": "4",
+            "kind": "lamp",
+            "name": "светильник"
+          },
+          {
+            "category_code": "4",
+            "kind": "desk_lamps",
+            "name": "настольные лампы"
+          },
+          {
+            "category_code": "4",
+            "kind": "electronic_locks",
+            "name": "электронные замки"
+          },
+          {
+            "category_code": "7",
+            "kind": "king_bed",
+            "name": "кровать «King size»",
+            "icon_position": 3
+          },
+          {
+            "category_code": "7",
+            "kind": "orthopedic_mattress",
+            "name": "ортопедический матрас"
+          },
+          {
+            "category_code": "8",
+            "kind": "wardrobe",
+            "name": "гардеробная"
+          },
+          {
+            "category_code": "8",
+            "kind": "mirror",
+            "name": "зеркало"
+          },
+          {
+            "category_code": "8",
+            "kind": "armchair",
+            "name": "кресло"
+          },
+          {
+            "category_code": "8",
+            "kind": "dinner_table",
+            "name": "обеденный стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "conference_table",
+            "name": "стол для переговоров"
+          },
+          {
+            "category_code": "8",
+            "kind": "closet_for_clothes",
+            "name": "шкаф для одежды"
+          },
+          {
+            "category_code": "8",
+            "kind": "furniture set",
+            "name": "мебельный гарнитур"
+          },
+          {
+            "category_code": "8",
+            "kind": "commode",
+            "name": "комод"
+          },
+          {
+            "category_code": "8",
+            "kind": "desk",
+            "name": "письменный стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "exclusive_furniture",
+            "name": "эксклюзивная мебель"
+          },
+          {
+            "category_code": "8",
+            "kind": "journal_table",
+            "name": "журнальный столик"
+          },
+          {
+            "category_code": "8",
+            "kind": "soft_furniture",
+            "name": "мягкая мебель"
+          },
+          {
+            "category_code": "8",
+            "kind": "padded_stools",
+            "name": "пуфики"
+          },
+          {
+            "category_code": "8",
+            "kind": "nightstands",
+            "name": "тумбы"
+          },
+          {
+            "category_code": "8",
+            "kind": "hangers",
+            "name": "вешалки"
+          },
+          {
+            "category_code": "9",
+            "kind": "maid_service",
+            "name": "обслуживание номеров"
+          },
+          {
+            "category_code": "9",
+            "kind": "safe",
+            "name": "сейф"
+          },
+          {
+            "category_code": "9",
+            "kind": "three_rooms",
+            "name": "три комнаты",
+            "icon_position": 1
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_set",
+            "name": "чайный набор",
+            "icon_position": 4
+          },
+          {
+            "category_code": "9",
+            "kind": "writing_utensils",
+            "name": "письменные принадлежности"
+          },
+          {
+            "category_code": "9",
+            "kind": "cabinet",
+            "name": "кабинет"
+          },
+          {
+            "category_code": "9",
+            "kind": "dinner_zone",
+            "name": "обеденная зона"
+          },
+          {
+            "category_code": "9",
+            "kind": "living_area",
+            "name": "гостиная зона"
+          },
+          {
+            "category_code": "9",
+            "kind": "information_card",
+            "name": "информационная карта, меню"
+          },
+          {
+            "category_code": "9",
+            "kind": "kettle",
+            "name": "чайник"
+          },
+          {
+            "category_code": "2",
+            "kind": "two_tv",
+            "name": "два телевизора"
+          },
+          {
+            "category_code": "5",
+            "kind": "shower",
+            "name": "душ"
+          },
+          {
+            "category_code": "3",
+            "kind": "wifi_internet",
+            "name": "Wi-Fi",
+            "icon_position": 2
+          },
+          {
+            "category_code": "4",
+            "kind": "iron",
+            "name": "утюг"
+          },
+          {
+            "category_code": "4",
+            "kind": "coffee_machine",
+            "name": "кофемашина"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_shower",
+            "name": "гигиенический душ"
+          },
+          {
+            "category_code": "5",
+            "kind": "warm_floor",
+            "name": "теплый пол"
+          },
+          {
+            "category_code": "5",
+            "kind": "soap_bar",
+            "name": "мыло"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathroom_with_wc",
+            "name": "санузел"
+          },
+          {
+            "category_code": "5",
+            "kind": "toilet",
+            "name": "туалет"
+          },
+          {
+            "category_code": "6",
+            "kind": "private_room_entrance",
+            "name": "отдельный вход в номер"
+          },
+          {
+            "category_code": "8",
+            "kind": "antique_furniture",
+            "name": "антикварная мебель"
+          },
+          {
+            "category_code": "8",
+            "kind": "table",
+            "name": "стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "luggage_stand",
+            "name": "багажная тумба"
+          },
+          {
+            "category_code": "8",
+            "kind": "sofa_bed",
+            "name": "диван"
+          },
+          {
+            "category_code": "8",
+            "kind": "armchairs",
+            "name": "кресла"
+          },
+          {
+            "category_code": "8",
+            "kind": "chairs",
+            "name": "стулья"
+          },
+          {
+            "category_code": "9",
+            "kind": "bottled_water",
+            "name": "бутилированная вода"
+          },
+          {
+            "category_code": "9",
+            "kind": "paid_minibar",
+            "name": "мини-бар (платно)"
+          },
+          {
+            "category_code": "9",
+            "kind": "ironing_board",
+            "name": "гладильная доска"
+          },
+          {
+            "category_code": "9",
+            "kind": "connecting_door",
+            "name": "межкомнатная дверь"
+          },
+          {
+            "category_code": "9",
+            "kind": "housekeeping",
+            "name": "уборка номера"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_and_coffee_making_facility",
+            "name": "набор для приготовления чая и кофе"
+          },
+          {
+            "category_code": "9",
+            "kind": "heating",
+            "name": "отопление"
+          },
+          {
+            "category_code": "9",
+            "kind": "glasses",
+            "name": "стаканы"
+          },
+          {
+            "category_code": "9",
+            "kind": "high_ceilings",
+            "name": "высокие потолки"
+          },
+          {
+            "category_code": "9",
+            "kind": "hardwood_floors",
+            "name": "паркет"
+          }
+        ],
+        "preferences": [],
+        "kind": "apartment",
+        "max_adult_occupancy": 2,
+        "max_extra_bed_occupancy": 2,
+        "max_without_bed_occupancy": 1,
+        "max_occupancy": 4,
+        "accommodate_adults_on_extra_bed": true,
+        "child_bed_age_groups": [
+          {
+            "code": "4033"
+          },
+          {
+            "code": "4034"
+          }
+        ],
+        "child_extra_bed_age_groups": [
+          {
+            "code": "4033"
+          },
+          {
+            "code": "4034"
+          }
+        ],
+        "child_without_bed_age_groups": [
+          {
+            "code": "4033"
+          }
+        ],
+        "restricted_child_without_bed_age_groups": [
+          {
+            "code": "4034"
+          }
+        ]
+      }
+    ],
+    "rate_plans": [
+      {
+        "code": "49957",
+        "name": "Тариф дня",
+        "description": " Тариф включает: \n \n Посещение Welness-центра (бассейн,  хаммам,  джакузи и тренажерный зал); \n Подземная парковка; \n Бесплатный Wi-Fi на всей территории отеля. \n \n Завтрак не включен. \n Тариф предусматривает начисление миль участникам программы Аэрофлот Бонус. \n  ",
+        "sell_dates": [
+          {
+            "start_date": "2017-01-09",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "5937",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "35114",
+        "name": "Тариф дня с завтраком",
+        "description": " Тариф включает: \n \n Завтрак в ресторане \"Карамзин\"; \n Посещение Welness-центра (бассейн, хаммам, джакузи и тренажерный зал); \n Подземная парковка; \n Бесплатный Wi-Fi   на всей территории отеля. \n \n Тариф предусматривает начисление миль участникам программы Аэрофлот Бонус. \n  \n  \n  ",
+        "sell_dates": [
+          {
+            "start_date": "2016-03-15",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "5937",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "145557",
+        "name": "Лучшая цена дня",
+        "description": "Самый выгодный тариф для бронирования на официальном сайте.",
+        "sell_dates": [
+          {
+            "start_date": "2019-02-06",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "10350",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "622569",
+        "name": "Свадебное предложение",
+        "description": "  Проведите этот особенный день в Петровском путевом дворце!   Мы подготовили для Вас пакетное предложение.   В стоимость тарифа включено   :    \n \n  Проживание в номере   выбранной категории  \n  Подарок от отеля*  \n  Завтрак в номер на две персоны  \n  При  ветственный   комплимент от отеля   \n  Цветочная композиция в номер е  \n  Бесплатный поздний выезд до 14:00 (при наличии возможности)  \n  Посещение оздоровительного центра отеля  \n  Место для автомобиля на подземной парковке  \n  Ваучер на скидку 20% на следующее проживание  \n  Специальные цены на размещение Ваших гостей**   \n \n   *Подарок зависит от категории выбранного Вами номера. При бронировании номера категории  Представительский люкс  дарим сертификат на Чайную Церемонию. При бронировании номера категории  Петровские Палаты  - сертификат на ужин в ресторане Карамзин номиналом 5000 рублей. Срок действия подарочных сертификатов - 1 год. \n ** Цены предоставляются по запросу и зависят от наличия номеров. \n  Обращаем Ваше внимание, что требуется внесение предоплаты минимум за 72 часа до заезда .   \n  Тариф действует для молодоженов (два месяца после заключения брака, требуется предъявление свидетельства)  \n    ",
+        "sell_dates": [
+          {
+            "start_date": "2024-04-24",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "99278",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "633705",
+        "name": "Романтические выходные в Петровском Путевом Дворце",
+        "description": " Мы подготовили для Вас пакетное предложение.   В стоимость тарифа включено   :    \n \n  Проживание в номере   выбранной категории  \n  Завтрак в номер на две персоны  \n  Чайная церемония для двоих  \n Подарочный сертификат от отеля* \n  При  ветственный   комплимент от отеля   \n  Ваучер на скидку 20% в ресторан отеля (меню и безалкогольные напитки)  \n  Бесплатный поздний выезд до 14:00 (при наличии возможности)  \n  Посещение оздоровительного центра отеля  \n  Место для автомобиля на подземной парковке  \n \n * Тип сертификата зависит от категории выбранного номера. При бронировании номера категории  Делюкс или Представительский  люкс дарим сертификат на посещение  смотровой площадки \"Выше Только Любовь\".  При бронировании номера категории  Петровские Палаты  - сертификат в \"SPA SIAM\" на сумму 10000 рублей.  \n  При непрерывном проживании более чем на 1 сутки все дополнительные услуги (кроме завтрака) предоставляются единоразово.  \n  Обращаем Ваше внимание, что требуется внесение предоплаты минимум за 72 часа до заезда .   \n  Информацию о доступности категорий номеров можно найти на форме бронирования, указав предполагаемые даты размещения.    \n    ",
+        "sell_dates": [
+          {
+            "start_date": "2024-04-24",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "99278",
+          "show_description": true
+        },
+        "full_prepayment": false
+      }
+    ],
+    "booking_rules": {
+      "availability_min_date": {
+        "duration": 0,
+        "time_unit": "day"
+      },
+      "availability_max_date": {
+        "duration": 1,
+        "time_unit": "year"
+      }
+    },
+    "policy": {
+      "check_in_time": "15:00",
+      "check_out_time": "12:00"
+    }
+  },
+  "585": {
+    "code": "585",
+    "name": "AZIMUT Отель Аэростар Москва",
+    "currency": "RUB",
+    "room_types": [
+      {
+        "code": "250899",
+        "name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+        "description": "Двухкомнатный просторный номер с двумя балконами, одной спальней, гостиной и кухонной зоной. Расположен на 9-м этаже гостиницы, из окон которого открывается прекрасный панорамный вид на Москву.\nВ номере: одна двуспальная кровать 180х200 см, 2 прикроватные тумбы, отдельная рабочая зона, шкаф для одежды, двухместный раскладной диван 152см х 200см).\nКухонная зона оснащена встроенной бытовой техникой (двухкамерный холодильник, СВЧпечь, раковина). Варочная панель  предоставляется по требованию.\nНомер оснащен кондиционером, доступом в Интернет (бесплатно), мини-баром, сейфом, чайной станцией. Санузел с ванной, феном, зеркалом для макияжа, мини-набором для ванной, халатом, тапочками.",
+        "size": {
+          "value": 65,
+          "unit": "square_metre"
+        },
+        "rooms_quantity": 2,
+        "amenities": [
+          {
+            "category_code": "4",
+            "kind": "air_conditioning",
+            "name": "кондиционер"
+          },
+          {
+            "category_code": "4",
+            "kind": "microwave",
+            "name": "микроволновая печь"
+          },
+          {
+            "category_code": "4",
+            "kind": "desk_lamps",
+            "name": "настольные лампы"
+          },
+          {
+            "category_code": "4",
+            "kind": "hairdryer",
+            "name": "фен"
+          },
+          {
+            "category_code": "4",
+            "kind": "refrigerator",
+            "name": "холодильник"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathtub",
+            "name": "ванна"
+          },
+          {
+            "category_code": "5",
+            "kind": "hygienic_aids",
+            "name": "гигиенические средства"
+          },
+          {
+            "category_code": "5",
+            "kind": "slippers",
+            "name": "тапочки"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathrobe",
+            "name": "халаты"
+          },
+          {
+            "category_code": "3",
+            "kind": "wifi_internet",
+            "name": "Wi-Fi"
+          },
+          {
+            "category_code": "3",
+            "kind": "telephone",
+            "name": "телефон"
+          },
+          {
+            "category_code": "7",
+            "kind": "king_bed",
+            "name": "кровать «King size»"
+          },
+          {
+            "category_code": "8",
+            "kind": "sofa_bed",
+            "name": "диван"
+          },
+          {
+            "category_code": "8",
+            "kind": "armchair",
+            "name": "кресло"
+          },
+          {
+            "category_code": "8",
+            "kind": "chairs",
+            "name": "стулья"
+          },
+          {
+            "category_code": "8",
+            "kind": "pouf",
+            "name": "пуфик"
+          },
+          {
+            "category_code": "8",
+            "kind": "dinner_table",
+            "name": "обеденный стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "desk",
+            "name": "письменный стол"
+          },
+          {
+            "category_code": "8",
+            "kind": "closet_for_clothes",
+            "name": "шкаф для одежды"
+          },
+          {
+            "category_code": "8",
+            "kind": "mirror",
+            "name": "зеркало"
+          },
+          {
+            "category_code": "9",
+            "kind": "two_rooms",
+            "name": "две комнаты"
+          },
+          {
+            "category_code": "9",
+            "kind": "safe",
+            "name": "сейф"
+          },
+          {
+            "category_code": "9",
+            "kind": "tea_station",
+            "name": "чайная станция"
+          },
+          {
+            "category_code": "9",
+            "kind": "kitchen",
+            "name": "кухня"
+          },
+          {
+            "category_code": "10",
+            "kind": "without_pets",
+            "name": "без питомцев"
+          },
+          {
+            "category_code": "6",
+            "kind": "balcony",
+            "name": "балкон"
+          },
+          {
+            "category_code": "2",
+            "kind": "cable_television",
+            "name": "кабельное телевидение"
+          }
+        ],
+        "preferences": [],
+        "kind": "room",
+        "max_adult_occupancy": 2,
+        "max_extra_bed_occupancy": 1,
+        "max_without_bed_occupancy": 1,
+        "max_occupancy": 3,
+        "accommodate_adults_on_extra_bed": true,
+        "child_bed_age_groups": [
+          {
+            "code": "14389"
+          },
+          {
+            "code": "40414"
+          }
+        ],
+        "child_extra_bed_age_groups": [
+          {
+            "code": "14389"
+          },
+          {
+            "code": "40414"
+          }
+        ],
+        "child_without_bed_age_groups": [
+          {
+            "code": "14389"
+          }
+        ],
+        "restricted_child_without_bed_age_groups": [
+          {
+            "code": "40414"
+          }
+        ]
+      }
+    ],
+    "rate_plans": [
+      {
+        "code": "128311",
+        "name": "Заранее выгодно!  Тариф без завтрака",
+        "description": " Тариф  с дополнительной  скидкой для гостей, заранее планирующих свое путешествие. \n \n  Время заезда в отель с 14:00, время выезда из отеля до 12:00.  \n В стоимость включено проживание в выбранной категории номера.  Стоимость номера указана в рублях с учетом НДС 0%.*   \n \n \n Предоплата вносится в полном размере. \n \n В случае   аннуляции  бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2018-11-21",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "1558",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "128337",
+        "name": "Заранее выгодно!  Тариф с завтраком",
+        "description": " Тариф с дополнительной скидкой для гостей, заранее планирующих свое путешествие. \n \n  Время заезда в отель с 14:00, время выезда из отеля до 12:00.  \n В стоимость включено  проживание в выбранной категории номера и    завтрак «шведский стол».  Стоимость номера указана в рублях с учетом НДС 0%.*   \n Предоплата вносится в полном размере \n \n В случае аннуляции  бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2018-11-21",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "1558",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "128299",
+        "name": "Лучшая цена дня без завтрака",
+        "description": "  Тариф предусматривает возможность внесения изменений и отмены бронирования.  \n \n Тариф включает проживание в номере выбранной категории. Стоимость номера указана в рублях с учетом НДС 0%.* \n Время заезда в отель с 14:00, время выезда из отеля до 12:00. \n Предоплата в момент бронирования или оплата при заезде - все на ваше усмотрение. \n \n  В случае аннуляции   бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2018-11-20",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "128301",
+        "name": "Лучшая цена дня с завтраком",
+        "description": "  Тариф предусматривает возможность внесения изменений и отмены бронирования.  \n \n В стоимость включен завтрак «шведский стол».  Стоимость номера указана в рублях с учетом НДС 0%.*   \n Время заезда в отель с 14:00, время выезда из отеля до 12:00. \n Предоплата в момент бронирования или оплата при заезде - все на ваше усмотрение. \n \n  В случае аннуляции   бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2018-11-20",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "142531",
+        "name": "Лучшая цена дня",
+        "description": "Самый выгодный тариф для бронирования на официальном сайте.",
+        "sell_dates": [
+          {
+            "start_date": "2019-02-05",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "741398",
+        "name": "AZIMUT Bonus. Лучшая цена дня с завтраком",
+        "description": "  Тариф предусматривает возможность внесения изменений и отмены бронирования.  \n \n В стоимость включен завтрак «шведский стол».  Стоимость номера указана в рублях с учетом НДС 0%.*   \n Время заезда в отель с 14:00, время выезда из отеля до 12:00. \n Предоплата в момент бронирования или оплата при заезде - все на ваше усмотрение. \n Отмена бронирования без штрафа возможна за 1 сутки до заезда.  \n \n  В случае аннуляции   бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2025-03-13",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "741402",
+        "name": "AZIMUT Bonus. Лучшая цена дня без завтрака",
+        "description": "  Тариф предусматривает возможность внесения изменений и отмены бронирования.  \n \n Тариф включает проживание в номере выбранной категории. Стоимость номера указана в рублях с учетом НДС 0%.* \n Время заезда в отель с 14:00, время выезда из отеля до 12:00. \n Предоплата в момент бронирования или оплата при заезде - все на ваше усмотрение. \n Отмена бронирования без штрафа возможна за 1 сутки до заезда.  \n \n  В случае аннуляции   бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2025-03-13",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "741827",
+        "name": "AZIMUT Bonus. Заранее - выгодно! Тариф без завтрака",
+        "description": " Тариф  с дополнительной  скидкой для гостей, заранее планирующих свое путешествие. \n \n  Время заезда в отель с 14:00, время выезда из отеля до 12:00.  \n В стоимость включено проживание в выбранной категории номера.  Стоимость номера указана в рублях с учетом НДС 0%.*   \n \n  В случае аннуляции   бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2025-03-14",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "1558",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "741828",
+        "name": "AZIMUT Bonus. Заранее - выгодно! Тариф с завтраком",
+        "description": " Тариф  с дополнительной  скидкой для гостей, заранее планирующих свое путешествие. \n \n  Время заезда в отель с 14:00, время выезда из отеля до 12:00.  \n В стоимость включено  проживание в выбранной категории номера и  завтрак «шведский стол».  Стоимость номера указана в рублях с учетом НДС 0%.*   \n \n  В случае аннуляции   бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2025-03-14",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "1558",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "751714",
+        "name": "Бронирование за баллы AZIMUT Bonus",
+        "description": "  Оплатите проживание баллами AZIMUT Bonus.   \n При отмене бронирования минимум за 24 часа до заезда полная стоимость проживания в баллах возвращается на ваш бонусный счет в течение суток. При поздней отмене бронирования баллы не возвращаются.  \n  Оплата производится в баллах AZIMUT Bonus только при регистрации в программе лояльности и авторизации через личный кабинет на официальном сайте сети AZIMUT. Если бронирование оформлено через сторонние источники, отель оставляет за собой право при заселении запросить подтверждение списания баллов или оплату полной стоимости бронирования.  \n  ",
+        "sell_dates": [
+          {
+            "start_date": "2025-04-04",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "220782",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "917131",
+        "name": "Тариф полупансион с включенным питанием",
+        "description": " Тариф для комфортного проживания в период командировки. \n \n  Время заезда в отель с 14:00, время выезда из отеля до 12:00.  \n В стоимость включено  проживание в выбранной категории номера,    завтрак «шведский стол» и ужин по сет-меню.  Стоимость номера указана в рублях с учетом НДС 0%.*   \n Предоплата вносится в полном размере. \n \n В случае аннуляции  бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   \n  Бронирование возможно за 2 дня до заезда. Период подачи ужина 18:00-21:00.  ",
+        "sell_dates": [
+          {
+            "start_date": "2018-11-21",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "1558",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "932011",
+        "name": "Длительное проживание без завтрака",
+        "description": " Тариф на длительное проживание на период от 14 до 31 ночи. \n  \n \n Предоплата вносится в полном размере. \n  В случае сокращения бронирования стоимость будет пересчитана по тарифу Лучшая цена дня.   \n \n В случае аннуляции  бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2018-01-15",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "932016",
+        "name": "Длительное проживание без завтрака",
+        "description": " Тариф на длительное проживание от 32 ночей. \n  \n \n Предоплата вносится в полном размере. \n  В случае сокращения бронирования стоимость будет пересчитана по тарифу Лучшая цена дня.   \n \n В случае аннуляции  бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2018-01-15",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "932023",
+        "name": "Длительное проживание с завтраком",
+        "description": " Тариф на длительное проживание на период от 14 до 31 ночи. \n \n Предоплата вносится в полном размере. \n  В случае сокращения бронирования стоимость будет пересчитана по тарифу Лучшая цена дня.   \n \n В случае аннуляции  бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2018-01-15",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "932027",
+        "name": "Длительное проживание с завтраком",
+        "description": " Тариф на длительное проживание от 32 ночей. \n \n Предоплата вносится в полном размере. \n  В случае сокращения бронирования стоимость будет пересчитана по тарифу Лучшая цена дня.   \n При бронировании на период от 32 ночей необходимо будет заключить договор на  проживание . \n \n В случае аннуляции  бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   \n  ",
+        "sell_dates": [
+          {
+            "start_date": "2018-01-15",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "965189",
+        "name": "Осень в ритме города, тариф с завтраком",
+        "description": " Тариф с завтраком с дополнительной скидкой в выходные дни на Стандарты и Комфорты. \n \n  Время заезда в отель с 14:00, время выезда из отеля до 12:00.  \n В стоимость включено  проживание в выбранной категории номера и    завтрак «шведский стол».  Стоимость номера указана в рублях с учетом НДС 0%.*   \n Предоплата вносится в полном размере. \n \n В случае аннуляции  бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2025-06-06",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "965190",
+        "name": "Осень в ритме города",
+        "description": " Тариф без завтрака с дополнительной скидкой в выходные дни на Стандарты и Комфорты. \n \n  Время заезда в отель с 14:00, время выезда из отеля до 12:00.  \n В стоимость включено  проживание в выбранной категории номера .  Стоимость номера указана в рублях с учетом НДС 0%.*   \n Предоплата вносится в полном размере. \n \n В случае аннуляции  бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2025-06-06",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "965191",
+        "name": "AZIMUT Bonus. Осень в ритме города, тариф с завтраком",
+        "description": " Тариф с завтраком с дополнительной скидкой в выходные дни на Стандарты и Комфорты. \n \n  Время заезда в отель с 14:00, время выезда из отеля до 12:00.  \n В стоимость включено  проживание в выбранной категории номера и    завтрак «шведский стол».  Стоимость номера указана в рублях с учетом НДС 0%.*   \n \n В случае аннуляции  бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2025-06-06",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "965192",
+        "name": "AZIMUT Bonus. Осень в ритме города",
+        "description": " Тариф без завтрака с дополнительной скидкой в выходные дни на Стандарты и Комфорты. \n \n  Время заезда в отель с 14:00, время выезда из отеля до 12:00.  \n В стоимость включено  проживание в выбранной категории номера .  Стоимость номера указана в рублях с учетом НДС 0%.*   \n \n В случае аннуляции  бронирования в день заезда или незаезда гостя – удерживается стоимость первой ночи проживания.   ",
+        "sell_dates": [
+          {
+            "start_date": "2025-06-06",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "571",
+          "show_description": true
+        },
+        "full_prepayment": false
+      }
+    ],
+    "booking_rules": {
+      "availability_min_date": {
+        "duration": 0,
+        "time_unit": "day"
+      },
+      "availability_max_date": {
+        "duration": 3,
+        "time_unit": "year"
+      }
+    },
+    "policy": {
+      "check_in_time": "14:00",
+      "check_out_time": "12:00"
+    }
+  },
+  "333": {
+    "code": "333",
+    "name": "Легендарный Отель Советский",
+    "currency": "RUB",
+    "room_types": [
+      {
+        "code": "2992",
+        "name": "Апартаменты",
+        "description": "Апартаменты это номер с одной комнатой, с большой двуспальной кроватью . К вашим услугам просторная гостиная и уютная спальня. Гостиная оснащена письменным столом, журнальным столиком, креслами и вторым диваном. Стильный номер с современной мебелью и всеми необходимыми принадлежностями: телефон, спутниковое и кабельное телевидение, мини-бар( не входит в стоимость номера), бесплатный Wi-Fi, кофейный столик с креслами, ванная комната с феном, тапочками и туалетными принадлежностями. В комнате также имеется кондиционер. Каждая комната выполнена в своем неповторимом стиле.",
+        "size": {
+          "value": 70,
+          "unit": "square_metre"
+        },
+        "amenities": [
+          {
+            "category_code": "2",
+            "kind": "tv",
+            "name": "телевизор"
+          },
+          {
+            "category_code": "3",
+            "kind": "wifi_internet",
+            "name": "Wi-Fi"
+          },
+          {
+            "category_code": "3",
+            "kind": "telephone",
+            "name": "телефон"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathroom",
+            "name": "ванная комната"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathroom_with_wc",
+            "name": "санузел"
+          },
+          {
+            "category_code": "5",
+            "kind": "bathrobe",
+            "name": "халаты"
+          },
+          {
+            "category_code": "5",
+            "kind": "slippers",
+            "name": "тапочки"
+          },
+          {
+            "category_code": "5",
+            "kind": "bath_or_shower",
+            "name": "ванна или душевая кабина"
+          },
+          {
+            "category_code": "4",
+            "kind": "alarm_clock",
+            "name": "будильник"
+          },
+          {
+            "category_code": "4",
+            "kind": "air_conditioning",
+            "name": "кондиционер"
+          },
+          {
+            "category_code": "4",
+            "kind": "hairdryer",
+            "name": "фен"
+          },
+          {
+            "category_code": "8",
+            "kind": "sofa_bed",
+            "name": "диван"
+          },
+          {
+            "category_code": "8",
+            "kind": "desk",
+            "name": "письменный стол"
+          },
+          {
+            "category_code": "9",
+            "kind": "soundproofed_room",
+            "name": "звуконепроницаемые стены и окна"
+          },
+          {
+            "category_code": "9",
+            "kind": "safe",
+            "name": "сейф"
+          },
+          {
+            "category_code": "9",
+            "kind": "minibar",
+            "name": "мини-бар"
+          },
+          {
+            "category_code": "9",
+            "kind": "heating",
+            "name": "отопление"
+          }
+        ],
+        "preferences": [],
+        "kind": "room",
+        "max_adult_occupancy": 2,
+        "max_extra_bed_occupancy": 1,
+        "max_without_bed_occupancy": 2,
+        "max_occupancy": 3,
+        "accommodate_adults_on_extra_bed": true,
+        "child_without_bed_age_groups": [
+          {
+            "code": "2462"
+          }
+        ]
+      }
+    ],
+    "rate_plans": [
+      {
+        "code": "38564",
+        "name": "Цена дня",
+        "description": " лучшая цена дня с завтраком \n также в стоимость входит: \n приветственный напиток \n охраняемая парковка \n Wi-Fi на всей территории отеля \n  \n  ",
+        "sell_dates": [
+          {
+            "start_date": "2016-06-06",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "319",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "49218",
+        "name": "Тариф без завтрака",
+        "description": " Завтрак предоставляется по цене 1500 рублей \n в стоимость номера входит: \n приветственный напиток \n охраняемая парковка \n Wi-Fi на всей территории отеля ",
+        "sell_dates": [
+          {
+            "start_date": "2016-12-21",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "319",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "145383",
+        "name": "Лучшая цена дня",
+        "description": "Самый выгодный тариф для бронирования на официальном сайте.",
+        "sell_dates": [
+          {
+            "start_date": "2019-02-06",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "12467",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "131363",
+        "name": "Привилегия",
+        "description": " Дисконтная карта 20%.  \n Скидка не предоставляется, если цена дня установлена со скидкой более 30% ",
+        "sell_dates": [
+          {
+            "start_date": "2018-12-07",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "319",
+          "show_description": true
+        },
+        "full_prepayment": false,
+        "promo": true
+      },
+      {
+        "code": "303387",
+        "name": "Выгодное предложение",
+        "description": " Sovietsky time  ",
+        "sell_dates": [
+          {
+            "start_date": "2021-05-05",
+            "end_date": "2021-09-25"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "319",
+          "show_description": true
+        },
+        "full_prepayment": false
+      }
+    ],
+    "booking_rules": {
+      "availability_min_date": {
+        "duration": 0,
+        "time_unit": "day"
+      },
+      "availability_max_date": {
+        "duration": 2,
+        "time_unit": "year"
+      }
+    },
+    "policy": {
+      "check_in_time": "14:00",
+      "check_out_time": "12:00"
+    }
+  }
+}

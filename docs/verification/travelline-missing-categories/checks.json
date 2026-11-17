@@ -1,0 +1,94 @@
+{
+  "checked_at": "2026-11-05T12:29:31.335280+00:00",
+  "base_commit": "0f42af0",
+  "production_changed": false,
+  "live_http_gets": 29,
+  "live_scenarios": 14,
+  "reused_historical_scenarios": 2,
+  "fixture_postgres": {
+    "jobs": 16,
+    "attempts": 16,
+    "observations": 126,
+    "variants": 104,
+    "offers": 360,
+    "external_http": 0,
+    "replay_fixture_http": 0,
+    "schema_removed": true
+  },
+  "checks": {
+    "make_check": "PASS",
+    "postgres_fixture_replay_and_readback": "PASS",
+    "offline_raw_parse_normalization_postgres_audit": "PASS",
+    "previous_full_collection_audit": "PASS",
+    "previous_excluded_rates_audit": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "limitations": [
+    "LOS1 Petroff controls reused from 2026-11-03, not simultaneous with LOS2 live.",
+    "Sovietsky February DOM and separate rate-list rendering did not complete; direct API/Parse/PostgreSQL succeeded.",
+    "Aerostar physical reason for public closure is unknown.",
+    "Anonymous offer/card visibility checked; checkout not attempted."
+  ],
+  "files": {
+    "README.md": {
+      "bytes": 27878,
+      "sha256": "30b30ad68f853c7808092c2180854e5227014779694140bc7d829f8f6b3314cb"
+    },
+    "audit.py": {
+      "bytes": 5856,
+      "sha256": "6e40b1f2f73da3a2d4270fb195a68f5a9dedc7bc144d8033ef8eedb1a83dc65a"
+    },
+    "browser-evidence.json": {
+      "bytes": 3351,
+      "sha256": "b2d53bc725af7258c3cc4d3144f226dd85ba01d61340527875f2b49e2370ec0e"
+    },
+    "browser-rates-evidence.json": {
+      "bytes": 589,
+      "sha256": "fa42338451a74c497b207fe9095b7ad08e897cd35adde4550e76e30119479a48"
+    },
+    "browser-retry-evidence.json": {
+      "bytes": 25364,
+      "sha256": "089481c6f357f188d98e7e305f6e12a63263f85ec4f22d7101f2991c27521ef3"
+    },
+    "dom-confirmations.json": {
+      "bytes": 13187,
+      "sha256": "8922c505ee2834d6b80539464c0845a5cc4eb71d1f8c083b066493be42c43844"
+    },
+    "live-manifest.json": {
+      "bytes": 18104,
+      "sha256": "36de5374d6f08531bcc35b98af50a4f418b72441a51941890a42a9b3a12ff9fa"
+    },
+    "metadata.json": {
+      "bytes": 103512,
+      "sha256": "32ac685f604c53101257dd946945b125df7c27839baf39351906c84192bbf7c7"
+    },
+    "parsed.json": {
+      "bytes": 300564,
+      "sha256": "946fdc6e52a28b347b9488b6bc2d3dc4daebe9d57092e53282fbba6a27ba2d89"
+    },
+    "parser-metadata.json": {
+      "bytes": 10744,
+      "sha256": "49d5bbf8730d64fc4cf2d2b052544c64f78a40d094d0da1cf92ced6e41f49efd"
+    },
+    "postgres-readback.json": {
+      "bytes": 307083,
+      "sha256": "d9069d6e44c143809298a25fa4256e7c4f922260cac1d8c7c7164414cd89e547"
+    },
+    "rules.json": {
+      "bytes": 41282,
+      "sha256": "8bd54a110a49e49512c9e26d1a16165bb430e271b6a6252c10c2dd663002525c"
+    },
+    "scenario-summary.json": {
+      "bytes": 6163,
+      "sha256": "7fbcddec1d9093da4655d9b290a6b745e422a5363747b3941b3eacdf89e819f0"
+    },
+    "scenarios.json": {
+      "bytes": 914380,
+      "sha256": "7cab731a3804beb36c658822bdca87cbd835e4bb53af3a14bec577e87c9040ef"
+    },
+    "target-offers.csv": {
+      "bytes": 2218,
+      "sha256": "3adc05753f98061de8d56093a43beacc946919aa5c947ef8e5b9816ad491743a"
+    }
+  }
+}

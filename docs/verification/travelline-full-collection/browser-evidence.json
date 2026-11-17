@@ -1,0 +1,2879 @@
+[
+  {
+    "hotel": "17249",
+    "date": "2026-11-22",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=17249&date=2026-11-22&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-03T12:14:06.330Z",
+    "error": "page.waitForFunction: Timeout 40000ms exceeded.",
+    "text_length": 1619,
+    "aborted": [
+      "research_api_budget",
+      "research_api_budget",
+      "research_api_budget"
+    ],
+    "responses": [
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:30.673Z",
+        "completed_at": "2026-11-03T12:13:31.728Z",
+        "bytes": 102824,
+        "sha256": "a3c785f35e0729b1e7eaa218cfec2e47214841647f3ad883aa728ca9c35e5d2d"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:31.725Z",
+        "completed_at": "2026-11-03T12:13:31.931Z",
+        "bytes": 27305,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "17249",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:32.776Z",
+        "completed_at": "2026-11-03T12:13:32.974Z",
+        "bytes": 3109,
+        "sha256": "da39c493b8f28f23aeb24cc149b01ffc5bd9e59e5ff5b4d07223524130ab5108"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:33.827Z",
+        "completed_at": "2026-11-03T12:13:33.989Z",
+        "bytes": 344,
+        "sha256": "2514fe73877054f26ed98338c214106d6888de5a7009f5cc5c408b30b774e48d"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-22;2026-11-23",
+          "criterions[0].hotels[0].code": "17249",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:34.879Z",
+        "completed_at": "2026-11-03T12:13:35.285Z",
+        "bytes": 93,
+        "sha256": "07f184fcca1e9a2add3c17b90916268e522c57a70c335b2dabc5ff66d9ad40a2"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "17249",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:35.931Z",
+        "completed_at": "2026-11-03T12:13:36.171Z",
+        "bytes": 7492,
+        "sha256": "45450a89122d195f2ba615ff2ac13f7b3e4a412a616ed37fb16d49cf632cd883"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "0",
+          "criterions[0].dates": "2026-11-22;2026-11-23",
+          "criterions[0].hotels[0].code": "17249",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:36.981Z",
+        "completed_at": "2026-11-03T12:13:37.357Z",
+        "bytes": 93,
+        "sha256": "07f184fcca1e9a2add3c17b90916268e522c57a70c335b2dabc5ff66d9ad40a2"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_offer_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].dates": "2026-11-22;2026-11-23",
+          "criterions[0].hotels[0].code": "17249",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:38.033Z",
+        "completed_at": "2026-11-03T12:13:38.341Z",
+        "bytes": 93,
+        "sha256": "07f184fcca1e9a2add3c17b90916268e522c57a70c335b2dabc5ff66d9ad40a2"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "17249",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:39.084Z",
+        "completed_at": "2026-11-03T12:13:39.269Z",
+        "bytes": 200,
+        "sha256": "171ac7c567574563e75b8a6670d2c7ed8b6fbe2b86b6df8ffc0d25f4333eb957"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/nearest_available_dates",
+        "query": {
+          "end_date": "2026-11-23",
+          "hotel": "17249",
+          "prefer_exact_dates": "true",
+          "start_date": "2026-11-22",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:40.135Z",
+        "completed_at": "2026-11-03T12:13:41.405Z",
+        "bytes": 134,
+        "sha256": "4480560c8d23acde5863a6f34aecd2615d2cd4748a96d05eeb3f77800c622de7"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2026-11-30",
+          "hotel": "17249",
+          "rate_plans[0].code": "951554",
+          "rate_plans[1].code": "626675",
+          "rate_plans[2].code": "626679",
+          "rate_plans[3].code": "920899",
+          "rate_plans[4].code": "246133",
+          "rate_plans[5].code": "373411",
+          "rate_plans[6].code": "641534",
+          "rate_plans[7].code": "878182",
+          "rate_plans[8].code": "816956",
+          "rate_plans[9].code": "659661",
+          "rate_plans[10].code": "659656",
+          "rate_plans[11].code": "422908",
+          "rate_plans[12].code": "422907",
+          "rate_plans[13].code": "433701",
+          "rate_plans[14].code": "370599",
+          "rate_plans[15].code": "433025",
+          "rate_plans[16].code": "641514",
+          "start_date": "2026-11-01",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:41.187Z",
+        "completed_at": "2026-11-03T12:13:42.470Z",
+        "bytes": 73323,
+        "sha256": "bda8e82f335c72f08411a0adb603d0835d45c358d8a4ef951fffbc0669c2c428"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "17249",
+          "rate_plans[0].code": "951554",
+          "rate_plans[1].code": "626675",
+          "rate_plans[2].code": "626679",
+          "rate_plans[3].code": "920899",
+          "rate_plans[4].code": "246133",
+          "rate_plans[5].code": "373411",
+          "rate_plans[6].code": "641534",
+          "rate_plans[7].code": "878182",
+          "rate_plans[8].code": "816956",
+          "rate_plans[9].code": "659661",
+          "rate_plans[10].code": "659656",
+          "rate_plans[11].code": "422908",
+          "rate_plans[12].code": "422907",
+          "rate_plans[13].code": "433701",
+          "rate_plans[14].code": "370599",
+          "rate_plans[15].code": "433025",
+          "rate_plans[16].code": "641514",
+          "start_date": "2026-12-01",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:13:42.238Z",
+        "completed_at": "2026-11-03T12:13:43.118Z",
+        "bytes": 72784,
+        "sha256": "1b66172186970dfefc8a84823614bcdca037996900e7b2b5704c27951e92001d"
+      }
+    ],
+    "categories": [
+      {
+        "category_id": "122840",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "На 22 ноября — 23 ноября нет доступных номеров"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626675",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626679",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "category_id": "122845",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "На 22 ноября — 23 ноября нет доступных номеров"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626675",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626679",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "category_id": "122847",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "На 22 ноября — 23 ноября нет доступных номеров"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626675",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626679",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "category_id": "170376",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "На 22 ноября — 23 ноября нет доступных номеров"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626675",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626679",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "category_id": "185327",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "На 22 ноября — 23 ноября нет доступных номеров"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626675",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626679",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "category_id": "201805",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "На 22 ноября — 23 ноября нет доступных номеров"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "category_id": "202026",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "На 22 ноября — 23 ноября нет доступных номеров"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "category_id": "202027",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "На 22 ноября — 23 ноября нет доступных номеров"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-22"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-22"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-11-23",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=17249&date=2026-11-23&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-03T12:14:15.148Z",
+    "error": "",
+    "text_length": 2596,
+    "aborted": [],
+    "responses": [
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:08.753Z",
+        "completed_at": "2026-11-03T12:14:09.602Z",
+        "bytes": 102824,
+        "sha256": "1b39785b8d4ff9d70c547ced1a5b0d0a44427c225655bc3cdafc3697bf24d8ca"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:09.805Z",
+        "completed_at": "2026-11-03T12:14:10.022Z",
+        "bytes": 27305,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "17249",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:10.857Z",
+        "completed_at": "2026-11-03T12:14:11.049Z",
+        "bytes": 3109,
+        "sha256": "da39c493b8f28f23aeb24cc149b01ffc5bd9e59e5ff5b4d07223524130ab5108"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:11.908Z",
+        "completed_at": "2026-11-03T12:14:12.063Z",
+        "bytes": 344,
+        "sha256": "2514fe73877054f26ed98338c214106d6888de5a7009f5cc5c408b30b774e48d"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-23;2026-11-24",
+          "criterions[0].hotels[0].code": "17249",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:12.959Z",
+        "completed_at": "2026-11-03T12:14:13.440Z",
+        "bytes": 15057,
+        "sha256": "681cb1448588a3a43fad1189ac7218bcfa849cea9b213e552f60bdae2d4bda03"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "17249",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:14.010Z",
+        "completed_at": "2026-11-03T12:14:14.221Z",
+        "bytes": 7492,
+        "sha256": "45450a89122d195f2ba615ff2ac13f7b3e4a412a616ed37fb16d49cf632cd883"
+      }
+    ],
+    "categories": [
+      {
+        "category_id": "122840",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626675",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626679",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-23"
+          }
+        ]
+      },
+      {
+        "category_id": "122845",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626675",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626679",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-23"
+          }
+        ]
+      },
+      {
+        "category_id": "122847",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626675",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626679",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-23"
+          }
+        ]
+      },
+      {
+        "category_id": "170376",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626675",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626679",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-23"
+          }
+        ]
+      },
+      {
+        "category_id": "185327",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626675",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "626679",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-23"
+          }
+        ]
+      },
+      {
+        "category_id": "202026",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-23"
+          }
+        ]
+      },
+      {
+        "category_id": "202027",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-11-23"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-11-23"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "hotel": "17249",
+    "date": "2026-12-30",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=17249&date=2026-12-30&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-03T12:14:25.522Z",
+    "error": "",
+    "text_length": 3178,
+    "aborted": [],
+    "responses": [
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:18.993Z",
+        "completed_at": "2026-11-03T12:14:19.516Z",
+        "bytes": 102824,
+        "sha256": "1b39785b8d4ff9d70c547ced1a5b0d0a44427c225655bc3cdafc3697bf24d8ca"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:20.044Z",
+        "completed_at": "2026-11-03T12:14:20.186Z",
+        "bytes": 27305,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "17249",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:21.095Z",
+        "completed_at": "2026-11-03T12:14:21.239Z",
+        "bytes": 3109,
+        "sha256": "da39c493b8f28f23aeb24cc149b01ffc5bd9e59e5ff5b4d07223524130ab5108"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "17249",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:22.145Z",
+        "completed_at": "2026-11-03T12:14:22.324Z",
+        "bytes": 344,
+        "sha256": "2514fe73877054f26ed98338c214106d6888de5a7009f5cc5c408b30b774e48d"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-12-30;2026-12-31",
+          "criterions[0].hotels[0].code": "17249",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:23.196Z",
+        "completed_at": "2026-11-03T12:14:23.806Z",
+        "bytes": 103594,
+        "sha256": "a7145252e85c7e5c532c0256c9202b6b70e0fd537b15da350df1f4c6fe05887f"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "17249",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:24.247Z",
+        "completed_at": "2026-11-03T12:14:24.389Z",
+        "bytes": 7492,
+        "sha256": "45450a89122d195f2ba615ff2ac13f7b3e4a412a616ed37fb16d49cf632cd883"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "17249",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:25.298Z",
+        "completed_at": "2026-11-03T12:14:25.440Z",
+        "bytes": 200,
+        "sha256": "171ac7c567574563e75b8a6670d2c7ed8b6fbe2b86b6df8ffc0d25f4333eb957"
+      }
+    ],
+    "categories": [
+      {
+        "category_id": "201805",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "370599",
+            "date": "2026-12-30"
+          },
+          {
+            "forbidden": true,
+            "code": "373411",
+            "date": "2026-12-30"
+          },
+          {
+            "forbidden": true,
+            "code": "433025",
+            "date": "2026-12-30"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 3,
+            "code": "878182",
+            "date": "2026-12-30"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 1,
+            "code": "920899",
+            "date": "2026-12-30"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "hotel": "61",
+    "date": "2026-11-05",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=61&date=2026-11-05&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-03T12:14:35.900Z",
+    "error": "",
+    "text_length": 2397,
+    "aborted": [],
+    "responses": [
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "61",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:27.404Z",
+        "completed_at": "2026-11-03T12:14:28.222Z",
+        "bytes": 66055,
+        "sha256": "dd3ddc27f89b1b6a1c0fe0092fa956343ee4759243339d31314003145f86c14d"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "61",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:28.454Z",
+        "completed_at": "2026-11-03T12:14:28.650Z",
+        "bytes": 27305,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "61",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:29.505Z",
+        "completed_at": "2026-11-03T12:14:29.686Z",
+        "bytes": 2883,
+        "sha256": "342b11231dae2839e06d05c142c62f1fc970fc5e0070de6ceb20692ba88e0060"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "61",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:30.557Z",
+        "completed_at": "2026-11-03T12:14:30.712Z",
+        "bytes": 108,
+        "sha256": "1f11892737ba7a68c1dce53179d0fce1f0c2bf3de88f18b284b4ef48d3104ea1"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-05;2026-11-06",
+          "criterions[0].hotels[0].code": "61",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:31.607Z",
+        "completed_at": "2026-11-03T12:14:32.049Z",
+        "bytes": 77630,
+        "sha256": "86e0f8ca8e62151900108971665ef1051bf64ec2f8dde2ed61cdd2795cc79667"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "61",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:32.659Z",
+        "completed_at": "2026-11-03T12:14:33.001Z",
+        "bytes": 6995,
+        "sha256": "2b15fc6e38fbf11c4cc6ab4200c294afedffff67b365808422453f2a78718c26"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2026-11-30",
+          "hotel": "61",
+          "rate_plans[0].code": "29023",
+          "rate_plans[1].code": "25836",
+          "rate_plans[2].code": "25833",
+          "rate_plans[3].code": "34768",
+          "rate_plans[4].code": "143499",
+          "rate_plans[5].code": "25825",
+          "rate_plans[6].code": "419670",
+          "rate_plans[7].code": "419701",
+          "rate_plans[8].code": "422732",
+          "rate_plans[9].code": "449975",
+          "start_date": "2026-11-01",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:14:33.710Z",
+        "completed_at": "2026-11-03T12:14:34.218Z",
+        "bytes": 38450,
+        "sha256": "c4383fe43041b9f39bc55691a0ac11c10a658913786691a460ca3aae93d50c3b"
+      }
+    ],
+    "categories": [
+      {
+        "category_id": "342441",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "25825",
+            "date": "2026-11-05"
+          },
+          {
+            "forbidden": true,
+            "code": "419670",
+            "date": "2026-11-05"
+          },
+          {
+            "forbidden": true,
+            "code": "419701",
+            "date": "2026-11-05"
+          },
+          {
+            "forbidden": true,
+            "code": "422732",
+            "date": "2026-11-05"
+          }
+        ]
+      },
+      {
+        "category_id": "415436",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "25825",
+            "date": "2026-11-05"
+          },
+          {
+            "forbidden": true,
+            "code": "419670",
+            "date": "2026-11-05"
+          },
+          {
+            "forbidden": true,
+            "code": "419701",
+            "date": "2026-11-05"
+          },
+          {
+            "forbidden": true,
+            "code": "422732",
+            "date": "2026-11-05"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "hotel": "585",
+    "date": "2026-12-04",
+    "url": "https://azimuthotels.com/ru/tl/availability?adults=1&checkIn=2026-12-04&checkOut=2026-12-05&children=0&hotel=101&nights=1&promo=&rooms=1",
+    "captured_at": "2026-11-03T12:14:59.267Z",
+    "error": "",
+    "text_length": 8854,
+    "aborted": [],
+    "responses": [],
+    "categories": [
+      {
+        "category_id": "103578",
+        "type": "no_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "103578",
+          "103580"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932011",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "max_los": 31,
+            "code": "932016",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932023",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "max_los": 31,
+            "code": "932027",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "965189",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "965190",
+            "date": "2026-12-04"
+          }
+        ]
+      },
+      {
+        "category_id": "103580",
+        "type": "no_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "103578",
+          "103580"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932011",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "max_los": 31,
+            "code": "932016",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932023",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "max_los": 31,
+            "code": "932027",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "965189",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "965190",
+            "date": "2026-12-04"
+          }
+        ]
+      },
+      {
+        "category_id": "133917",
+        "type": "no_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "133917"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-04"
+          }
+        ]
+      },
+      {
+        "category_id": "250899",
+        "type": "no_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "250899"
+        ],
+        "messages": [
+          "Номера закончились."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-04"
+          }
+        ]
+      },
+      {
+        "category_id": "4347",
+        "type": "no_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4347",
+          "4350"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932011",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "code": "932016",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932023",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "code": "932027",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "965189",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "965190",
+            "date": "2026-12-04"
+          }
+        ]
+      },
+      {
+        "category_id": "4348",
+        "type": "no_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4348",
+          "8875"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-04"
+          }
+        ]
+      },
+      {
+        "category_id": "4349",
+        "type": "no_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4349",
+          "8876"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-04"
+          }
+        ]
+      },
+      {
+        "category_id": "4350",
+        "type": "no_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4347",
+          "4350"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932011",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "max_los": 31,
+            "code": "932016",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932023",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "max_los": 31,
+            "code": "932027",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "965189",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "965190",
+            "date": "2026-12-04"
+          }
+        ]
+      },
+      {
+        "category_id": "8875",
+        "type": "no_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4348",
+          "8875"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-04"
+          }
+        ]
+      },
+      {
+        "category_id": "8876",
+        "type": "no_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4349",
+          "8876"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-04"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-04"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "hotel": "585",
+    "date": "2026-12-31",
+    "url": "https://azimuthotels.com/ru/tl/availability?adults=1&checkIn=2026-12-31&checkOut=2027-01-01&children=0&hotel=101&nights=1&promo=&rooms=1",
+    "captured_at": "2026-11-03T12:15:08.245Z",
+    "error": "",
+    "text_length": 10141,
+    "aborted": [],
+    "responses": [],
+    "categories": [
+      {
+        "category_id": "133917",
+        "type": "category_absent_from_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "133917"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "250899",
+        "type": "category_absent_from_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "250899"
+        ],
+        "messages": [],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "4347",
+        "type": "category_absent_from_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4347",
+          "4350"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932011",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "code": "932016",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932023",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "code": "932027",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "965189",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "965190",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "4348",
+        "type": "category_absent_from_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4348",
+          "8875"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "4349",
+        "type": "category_absent_from_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4349",
+          "8876"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "4350",
+        "type": "category_absent_from_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4347",
+          "4350"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932011",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "max_los": 31,
+            "code": "932016",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los": 14,
+            "max_los": 31,
+            "code": "932023",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los": 32,
+            "max_los": 31,
+            "code": "932027",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "965189",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "965190",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "8875",
+        "type": "category_absent_from_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4348",
+          "8875"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "8876",
+        "type": "category_absent_from_room_stays",
+        "mapping": "public group source IDs in rendered DOM",
+        "group_category_ids": [
+          "4349",
+          "8876"
+        ],
+        "messages": [
+          "Номер недоступен в указанные даты или на выбранную продолжительность."
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "128299",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128301",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128311",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "code": "128337",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 2,
+            "code": "917131",
+            "date": "2026-12-31"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "hotel": "333",
+    "date": "2026-11-15",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=333&date=2026-11-15&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-03T12:11:28.200Z",
+    "error": "",
+    "text_length": 2349,
+    "aborted": [],
+    "responses": [
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "333",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:11:18.290Z",
+        "completed_at": "2026-11-03T12:11:19.052Z",
+        "bytes": 49949,
+        "sha256": "6e14936e147fa7aa0ceb7c40af22271161974305f9e6607c7a826e84bddf98d1"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "333",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:11:19.342Z",
+        "completed_at": "2026-11-03T12:11:19.539Z",
+        "bytes": 27305,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "333",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:11:20.392Z",
+        "completed_at": "2026-11-03T12:11:20.579Z",
+        "bytes": 2622,
+        "sha256": "711e771720d7fd23ecf35e635a019f1e9f15ddd5c40a3ef537fd6df55f6be8bd"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "333",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:11:21.444Z",
+        "completed_at": "2026-11-03T12:11:21.597Z",
+        "bytes": 108,
+        "sha256": "1f11892737ba7a68c1dce53179d0fce1f0c2bf3de88f18b284b4ef48d3104ea1"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-15;2026-11-16",
+          "criterions[0].hotels[0].code": "333",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:11:22.496Z",
+        "completed_at": "2026-11-03T12:11:23.248Z",
+        "bytes": 41487,
+        "sha256": "e02f1279fbe2df700fd038d9c8e18aa35d842f07817d0b42590d7691b5071d27"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "333",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:11:23.547Z",
+        "completed_at": "2026-11-03T12:11:23.959Z",
+        "bytes": 6124,
+        "sha256": "4ce2ea11e48ecadfad8a735daa1610e4db77810bf424a5572e4c3f3f123ee6cf"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2026-11-30",
+          "hotel": "333",
+          "rate_plans[0].code": "38564",
+          "rate_plans[1].code": "49218",
+          "rate_plans[2].code": "145383",
+          "rate_plans[3].code": "131363",
+          "rate_plans[4].code": "303387",
+          "start_date": "2026-11-01",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:11:24.597Z",
+        "completed_at": "2026-11-03T12:11:25.019Z",
+        "bytes": 21631,
+        "sha256": "22155b60d98922f033e505001813bcb0a4f7f97bcc4272c84115c606ea8ee601"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "333",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:11:25.646Z",
+        "completed_at": "2026-11-03T12:11:25.820Z",
+        "bytes": 169,
+        "sha256": "0648735bb65cd22289102cad2f921c0161b3c5cd23dc380ce251288a8ecca808"
+      }
+    ],
+    "categories": [
+      {
+        "category_id": "29344",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "38564",
+            "date": "2026-11-15"
+          },
+          {
+            "forbidden": true,
+            "code": "49218",
+            "date": "2026-11-15"
+          }
+        ]
+      },
+      {
+        "category_id": "2992",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "38564",
+            "date": "2026-11-15"
+          },
+          {
+            "forbidden": true,
+            "code": "49218",
+            "date": "2026-11-15"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-12-31",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-12-31&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-03T12:15:50.863Z",
+    "error": "page.waitForFunction: Timeout 40000ms exceeded.",
+    "text_length": 0,
+    "aborted": [],
+    "responses": [],
+    "categories": [
+      {
+        "category_id": "34187",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [],
+        "rules": [
+          {
+            "min_los_arrival": 2,
+            "code": "35114",
+            "date": "2026-12-31"
+          },
+          {
+            "min_los_arrival": 2,
+            "code": "49957",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "34188",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [],
+        "rules": [
+          {
+            "forbidden": true,
+            "min_los_arrival": 2,
+            "code": "35114",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los_arrival": 2,
+            "code": "49957",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "34189",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [],
+        "rules": [
+          {
+            "forbidden": true,
+            "min_los_arrival": 2,
+            "code": "35114",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los_arrival": 2,
+            "code": "49957",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los_arrival": 2,
+            "min_adv_booking": 7,
+            "max_los": 1,
+            "code": "622569",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "34190",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [],
+        "rules": [
+          {
+            "min_los_arrival": 2,
+            "code": "35114",
+            "date": "2026-12-31"
+          },
+          {
+            "min_los_arrival": 2,
+            "code": "49957",
+            "date": "2026-12-31"
+          },
+          {
+            "min_los_arrival": 2,
+            "min_adv_booking": 7,
+            "max_los": 1,
+            "code": "622569",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "34191",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [],
+        "rules": [
+          {
+            "forbidden": true,
+            "min_los_arrival": 2,
+            "code": "35114",
+            "date": "2026-12-31"
+          },
+          {
+            "forbidden": true,
+            "min_los_arrival": 2,
+            "code": "49957",
+            "date": "2026-12-31"
+          }
+        ]
+      },
+      {
+        "category_id": "34493",
+        "type": "no_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [],
+        "rules": [
+          {
+            "min_los_arrival": 2,
+            "code": "35114",
+            "date": "2026-12-31"
+          },
+          {
+            "min_los_arrival": 2,
+            "code": "49957",
+            "date": "2026-12-31"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-11-17",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-11-17&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-03T12:16:02.174Z",
+    "error": "",
+    "text_length": 1984,
+    "aborted": [],
+    "responses": [
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_info",
+        "query": {
+          "hotels[0].code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:15:53.822Z",
+        "completed_at": "2026-11-03T12:15:55.000Z",
+        "bytes": 72198,
+        "sha256": "40d0c3910e0832112254e413ff7604bef73d2636ac60758e3398a6d7000f2d85"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/common_info",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:15:54.873Z",
+        "completed_at": "2026-11-03T12:15:55.464Z",
+        "bytes": 27305,
+        "sha256": "881e20b55a8fa90789539b918fc33d1102cb8dc6137d37987dda1492a6280d57"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/booking_form_settings",
+        "query": {
+          "hotel.code": "5787",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:15:55.925Z",
+        "completed_at": "2026-11-03T12:15:56.131Z",
+        "bytes": 3262,
+        "sha256": "667f17807215d7d833ae59f4bfd40ccd8f710f54b09deea175cfd135a02d3deb"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BookingForm/custom_messages",
+        "query": {
+          "hotel.code": "5787",
+          "language": "ru-ru",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:15:56.975Z",
+        "completed_at": "2026-11-03T12:15:57.123Z",
+        "bytes": 108,
+        "sha256": "1f11892737ba7a68c1dce53179d0fce1f0c2bf3de88f18b284b4ef48d3104ea1"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+        "query": {
+          "language": "ru-ru",
+          "criterions[0].adults": "1",
+          "criterions[0].dates": "2026-11-17;2026-11-18",
+          "criterions[0].hotels[0].code": "5787",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:15:58.027Z",
+        "completed_at": "2026-11-03T12:15:58.418Z",
+        "bytes": 6899,
+        "sha256": "e99c8654414e802c462249a18642e5301c28561950c6ff57947f04334a84e964"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+        "query": {
+          "end_date": "2026-12-31",
+          "hotel": "5787",
+          "start_date": "2026-10-01",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:15:59.078Z",
+        "completed_at": "2026-11-03T12:15:59.282Z",
+        "bytes": 6002,
+        "sha256": "dbb47de3ed61f8a01f0da56441f69a7582800cfd67cb356bc269fb32b2ace4c5"
+      },
+      {
+        "method": "GET",
+        "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+        "query": {
+          "end_date": "2026-11-30",
+          "hotel": "5787",
+          "rate_plans[0].code": "49957",
+          "rate_plans[1].code": "35114",
+          "rate_plans[2].code": "145557",
+          "rate_plans[3].code": "622569",
+          "rate_plans[4].code": "633705",
+          "start_date": "2026-11-01",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:16:00.129Z",
+        "completed_at": "2026-11-03T12:16:00.513Z",
+        "bytes": 15600,
+        "sha256": "67759fbb91f66248f8d505689900a96ccc3026db717927b931c26cd103c8508c"
+      },
+      {
+        "method": "GET",
+        "path": "/ibe/BestPriceGuarantee/advantages",
+        "query": {
+          "hotel_code": "5787",
+          "language": "ru-RU",
+          "audience": "BookingForm"
+        },
+        "status": 200,
+        "started_at": "2026-11-03T12:16:01.181Z",
+        "completed_at": "2026-11-03T12:16:01.338Z",
+        "bytes": 139,
+        "sha256": "9dc7f9b8200c355c7fcccee54277e1f55544367f04163c8d8d114c90fd85b37c"
+      }
+    ],
+    "categories": [
+      {
+        "category_id": "34188",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "35114",
+            "date": "2026-11-17"
+          },
+          {
+            "forbidden": true,
+            "code": "49957",
+            "date": "2026-11-17"
+          }
+        ]
+      },
+      {
+        "category_id": "34189",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "35114",
+            "date": "2026-11-17"
+          },
+          {
+            "forbidden": true,
+            "code": "49957",
+            "date": "2026-11-17"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 7,
+            "max_los": 1,
+            "code": "622569",
+            "date": "2026-11-17"
+          }
+        ]
+      },
+      {
+        "category_id": "34190",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "35114",
+            "date": "2026-11-17"
+          },
+          {
+            "forbidden": true,
+            "code": "49957",
+            "date": "2026-11-17"
+          },
+          {
+            "forbidden": true,
+            "min_adv_booking": 7,
+            "max_los": 1,
+            "code": "622569",
+            "date": "2026-11-17"
+          }
+        ]
+      },
+      {
+        "category_id": "34191",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "35114",
+            "date": "2026-11-17"
+          },
+          {
+            "forbidden": true,
+            "code": "49957",
+            "date": "2026-11-17"
+          }
+        ]
+      },
+      {
+        "category_id": "34493",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [
+          "Распродано"
+        ],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "35114",
+            "date": "2026-11-17"
+          },
+          {
+            "forbidden": true,
+            "code": "49957",
+            "date": "2026-11-17"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-12-14",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-12-14&nights=1&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-03T12:16:44.772Z",
+    "error": "page.waitForFunction: Timeout 40000ms exceeded.",
+    "text_length": 0,
+    "aborted": [],
+    "responses": [],
+    "categories": [
+      {
+        "category_id": "34187",
+        "type": "category_absent_from_room_stays",
+        "mapping": "exact metadata name after whitespace normalization",
+        "group_category_ids": null,
+        "messages": [],
+        "rules": [
+          {
+            "forbidden": true,
+            "code": "35114",
+            "date": "2026-12-14"
+          },
+          {
+            "forbidden": true,
+            "code": "49957",
+            "date": "2026-12-14"
+          }
+        ]
+      }
+    ]
+  }
+]

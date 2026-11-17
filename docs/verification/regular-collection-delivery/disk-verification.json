@@ -1,0 +1,68 @@
+[
+  {
+    "run_id": "de8eaefa-988b-5db9-88a5-b0e78adf9da1",
+    "path": "/hotel-parser-test/regular-20261105-92f01e86/arena33/monarch/2026-11-05_08-00.csv",
+    "status": 200,
+    "checked_at": "2026-11-05T13:47:44.064481+00:00",
+    "expected_size": 1203721,
+    "size": 1203721,
+    "md5": "45791935c7de218b28cc88a8675ded10",
+    "sha256": "fad830b277b3ff557bf47c9276f9fa14bb2011bafd258e9d58f2eb477f7f74f2",
+    "confirmed": true
+  },
+  {
+    "run_id": "0ce36d31-c21d-572c-9a3c-b059ce5d6280",
+    "path": "/hotel-parser-test/regular-20261105-92f01e86/arena33/petroff/2026-11-05_08-00.csv",
+    "status": 200,
+    "checked_at": "2026-11-05T13:47:46.011729+00:00",
+    "expected_size": 418025,
+    "size": 418025,
+    "md5": "5ab88e96adffab94ae5289f3a1ffe3ae",
+    "sha256": "eb8c7eb29fa8a369330366b8d4f427eb62bcd590404dbc0ba9e0b10bb33f1a75",
+    "confirmed": true
+  },
+  {
+    "run_id": "5742bb98-1893-5e68-91c2-0d9ce2aaa2c1",
+    "path": "/hotel-parser-test/regular-20261105-92f01e86/arena33/sovietsky/2026-11-05_08-00.csv",
+    "status": 200,
+    "checked_at": "2026-11-05T13:47:47.854262+00:00",
+    "expected_size": 377047,
+    "size": 377047,
+    "md5": "37b82b8668265d67407cc53d8048c57a",
+    "sha256": "7ee9f5fda587c0e1ca31d8e69f1b7fd95a15725598621b9bdd5e7a6efe7f61e6",
+    "confirmed": true
+  },
+  {
+    "run_id": "1ccd4de3-5463-5810-a9f3-1b0d9a736d0b",
+    "path": "/hotel-parser-test/regular-20261105-92f01e86/arena33/bega/2026-11-05_08-00.csv",
+    "status": 200,
+    "checked_at": "2026-11-05T13:47:49.495204+00:00",
+    "expected_size": 910947,
+    "size": 910947,
+    "md5": "b145c19f66b5f885de182e2f73afb2fb",
+    "sha256": "a23e2d334216328c0b037cb487e67e8bd989a419f00cfdfb9195934c63e29de5",
+    "confirmed": true
+  },
+  {
+    "run_id": "2b538588-18d2-581e-b90d-0c7a01a7f35b",
+    "path": "/hotel-parser-test/regular-20261105-92f01e86/arena33/azimut_aerostar/2026-11-05_08-00.csv",
+    "status": 200,
+    "checked_at": "2026-11-05T13:47:51.372075+00:00",
+    "expected_size": 1318024,
+    "size": 1318024,
+    "md5": "a1be0e38cbad1e5d5af30fe5d50cf69f",
+    "sha256": "97ec23af2c73098bbec93240aa4fe7ab982d3a5ac4746fcdaf8a98b9f444cad4",
+    "confirmed": true
+  },
+  {
+    "run_id": "2ca433d0-4da1-5c2a-90d0-803b216b3cf8",
+    "path": "/hotel-parser-test/regular-20261105-92f01e86/arena33/arena33/2026-11-05_08-00.csv",
+    "status": 200,
+    "checked_at": "2026-11-05T13:47:53.851232+00:00",
+    "expected_size": 660085,
+    "size": 660085,
+    "md5": "ca818cd788c831a9c75b73d28d776d8e",
+    "sha256": "0a68062ef085b6b70fc3712d1b20cc1764357d34381a4a056aa1056a1849c48f",
+    "confirmed": true
+  }
+]

@@ -1,0 +1,530 @@
+{
+  "17249": {
+    "code": "17249",
+    "name": "МонАрх Москва Отель",
+    "currency": "RUB",
+    "room_types": [
+      {
+        "code": "122847",
+        "name": "Номер Делюкс с одной большой кроватью"
+      },
+      {
+        "code": "170376",
+        "name": "Номер Делюкс с двумя раздельными кроватями"
+      },
+      {
+        "code": "122840",
+        "name": "Полулюкс"
+      },
+      {
+        "code": "122845",
+        "name": "Угловой Люкс"
+      },
+      {
+        "code": "185327",
+        "name": "Премьер Люкс"
+      },
+      {
+        "code": "201805",
+        "name": "Президентский  Люкс"
+      },
+      {
+        "code": "202026",
+        "name": "Двухкомнатные апартаменты с кухней и одной большой кроватью для длительного проживания"
+      },
+      {
+        "code": "202027",
+        "name": "Двухкомнатные апартаменты с кухней и двумя раздельными кроватями для длительного проживания"
+      }
+    ],
+    "services": [
+      {
+        "code": "78275",
+        "name": "Завтрак"
+      },
+      {
+        "code": "83167",
+        "name": "Доступ в Фитнес и бассейн"
+      },
+      {
+        "code": "158043",
+        "name": "Завтрак \"Шведский стол\""
+      },
+      {
+        "code": "260914",
+        "name": "Дополнительное спальное место для ребенка"
+      },
+      {
+        "code": "260967",
+        "name": "Сладкий подарок для детей"
+      },
+      {
+        "code": "270149",
+        "name": "Проживание с питомцем 3 000 рублей в сутки"
+      },
+      {
+        "code": "284438",
+        "name": "Завтрак \"Шведский стол\""
+      },
+      {
+        "code": "332428",
+        "name": "Парковочное место"
+      },
+      {
+        "code": "333605",
+        "name": "Скидка  20% на услуги Amo SPA МонАрх"
+      },
+      {
+        "code": "335403",
+        "name": "Приветственный напиток от Allegro Restaurant &Bar"
+      },
+      {
+        "code": "335408",
+        "name": "Поздний выезд"
+      },
+      {
+        "code": "335409",
+        "name": "Специальный комплимент от отеля"
+      },
+      {
+        "code": "349938",
+        "name": "Поздний выезд до 17:00"
+      },
+      {
+        "code": "349940",
+        "name": "Ранний заезд с 12:00"
+      },
+      {
+        "code": "377012",
+        "name": "Расслабляющий массаж в AMO SPA"
+      },
+      {
+        "code": "391019",
+        "name": "Поздний выезд до 18:00"
+      },
+      {
+        "code": "397565",
+        "name": "Ужин"
+      }
+    ],
+    "guarantees": [
+      {
+        "code": "112716",
+        "primary_guarantee_code": "112716",
+        "payment_system_code": "AT_ARRIVAL",
+        "require_prepayment": false,
+        "type": "cash"
+      },
+      {
+        "code": "113211",
+        "primary_guarantee_code": "113211",
+        "payment_system_code": "MONETA_BANKCARD",
+        "require_prepayment": true,
+        "type": "credit_card"
+      },
+      {
+        "code": "113212",
+        "primary_guarantee_code": "113212",
+        "payment_system_code": "MONETA_BANKCARD",
+        "require_prepayment": true,
+        "type": "credit_card"
+      },
+      {
+        "code": "487775",
+        "primary_guarantee_code": "487775",
+        "payment_system_code": "MONETA_BANKCARD",
+        "require_prepayment": true,
+        "type": "credit_card"
+      },
+      {
+        "code": "214870",
+        "primary_guarantee_code": "214870",
+        "payment_system_code": "MONETA_SBP",
+        "require_prepayment": true,
+        "type": "sbp"
+      },
+      {
+        "code": "214871",
+        "primary_guarantee_code": "214871",
+        "payment_system_code": "MONETA_SBP",
+        "require_prepayment": true,
+        "type": "sbp"
+      },
+      {
+        "code": "335717",
+        "primary_guarantee_code": "335717",
+        "payment_system_code": "MONETA_GUARANTEE",
+        "payment_system_proxy_code": "BANKCARD_GUARANTEE",
+        "require_prepayment": false,
+        "type": "guarantee"
+      },
+      {
+        "code": "395626",
+        "primary_guarantee_code": "395626",
+        "payment_system_code": "MONETA_BANKCARD",
+        "payment_system_proxy_code": "HOTEL_INSTALLMENT",
+        "require_prepayment": true,
+        "type": "credit_card"
+      },
+      {
+        "code": "313993",
+        "primary_guarantee_code": "313993",
+        "payment_system_code": "RSB",
+        "require_prepayment": true,
+        "type": "credit_card"
+      },
+      {
+        "code": "313994",
+        "primary_guarantee_code": "313994",
+        "payment_system_code": "RSB",
+        "require_prepayment": true,
+        "type": "credit_card"
+      },
+      {
+        "code": "112714",
+        "primary_guarantee_code": "112714",
+        "payment_system_code": "INDIVIDUAL_CASHLESS",
+        "require_prepayment": true,
+        "type": "money_order"
+      },
+      {
+        "code": "112713",
+        "primary_guarantee_code": "112713",
+        "payment_system_code": "CASHLESS",
+        "require_prepayment": true,
+        "type": "money_order"
+      },
+      {
+        "code": "411527",
+        "primary_guarantee_code": "411527",
+        "payment_system_code": "MANUAL_CASHLESS",
+        "require_prepayment": true,
+        "type": "money_order"
+      },
+      {
+        "code": "487776",
+        "primary_guarantee_code": "487776",
+        "payment_system_code": "MONETA_BANKCARD",
+        "require_prepayment": true,
+        "type": "credit_card"
+      }
+    ],
+    "rate_plans": [
+      {
+        "code": "951554",
+        "category_code": "10170",
+        "name": "Линнер \"Пикник на крыше\"",
+        "description": "Специальное предложение на выходные в «МонАрх Москва Отель» \n Проведите выходные в особенной атмосфере: насладитесь панорамными видами Москвы с крыши отеля, расслабьтесь под звуки джаза и позвольте себе ничего не ограничивать — ни в закусках, ни в напитках. \n В тариф на проживание включено: \n \n Доступ в ресторан на завтрак. Начните день с разнообразного меню в формате «шведского стола». \n Wi‑Fi на территории отеля. Оставайтесь на связи без ограничений. \n Доступ в тренажёрный зал 24/7. Поддерживайте привычный ритм тренировок в любое удобное время. \n Доступ в бассейн и раздельные сауны/хаммам. Расслабьтесь и восстановите силы в спа‑зоне отеля. \n Участие в мероприятии «Линнер: пикник на крыше» — новый формат вечернего мероприятия в МонАрх Москва Отель: \n Безлимитный снек‑бар: холодные и горячие закуски на любой вкус. \n Напитки без ограничений: вино, игристое и пиво. \n Доступ на крышу с видом на Москву: лучшие ракурсы для фото и незабываемые впечатления гарантированы. \n Живая музыка и вокал в стиле джаз: мягкое звучание, которое подчеркнёт атмосферу вечера. \n Игровая зона с PlayStation: добавьте в вечер немного драйва и веселья. \n Поздний выезд до 17:00. \n \n  \n Условия тарифа: Не суммируется с другими акциями и спецпредложениями отеля, а также со скидкой по карте лояльности. Количество номеров по тарифу ограничено — рекомендуем бронировать заранее. Участие в мероприятии \"Линнер: пикник на крыше\" доступно только в день заезда.",
+        "sell_dates": [
+          {
+            "start_date": "2026-07-22",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "37942",
+          "show_description": true
+        },
+        "full_prepayment": false
+      },
+      {
+        "code": "816956",
+        "category_code": "10170",
+        "name": "Горящее предложение!",
+        "description": "Горячее предложение! До 25% скидка только для Вас!  \n  В проживание включено:  \n  \n \n Wi-Fi на территории отеля \n  Доступ в тренажерный зал 24/7  \n Доступ в бассейн и раздельные сауны/хамам \n Завтрак для проживающих Гостей \n \n   Условия тарифа:  \n \n  Скидка до 25% предоставляется при бронировании.  \n  Тариф не суммируется с другими акциями и спецпредложениями Отеля, а также со скидкой по карте лояльности.  \n \n *Изменения проживания по данному тарифу не предусмотрены.",
+        "sell_dates": [
+          {
+            "start_date": "2025-10-03",
+            "end_date": "2026-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "210628",
+          "show_description": true
+        },
+        "full_prepayment": false
+      }
+    ],
+    "cancel_penalty_groups": [
+      {
+        "code": "37942",
+        "cancel_penalties": [
+          {
+            "code": "73801",
+            "description": "При отмене в любое время взимается стоимость первых суток",
+            "deadline": {
+              "offset_drop_time": "before_policy_check_in_time"
+            },
+            "time_match": {
+              "time_unit": "hour",
+              "matching": "any"
+            },
+            "periods": [
+              {
+                "start_date": "2022-07-19"
+              }
+            ],
+            "penalty": {
+              "nights": 1,
+              "type": "relative_to_basis",
+              "basis": "nights"
+            }
+          }
+        ],
+        "description": "Бесплатная отмена возможна до 16:00 по Московскому времени дня заезда. В случае отмены после указанного времени взимается стоимость первых суток проживания.",
+        "show_description": true
+      },
+      {
+        "code": "210628",
+        "cancel_penalties": [
+          {
+            "code": "226785",
+            "description": "При отмене в интервале с 0 по 15 часов до 14:59 дня заезда взимается стоимость первых суток",
+            "deadline": {
+              "offset_drop_time": "before_fixed"
+            },
+            "time_match": {
+              "time_unit": "hour",
+              "matching": "between",
+              "min_value": 0,
+              "max_value": 15
+            },
+            "periods": [
+              {
+                "start_date": "2026-07-02"
+              }
+            ],
+            "penalty": {
+              "nights": 1,
+              "type": "relative_to_basis",
+              "basis": "nights"
+            }
+          }
+        ],
+        "description": "",
+        "show_description": true
+      }
+    ]
+  },
+  "5787": {
+    "code": "5787",
+    "name": "Бутик-отель \"Петровский Путевой Дворец\"",
+    "currency": "RUB",
+    "room_types": [
+      {
+        "code": "34187",
+        "name": "Стандартный номер с 1 двуспальной кроватью"
+      },
+      {
+        "code": "34493",
+        "name": "Стандартный номер с 2 односпальными кроватями"
+      },
+      {
+        "code": "34188",
+        "name": "Делюкс с 1 двуспальной кроватью"
+      },
+      {
+        "code": "34189",
+        "name": "Представительский двухкомнатный Люкс с 1 спальней"
+      },
+      {
+        "code": "34191",
+        "name": "Семейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями"
+      },
+      {
+        "code": "34190",
+        "name": "Императорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней"
+      }
+    ],
+    "services": [
+      {
+        "code": "30798",
+        "name": "Посещение Wellness&Fitness центра"
+      },
+      {
+        "code": "30799",
+        "name": "Охраняемая парковка"
+      },
+      {
+        "code": "11020",
+        "name": "Завтрак"
+      },
+      {
+        "code": "74038",
+        "name": "Завтрак в ресторане \"Карамзин\""
+      },
+      {
+        "code": "261489",
+        "name": "Приветственный чай/кофе и десерт в ресторане Карамзин"
+      },
+      {
+        "code": "148422",
+        "name": "Завтрак в ресторане \"Карамзин\". Промо"
+      },
+      {
+        "code": "149088",
+        "name": "Размещение с домашним животным"
+      },
+      {
+        "code": "242094",
+        "name": "Завтрак в номер"
+      },
+      {
+        "code": "242177",
+        "name": "Подарок от отеля. Ужин"
+      },
+      {
+        "code": "242178",
+        "name": "Подарок от отеля. Чайная церемония на 2 персоны"
+      },
+      {
+        "code": "251263",
+        "name": "Подарочный сертификат в SPA SIAM"
+      },
+      {
+        "code": "251265",
+        "name": "Чайная церемония"
+      },
+      {
+        "code": "261461",
+        "name": "Бесплатный завтрак для участника программы лояльности со статусом Imperial"
+      },
+      {
+        "code": "261464",
+        "name": "Завтрак по специальной цене для участников программы лояльности со статусом Elite"
+      },
+      {
+        "code": "268084",
+        "name": "Подарочный сертификат на посещение смотровой площадки \"Выше Только Любовь\""
+      }
+    ],
+    "guarantees": [
+      {
+        "code": "31461",
+        "primary_guarantee_code": "31461",
+        "payment_system_code": "AT_ARRIVAL",
+        "require_prepayment": false,
+        "type": "cash"
+      },
+      {
+        "code": "206042",
+        "primary_guarantee_code": "206042",
+        "payment_system_code": "MONETA_BANKCARD",
+        "require_prepayment": true,
+        "type": "credit_card"
+      },
+      {
+        "code": "206043",
+        "primary_guarantee_code": "206043",
+        "payment_system_code": "MONETA_BANKCARD",
+        "require_prepayment": true,
+        "type": "credit_card"
+      },
+      {
+        "code": "210126",
+        "primary_guarantee_code": "210126",
+        "payment_system_code": "MONETA_SBP",
+        "require_prepayment": true,
+        "type": "sbp"
+      },
+      {
+        "code": "31463",
+        "primary_guarantee_code": "31463",
+        "payment_system_code": "INDIVIDUAL_CASHLESS",
+        "require_prepayment": true,
+        "type": "money_order"
+      },
+      {
+        "code": "210127",
+        "primary_guarantee_code": "210127",
+        "payment_system_code": "MONETA_SBP",
+        "require_prepayment": true,
+        "type": "sbp"
+      },
+      {
+        "code": "36604",
+        "primary_guarantee_code": "36604",
+        "payment_system_code": "RSB",
+        "require_prepayment": true,
+        "type": "credit_card"
+      },
+      {
+        "code": "36605",
+        "primary_guarantee_code": "36605",
+        "payment_system_code": "RSB",
+        "require_prepayment": true,
+        "type": "credit_card"
+      },
+      {
+        "code": "332199",
+        "primary_guarantee_code": "332199",
+        "payment_system_code": "MONETA_GUARANTEE",
+        "payment_system_proxy_code": "BANKCARD_GUARANTEE",
+        "require_prepayment": false,
+        "type": "guarantee"
+      },
+      {
+        "code": "31464",
+        "primary_guarantee_code": "31464",
+        "payment_system_code": "CASHLESS",
+        "require_prepayment": true,
+        "type": "money_order"
+      }
+    ],
+    "rate_plans": [
+      {
+        "code": "633705",
+        "name": "Романтические выходные в Петровском Путевом Дворце",
+        "description": "Мы подготовили для Вас пакетное предложение.   В стоимость тарифа включено   :    \n \n  Проживание в номере   выбранной категории  \n  Завтрак в номер на две персоны  \n  Чайная церемония для двоих  \n Подарочный сертификат от отеля* \n  При  ветственный   комплимент от отеля   \n  Ваучер на скидку 20% в ресторан отеля (меню и безалкогольные напитки)  \n  Бесплатный поздний выезд до 14:00 (при наличии возможности)  \n  Посещение оздоровительного центра отеля  \n  Место для автомобиля на подземной парковке  \n \n * Тип сертификата зависит от категории выбранного номера. При бронировании номера категории  Делюкс или Представительский  люкс дарим сертификат на посещение  смотровой площадки \"Выше Только Любовь\".  При бронировании номера категории  Петровские Палаты  - сертификат в \"SPA SIAM\" на сумму 10000 рублей.  \n  При непрерывном проживании более чем на 1 сутки все дополнительные услуги (кроме завтрака) предоставляются единоразово.  \n  Обращаем Ваше внимание, что требуется внесение предоплаты минимум за 72 часа до заезда .   \n  Информацию о доступности категорий номеров можно найти на форме бронирования, указав предполагаемые даты размещения.",
+        "sell_dates": [
+          {
+            "start_date": "2024-04-24",
+            "end_date": "9999-12-31"
+          }
+        ],
+        "currency": "RUB",
+        "nonrefundable": false,
+        "cancel_penalty_group": {
+          "code": "99278",
+          "show_description": true
+        },
+        "full_prepayment": false
+      }
+    ],
+    "cancel_penalty_groups": [
+      {
+        "code": "99278",
+        "cancel_penalties": [
+          {
+            "code": "110415",
+            "description": "При отмене менее чем за 72 часа до времени заезда (15:00)  взимается 100% от размера предоплаты",
+            "deadline": {
+              "offset_drop_time": "before_policy_check_in_time"
+            },
+            "time_match": {
+              "time_unit": "hour",
+              "matching": "no_more",
+              "value": 72
+            },
+            "periods": [
+              {
+                "start_date": "2024-04-24"
+              }
+            ],
+            "penalty": {
+              "percent": 100.0,
+              "type": "relative_to_basis",
+              "basis": "prepayment"
+            }
+          }
+        ],
+        "description": "",
+        "show_description": true
+      }
+    ]
+  }
+}

@@ -2,13 +2,63 @@ package logger
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"io"
 	"log/slog"
+	"os"
 	"strings"
 	"sync"
 	"time"
 )
+
+// New создаёт логгер с исходным читаемым форматом [LEVEL] YYYY-MM-DD HH:MM:SS.
+func New(w io.Writer, loc *time.Location) *slog.Logger {
+	return newLogger(w, loc, "text", slog.LevelInfo)
+}
+
+// FromEnv читает HOTEL_PARSER_LOG_FORMAT (text/json) и HOTEL_PARSER_LOG_LEVEL.
+// По умолчанию используется текстовый формат и уровень INFO.
+func FromEnv(w io.Writer, loc *time.Location) (*slog.Logger, error) {
+	format := os.Getenv("HOTEL_PARSER_LOG_FORMAT")
+	if format == "" {
+		format = "text"
+	}
+	if format != "text" && format != "json" {
+		return nil, errors.New("HOTEL_PARSER_LOG_FORMAT must be text or json")
+	}
+	level := slog.LevelInfo
+	if value := os.Getenv("HOTEL_PARSER_LOG_LEVEL"); value != "" {
+		if err := level.UnmarshalText([]byte(value)); err != nil {
+			return nil, errors.New("invalid HOTEL_PARSER_LOG_LEVEL")
+		}
+	}
+	return newLogger(w, loc, format, level), nil
+}
+
+func newLogger(w io.Writer, loc *time.Location, format string, level slog.Level) *slog.Logger {
+	if loc == nil {
+		loc = time.FixedZone("UTC+3", 3*60*60)
+	}
+	options := &slog.HandlerOptions{
+		Level: level,
+		ReplaceAttr: func(groups []string, attr slog.Attr) slog.Attr {
+			if len(groups) == 0 && attr.Key == slog.TimeKey && attr.Value.Kind() == slog.KindTime {
+				return slog.Time(slog.TimeKey, attr.Value.Time().In(loc))
+			}
+			return attr
+		},
+	}
+	if format == "json" {
+		return slog.New(slog.NewJSONHandler(w, options))
+	}
+	return slog.New(&PrettyHandler{
+		w:     w,
+		mu:    &sync.Mutex{},
+		loc:   loc,
+		level: level,
+	})
+}
 
 type PrettyHandler struct {
 	w     io.Writer
@@ -18,19 +68,6 @@ type PrettyHandler struct {
 
 	attrs  []slog.Attr
 	groups []string
-}
-
-func New(w io.Writer, loc *time.Location) *slog.Logger {
-	if loc == nil {
-		loc = time.Local
-	}
-
-	return slog.New(&PrettyHandler{
-		w:     w,
-		mu:    &sync.Mutex{},
-		loc:   loc,
-		level: slog.LevelInfo,
-	})
 }
 
 func (h *PrettyHandler) Enabled(_ context.Context, level slog.Level) bool {
@@ -57,14 +94,15 @@ func (h *PrettyHandler) Handle(_ context.Context, r slog.Record) error {
 		fmt.Fprintf(&b, " %s=%s", key, a.Value.String())
 	}
 
-	for _, a := range h.attrs {
-		writeAttr(a, nil)
+	if !h.writeBnovoAttrs(&b, r) {
+		for _, a := range h.attrs {
+			writeAttr(a, nil)
+		}
+		r.Attrs(func(a slog.Attr) bool {
+			writeAttr(a, h.groups)
+			return true
+		})
 	}
-
-	r.Attrs(func(a slog.Attr) bool {
-		writeAttr(a, h.groups)
-		return true
-	})
 
 	b.WriteByte('\n')
 

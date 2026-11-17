@@ -1,0 +1,43 @@
+# Standalone VPS stack: deliberately does not inherit development port mappings.
+name: hotel-parser-vps
+services:
+  postgres:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-hotel_parser}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env.collection}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "5"}
+  collector:
+    profiles: [collection]
+    build: .
+    init: true
+    entrypoint: [/app/deploy/collection-entrypoint.sh]
+    restart: unless-stopped
+    stop_grace_period: 75s
+    env_file: ${COLLECTION_ENV_FILE:-.env.collection}
+    environment:
+      TZ: Europe/Moscow
+      TINI_KILL_PROCESS_GROUP: "1"
+      HOTEL_PARSER_CSV_DIR: /var/lib/hotel-parser/csv
+    volumes:
+      - csv_cache:/var/lib/hotel-parser/csv
+    depends_on:
+      postgres:
+        condition: service_healthy
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "5"}
+volumes:
+  postgres_data:
+  csv_cache:

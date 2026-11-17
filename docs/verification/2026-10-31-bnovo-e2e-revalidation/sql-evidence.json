@@ -1,0 +1,465 @@
+{
+  "attempt_count_mismatches": 0,
+  "attempt_timing": [
+    {
+      "property_id": "arena33",
+      "mean_duration_ms": 1791.8032786885246,
+      "max_duration_ms": 4118,
+      "mean_pool_queue_wait_ms": 740.4918032786885,
+      "max_pool_queue_wait_ms": 1007,
+      "mean_durable_wait_ms": 40983.40955737705
+    },
+    {
+      "property_id": "lindsay",
+      "mean_duration_ms": 1455.950819672131,
+      "max_duration_ms": 2229,
+      "mean_pool_queue_wait_ms": 872.3934426229508,
+      "max_pool_queue_wait_ms": 1008,
+      "mean_durable_wait_ms": 41469.34844262295
+    }
+  ],
+  "bad_public_zeros": {
+    "known_zero_without_confirmation": 0,
+    "unknown_with_quantity": 0
+  },
+  "category_counts": [
+    {
+      "property_id": "arena33",
+      "category_id": "459946",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "arena33",
+      "category_id": "561429",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "arena33",
+      "category_id": "639687",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "lindsay",
+      "category_id": "188497",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "lindsay",
+      "category_id": "188498",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "lindsay",
+      "category_id": "188499",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "lindsay",
+      "category_id": "188500",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "lindsay",
+      "category_id": "188501",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "lindsay",
+      "category_id": "188502",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "lindsay",
+      "category_id": "188503",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "lindsay",
+      "category_id": "188504",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "lindsay",
+      "category_id": "188505",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    },
+    {
+      "property_id": "lindsay",
+      "category_id": "201948",
+      "observations": 61,
+      "known": 61,
+      "unknown": 0,
+      "conflict": 0
+    }
+  ],
+  "counts_by_property": [
+    {
+      "property_id": "arena33",
+      "jobs": 61,
+      "attempts": 61,
+      "observations": 183,
+      "offers": 1228,
+      "succeeded": 60,
+      "partial": 0,
+      "no_offers": 1,
+      "failed": 0,
+      "remaining": 0
+    },
+    {
+      "property_id": "lindsay",
+      "jobs": 61,
+      "attempts": 61,
+      "observations": 610,
+      "offers": 1558,
+      "succeeded": 60,
+      "partial": 0,
+      "no_offers": 1,
+      "failed": 0,
+      "remaining": 0
+    }
+  ],
+  "duplicate_observation_keys": {
+    "observations": 0,
+    "variants": 0,
+    "offers": 0
+  },
+  "duplicates": {
+    "jobs": 0,
+    "attempts": 0
+  },
+  "exact_date_unavailability": [
+    {
+      "property_id": "arena33",
+      "source_property_id": "7f3f84ae-1f13-419f-af60-ae782d454666",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "succeeded",
+      "category_id": "459946",
+      "stock_status": "known",
+      "available": 4,
+      "confirmed_unavailable": false,
+      "has_offers": true
+    },
+    {
+      "property_id": "arena33",
+      "source_property_id": "7f3f84ae-1f13-419f-af60-ae782d454666",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "succeeded",
+      "category_id": "561429",
+      "stock_status": "known",
+      "available": 9,
+      "confirmed_unavailable": false,
+      "has_offers": true
+    },
+    {
+      "property_id": "arena33",
+      "source_property_id": "7f3f84ae-1f13-419f-af60-ae782d454666",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "succeeded",
+      "category_id": "639687",
+      "stock_status": "known",
+      "available": 5,
+      "confirmed_unavailable": false,
+      "has_offers": true
+    },
+    {
+      "property_id": "lindsay",
+      "source_property_id": "5125b29f-f39e-498a-94cf-9e47889ff248",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "no_offers",
+      "category_id": "188497",
+      "stock_status": "known",
+      "available": 0,
+      "confirmed_unavailable": true,
+      "has_offers": false
+    },
+    {
+      "property_id": "lindsay",
+      "source_property_id": "5125b29f-f39e-498a-94cf-9e47889ff248",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "no_offers",
+      "category_id": "188498",
+      "stock_status": "known",
+      "available": 0,
+      "confirmed_unavailable": true,
+      "has_offers": false
+    },
+    {
+      "property_id": "lindsay",
+      "source_property_id": "5125b29f-f39e-498a-94cf-9e47889ff248",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "no_offers",
+      "category_id": "188499",
+      "stock_status": "known",
+      "available": 0,
+      "confirmed_unavailable": true,
+      "has_offers": false
+    },
+    {
+      "property_id": "lindsay",
+      "source_property_id": "5125b29f-f39e-498a-94cf-9e47889ff248",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "no_offers",
+      "category_id": "188500",
+      "stock_status": "known",
+      "available": 0,
+      "confirmed_unavailable": true,
+      "has_offers": false
+    },
+    {
+      "property_id": "lindsay",
+      "source_property_id": "5125b29f-f39e-498a-94cf-9e47889ff248",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "no_offers",
+      "category_id": "188501",
+      "stock_status": "known",
+      "available": 0,
+      "confirmed_unavailable": true,
+      "has_offers": false
+    },
+    {
+      "property_id": "lindsay",
+      "source_property_id": "5125b29f-f39e-498a-94cf-9e47889ff248",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "no_offers",
+      "category_id": "188502",
+      "stock_status": "known",
+      "available": 0,
+      "confirmed_unavailable": true,
+      "has_offers": false
+    },
+    {
+      "property_id": "lindsay",
+      "source_property_id": "5125b29f-f39e-498a-94cf-9e47889ff248",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "no_offers",
+      "category_id": "188503",
+      "stock_status": "known",
+      "available": 0,
+      "confirmed_unavailable": true,
+      "has_offers": false
+    },
+    {
+      "property_id": "lindsay",
+      "source_property_id": "5125b29f-f39e-498a-94cf-9e47889ff248",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "no_offers",
+      "category_id": "188504",
+      "stock_status": "known",
+      "available": 0,
+      "confirmed_unavailable": true,
+      "has_offers": false
+    },
+    {
+      "property_id": "lindsay",
+      "source_property_id": "5125b29f-f39e-498a-94cf-9e47889ff248",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "no_offers",
+      "category_id": "188505",
+      "stock_status": "known",
+      "available": 0,
+      "confirmed_unavailable": true,
+      "has_offers": false
+    },
+    {
+      "property_id": "lindsay",
+      "source_property_id": "5125b29f-f39e-498a-94cf-9e47889ff248",
+      "check_in": "2026-12-30",
+      "check_out": "2026-12-31",
+      "los": 1,
+      "adults": 1,
+      "status": "no_offers",
+      "category_id": "201948",
+      "stock_status": "known",
+      "available": 0,
+      "confirmed_unavailable": true,
+      "has_offers": false
+    }
+  ],
+  "http_codes": [
+    {
+      "http_status": 200,
+      "error_code": null,
+      "attempts": 122
+    }
+  ],
+  "observed_data": [
+    {
+      "stock_status": "known",
+      "confirmed_unavailable": false,
+      "observations": 669,
+      "null_available": 0,
+      "zero_available": 0,
+      "null_area": 0
+    },
+    {
+      "stock_status": "known",
+      "confirmed_unavailable": true,
+      "observations": 124,
+      "null_available": 0,
+      "zero_available": 124,
+      "null_area": 0
+    }
+  ],
+  "orphans": {
+    "jobs": 0,
+    "attempts": 0,
+    "observations": 0,
+    "offers": 0
+  },
+  "property_jobs": [
+    {
+      "property_id": "arena33",
+      "status": "no_offers",
+      "jobs": 1,
+      "attempts": 1
+    },
+    {
+      "property_id": "arena33",
+      "status": "succeeded",
+      "jobs": 60,
+      "attempts": 60
+    },
+    {
+      "property_id": "lindsay",
+      "status": "no_offers",
+      "jobs": 1,
+      "attempts": 1
+    },
+    {
+      "property_id": "lindsay",
+      "status": "succeeded",
+      "jobs": 60,
+      "attempts": 60
+    }
+  ],
+  "runs": [
+    {
+      "property_id": "arena33",
+      "status": "succeeded",
+      "period_start": "2026-10-31",
+      "period_end": "2026-12-31",
+      "started_at": "2026-10-31T05:00:00+00:00",
+      "finished_at": "2026-10-31T10:57:49.445152+00:00"
+    },
+    {
+      "property_id": "lindsay",
+      "status": "succeeded",
+      "period_start": "2026-10-31",
+      "period_end": "2026-12-31",
+      "started_at": "2026-10-31T05:00:00+00:00",
+      "finished_at": "2026-10-31T10:57:49.442741+00:00"
+    }
+  ],
+  "scenario_shape": [
+    {
+      "adults": 1,
+      "rooms": 1,
+      "los": 1,
+      "language": "ru",
+      "first_check_in": "2026-10-31",
+      "last_check_in": "2026-12-30",
+      "jobs": 122
+    }
+  ],
+  "server_version": {
+    "version": "PostgreSQL 17.10 (Debian 17.10-1.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+  },
+  "stock_status": [
+    {
+      "stock_status": "known",
+      "confirmed_unavailable": false,
+      "observations": 669
+    },
+    {
+      "stock_status": "known",
+      "confirmed_unavailable": true,
+      "observations": 124
+    }
+  ],
+  "table_counts": {
+    "runs": 2,
+    "jobs": 122,
+    "attempts": 122,
+    "observations": 793,
+    "variants": 1164,
+    "offers": 2786
+  },
+  "timestamps": {
+    "future_run_finished": 0,
+    "bad_attempt_order": 0,
+    "future_attempts": 0
+  },
+  "warnings": null
+}

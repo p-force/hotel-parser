@@ -1,0 +1,804 @@
+{
+  "base_sha": "74c3492d26a05af98d88c7f2cb7ac02c554489d5",
+  "phase": "smoke",
+  "StartedAt": "2026-10-31T00:53:38.582731344Z",
+  "FinishedAt": "2026-10-31T00:53:42.10895147Z",
+  "DurationMS": 3526,
+  "Schema": "hp_test_onxp732czj5mrn27h5ozryrgih",
+  "smoke_passed": true,
+  "LindsayTestOnlyEnabled": false,
+  "ExecutionError": false,
+  "Requests": [
+    {
+      "UID": "7f3f84ae-1f13-419f-af60-ae782d454666",
+      "CheckIn": "21-12-2026",
+      "CheckOut": "22-12-2026",
+      "Adults": "1",
+      "StartedAt": "2026-10-31T00:53:39.116302219Z",
+      "HeadersAt": "2026-10-31T00:53:42.022072429Z",
+      "FinishedAt": "2026-10-31T00:53:42.05210997Z",
+      "HTTPStatus": 200,
+      "Bytes": 465988,
+      "SHA256": "652b234f9801a7b2d07df8ec3533f874c7109cee430c704c3b3c185a8c97a78d",
+      "TransportError": false
+    }
+  ],
+  "PeakHTTP": 1,
+  "MinimumStartGapMS": 0,
+  "Response": {
+    "groups": [
+      {
+        "group_id": "arena33",
+        "schema": "hp_test_onxp732czj5mrn27h5ozryrgih",
+        "runs": [
+          {
+            "Run": {
+              "ID": "3671c4a5-2ee8-591e-a913-1b1b37220d09",
+              "PropertyID": "arena33",
+              "PeriodStart": "2026-12-21T00:00:00Z",
+              "PeriodEnd": "2026-12-22T00:00:00Z",
+              "StartedAt": "2026-12-21T17:00:00Z",
+              "FinishedAt": "2026-12-21T17:00:00Z",
+              "Status": "succeeded"
+            },
+            "Queued": 0,
+            "Running": 0,
+            "Retryable": 0,
+            "Succeeded": 1,
+            "Partial": 0,
+            "NoOffers": 0,
+            "Failed": 0,
+            "Canceled": 0,
+            "Remaining": 0
+          }
+        ]
+      }
+    ],
+    "progress_known": true
+  },
+  "SQL": {
+    "http_codes": [
+      {
+        "http_status": 200,
+        "error_code": null,
+        "attempts": 1
+      }
+    ],
+    "property_jobs": [
+      {
+        "property_id": "arena33",
+        "status": "succeeded",
+        "jobs": 1,
+        "attempts": 1
+      }
+    ],
+    "server_version": {
+      "version": "PostgreSQL 17.10 (Debian 17.10-1.pgdg13+1) on aarch64-unknown-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit"
+    },
+    "stock_status": [
+      {
+        "stock_status": "known",
+        "confirmed_unavailable": false,
+        "observations": 3
+      }
+    ],
+    "table_counts": {
+      "runs": 1,
+      "jobs": 1,
+      "attempts": 1,
+      "observations": 3,
+      "variants": 7,
+      "offers": 28
+    }
+  },
+  "Samples": [
+    {
+      "ID": "87253f4f-3bc5-418c-882f-12fb11d89ef7",
+      "Lease": {
+        "JobID": "72eb95ce-1c65-4c90-a55a-704df1a58acb",
+        "Owner": "NYK5WKABCRKXZM7KLAW44FN5XY",
+        "Token": 1
+      },
+      "JobID": "72eb95ce-1c65-4c90-a55a-704df1a58acb",
+      "Number": 1,
+      "StartedAt": "2026-10-31T00:53:39.114276Z",
+      "FinishedAt": "2026-10-31T00:53:42.062726Z",
+      "DurationMS": 2948,
+      "QueueWaitMS": 0,
+      "CollectedAt": "2026-10-31T00:53:39.11622Z",
+      "Outcome": "success",
+      "HTTPStatus": 200,
+      "Error": null,
+      "Warnings": [],
+      "NextRetryAt": null,
+      "Observations": [
+        {
+          "CategoryID": "459946",
+          "CategoryName": "Арена 33 \"Garden\"",
+          "AreaM2": 12,
+          "Available": 4,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "459946",
+              "Adults": 2
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "459946",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "4320",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 4,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "VariantID": "459946",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "4010",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 4,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "VariantID": "459946",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "4010",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 4,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "VariantID": "459946",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "5220",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 4,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "561429",
+          "CategoryName": "Арена 33 \"Stadium\"",
+          "AreaM2": 14,
+          "Available": 10,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "561429",
+              "Adults": 2
+            },
+            {
+              "ID": "561441",
+              "Adults": 3
+            },
+            {
+              "ID": "640071",
+              "Adults": 4
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "561429",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "4120",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561429",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "3830",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 10,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561429",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "3830",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 10,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561429",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "5020",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561441",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "5090",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561441",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "4730",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561441",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "4730",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "561441",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "6440",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "640071",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "6060",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "640071",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "5630",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "640071",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "5630",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            },
+            {
+              "VariantID": "640071",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "7860",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 10,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10
+              ]
+            }
+          ]
+        },
+        {
+          "CategoryID": "639687",
+          "CategoryName": "Арена 33 \"Premium\"",
+          "AreaM2": 15,
+          "Available": 5,
+          "StockStatus": "known",
+          "HasOffers": true,
+          "ConfirmedUnavailable": false,
+          "Warnings": [],
+          "Variants": [
+            {
+              "ID": "639687",
+              "Adults": 2
+            },
+            {
+              "ID": "639689",
+              "Adults": 3
+            },
+            {
+              "ID": "639690",
+              "Adults": 4
+            }
+          ],
+          "Offers": [
+            {
+              "VariantID": "639687",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "4610",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639687",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "4280",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 5,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639687",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "4280",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": true,
+              "DataAvailable": 5,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639687",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "5510",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": true,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639689",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "5580",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639689",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "5180",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639689",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "5180",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639689",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "6930",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639690",
+              "RateID": "554752",
+              "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+              "Price": "6550",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639690",
+              "RateID": "775264",
+              "RateName": "Воскресенье-Понедельник",
+              "Price": "6080",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639690",
+              "RateID": "777967",
+              "RateName": "Акция \"Листопад\"",
+              "Price": "6080",
+              "Currency": "RUB",
+              "MealPlan": "Без питания",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            {
+              "VariantID": "639690",
+              "RateID": "778574",
+              "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+              "Price": "8350",
+              "Currency": "RUB",
+              "MealPlan": "Завтрак",
+              "Visible": false,
+              "DataAvailable": 5,
+              "RowAvailable": false,
+              "DataAvailableForGuests": "1",
+              "SelectDisabled": false,
+              "SelectableQuantities": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

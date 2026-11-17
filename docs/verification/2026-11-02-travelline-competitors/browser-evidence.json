@@ -1,0 +1,367 @@
+{
+  "pages": {
+    "5787": {
+      "hotel": "5787",
+      "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-11-17&nights=1&adults=1&language=ru&currency=RUB",
+      "error": "",
+      "frames": [
+        {
+          "origin": "https://ru-ibe.tlintegration.ru",
+          "path": "/booking2/hotel/index.gc.html",
+          "providerId": "5787",
+          "text_length": 2088,
+          "restrictions": [],
+          "matched_missing": [
+            "Делюкс с 1 двуспальной кроватью",
+            "Семейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями",
+            "Императорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней"
+          ]
+        }
+      ],
+      "requests": [
+        {
+          "path": "/ApiWebDistribution/BookingForm/hotel_info",
+          "status": 200,
+          "params": {
+            "hotels[0].code": "5787",
+            "language": "ru-ru",
+            "audience": "BookingForm"
+          }
+        },
+        {
+          "path": "/ApiWebDistribution/BookingForm/common_info",
+          "status": 200,
+          "params": {
+            "hotel.code": "5787",
+            "language": "ru-ru",
+            "audience": "BookingForm"
+          }
+        },
+        {
+          "path": "/ibe/BookingForm/booking_form_settings",
+          "status": 200,
+          "params": {
+            "hotel.code": "5787",
+            "audience": "BookingForm"
+          }
+        },
+        {
+          "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+          "status": 200,
+          "params": {
+            "language": "ru-ru",
+            "criterions[0].adults": "1",
+            "criterions[0].dates": "2026-11-17;2026-11-18",
+            "criterions[0].hotels[0].code": "5787",
+            "audience": "BookingForm"
+          }
+        },
+        {
+          "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+          "status": 200,
+          "params": {
+            "end_date": "2026-12-31",
+            "start_date": "2026-10-01",
+            "audience": "BookingForm"
+          }
+        },
+        {
+          "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+          "status": 200,
+          "params": {
+            "end_date": "2026-11-30",
+            "rate_plans[0].code": "49957",
+            "rate_plans[1].code": "35114",
+            "rate_plans[2].code": "145557",
+            "rate_plans[3].code": "622569",
+            "rate_plans[4].code": "633705",
+            "start_date": "2026-11-01",
+            "audience": "BookingForm"
+          }
+        }
+      ],
+      "captured_at": "2026-11-02T00:11:09.932047+00:00"
+    },
+    "333": {
+      "hotel": "333",
+      "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=333&date=2026-11-17&nights=1&adults=1&language=ru&currency=RUB",
+      "error": "",
+      "frames": [
+        {
+          "origin": "https://ru-ibe.tlintegration.ru",
+          "path": "/booking2/hotel/index.gc.html",
+          "providerId": "333",
+          "text_length": 2509,
+          "restrictions": [],
+          "matched_missing": [
+            "Делюкс",
+            "«Сталинские апартаменты» / «Апартаменты Яръ»",
+            "Апартаменты"
+          ]
+        }
+      ],
+      "requests": [
+        {
+          "path": "/ApiWebDistribution/BookingForm/hotel_info",
+          "status": 200,
+          "params": {
+            "hotels[0].code": "333",
+            "language": "ru-ru",
+            "audience": "BookingForm"
+          }
+        },
+        {
+          "path": "/ApiWebDistribution/BookingForm/common_info",
+          "status": 200,
+          "params": {
+            "hotel.code": "333",
+            "language": "ru-ru",
+            "audience": "BookingForm"
+          }
+        },
+        {
+          "path": "/ibe/BookingForm/booking_form_settings",
+          "status": 200,
+          "params": {
+            "hotel.code": "333",
+            "audience": "BookingForm"
+          }
+        },
+        {
+          "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+          "status": 200,
+          "params": {
+            "language": "ru-ru",
+            "criterions[0].adults": "1",
+            "criterions[0].dates": "2026-11-17;2026-11-18",
+            "criterions[0].hotels[0].code": "333",
+            "audience": "BookingForm"
+          }
+        },
+        {
+          "path": "/ApiWebDistribution/AvailabilityCalendar/hotel_booking_rules",
+          "status": 200,
+          "params": {
+            "end_date": "2026-12-31",
+            "start_date": "2026-10-01",
+            "audience": "BookingForm"
+          }
+        },
+        {
+          "path": "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules",
+          "status": 200,
+          "params": {
+            "end_date": "2026-11-30",
+            "rate_plans[0].code": "38564",
+            "rate_plans[1].code": "49218",
+            "rate_plans[2].code": "145383",
+            "rate_plans[3].code": "131363",
+            "rate_plans[4].code": "303387",
+            "start_date": "2026-11-01",
+            "audience": "BookingForm"
+          }
+        }
+      ],
+      "captured_at": "2026-11-02T00:13:12.389903+00:00"
+    },
+    "585": {
+      "hotel": "585",
+      "url": "https://azimuthotels.com/ru/tl/availability?adults=1&checkIn=2026-11-17&checkOut=2026-11-18&children=0&hotel=101&nights=1&promo=&rooms=1",
+      "error": "",
+      "frames": [
+        {
+          "origin": "https://azimuthotels.com",
+          "path": "/ru/tl/availability",
+          "providerId": null,
+          "text_length": 12956,
+          "restrictions": [
+            "Минимальный срок проживания 14 ночей",
+            "Номера закончились."
+          ],
+          "matched_missing": [
+            "Апартаменты65m2",
+            "Бизнес Апартаменты65m2"
+          ]
+        }
+      ],
+      "requests": [],
+      "captured_at": "2026-11-02T00:10:59.243125+00:00"
+    }
+  },
+  "categories": [
+    {
+      "hotel": "azimut_aerostar",
+      "property_id": "585",
+      "category_id": "133917",
+      "category_name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "date": "2026-11-17",
+      "check_out": "2026-11-18",
+      "adults": 1,
+      "rooms": 1,
+      "LOS": 1,
+      "raw_room_stay_present": false,
+      "ui_message": "Номер недоступен в указанные даты или на выбранную продолжительность.",
+      "ui_category_match": "exact source name (AZIMUT display names normalized, unique apartment names + 65 m²)",
+      "calendar_forbidden_rates": [
+        "128299",
+        "128301",
+        "128311",
+        "128337",
+        "917131"
+      ],
+      "stock_status": "unknown",
+      "available": null
+    },
+    {
+      "hotel": "azimut_aerostar",
+      "property_id": "585",
+      "category_id": "250899",
+      "category_name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+      "date": "2026-11-17",
+      "check_out": "2026-11-18",
+      "adults": 1,
+      "rooms": 1,
+      "LOS": 1,
+      "raw_room_stay_present": false,
+      "ui_message": "Номера закончились.",
+      "ui_category_match": "exact source name (AZIMUT display names normalized, unique apartment names + 65 m²)",
+      "calendar_forbidden_rates": [
+        "128299",
+        "128301",
+        "128311",
+        "128337",
+        "917131"
+      ],
+      "stock_status": "unknown",
+      "available": null
+    },
+    {
+      "hotel": "sovietsky",
+      "property_id": "333",
+      "category_id": "2992",
+      "category_name": "Апартаменты",
+      "date": "2026-11-17",
+      "check_out": "2026-11-18",
+      "adults": 1,
+      "rooms": 1,
+      "LOS": 1,
+      "raw_room_stay_present": false,
+      "ui_message": "Распродано",
+      "ui_category_match": "exact source name (AZIMUT display names normalized, unique apartment names + 65 m²)",
+      "calendar_forbidden_rates": [
+        "38564",
+        "49218",
+        "303387"
+      ],
+      "stock_status": "unknown",
+      "available": null
+    },
+    {
+      "hotel": "petroff",
+      "property_id": "5787",
+      "category_id": "34188",
+      "category_name": "Делюкс с 1 двуспальной кроватью",
+      "date": "2026-11-17",
+      "check_out": "2026-11-18",
+      "adults": 1,
+      "rooms": 1,
+      "LOS": 1,
+      "raw_room_stay_present": false,
+      "ui_message": "Распродано",
+      "ui_category_match": "exact source name (AZIMUT display names normalized, unique apartment names + 65 m²)",
+      "calendar_forbidden_rates": [
+        "35114",
+        "49957",
+        "633705"
+      ],
+      "stock_status": "unknown",
+      "available": null
+    },
+    {
+      "hotel": "petroff",
+      "property_id": "5787",
+      "category_id": "34189",
+      "category_name": "Представительский двухкомнатный Люкс с 1 спальней",
+      "date": "2026-11-17",
+      "check_out": "2026-11-18",
+      "adults": 1,
+      "rooms": 1,
+      "LOS": 1,
+      "raw_room_stay_present": false,
+      "ui_message": "Распродано",
+      "ui_category_match": "exact source name (AZIMUT display names normalized, unique apartment names + 65 m²)",
+      "calendar_forbidden_rates": [
+        "35114",
+        "49957",
+        "622569",
+        "633705"
+      ],
+      "stock_status": "unknown",
+      "available": null
+    },
+    {
+      "hotel": "petroff",
+      "property_id": "5787",
+      "category_id": "34190",
+      "category_name": "Императорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней",
+      "date": "2026-11-17",
+      "check_out": "2026-11-18",
+      "adults": 1,
+      "rooms": 1,
+      "LOS": 1,
+      "raw_room_stay_present": false,
+      "ui_message": "Распродано",
+      "ui_category_match": "exact source name (AZIMUT display names normalized, unique apartment names + 65 m²)",
+      "calendar_forbidden_rates": [
+        "35114",
+        "49957",
+        "622569",
+        "633705"
+      ],
+      "stock_status": "unknown",
+      "available": null
+    },
+    {
+      "hotel": "petroff",
+      "property_id": "5787",
+      "category_id": "34191",
+      "category_name": "Семейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями",
+      "date": "2026-11-17",
+      "check_out": "2026-11-18",
+      "adults": 1,
+      "rooms": 1,
+      "LOS": 1,
+      "raw_room_stay_present": false,
+      "ui_message": "Распродано",
+      "ui_category_match": "exact source name (AZIMUT display names normalized, unique apartment names + 65 m²)",
+      "calendar_forbidden_rates": [
+        "35114",
+        "49957"
+      ],
+      "stock_status": "unknown",
+      "available": null
+    },
+    {
+      "hotel": "petroff",
+      "property_id": "5787",
+      "category_id": "34493",
+      "category_name": "Стандартный номер с 2 односпальными кроватями",
+      "date": "2026-11-17",
+      "check_out": "2026-11-18",
+      "adults": 1,
+      "rooms": 1,
+      "LOS": 1,
+      "raw_room_stay_present": false,
+      "ui_message": "Распродано",
+      "ui_category_match": "exact source name (AZIMUT display names normalized, unique apartment names + 65 m²)",
+      "calendar_forbidden_rates": [
+        "35114",
+        "49957"
+      ],
+      "stock_status": "unknown",
+      "available": null
+    }
+  ],
+  "limits": "Sequential isolated unauthenticated Chrome contexts; no reservation/cart actions; initial language/loading failures excluded from conclusions. Public XHR observed, safe parameter projection only.",
+  "archived_at": "2026-11-02T00:15:23.726491+00:00"
+}

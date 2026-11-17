@@ -1,0 +1,89 @@
+{
+  "hotels": [
+    {
+      "code": "333",
+      "name": "Легендарный Отель Советский",
+      "currency": "RUB",
+      "room_types": [
+        {
+          "code": "24386",
+          "name": "Стандарт с одной кроватью",
+          "kind": "room"
+        },
+        {
+          "code": "2416",
+          "name": "Стандартный с двумя раздельными кроватями",
+          "kind": "room",
+          "size": {
+            "value": 18,
+            "unit": "square_metre"
+          }
+        },
+        {
+          "code": "24281",
+          "name": "Делюкс",
+          "kind": "room",
+          "size": {
+            "value": 25,
+            "unit": "square_metre"
+          }
+        },
+        {
+          "code": "2420",
+          "name": "Полулюкс",
+          "kind": "room",
+          "size": {
+            "value": 30,
+            "unit": "square_metre"
+          }
+        },
+        {
+          "code": "2422",
+          "name": "Клубный Люкс",
+          "kind": "room",
+          "size": {
+            "value": 55,
+            "unit": "square_metre"
+          }
+        },
+        {
+          "code": "2992",
+          "name": "Апартаменты",
+          "kind": "room",
+          "size": {
+            "value": 70,
+            "unit": "square_metre"
+          }
+        },
+        {
+          "code": "29344",
+          "name": "«Сталинские апартаменты» / «Апартаменты Яръ»",
+          "kind": "room"
+        }
+      ],
+      "rate_plans": [
+        {
+          "code": "38564",
+          "name": "Цена дня"
+        },
+        {
+          "code": "49218",
+          "name": "Тариф без завтрака"
+        },
+        {
+          "code": "145383",
+          "name": "Лучшая цена дня"
+        },
+        {
+          "code": "131363",
+          "name": "Привилегия",
+          "promo": true
+        },
+        {
+          "code": "303387",
+          "name": "Выгодное предложение"
+        }
+      ]
+    }
+  ]
+}

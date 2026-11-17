@@ -1,0 +1,1560 @@
+[
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "122840",
+    "category_name": "Полулюкс",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-23"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-23",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 604,
+    "frequency": 1,
+    "date_ranges": "2026-11-23",
+    "evidence_date": "2026-11-23",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-23-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "122840",
+    "category_name": "Полулюкс",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-22"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-22",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 512,
+    "frequency": 1,
+    "date_ranges": "2026-11-22",
+    "evidence_date": "2026-11-22",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-22-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "122845",
+    "category_name": "Угловой Люкс",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-23"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-23",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 604,
+    "frequency": 1,
+    "date_ranges": "2026-11-23",
+    "evidence_date": "2026-11-23",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-23-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "122845",
+    "category_name": "Угловой Люкс",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-22"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-22",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 512,
+    "frequency": 1,
+    "date_ranges": "2026-11-22",
+    "evidence_date": "2026-11-22",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-22-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "122847",
+    "category_name": "Номер Делюкс с одной большой кроватью",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-05",
+      "2026-11-06",
+      "2026-11-21",
+      "2026-11-23",
+      "2026-11-27",
+      "2026-12-08",
+      "2026-12-09"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-05",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 302,
+    "frequency": 7,
+    "date_ranges": "2026-11-05…2026-11-06, 2026-11-21, 2026-11-23, 2026-11-27, 2026-12-08…2026-12-09",
+    "evidence_date": "2026-11-23",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-23-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "122847",
+    "category_name": "Номер Делюкс с одной большой кроватью",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-22"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-22",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 512,
+    "frequency": 1,
+    "date_ranges": "2026-11-22",
+    "evidence_date": "2026-11-22",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-22-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "170376",
+    "category_name": "Номер Делюкс с двумя раздельными кроватями",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-05",
+      "2026-11-06",
+      "2026-11-07",
+      "2026-11-23",
+      "2026-11-28"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-05",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 302,
+    "frequency": 5,
+    "date_ranges": "2026-11-05…2026-11-07, 2026-11-23, 2026-11-28",
+    "evidence_date": "2026-11-23",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-23-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "170376",
+    "category_name": "Номер Делюкс с двумя раздельными кроватями",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-22"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-22",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 512,
+    "frequency": 1,
+    "date_ranges": "2026-11-22",
+    "evidence_date": "2026-11-22",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-22-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "185327",
+    "category_name": "Премьер Люкс",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-23",
+      "2027-01-01",
+      "2027-01-02"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-23",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 604,
+    "frequency": 3,
+    "date_ranges": "2026-11-23, 2027-01-01…2027-01-02",
+    "evidence_date": "2026-11-23",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-23-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "185327",
+    "category_name": "Премьер Люкс",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-22"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-22",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 512,
+    "frequency": 1,
+    "date_ranges": "2026-11-22",
+    "evidence_date": "2026-11-22",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-22-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "201805",
+    "category_name": "Президентский  Люкс",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-30",
+      "2026-12-31",
+      "2027-01-01",
+      "2027-01-02"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-12-30",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 432,
+    "frequency": 4,
+    "date_ranges": "2026-12-30…2027-01-02",
+    "evidence_date": "2026-12-30",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-12-30-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "201805",
+    "category_name": "Президентский  Люкс",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-22"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-22",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 512,
+    "frequency": 1,
+    "date_ranges": "2026-11-22",
+    "evidence_date": "2026-11-22",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-22-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "202026",
+    "category_name": "Двухкомнатные апартаменты с кухней и одной большой кроватью для длительного проживания",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-03",
+      "2026-11-06",
+      "2026-11-23",
+      "2027-01-01",
+      "2027-01-02"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-03",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 292,
+    "frequency": 5,
+    "date_ranges": "2026-11-03, 2026-11-06, 2026-11-23, 2027-01-01…2027-01-02",
+    "evidence_date": "2026-11-23",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-23-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "202026",
+    "category_name": "Двухкомнатные апартаменты с кухней и одной большой кроватью для длительного проживания",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-22"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-22",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 512,
+    "frequency": 1,
+    "date_ranges": "2026-11-22",
+    "evidence_date": "2026-11-22",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-22-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "202027",
+    "category_name": "Двухкомнатные апартаменты с кухней и двумя раздельными кроватями для длительного проживания",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-03",
+      "2026-11-06",
+      "2026-11-23",
+      "2027-01-01",
+      "2027-01-02"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-03",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 292,
+    "frequency": 5,
+    "date_ranges": "2026-11-03, 2026-11-06, 2026-11-23, 2027-01-01…2027-01-02",
+    "evidence_date": "2026-11-23",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-23-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "17249",
+    "property": "monarch",
+    "category_id": "202027",
+    "category_name": "Двухкомнатные апартаменты с кухней и двумя раздельными кроватями для длительного проживания",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-22"
+    ],
+    "sample_tag": {
+      "key": "17249-2026-11-22",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 512,
+    "frequency": 1,
+    "date_ranges": "2026-11-22",
+    "evidence_date": "2026-11-22",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/17249-2026-11-22-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "61",
+    "property": "bega",
+    "category_id": "342441",
+    "category_name": "SMART Люкс",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-05"
+    ],
+    "sample_tag": {
+      "key": "61-2026-11-05",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 554,
+    "frequency": 1,
+    "date_ranges": "2026-11-05",
+    "evidence_date": "2026-11-05",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/61-2026-11-05-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "61",
+    "property": "bega",
+    "category_id": "415436",
+    "category_name": "SMART Люкс ИППОДРОМ",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-03",
+      "2026-11-05",
+      "2026-12-30",
+      "2026-12-31"
+    ],
+    "sample_tag": {
+      "key": "61-2026-11-03",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 44,
+    "frequency": 4,
+    "date_ranges": "2026-11-03, 2026-11-05, 2026-12-30…2026-12-31",
+    "evidence_date": "2026-11-05",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/61-2026-11-05-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "103578",
+    "category_name": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-04",
+      "2026-12-05"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-04",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 575,
+    "frequency": 2,
+    "date_ranges": "2026-12-04…2026-12-05",
+    "evidence_date": "2026-12-04",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-04-availability.json",
+    "sample_reason": "scoped_minimum_stay=14,32",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "103580",
+    "category_name": "Комфорт (с двумя кроватями) - 20 кв.м.",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-04",
+      "2026-12-05"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-04",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 575,
+    "frequency": 2,
+    "date_ranges": "2026-12-04…2026-12-05",
+    "evidence_date": "2026-12-04",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-04-availability.json",
+    "sample_reason": "scoped_minimum_stay=14,32",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "133917",
+    "category_name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-03",
+      "2026-11-04",
+      "2026-11-05",
+      "2026-11-06",
+      "2026-11-07",
+      "2026-11-08",
+      "2026-11-09",
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-16",
+      "2026-11-17",
+      "2026-11-18",
+      "2026-11-19",
+      "2026-11-20",
+      "2026-11-21",
+      "2026-11-22",
+      "2026-11-23",
+      "2026-11-24",
+      "2026-11-27",
+      "2026-11-28",
+      "2026-11-29",
+      "2026-11-30",
+      "2026-12-01",
+      "2026-12-02",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-12",
+      "2026-12-18",
+      "2026-12-19",
+      "2026-12-27",
+      "2026-12-28",
+      "2026-12-29",
+      "2026-12-30",
+      "2026-12-31"
+    ],
+    "sample_tag": {
+      "key": "585-2026-11-03",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 448,
+    "frequency": 39,
+    "date_ranges": "2026-11-03…2026-11-24, 2026-11-27…2026-12-02, 2026-12-06…2026-12-08, 2026-12-12, 2026-12-18…2026-12-19, 2026-12-27…2026-12-31",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-31-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "133917",
+    "category_name": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-04",
+      "2026-12-05"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-04",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 575,
+    "frequency": 2,
+    "date_ranges": "2026-12-04…2026-12-05",
+    "evidence_date": "2026-12-04",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-04-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "250899",
+    "category_name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-03",
+      "2026-11-04",
+      "2026-11-05",
+      "2026-11-06",
+      "2026-11-07",
+      "2026-11-08",
+      "2026-11-09",
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-16",
+      "2026-11-17",
+      "2026-11-18",
+      "2026-11-19",
+      "2026-11-20",
+      "2026-11-21",
+      "2026-11-22",
+      "2026-11-23",
+      "2026-11-24",
+      "2026-11-25",
+      "2026-11-26",
+      "2026-11-27",
+      "2026-11-28",
+      "2026-11-29",
+      "2026-11-30",
+      "2026-12-01",
+      "2026-12-02",
+      "2026-12-03",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13",
+      "2026-12-14",
+      "2026-12-15",
+      "2026-12-16",
+      "2026-12-17",
+      "2026-12-18",
+      "2026-12-19",
+      "2026-12-20",
+      "2026-12-21",
+      "2026-12-22",
+      "2026-12-23",
+      "2026-12-24",
+      "2026-12-25",
+      "2026-12-26",
+      "2026-12-27",
+      "2026-12-28",
+      "2026-12-29",
+      "2026-12-30",
+      "2026-12-31",
+      "2027-01-01",
+      "2027-01-02"
+    ],
+    "sample_tag": {
+      "key": "585-2026-11-03",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 448,
+    "frequency": 59,
+    "date_ranges": "2026-11-03…2026-12-03, 2026-12-06…2027-01-02",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-31-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": false
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "250899",
+    "category_name": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-04",
+      "2026-12-05"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-04",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 575,
+    "frequency": 2,
+    "date_ranges": "2026-12-04…2026-12-05",
+    "evidence_date": "2026-12-04",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-04-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "4347",
+    "category_name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-06",
+      "2026-11-27",
+      "2026-11-28",
+      "2026-11-29",
+      "2026-11-30",
+      "2026-12-01",
+      "2026-12-31",
+      "2027-01-01"
+    ],
+    "sample_tag": {
+      "key": "585-2026-11-06",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 536,
+    "frequency": 8,
+    "date_ranges": "2026-11-06, 2026-11-27…2026-12-01, 2026-12-31…2027-01-01",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-31-availability.json",
+    "sample_reason": "scoped_minimum_stay=14,32",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "4347",
+    "category_name": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-04",
+      "2026-12-05"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-04",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 575,
+    "frequency": 2,
+    "date_ranges": "2026-12-04…2026-12-05",
+    "evidence_date": "2026-12-04",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-04-availability.json",
+    "sample_reason": "scoped_minimum_stay=14,32",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "4348",
+    "category_name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-31",
+      "2027-01-01"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-31",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 495,
+    "frequency": 2,
+    "date_ranges": "2026-12-31…2027-01-01",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-31-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "4348",
+    "category_name": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-04",
+      "2026-12-05"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-04",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 575,
+    "frequency": 2,
+    "date_ranges": "2026-12-04…2026-12-05",
+    "evidence_date": "2026-12-04",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-04-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "4349",
+    "category_name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-18",
+      "2026-12-31",
+      "2027-01-01",
+      "2027-01-02"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-18",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 155,
+    "frequency": 4,
+    "date_ranges": "2026-12-18, 2026-12-31…2027-01-02",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-31-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "4349",
+    "category_name": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-04",
+      "2026-12-05"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-04",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 575,
+    "frequency": 2,
+    "date_ranges": "2026-12-04…2026-12-05",
+    "evidence_date": "2026-12-04",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-04-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "4350",
+    "category_name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-06",
+      "2026-11-27",
+      "2026-11-28",
+      "2026-11-29",
+      "2026-11-30",
+      "2026-12-01",
+      "2026-12-08",
+      "2026-12-19",
+      "2026-12-31",
+      "2027-01-01",
+      "2027-01-02"
+    ],
+    "sample_tag": {
+      "key": "585-2026-11-06",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 536,
+    "frequency": 11,
+    "date_ranges": "2026-11-06, 2026-11-27…2026-12-01, 2026-12-08, 2026-12-19, 2026-12-31…2027-01-02",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-31-availability.json",
+    "sample_reason": "scoped_minimum_stay=14,32",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "4350",
+    "category_name": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-04",
+      "2026-12-05"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-04",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 575,
+    "frequency": 2,
+    "date_ranges": "2026-12-04…2026-12-05",
+    "evidence_date": "2026-12-04",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-04-availability.json",
+    "sample_reason": "scoped_minimum_stay=14,32",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "8875",
+    "category_name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-31",
+      "2027-01-01"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-31",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 495,
+    "frequency": 2,
+    "date_ranges": "2026-12-31…2027-01-01",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-31-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "8875",
+    "category_name": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-04",
+      "2026-12-05"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-04",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 575,
+    "frequency": 2,
+    "date_ranges": "2026-12-04…2026-12-05",
+    "evidence_date": "2026-12-04",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-04-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "8876",
+    "category_name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-30",
+      "2026-12-18",
+      "2026-12-31",
+      "2027-01-01",
+      "2027-01-02"
+    ],
+    "sample_tag": {
+      "key": "585-2026-11-30",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 186,
+    "frequency": 5,
+    "date_ranges": "2026-11-30, 2026-12-18, 2026-12-31…2027-01-02",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-31-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "585",
+    "property": "azimut_aerostar",
+    "category_id": "8876",
+    "category_name": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-04",
+      "2026-12-05"
+    ],
+    "sample_tag": {
+      "key": "585-2026-12-04",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 575,
+    "frequency": 2,
+    "date_ranges": "2026-12-04…2026-12-05",
+    "evidence_date": "2026-12-04",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/585-2026-12-04-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "333",
+    "property": "sovietsky",
+    "category_id": "29344",
+    "category_name": "«Сталинские апартаменты» / «Апартаменты Яръ»",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-15",
+      "2026-11-21",
+      "2026-11-22",
+      "2026-11-25"
+    ],
+    "sample_tag": {
+      "key": "333-2026-11-15",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 427,
+    "frequency": 4,
+    "date_ranges": "2026-11-15, 2026-11-21…2026-11-22, 2026-11-25",
+    "evidence_date": "2026-11-15",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/333-2026-11-15-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "333",
+    "property": "sovietsky",
+    "category_id": "2992",
+    "category_name": "Апартаменты",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-03",
+      "2026-11-04",
+      "2026-11-05",
+      "2026-11-06",
+      "2026-11-07",
+      "2026-11-08",
+      "2026-11-09",
+      "2026-11-10",
+      "2026-11-11",
+      "2026-11-12",
+      "2026-11-13",
+      "2026-11-14",
+      "2026-11-15",
+      "2026-11-16",
+      "2026-11-17",
+      "2026-11-18",
+      "2026-11-19",
+      "2026-11-20",
+      "2026-11-21",
+      "2026-11-22",
+      "2026-11-23",
+      "2026-11-24",
+      "2026-11-25",
+      "2026-11-26",
+      "2026-11-27",
+      "2026-11-28",
+      "2026-11-29",
+      "2026-11-30",
+      "2026-12-01",
+      "2026-12-02",
+      "2026-12-03",
+      "2026-12-04",
+      "2026-12-05",
+      "2026-12-06",
+      "2026-12-07",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-11",
+      "2026-12-12",
+      "2026-12-13",
+      "2026-12-14",
+      "2026-12-15",
+      "2026-12-16",
+      "2026-12-17",
+      "2026-12-18",
+      "2026-12-19",
+      "2026-12-20",
+      "2026-12-21",
+      "2026-12-22",
+      "2026-12-23",
+      "2026-12-24",
+      "2026-12-25",
+      "2026-12-26",
+      "2026-12-27",
+      "2026-12-28",
+      "2026-12-29",
+      "2026-12-30",
+      "2026-12-31",
+      "2027-01-01",
+      "2027-01-02"
+    ],
+    "sample_tag": {
+      "key": "333-2026-11-03",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 28,
+    "frequency": 61,
+    "date_ranges": "2026-11-03…2027-01-02",
+    "evidence_date": "2026-11-15",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/333-2026-11-15-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34187",
+    "category_name": "Стандартный номер с 1 двуспальной кроватью",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-14",
+      "2026-12-15",
+      "2026-12-16"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-12-14",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 190,
+    "frequency": 3,
+    "date_ranges": "2026-12-14…2026-12-16",
+    "evidence_date": "2026-12-14",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-12-14-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": false
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34187",
+    "category_name": "Стандартный номер с 1 двуспальной кроватью",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-31"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-12-31",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 39,
+    "frequency": 1,
+    "date_ranges": "2026-12-31",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-12-31-availability.json",
+    "sample_reason": "scoped_minimum_stay=2",
+    "sample_ui_confirmed": false
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34188",
+    "category_name": "Делюкс с 1 двуспальной кроватью",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-05",
+      "2026-11-06",
+      "2026-11-07",
+      "2026-11-09",
+      "2026-11-15",
+      "2026-11-16",
+      "2026-11-17",
+      "2026-11-18",
+      "2026-12-14",
+      "2026-12-15",
+      "2026-12-16",
+      "2026-12-17",
+      "2026-12-21",
+      "2026-12-22"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-11-05",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 290,
+    "frequency": 14,
+    "date_ranges": "2026-11-05…2026-11-07, 2026-11-09, 2026-11-15…2026-11-18, 2026-12-14…2026-12-17, 2026-12-21…2026-12-22",
+    "evidence_date": "2026-11-17",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-11-17-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34188",
+    "category_name": "Делюкс с 1 двуспальной кроватью",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-31"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-12-31",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 39,
+    "frequency": 1,
+    "date_ranges": "2026-12-31",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-12-31-availability.json",
+    "sample_reason": "scoped_minimum_stay=2",
+    "sample_ui_confirmed": false
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34189",
+    "category_name": "Представительский двухкомнатный Люкс с 1 спальней",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-17",
+      "2026-11-18",
+      "2027-01-01"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-11-17",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 252,
+    "frequency": 3,
+    "date_ranges": "2026-11-17…2026-11-18, 2027-01-01",
+    "evidence_date": "2026-11-17",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-11-17-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34189",
+    "category_name": "Представительский двухкомнатный Люкс с 1 спальней",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-31"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-12-31",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 39,
+    "frequency": 1,
+    "date_ranges": "2026-12-31",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-12-31-availability.json",
+    "sample_reason": "scoped_minimum_stay=2",
+    "sample_ui_confirmed": false
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34190",
+    "category_name": "Императорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-17",
+      "2026-11-18",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-09",
+      "2026-12-10",
+      "2026-12-19"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-11-17",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 252,
+    "frequency": 7,
+    "date_ranges": "2026-11-17…2026-11-18, 2026-12-06, 2026-12-08…2026-12-10, 2026-12-19",
+    "evidence_date": "2026-11-17",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-11-17-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34190",
+    "category_name": "Императорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-31"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-12-31",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 39,
+    "frequency": 1,
+    "date_ranges": "2026-12-31",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-12-31-availability.json",
+    "sample_reason": "scoped_minimum_stay=2",
+    "sample_ui_confirmed": false
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34191",
+    "category_name": "Семейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-03",
+      "2026-11-17",
+      "2026-11-18",
+      "2026-12-06",
+      "2027-01-01"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-11-03",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 520,
+    "frequency": 5,
+    "date_ranges": "2026-11-03, 2026-11-17…2026-11-18, 2026-12-06, 2027-01-01",
+    "evidence_date": "2026-11-17",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-11-17-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34191",
+    "category_name": "Семейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-31"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-12-31",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 39,
+    "frequency": 1,
+    "date_ranges": "2026-12-31",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-12-31-availability.json",
+    "sample_reason": "scoped_minimum_stay=2",
+    "sample_ui_confirmed": false
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34493",
+    "category_name": "Стандартный номер с 2 односпальными кроватями",
+    "type": "category_absent_from_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-11-10",
+      "2026-11-15",
+      "2026-11-16",
+      "2026-11-17",
+      "2026-12-05",
+      "2026-12-14",
+      "2026-12-15",
+      "2026-12-16",
+      "2026-12-17",
+      "2026-12-21",
+      "2026-12-22"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-11-10",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 310,
+    "frequency": 11,
+    "date_ranges": "2026-11-10, 2026-11-15…2026-11-17, 2026-12-05, 2026-12-14…2026-12-17, 2026-12-21…2026-12-22",
+    "evidence_date": "2026-11-17",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-11-17-availability.json",
+    "sample_reason": "scoped_tariff_forbidden",
+    "sample_ui_confirmed": true
+  },
+  {
+    "hotel": "5787",
+    "property": "petroff",
+    "category_id": "34493",
+    "category_name": "Стандартный номер с 2 односпальными кроватями",
+    "type": "no_room_stays",
+    "warning_codes": [
+      "category_availability_unknown"
+    ],
+    "dates": [
+      "2026-12-31"
+    ],
+    "sample_tag": {
+      "key": "5787-2026-12-31",
+      "ordinal": 1
+    },
+    "sample_raw_seq": 39,
+    "frequency": 1,
+    "date_ranges": "2026-12-31",
+    "evidence_date": "2026-12-31",
+    "classification": "source_data_absent; exact_reason_unconfirmed",
+    "fixed": false,
+    "source_evidence": "evidence/5787-2026-12-31-availability.json",
+    "sample_reason": "scoped_minimum_stay=2",
+    "sample_ui_confirmed": false
+  }
+]

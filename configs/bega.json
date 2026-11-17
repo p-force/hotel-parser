@@ -1,0 +1,126 @@
+{
+  "id": "bega",
+  "name": "Гостиница Бега",
+  "type": "hotel",
+  "role": "competitor",
+  "timezone": "Europe/Moscow",
+  "source": {
+    "type": "travelline",
+    "base_url": "https://ru-ibe.tlintegration.ru",
+    "property_id": "61"
+  },
+  "inventory": {
+    "total_rooms": 49,
+    "source": "public_observed_max",
+    "categories": [
+      {
+        "id": "tl_560",
+        "name": "Стандартный",
+        "source_room_id": "560",
+        "total_rooms": 10
+      },
+      {
+        "id": "tl_561",
+        "name": "Стандартный с видом на Ипподром",
+        "source_room_id": "561",
+        "total_rooms": 10
+      },
+      {
+        "id": "tl_342440",
+        "name": "SMART Стандарт",
+        "source_room_id": "342440",
+        "total_rooms": 10
+      },
+      {
+        "id": "tl_415406",
+        "name": "SMART Стандарт ИППОДРОМ",
+        "source_room_id": "415406",
+        "total_rooms": 3
+      },
+      {
+        "id": "tl_342441",
+        "name": "SMART Люкс",
+        "source_room_id": "342441",
+        "total_rooms": 1
+      },
+      {
+        "id": "tl_562",
+        "name": "Люкс",
+        "source_room_id": "562",
+        "total_rooms": 9
+      },
+      {
+        "id": "tl_563",
+        "name": "Люкс с видом на Ипподром",
+        "source_room_id": "563",
+        "total_rooms": 5
+      },
+      {
+        "id": "tl_415436",
+        "name": "SMART Люкс ИППОДРОМ",
+        "source_room_id": "415436",
+        "total_rooms": 1
+      }
+    ]
+  },
+  "rates": [
+    {
+      "id": "29023",
+      "name": "Новогоднее Предложение с завтраком!",
+      "enabled": false
+    },
+    {
+      "id": "25836",
+      "name": "Московские Каникулы",
+      "enabled": false
+    },
+    {
+      "id": "25833",
+      "name": "4 по цене 3",
+      "enabled": false
+    },
+    {
+      "id": "34768",
+      "name": "Май в Бегах",
+      "enabled": false
+    },
+    {
+      "id": "143499",
+      "name": "Лучшая цена дня",
+      "enabled": false
+    },
+    {
+      "id": "25825",
+      "name": "Лучшая цена дня",
+      "enabled": true
+    },
+    {
+      "id": "419670",
+      "name": "Тариф с завтраком",
+      "enabled": true
+    },
+    {
+      "id": "419701",
+      "name": "Полный пансион",
+      "enabled": true
+    },
+    {
+      "id": "422732",
+      "name": "Полупансион",
+      "enabled": true
+    },
+    {
+      "id": "449975",
+      "name": "4 Ночи по цене 3 с Завтраком",
+      "enabled": false
+    }
+  ],
+  "collection": {
+    "enabled": true,
+    "days_ahead": 60,
+    "adults": [1],
+    "children_ages": [],
+    "rooms": 1,
+    "nights": [1]
+  }
+}

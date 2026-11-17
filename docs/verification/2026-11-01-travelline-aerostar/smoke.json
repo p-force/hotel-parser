@@ -1,0 +1,795 @@
+{
+  "DurationMS": 2446,
+  "Requests": [
+    {
+      "Path": "/ApiWebDistribution/BookingForm/hotel_info",
+      "Status": 200,
+      "StartedAt": "2026-10-31T22:19:33.525705214Z",
+      "DurationMS": 1058,
+      "Bytes": 80018,
+      "SHA256": "42287cd7422f05af83c21ed85323e537caa1ffccd4293151289061126b311c9e"
+    },
+    {
+      "Path": "/ApiWebDistribution/BookingForm/hotel_availability",
+      "Status": 200,
+      "StartedAt": "2026-10-31T22:19:34.587646798Z",
+      "DurationMS": 810,
+      "Bytes": 200695,
+      "SHA256": "ea4ef76c9c646c209e83ea29d7e074ea0161faf9fdba73cc731dfac69ae204ea"
+    }
+  ],
+  "Attempt": {
+    "ID": "a9ca33a7-4361-44af-bd9a-f00245a82ec7",
+    "Lease": {
+      "JobID": "1259e54a-8dc5-418f-8afe-452ddf930fbd",
+      "Owner": "DQNCQMBDVKCVGW666EHUN3QI6K",
+      "Token": 1
+    },
+    "JobID": "1259e54a-8dc5-418f-8afe-452ddf930fbd",
+    "Number": 1,
+    "StartedAt": "2026-10-31T22:19:33.522684Z",
+    "FinishedAt": "2026-10-31T22:19:35.402907Z",
+    "DurationMS": 1880,
+    "QueueWaitMS": 0,
+    "CollectedAt": "2026-10-31T22:19:33.525611Z",
+    "Outcome": "partial",
+    "HTTPStatus": 200,
+    "Error": null,
+    "Warnings": [
+      {
+        "Code": "category_availability_unknown",
+        "Context": "133917"
+      },
+      {
+        "Code": "category_availability_unknown",
+        "Context": "250899"
+      }
+    ],
+    "NextRetryAt": null,
+    "Observations": [
+      {
+        "CategoryID": "103578",
+        "CategoryName": "Комфорт (с двуспальной кроватью)- 20 кв.м.",
+        "AreaM2": 20,
+        "Available": 8,
+        "StockStatus": "known",
+        "HasOffers": true,
+        "ConfirmedUnavailable": false,
+        "Warnings": [],
+        "Variants": [
+          {
+            "ID": "103578:225037",
+            "Adults": 1
+          }
+        ],
+        "Offers": [
+          {
+            "VariantID": "103578:225037",
+            "RateID": "128299",
+            "RateName": "Лучшая цена дня без завтрака",
+            "Price": "9000.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "103578:225037",
+            "RateID": "128301",
+            "RateName": "Лучшая цена дня с завтраком",
+            "Price": "10500.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "103578:225037",
+            "RateID": "128311",
+            "RateName": "Заранее выгодно!  Тариф без завтрака",
+            "Price": "7650.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "103578:225037",
+            "RateID": "128337",
+            "RateName": "Заранее выгодно!  Тариф с завтраком",
+            "Price": "8925.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "103578:225037",
+            "RateID": "917131",
+            "RateName": "Тариф полупансион с включенным питанием",
+            "Price": "10125.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          }
+        ]
+      },
+      {
+        "CategoryID": "103580",
+        "CategoryName": "Комфорт (с двумя кроватями) - 20 кв.м.",
+        "AreaM2": 20,
+        "Available": 10,
+        "StockStatus": "known",
+        "HasOffers": true,
+        "ConfirmedUnavailable": false,
+        "Warnings": [],
+        "Variants": [
+          {
+            "ID": "103580:225040",
+            "Adults": 1
+          }
+        ],
+        "Offers": [
+          {
+            "VariantID": "103580:225040",
+            "RateID": "128299",
+            "RateName": "Лучшая цена дня без завтрака",
+            "Price": "9000.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "103580:225040",
+            "RateID": "128301",
+            "RateName": "Лучшая цена дня с завтраком",
+            "Price": "10500.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "103580:225040",
+            "RateID": "128311",
+            "RateName": "Заранее выгодно!  Тариф без завтрака",
+            "Price": "7650.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "103580:225040",
+            "RateID": "128337",
+            "RateName": "Заранее выгодно!  Тариф с завтраком",
+            "Price": "8925.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "103580:225040",
+            "RateID": "917131",
+            "RateName": "Тариф полупансион с включенным питанием",
+            "Price": "10125.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          }
+        ]
+      },
+      {
+        "CategoryID": "133917",
+        "CategoryName": "Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+        "AreaM2": 65,
+        "Available": null,
+        "StockStatus": "unknown",
+        "HasOffers": false,
+        "ConfirmedUnavailable": false,
+        "Warnings": [
+          {
+            "Code": "category_availability_unknown",
+            "Context": "133917"
+          }
+        ],
+        "Variants": [],
+        "Offers": []
+      },
+      {
+        "CategoryID": "250899",
+        "CategoryName": "Бизнес Апартаменты (с двуспальной кроватью) - 65 кв.м.",
+        "AreaM2": 65,
+        "Available": null,
+        "StockStatus": "unknown",
+        "HasOffers": false,
+        "ConfirmedUnavailable": false,
+        "Warnings": [
+          {
+            "Code": "category_availability_unknown",
+            "Context": "250899"
+          }
+        ],
+        "Variants": [],
+        "Offers": []
+      },
+      {
+        "CategoryID": "4347",
+        "CategoryName": "Стандартный номер (с двуспальной кроватью) - 20 кв.м.",
+        "AreaM2": 20,
+        "Available": 9,
+        "StockStatus": "known",
+        "HasOffers": true,
+        "ConfirmedUnavailable": false,
+        "Warnings": [],
+        "Variants": [
+          {
+            "ID": "4347:11510",
+            "Adults": 1
+          }
+        ],
+        "Offers": [
+          {
+            "VariantID": "4347:11510",
+            "RateID": "128299",
+            "RateName": "Лучшая цена дня без завтрака",
+            "Price": "7500.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4347:11510",
+            "RateID": "128301",
+            "RateName": "Лучшая цена дня с завтраком",
+            "Price": "9000.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4347:11510",
+            "RateID": "128311",
+            "RateName": "Заранее выгодно!  Тариф без завтрака",
+            "Price": "6375.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4347:11510",
+            "RateID": "128337",
+            "RateName": "Заранее выгодно!  Тариф с завтраком",
+            "Price": "7650.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4347:11510",
+            "RateID": "917131",
+            "RateName": "Тариф полупансион с включенным питанием",
+            "Price": "8850.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          }
+        ]
+      },
+      {
+        "CategoryID": "4348",
+        "CategoryName": "Улучшенный номер (с двуспальной кроватью) - 36 кв.м.",
+        "AreaM2": 36,
+        "Available": 1,
+        "StockStatus": "known",
+        "HasOffers": true,
+        "ConfirmedUnavailable": false,
+        "Warnings": [],
+        "Variants": [
+          {
+            "ID": "4348:11514",
+            "Adults": 1
+          }
+        ],
+        "Offers": [
+          {
+            "VariantID": "4348:11514",
+            "RateID": "128299",
+            "RateName": "Лучшая цена дня без завтрака",
+            "Price": "9500.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4348:11514",
+            "RateID": "128301",
+            "RateName": "Лучшая цена дня с завтраком",
+            "Price": "11000.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4348:11514",
+            "RateID": "128311",
+            "RateName": "Заранее выгодно!  Тариф без завтрака",
+            "Price": "8075.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4348:11514",
+            "RateID": "128337",
+            "RateName": "Заранее выгодно!  Тариф с завтраком",
+            "Price": "9350.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4348:11514",
+            "RateID": "917131",
+            "RateName": "Тариф полупансион с включенным питанием",
+            "Price": "10550.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          }
+        ]
+      },
+      {
+        "CategoryID": "4349",
+        "CategoryName": "Полулюкс (с двуспальной кроватью)  - 42 кв.м.",
+        "AreaM2": 42,
+        "Available": 6,
+        "StockStatus": "known",
+        "HasOffers": true,
+        "ConfirmedUnavailable": false,
+        "Warnings": [],
+        "Variants": [
+          {
+            "ID": "4349:13605",
+            "Adults": 1
+          }
+        ],
+        "Offers": [
+          {
+            "VariantID": "4349:13605",
+            "RateID": "128299",
+            "RateName": "Лучшая цена дня без завтрака",
+            "Price": "11500.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4349:13605",
+            "RateID": "128301",
+            "RateName": "Лучшая цена дня с завтраком",
+            "Price": "13000.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4349:13605",
+            "RateID": "128311",
+            "RateName": "Заранее выгодно!  Тариф без завтрака",
+            "Price": "9775.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4349:13605",
+            "RateID": "128337",
+            "RateName": "Заранее выгодно!  Тариф с завтраком",
+            "Price": "11050.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4349:13605",
+            "RateID": "917131",
+            "RateName": "Тариф полупансион с включенным питанием",
+            "Price": "12250.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          }
+        ]
+      },
+      {
+        "CategoryID": "4350",
+        "CategoryName": "Стандартный номер (с двумя кроватями) - 20 кв.м.",
+        "AreaM2": 20,
+        "Available": 10,
+        "StockStatus": "known",
+        "HasOffers": true,
+        "ConfirmedUnavailable": false,
+        "Warnings": [],
+        "Variants": [
+          {
+            "ID": "4350:11512",
+            "Adults": 1
+          }
+        ],
+        "Offers": [
+          {
+            "VariantID": "4350:11512",
+            "RateID": "128299",
+            "RateName": "Лучшая цена дня без завтрака",
+            "Price": "7500.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4350:11512",
+            "RateID": "128301",
+            "RateName": "Лучшая цена дня с завтраком",
+            "Price": "9000.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4350:11512",
+            "RateID": "128311",
+            "RateName": "Заранее выгодно!  Тариф без завтрака",
+            "Price": "6375.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4350:11512",
+            "RateID": "128337",
+            "RateName": "Заранее выгодно!  Тариф с завтраком",
+            "Price": "7650.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "4350:11512",
+            "RateID": "917131",
+            "RateName": "Тариф полупансион с включенным питанием",
+            "Price": "8850.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          }
+        ]
+      },
+      {
+        "CategoryID": "8875",
+        "CategoryName": "Улучшенный номер (с двумя кроватями)  - 36 кв.м.",
+        "AreaM2": 36,
+        "Available": 3,
+        "StockStatus": "known",
+        "HasOffers": true,
+        "ConfirmedUnavailable": false,
+        "Warnings": [],
+        "Variants": [
+          {
+            "ID": "8875:13606",
+            "Adults": 1
+          }
+        ],
+        "Offers": [
+          {
+            "VariantID": "8875:13606",
+            "RateID": "128299",
+            "RateName": "Лучшая цена дня без завтрака",
+            "Price": "9500.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "8875:13606",
+            "RateID": "128301",
+            "RateName": "Лучшая цена дня с завтраком",
+            "Price": "11000.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "8875:13606",
+            "RateID": "128311",
+            "RateName": "Заранее выгодно!  Тариф без завтрака",
+            "Price": "8075.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "8875:13606",
+            "RateID": "128337",
+            "RateName": "Заранее выгодно!  Тариф с завтраком",
+            "Price": "9350.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "8875:13606",
+            "RateID": "917131",
+            "RateName": "Тариф полупансион с включенным питанием",
+            "Price": "10550.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          }
+        ]
+      },
+      {
+        "CategoryID": "8876",
+        "CategoryName": "Полулюкс (с двумя кроватями)  - 42 кв.м.",
+        "AreaM2": 42,
+        "Available": 3,
+        "StockStatus": "known",
+        "HasOffers": true,
+        "ConfirmedUnavailable": false,
+        "Warnings": [],
+        "Variants": [
+          {
+            "ID": "8876:13608",
+            "Adults": 1
+          }
+        ],
+        "Offers": [
+          {
+            "VariantID": "8876:13608",
+            "RateID": "128299",
+            "RateName": "Лучшая цена дня без завтрака",
+            "Price": "11500.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "8876:13608",
+            "RateID": "128301",
+            "RateName": "Лучшая цена дня с завтраком",
+            "Price": "13000.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "8876:13608",
+            "RateID": "128311",
+            "RateName": "Заранее выгодно!  Тариф без завтрака",
+            "Price": "9775.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "8876:13608",
+            "RateID": "128337",
+            "RateName": "Заранее выгодно!  Тариф с завтраком",
+            "Price": "11050.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          },
+          {
+            "VariantID": "8876:13608",
+            "RateID": "917131",
+            "RateName": "Тариф полупансион с включенным питанием",
+            "Price": "12250.0",
+            "Currency": "RUB",
+            "MealPlan": "",
+            "Visible": true,
+            "DataAvailable": null,
+            "RowAvailable": null,
+            "DataAvailableForGuests": null,
+            "SelectDisabled": false,
+            "SelectableQuantities": []
+          }
+        ]
+      }
+    ]
+  },
+  "Counts": {
+    "known": 8,
+    "offers": 40,
+    "unknown": 2
+  }
+}

@@ -1,0 +1,3 @@
+Old 10s service delivery step, directed local PostgreSQL/mock test:
+regular_delivery_integration_test.go:254: service truncated the uploader request timeout 9.990662667s
+Final code: the same assertion and full integration suite PASS; no wall-clock sleep used in this test.

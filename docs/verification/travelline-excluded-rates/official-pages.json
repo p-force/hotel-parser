@@ -1,0 +1,30 @@
+[
+  {
+    "hotel": "17249",
+    "url": "https://monarchhotels.ru/booking/",
+    "title": "Забронировать номер в МонАрх Москва Отель | Онлайн бронирование на официальном сайте",
+    "error": "",
+    "frames": [
+      {
+        "origin": "https://ru-ibe.tlintegration.ru",
+        "path": "/booking2/hotel/index.html",
+        "providerId": "17249"
+      }
+    ],
+    "links": [
+      "https://ru-ibe.tlintegration.ru/booking2/hotel/index.html?int=true&accommodationMode=auto&adults=2&providerId=17249&defaultAdults=2&language=ru"
+    ],
+    "captured_at": "2026-11-05T10:59:15.960Z",
+    "note": "Only official page/frame linkage; booking API requests blocked here. Anonymous live booking DOM captured separately."
+  },
+  {
+    "hotel": "5787",
+    "url": "https://petroffpalacehotel.ru/booking/",
+    "title": "Loading https://petroffpalacehotel.ru/booking/",
+    "error": "page.goto: Timeout 20000ms exceeded.",
+    "frames": [],
+    "links": [],
+    "captured_at": "2026-11-05T11:00:31.733Z",
+    "note": "Only official page/frame linkage; booking API requests blocked here. Anonymous live booking DOM captured separately."
+  }
+]

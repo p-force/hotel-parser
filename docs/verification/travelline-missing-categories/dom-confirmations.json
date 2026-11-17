@@ -1,0 +1,315 @@
+[
+  {
+    "hotel": "5787",
+    "date": "2026-12-31",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-12-31&nights=2&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T12:18:40.621Z",
+    "adults": 1,
+    "rooms": 1,
+    "los": 2,
+    "anonymous": true,
+    "dom_source_sha256": "61982f9b0866f22e2bb986c4a3c01cc71c24c19cd90f6832a9751f9eacb6eb83",
+    "category_id": "34187",
+    "dom_selector": "#room-id-34187",
+    "text": "Смотреть фотогалерею\nСтандартный номер с 1 двуспальной кроватью\nВместимость.\nдо 2 мест\nПлощадь.\n30 м²\n​За регистрацию 28 975 ₽\n28975 рублей\nЗа регистрацию 28975 рублей. Открыть окно регистрации\nот 30 500 ₽\n30500 рублей\n2 ночи / 1 гость\nВыбрать",
+    "xhr": {
+      "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+      "query": {
+        "language": "ru-ru",
+        "criterions[0].adults": "1",
+        "criterions[0].dates": "2026-12-31;2027-01-02",
+        "criterions[0].hotels[0].code": "5787",
+        "audience": "BookingForm"
+      },
+      "started_at": "2026-11-05T12:18:33.013Z",
+      "completed_at": "2026-11-05T12:18:33.509Z",
+      "status": 200,
+      "sha256": "a8b6ed0037cc7b9b0e9816498fd4334f2a57e56c926e5b2f2eb83ff1a4ecc093"
+    },
+    "api_offers": [
+      {
+        "category_id": "34187",
+        "rate_id": "49957",
+        "price": 30500.0,
+        "currency": "RUB",
+        "quota_rph": "1764467029",
+        "quantity": 3
+      },
+      {
+        "category_id": "34187",
+        "rate_id": "35114",
+        "price": 33900.0,
+        "currency": "RUB",
+        "quota_rph": "1764467029",
+        "quantity": 3
+      }
+    ],
+    "dom_public_min_price": "30500"
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-12-31",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-12-31&nights=2&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T12:18:40.621Z",
+    "adults": 1,
+    "rooms": 1,
+    "los": 2,
+    "anonymous": true,
+    "dom_source_sha256": "61982f9b0866f22e2bb986c4a3c01cc71c24c19cd90f6832a9751f9eacb6eb83",
+    "category_id": "34493",
+    "dom_selector": "#room-id-34493",
+    "text": "Остался 1 номер\nСмотреть фотогалерею\nСтандартный номер с 2 односпальными кроватями\nВместимость.\nдо 2 мест\nПлощадь.\n25 м²\n​За регистрацию 28 975 ₽\n28975 рублей\nЗа регистрацию 28975 рублей. Открыть окно регистрации\nот 30 500 ₽\n30500 рублей\n2 ночи / 1 гость\nВыбрать",
+    "xhr": {
+      "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+      "query": {
+        "language": "ru-ru",
+        "criterions[0].adults": "1",
+        "criterions[0].dates": "2026-12-31;2027-01-02",
+        "criterions[0].hotels[0].code": "5787",
+        "audience": "BookingForm"
+      },
+      "started_at": "2026-11-05T12:18:33.013Z",
+      "completed_at": "2026-11-05T12:18:33.509Z",
+      "status": 200,
+      "sha256": "a8b6ed0037cc7b9b0e9816498fd4334f2a57e56c926e5b2f2eb83ff1a4ecc093"
+    },
+    "api_offers": [
+      {
+        "category_id": "34493",
+        "rate_id": "49957",
+        "price": 30500.0,
+        "currency": "RUB",
+        "quota_rph": "1415081705",
+        "quantity": 1
+      },
+      {
+        "category_id": "34493",
+        "rate_id": "35114",
+        "price": 33900.0,
+        "currency": "RUB",
+        "quota_rph": "1415081705",
+        "quantity": 1
+      }
+    ],
+    "dom_public_min_price": "30500"
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-12-31",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-12-31&nights=2&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T12:18:40.621Z",
+    "adults": 1,
+    "rooms": 1,
+    "los": 2,
+    "anonymous": true,
+    "dom_source_sha256": "61982f9b0866f22e2bb986c4a3c01cc71c24c19cd90f6832a9751f9eacb6eb83",
+    "category_id": "34190",
+    "dom_selector": "#room-id-34190",
+    "text": "Смотреть фотогалерею\nИмператорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней\nВместимость.\nдо 4 мест\nПлощадь.\n120 м²\n​За регистрацию 93 575 ₽\n93575 рублей\nЗа регистрацию 93575 рублей. Открыть окно регистрации\nот 98 500 ₽\n98500 рублей\n2 ночи / 1 гость\nВыбрать",
+    "xhr": {
+      "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+      "query": {
+        "language": "ru-ru",
+        "criterions[0].adults": "1",
+        "criterions[0].dates": "2026-12-31;2027-01-02",
+        "criterions[0].hotels[0].code": "5787",
+        "audience": "BookingForm"
+      },
+      "started_at": "2026-11-05T12:18:33.013Z",
+      "completed_at": "2026-11-05T12:18:33.509Z",
+      "status": 200,
+      "sha256": "a8b6ed0037cc7b9b0e9816498fd4334f2a57e56c926e5b2f2eb83ff1a4ecc093"
+    },
+    "api_offers": [
+      {
+        "category_id": "34190",
+        "rate_id": "49957",
+        "price": 98500.0,
+        "currency": "RUB",
+        "quota_rph": "188900433",
+        "quantity": 1
+      },
+      {
+        "category_id": "34190",
+        "rate_id": "35114",
+        "price": 101900.0,
+        "currency": "RUB",
+        "quota_rph": "188900433",
+        "quantity": 1
+      }
+    ],
+    "dom_public_min_price": "98500"
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-12-31",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-12-31&nights=2&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T12:18:40.621Z",
+    "adults": 1,
+    "rooms": 1,
+    "los": 2,
+    "anonymous": true,
+    "dom_source_sha256": "61982f9b0866f22e2bb986c4a3c01cc71c24c19cd90f6832a9751f9eacb6eb83",
+    "category_id": "34188",
+    "dom_selector": "#room-id-34188",
+    "text": "Смотреть фотогалерею\nДелюкс с 1 двуспальной кроватью\nВместимость.\nдо 3 мест\nПлощадь.\n40 м²\nРаспродано\nДоступные даты заезда",
+    "xhr": {
+      "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+      "query": {
+        "language": "ru-ru",
+        "criterions[0].adults": "1",
+        "criterions[0].dates": "2026-12-31;2027-01-02",
+        "criterions[0].hotels[0].code": "5787",
+        "audience": "BookingForm"
+      },
+      "started_at": "2026-11-05T12:18:33.013Z",
+      "completed_at": "2026-11-05T12:18:33.509Z",
+      "status": 200,
+      "sha256": "a8b6ed0037cc7b9b0e9816498fd4334f2a57e56c926e5b2f2eb83ff1a4ecc093"
+    },
+    "api_offers": []
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-12-31",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-12-31&nights=2&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T12:18:40.621Z",
+    "adults": 1,
+    "rooms": 1,
+    "los": 2,
+    "anonymous": true,
+    "dom_source_sha256": "61982f9b0866f22e2bb986c4a3c01cc71c24c19cd90f6832a9751f9eacb6eb83",
+    "category_id": "34189",
+    "dom_selector": "#room-id-34189",
+    "text": "Лидер продаж\nСмотреть фотогалерею\nПредставительский двухкомнатный Люкс с 1 спальней\nВместимость.\nдо 3 мест\nПлощадь.\n60 м²\nРаспродано\nДоступные даты заезда",
+    "xhr": {
+      "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+      "query": {
+        "language": "ru-ru",
+        "criterions[0].adults": "1",
+        "criterions[0].dates": "2026-12-31;2027-01-02",
+        "criterions[0].hotels[0].code": "5787",
+        "audience": "BookingForm"
+      },
+      "started_at": "2026-11-05T12:18:33.013Z",
+      "completed_at": "2026-11-05T12:18:33.509Z",
+      "status": 200,
+      "sha256": "a8b6ed0037cc7b9b0e9816498fd4334f2a57e56c926e5b2f2eb83ff1a4ecc093"
+    },
+    "api_offers": []
+  },
+  {
+    "hotel": "5787",
+    "date": "2026-12-31",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=5787&date=2026-12-31&nights=2&adults=1&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T12:18:40.621Z",
+    "adults": 1,
+    "rooms": 1,
+    "los": 2,
+    "anonymous": true,
+    "dom_source_sha256": "61982f9b0866f22e2bb986c4a3c01cc71c24c19cd90f6832a9751f9eacb6eb83",
+    "category_id": "34191",
+    "dom_selector": "#room-id-34191",
+    "text": "Смотреть фотогалерею\nСемейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями\nВместимость.\nдо 6 мест\nПлощадь.\n120 м²\nРаспродано\nДоступные даты заезда",
+    "xhr": {
+      "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+      "query": {
+        "language": "ru-ru",
+        "criterions[0].adults": "1",
+        "criterions[0].dates": "2026-12-31;2027-01-02",
+        "criterions[0].hotels[0].code": "5787",
+        "audience": "BookingForm"
+      },
+      "started_at": "2026-11-05T12:18:33.013Z",
+      "completed_at": "2026-11-05T12:18:33.509Z",
+      "status": 200,
+      "sha256": "a8b6ed0037cc7b9b0e9816498fd4334f2a57e56c926e5b2f2eb83ff1a4ecc093"
+    },
+    "api_offers": []
+  },
+  {
+    "hotel": "585",
+    "date": "2027-01-15",
+    "url": "https://azimuthotels.com/ru/tl/availability?hotel=101&checkIn=2027-01-15&checkOut=2027-01-17&adults=2&children=0&rooms=1&nights=2&promo=",
+    "captured_at": "2026-11-05T12:18:52.660Z",
+    "adults": 2,
+    "rooms": 1,
+    "los": 2,
+    "anonymous": true,
+    "dom_source_sha256": "ce854420f9b7f3fab0a880441d8c9b2ad7851ec240fca0814e70f759549421be",
+    "category_id": "250899",
+    "category_name": "Бизнес Апартаменты",
+    "site_selector": "101",
+    "source_property_id": "585",
+    "source_category_mapping": "listRoomCodesFromGroup: 250899",
+    "text": "Бизнес Апартаменты65m2\n3\nПодробнее про номер\nНомера закончились.",
+    "message": "Номера закончились.",
+    "quantity": null
+  },
+  {
+    "hotel": "585",
+    "date": "2027-02-19",
+    "url": "https://azimuthotels.com/ru/tl/availability?hotel=101&checkIn=2027-02-19&checkOut=2027-02-21&adults=2&children=0&rooms=1&nights=2&promo=",
+    "captured_at": "2026-11-05T12:19:04.371Z",
+    "adults": 2,
+    "rooms": 1,
+    "los": 2,
+    "anonymous": true,
+    "dom_source_sha256": "fbecbfc3944fbfe15f5a658920c4c150f2a21714dfa432ebe8a3f117e54c2f22",
+    "category_id": "250899",
+    "category_name": "Бизнес Апартаменты",
+    "site_selector": "101",
+    "source_property_id": "585",
+    "source_category_mapping": "listRoomCodesFromGroup: 250899",
+    "text": "Бизнес Апартаменты65m2\n3\nПодробнее про номер\nНомера закончились.",
+    "message": "Номера закончились.",
+    "quantity": null
+  },
+  {
+    "hotel": "333",
+    "date": "2027-01-15",
+    "url": "https://ru-ibe.tlintegration.ru/booking2/hotel/index.gc.html?providerId=333&date=2027-01-15&nights=2&adults=2&language=ru&currency=RUB",
+    "captured_at": "2026-11-05T12:19:17.573Z",
+    "adults": 2,
+    "rooms": 1,
+    "los": 2,
+    "anonymous": true,
+    "dom_source_sha256": "b84f34f9a735c5a6dcebffebe1face8c5230bd8988136cae4352976496230881",
+    "category_id": "2992",
+    "dom_selector": "#room-id-2992",
+    "text": "Остался 1 номер\nСмотреть фотогалерею\nАпартаменты\nВместимость.\nдо 3 мест\nПлощадь.\n70 м²\n−8%\n50 000 ₽\n50000 рублей\nСкидка 8%. Без учёта скидки 50000 рублей\nот 46 000 ₽\n46000 рублей\n2 ночи / 2 гостя\nВыбрать",
+    "xhr": {
+      "path": "/ApiWebDistribution/BookingForm/hotel_availability",
+      "query": {
+        "language": "ru-ru",
+        "criterions[0].adults": "2",
+        "criterions[0].dates": "2027-01-15;2027-01-17",
+        "criterions[0].hotels[0].code": "333",
+        "audience": "BookingForm"
+      },
+      "started_at": "2026-11-05T12:19:10.963Z",
+      "completed_at": "2026-11-05T12:19:11.411Z",
+      "status": 200,
+      "sha256": "9c72febb4f752c10bc7d160bbd840a95be8f711f6314f29396cdceceb44c0d1f"
+    },
+    "api_offers": [
+      {
+        "category_id": "2992",
+        "rate_id": "49218",
+        "price": 46000.0,
+        "currency": "RUB",
+        "quota_rph": "2925016080",
+        "quantity": 1
+      },
+      {
+        "category_id": "2992",
+        "rate_id": "38564",
+        "price": 50000.0,
+        "currency": "RUB",
+        "quota_rph": "2925016080",
+        "quantity": 1
+      }
+    ],
+    "dom_public_min_price": "46000"
+  }
+]

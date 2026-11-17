@@ -1,0 +1,70 @@
+{
+  "production_sha": "4b8a92444553401d4c640a443d5f46cafd5a8ccf",
+  "ordinary_checks": {
+    "go test ./...": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "go test -race ./...": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "make check": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "make test-integration-docker": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "git diff --check": {
+      "exit_code": 0,
+      "status": "PASS"
+    }
+  },
+  "live_smoke": {
+    "exit_code": 0,
+    "status": "PASS",
+    "jobs": 2,
+    "http_starts": 2
+  },
+  "live_full": {
+    "exit_code": 0,
+    "status": "PASS",
+    "jobs": 122,
+    "http_starts": 124,
+    "min_start_gap_ns": 500016126,
+    "violations": 0
+  },
+  "offline_replay": {
+    "exit_code": 0,
+    "status": "PASS",
+    "public_http_requests": 0,
+    "simulated_transport_calls": 122
+  },
+  "fixed_contract_regressions": {
+    "status": "PASS",
+    "env_gate": false,
+    "log": "regressions.log"
+  },
+  "legacy_contract_repro": {
+    "command": "HOTEL_PARSER_REPRO_KNOWN_DEFECTS=1 make test-integration-docker",
+    "exit_code": 2,
+    "status": "FAIL (known defect, NOT PASS)",
+    "issue": 41,
+    "test": "TestPostgresKnownDefectStoredMissingExpectedCategory",
+    "reason": "missing configured category persisted as no_offers; observations=2; warnings=[]"
+  },
+  "independent_process_fencing": {
+    "status": "PASS",
+    "test": "TestPostgresVerificationIndependentProcessFencing",
+    "public_http_requests": 0
+  },
+  "python_syntax_and_raw_audit": "PASS",
+  "historical_payload_comparison": {
+    "network": false,
+    "baseline": "74c3492d26a05af98d88c7f2cb7ac02c554489d5",
+    "baseline_stock": "13 unknown",
+    "current_stock": "13 known=0"
+  }
+}
