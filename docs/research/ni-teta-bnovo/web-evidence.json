@@ -1,0 +1,88 @@
+[
+  {
+    "url": "https://hotelnewizm.ru/booking/",
+    "method": "web text retrieval (direct urllib and Chrome timed out; see site evidence)",
+    "observed_date": "2026-11-09",
+    "booking_anchor_text": "Открыть модуль бронирования",
+    "booking_anchor_url": "https://reservationsteps.ru/rooms/index/5b94117e-e3ec-4aaf-84cc-c8797ea3cee9",
+    "address": "Москва, Окружной проезд, 10Б"
+  },
+  {
+    "url": "https://hotelnewizm.ru/",
+    "method": "web text retrieval",
+    "observed_date": "2026-11-09",
+    "categories": [
+      {
+        "name": "Комфорт+",
+        "area_m2": 24,
+        "capacity": 2,
+        "beds": "кровать"
+      },
+      {
+        "name": "Семейный",
+        "area_m2": 30,
+        "capacity": 4,
+        "beds": "кровать + диван"
+      },
+      {
+        "name": "Комфорт+ на троих",
+        "area_m2": 24,
+        "capacity": 3,
+        "beds": "кровать + кресло"
+      },
+      {
+        "name": "Комфорт",
+        "area_m2": 18,
+        "capacity": 2,
+        "beds": "кровать"
+      },
+      {
+        "name": "Стандарт+",
+        "area_m2": 24,
+        "capacity": 2,
+        "beds": "диван"
+      },
+      {
+        "name": "Стандарт",
+        "area_m2": 18,
+        "capacity": 2,
+        "beds": "диван"
+      }
+    ]
+  },
+  {
+    "url": "https://teta-izmaylovo.tb.ru/",
+    "method": "web text retrieval; old website only",
+    "observed_date": "2026-11-09",
+    "booking_anchor_url": "https://reservationsteps.ru/rooms/index/64a67259-6aba-4f1a-80e9-7787eb269be1",
+    "categories": [
+      {
+        "name": "Teta Premium",
+        "area_m2": 24,
+        "capacity": 2
+      },
+      {
+        "name": "Teta Comfort",
+        "area_m2": 18,
+        "capacity": 2
+      }
+    ]
+  },
+  {
+    "url": "https://new-izmaylovo.tb.ru/",
+    "method": "web text retrieval; old website only",
+    "observed_date": "2026-11-09",
+    "categories": [
+      {
+        "name": "Измайловский комфорт",
+        "area_m2": 24,
+        "capacity": 2
+      },
+      {
+        "name": "Измайловский стандарт",
+        "area_m2": 18,
+        "capacity": 2
+      }
+    ]
+  }
+]

@@ -1,0 +1,1706 @@
+[
+  {
+    "hotel": "teta",
+    "normalized": [
+      {"CategoryID": "547086", "Available": 10, "Status": "known", "Warnings": null},
+      {"CategoryID": "547087", "Available": 15, "Status": "known", "Warnings": null}
+    ],
+    "result": {
+      "Request": {"PropertyID": "64a67259-6aba-4f1a-80e9-7787eb269be1", "CheckIn": "2026-11-17T00:00:00Z", "CheckOut": "2026-11-18T00:00:00Z", "Adults": 1, "ChildrenAges": null, "Language": "ru"},
+      "CollectedAt": "2026-11-09T00:16:59.521557Z",
+      "Status": "success",
+      "Categories": [
+        {"ID": "547086", "Name": "Teta Premium", "AreaM2": 24},
+        {"ID": "547087", "Name": "Teta Comfort", "AreaM2": 18}
+      ],
+      "Variants": [
+        {"ID": "547086", "CategoryID": "547086", "Adults": 2},
+        {"ID": "547087", "CategoryID": "547087", "Adults": 2}
+      ],
+      "Offers": [
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "777965",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4010",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "751387",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4320",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.отмена менее чем за 7 дней со штрафом в размере первых суток проживания",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "761740",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5220",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Хранение багажа, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "777998",
+          "RateName": "Корпоративный",
+          "Price": "4450",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "777965",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "3560",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 15,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "751387",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "3830",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.отмена менее чем за 7 дней со штрафом в размере первых суток проживания",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 15,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "761740",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "4730",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Хранение багажа, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 15,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "777998",
+          "RateName": "Корпоративный",
+          "Price": "3950",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 15,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+            "SelectDisabled": false
+          }
+        }
+      ],
+      "HTTPStatus": 200,
+      "Error": null,
+      "Warnings": null,
+      "CategoryAvailability": [
+        {"CategoryID": "547086", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "547087", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""}
+      ]
+    }
+  },
+  {
+    "hotel": "teta",
+    "normalized": [
+      {"CategoryID": "547086", "Available": 13, "Status": "known", "Warnings": null},
+      {"CategoryID": "547087", "Available": 18, "Status": "known", "Warnings": null}
+    ],
+    "result": {
+      "Request": {"PropertyID": "64a67259-6aba-4f1a-80e9-7787eb269be1", "CheckIn": "2026-12-04T00:00:00Z", "CheckOut": "2026-12-05T00:00:00Z", "Adults": 1, "ChildrenAges": null, "Language": "ru"},
+      "CollectedAt": "2026-11-09T00:17:03.13253Z",
+      "Status": "success",
+      "Categories": [
+        {"ID": "547086", "Name": "Teta Premium", "AreaM2": 24},
+        {"ID": "547087", "Name": "Teta Comfort", "AreaM2": 18}
+      ],
+      "Variants": [
+        {"ID": "547086", "CategoryID": "547086", "Adults": 2},
+        {"ID": "547087", "CategoryID": "547087", "Adults": 2}
+      ],
+      "Offers": [
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "777965",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4460",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 13,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "751387",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4800",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.отмена менее чем за 7 дней со штрафом в размере первых суток проживания",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 13,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "761740",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5700",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Хранение багажа, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 13,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "777998",
+          "RateName": "Корпоративный",
+          "Price": "4950",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 13,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "777965",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4010",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 18,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "751387",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4320",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.отмена менее чем за 7 дней со штрафом в размере первых суток проживания",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 18,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "761740",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5220",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Хранение багажа, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 18,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "777998",
+          "RateName": "Корпоративный",
+          "Price": "4450",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 18,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+            "SelectDisabled": false
+          }
+        }
+      ],
+      "HTTPStatus": 200,
+      "Error": null,
+      "Warnings": null,
+      "CategoryAvailability": [
+        {"CategoryID": "547086", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "547087", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""}
+      ]
+    }
+  },
+  {
+    "hotel": "teta",
+    "normalized": [
+      {"CategoryID": "547086", "Available": 16, "Status": "known", "Warnings": null},
+      {"CategoryID": "547087", "Available": 19, "Status": "known", "Warnings": null}
+    ],
+    "result": {
+      "Request": {"PropertyID": "64a67259-6aba-4f1a-80e9-7787eb269be1", "CheckIn": "2027-01-15T00:00:00Z", "CheckOut": "2027-01-16T00:00:00Z", "Adults": 1, "ChildrenAges": null, "Language": "ru"},
+      "CollectedAt": "2026-11-09T00:17:06.37189Z",
+      "Status": "success",
+      "Categories": [
+        {"ID": "547086", "Name": "Teta Premium", "AreaM2": 24},
+        {"ID": "547087", "Name": "Teta Comfort", "AreaM2": 18}
+      ],
+      "Variants": [
+        {"ID": "547086", "CategoryID": "547086", "Adults": 2},
+        {"ID": "547087", "CategoryID": "547087", "Adults": 2}
+      ],
+      "Offers": [
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "777965",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "5180",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 16,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "751387",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "5580",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.отмена менее чем за 7 дней со штрафом в размере первых суток проживания",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 16,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "761740",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "6480",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Хранение багажа, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 16,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547086",
+          "VariantID": "547086",
+          "RateID": "777998",
+          "RateName": "Корпоративный",
+          "Price": "5750",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 16,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "777965",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4730",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 19,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "751387",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "5090",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.отмена менее чем за 7 дней со штрафом в размере первых суток проживания",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 19,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "761740",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5990",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Хранение багажа, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 19,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "547087",
+          "VariantID": "547087",
+          "RateID": "777998",
+          "RateName": "Корпоративный",
+          "Price": "5250",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 19,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+            "SelectDisabled": false
+          }
+        }
+      ],
+      "HTTPStatus": 200,
+      "Error": null,
+      "Warnings": null,
+      "CategoryAvailability": [
+        {"CategoryID": "547086", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "547087", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""}
+      ]
+    }
+  },
+  {
+    "hotel": "newizm",
+    "normalized": [
+      {"CategoryID": "497998", "Available": 17, "Status": "known", "Warnings": null},
+      {"CategoryID": "497999", "Available": 11, "Status": "known", "Warnings": null},
+      {"CategoryID": "505325", "Available": 1, "Status": "known", "Warnings": null},
+      {"CategoryID": "506402", "Available": 7, "Status": "known", "Warnings": null},
+      {"CategoryID": "512526", "Available": 6, "Status": "known", "Warnings": null},
+      {"CategoryID": "540625", "Available": 5, "Status": "known", "Warnings": null}
+    ],
+    "result": {
+      "Request": {"PropertyID": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9", "CheckIn": "2026-11-17T00:00:00Z", "CheckOut": "2026-11-18T00:00:00Z", "Adults": 1, "ChildrenAges": null, "Language": "ru"},
+      "CollectedAt": "2026-11-09T00:17:09.319544Z",
+      "Status": "success",
+      "Categories": [
+        {"ID": "497998", "Name": "Комфорт+ 24м кровать", "AreaM2": 24},
+        {"ID": "497999", "Name": "Стандарт 18м диван", "AreaM2": 18},
+        {"ID": "505325", "Name": "Стандарт+ 24м диван", "AreaM2": 24},
+        {"ID": "506402", "Name": "Комфорт 18м кровать", "AreaM2": 18},
+        {"ID": "512526", "Name": "Комфорт+ 24м кровать и кресло", "AreaM2": 24},
+        {"ID": "540625", "Name": "Семейный 30м кровать и диван", "AreaM2": 30}
+      ],
+      "Variants": [
+        {"ID": "497998", "CategoryID": "497998", "Adults": 2},
+        {"ID": "497999", "CategoryID": "497999", "Adults": 2},
+        {"ID": "505325", "CategoryID": "505325", "Adults": 2},
+        {"ID": "506402", "CategoryID": "506402", "Adults": 2},
+        {"ID": "512526", "CategoryID": "512526", "Adults": 2},
+        {"ID": "540625", "CategoryID": "540625", "Adults": 4}
+      ],
+      "Offers": [
+        {
+          "CategoryID": "497998",
+          "VariantID": "497998",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "3830",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 17,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497998",
+          "VariantID": "497998",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4120",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 17,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497998",
+          "VariantID": "497998",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5020",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 17,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "506402",
+          "VariantID": "506402",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "3560",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 7,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "506402",
+          "VariantID": "506402",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "3830",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 7,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "506402",
+          "VariantID": "506402",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "4730",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 7,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "505325",
+          "VariantID": "505325",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "3560",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 1,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "505325",
+          "VariantID": "505325",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "3830",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 1,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "505325",
+          "VariantID": "505325",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "4730",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 1,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497999",
+          "VariantID": "497999",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "3380",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 11,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497999",
+          "VariantID": "497999",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "3640",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 11,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497999",
+          "VariantID": "497999",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "4540",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 11,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "512526",
+          "VariantID": "512526",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4010",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 6,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "512526",
+          "VariantID": "512526",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4320",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 6,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "512526",
+          "VariantID": "512526",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5220",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 6,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "540625",
+          "VariantID": "540625",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "5810",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 5,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "540625",
+          "VariantID": "540625",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "6260",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 5,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "540625",
+          "VariantID": "540625",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "8060",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 5,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5],
+            "SelectDisabled": false
+          }
+        }
+      ],
+      "HTTPStatus": 200,
+      "Error": null,
+      "Warnings": null,
+      "CategoryAvailability": [
+        {"CategoryID": "497998", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "497999", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "505325", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "506402", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "512526", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "540625", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""}
+      ]
+    }
+  },
+  {
+    "hotel": "newizm",
+    "normalized": [
+      {"CategoryID": "497998", "Available": 20, "Status": "known", "Warnings": null},
+      {"CategoryID": "497999", "Available": 10, "Status": "known", "Warnings": null},
+      {"CategoryID": "505325", "Available": 3, "Status": "known", "Warnings": null},
+      {"CategoryID": "506402", "Available": 10, "Status": "known", "Warnings": null},
+      {"CategoryID": "512526", "Available": 6, "Status": "known", "Warnings": null},
+      {"CategoryID": "540625", "Available": 7, "Status": "known", "Warnings": null}
+    ],
+    "result": {
+      "Request": {"PropertyID": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9", "CheckIn": "2026-12-04T00:00:00Z", "CheckOut": "2026-12-05T00:00:00Z", "Adults": 1, "ChildrenAges": null, "Language": "ru"},
+      "CollectedAt": "2026-11-09T00:17:12.54204Z",
+      "Status": "success",
+      "Categories": [
+        {"ID": "497998", "Name": "Комфорт+ 24м кровать", "AreaM2": 24},
+        {"ID": "497999", "Name": "Стандарт 18м диван", "AreaM2": 18},
+        {"ID": "505325", "Name": "Стандарт+ 24м диван", "AreaM2": 24},
+        {"ID": "506402", "Name": "Комфорт 18м кровать", "AreaM2": 18},
+        {"ID": "512526", "Name": "Комфорт+ 24м кровать и кресло", "AreaM2": 24},
+        {"ID": "540625", "Name": "Семейный 30м кровать и диван", "AreaM2": 30}
+      ],
+      "Variants": [
+        {"ID": "497998", "CategoryID": "497998", "Adults": 2},
+        {"ID": "497999", "CategoryID": "497999", "Adults": 2},
+        {"ID": "505325", "CategoryID": "505325", "Adults": 2},
+        {"ID": "506402", "CategoryID": "506402", "Adults": 2},
+        {"ID": "512526", "CategoryID": "512526", "Adults": 2},
+        {"ID": "540625", "CategoryID": "540625", "Adults": 4}
+      ],
+      "Offers": [
+        {
+          "CategoryID": "497998",
+          "VariantID": "497998",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4010",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 20,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497998",
+          "VariantID": "497998",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4320",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 20,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497998",
+          "VariantID": "497998",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5220",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 20,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "506402",
+          "VariantID": "506402",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "3830",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "506402",
+          "VariantID": "506402",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4120",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "506402",
+          "VariantID": "506402",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5020",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "505325",
+          "VariantID": "505325",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "3830",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 3,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "505325",
+          "VariantID": "505325",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4120",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 3,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "505325",
+          "VariantID": "505325",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5020",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 3,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497999",
+          "VariantID": "497999",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "3560",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497999",
+          "VariantID": "497999",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "3830",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497999",
+          "VariantID": "497999",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "4730",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "512526",
+          "VariantID": "512526",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4280",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 6,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "512526",
+          "VariantID": "512526",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4610",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 6,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "512526",
+          "VariantID": "512526",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5510",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 6,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "540625",
+          "VariantID": "540625",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "5180",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 7,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "540625",
+          "VariantID": "540625",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "5580",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 7,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "540625",
+          "VariantID": "540625",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "7380",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 7,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7],
+            "SelectDisabled": false
+          }
+        }
+      ],
+      "HTTPStatus": 200,
+      "Error": null,
+      "Warnings": null,
+      "CategoryAvailability": [
+        {"CategoryID": "497998", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "497999", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "505325", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "506402", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "512526", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "540625", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""}
+      ]
+    }
+  },
+  {
+    "hotel": "newizm",
+    "normalized": [
+      {"CategoryID": "497998", "Available": 21, "Status": "known", "Warnings": null},
+      {"CategoryID": "497999", "Available": 12, "Status": "known", "Warnings": null},
+      {"CategoryID": "505325", "Available": 3, "Status": "known", "Warnings": null},
+      {"CategoryID": "506402", "Available": 10, "Status": "known", "Warnings": null},
+      {"CategoryID": "512526", "Available": 7, "Status": "known", "Warnings": null},
+      {"CategoryID": "540625", "Available": 6, "Status": "known", "Warnings": null}
+    ],
+    "result": {
+      "Request": {"PropertyID": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9", "CheckIn": "2027-01-15T00:00:00Z", "CheckOut": "2027-01-16T00:00:00Z", "Adults": 1, "ChildrenAges": null, "Language": "ru"},
+      "CollectedAt": "2026-11-09T00:17:15.347637Z",
+      "Status": "success",
+      "Categories": [
+        {"ID": "497998", "Name": "Комфорт+ 24м кровать", "AreaM2": 24},
+        {"ID": "497999", "Name": "Стандарт 18м диван", "AreaM2": 18},
+        {"ID": "505325", "Name": "Стандарт+ 24м диван", "AreaM2": 24},
+        {"ID": "506402", "Name": "Комфорт 18м кровать", "AreaM2": 18},
+        {"ID": "512526", "Name": "Комфорт+ 24м кровать и кресло", "AreaM2": 24},
+        {"ID": "540625", "Name": "Семейный 30м кровать и диван", "AreaM2": 30}
+      ],
+      "Variants": [
+        {"ID": "497998", "CategoryID": "497998", "Adults": 2},
+        {"ID": "497999", "CategoryID": "497999", "Adults": 2},
+        {"ID": "505325", "CategoryID": "505325", "Adults": 2},
+        {"ID": "506402", "CategoryID": "506402", "Adults": 2},
+        {"ID": "512526", "CategoryID": "512526", "Adults": 2},
+        {"ID": "540625", "CategoryID": "540625", "Adults": 4}
+      ],
+      "Offers": [
+        {
+          "CategoryID": "497998",
+          "VariantID": "497998",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4460",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 21,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497998",
+          "VariantID": "497998",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4800",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 21,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497998",
+          "VariantID": "497998",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5700",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 21,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "506402",
+          "VariantID": "506402",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4280",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "506402",
+          "VariantID": "506402",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4610",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "506402",
+          "VariantID": "506402",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5510",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 10,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "505325",
+          "VariantID": "505325",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4280",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 3,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "505325",
+          "VariantID": "505325",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4610",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 3,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "505325",
+          "VariantID": "505325",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5510",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 3,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497999",
+          "VariantID": "497999",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4010",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 12,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497999",
+          "VariantID": "497999",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "4320",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": true,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 12,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "497999",
+          "VariantID": "497999",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5220",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 12,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "512526",
+          "VariantID": "512526",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "4730",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 7,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "512526",
+          "VariantID": "512526",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "5090",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 7,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "512526",
+          "VariantID": "512526",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "5990",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 7,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6, 7],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "540625",
+          "VariantID": "540625",
+          "RateID": "777964",
+          "RateName": "Акция \"Листопад\"",
+          "Price": "5630",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 6,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "540625",
+          "VariantID": "540625",
+          "RateID": "751390",
+          "RateName": "Онлайн бронирование. От 1 дня. СКИДКА 3%",
+          "Price": "6060",
+          "Currency": "RUB",
+          "MealPlan": "Без питания",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.При отмене менее чем за 1 сутки до заезда - штраф в размере стоимости первых суток",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 6,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6],
+            "SelectDisabled": false
+          }
+        },
+        {
+          "CategoryID": "540625",
+          "VariantID": "540625",
+          "RateID": "761743",
+          "RateName": "Онлайн бронирование (с завтраком). От 1 дня. СКИДКА 3%",
+          "Price": "7860",
+          "Currency": "RUB",
+          "MealPlan": "Завтрак",
+          "Cancellation": "Бесплатная отмена. Бронирование можно отменить без штрафа за 1 день до заезда. При отмене менее, чем за 1 день до заезда взимается штраф в размере стоимости первой ночи.",
+          "Prepayment": "Полная предоплата. Для бронирования требуется онлайн-оплата в размере общей стоимости При заказе дополнительных услуг: Завтрак, Ужин, Багаж, Ранний заезд — их стоимость будет добавлена к предоплате за проживание.",
+          "Visible": false,
+          "Availability": {
+            "RowAvailable": true,
+            "DataAvailable": 6,
+            "DataAvailableForGuests": "1",
+            "SelectableQuantities": [1, 2, 3, 4, 5, 6],
+            "SelectDisabled": false
+          }
+        }
+      ],
+      "HTTPStatus": 200,
+      "Error": null,
+      "Warnings": null,
+      "CategoryAvailability": [
+        {"CategoryID": "497998", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "497999", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "505325", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "506402", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "512526", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""},
+        {"CategoryID": "540625", "HasOffers": true, "ConfirmedUnavailable": false, "Reason": ""}
+      ]
+    }
+  }
+]

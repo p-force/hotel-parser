@@ -1,0 +1,47 @@
+[
+  {
+    "key": "teta",
+    "requested_url": "https://hoteltetaizm.ru/",
+    "started_at": "2026-11-09T00:16:30.300855+00:00",
+    "status": 0,
+    "error_type": "URLError",
+    "error": "timed out",
+    "completed_at": "2026-11-09T00:16:50.450688+00:00"
+  },
+  {
+    "key": "newizm",
+    "requested_url": "https://hotelnewizm.ru/",
+    "started_at": "2026-11-09T00:16:50.489926+00:00",
+    "status": 0,
+    "error_type": "URLError",
+    "error": "timed out",
+    "completed_at": "2026-11-09T00:17:10.860444+00:00"
+  },
+  {
+    "key": "teta-old",
+    "requested_url": "https://teta-izmaylovo.tb.ru/",
+    "started_at": "2026-11-09T00:17:10.862684+00:00",
+    "status": 0,
+    "error_type": "URLError",
+    "error": "timed out",
+    "completed_at": "2026-11-09T00:17:50.955114+00:00"
+  },
+  {
+    "key": "newizm-old",
+    "requested_url": "https://new-izmaylovo.tb.ru/",
+    "started_at": "2026-11-09T00:17:50.958472+00:00",
+    "status": 0,
+    "error_type": "URLError",
+    "error": "timed out",
+    "completed_at": "2026-11-09T00:18:31.102064+00:00"
+  },
+  {
+    "key": "newizm-booking",
+    "requested_url": "https://hotelnewizm.ru/booking/",
+    "started_at": "2026-11-09T00:18:31.105201+00:00",
+    "status": 0,
+    "error_type": "URLError",
+    "error": "timed out",
+    "completed_at": "2026-11-09T00:18:51.113006+00:00"
+  }
+]

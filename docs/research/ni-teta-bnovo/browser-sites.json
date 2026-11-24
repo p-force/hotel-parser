@@ -1,0 +1,45 @@
+[
+  {
+    "key": "teta",
+    "url": "https://hoteltetaizm.ru/",
+    "final_url": "about:blank",
+    "captured_at": "2026-11-09T00:20:58.840Z",
+    "status": 0,
+    "error": "page.goto: Timeout 20000ms exceeded.",
+    "redirects": [],
+    "failures": [
+      {
+        "url": "https://hoteltetaizm.ru/",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "dom_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "key": "newizm",
+    "url": "https://hotelnewizm.ru/",
+    "final_url": "about:blank",
+    "captured_at": "2026-11-09T00:21:25.011Z",
+    "status": 0,
+    "error": "page.goto: Timeout 20000ms exceeded.",
+    "redirects": [],
+    "failures": [
+      {
+        "url": "https://hotelnewizm.ru/",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "dom_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "key": "newizm-booking",
+    "url": "https://hotelnewizm.ru/booking/",
+    "final_url": "about:blank",
+    "captured_at": "2026-11-09T00:21:51.173Z",
+    "status": 0,
+    "error": "page.goto: Timeout 20000ms exceeded.",
+    "redirects": [],
+    "failures": [],
+    "dom_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

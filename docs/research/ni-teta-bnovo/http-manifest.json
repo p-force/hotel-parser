@@ -1,0 +1,62 @@
+[
+  {
+    "bytes": 327306,
+    "completed_at": "2026-11-09T00:17:02.062284Z",
+    "error": "",
+    "raw_local_file": "64a67259-6aba-4f1a-80e9-7787eb269be1-17-11-2026-a1.html",
+    "sha256": "7a9cf3ef727a08b80ddb36bdf8b4589e57dc9a4eaeba7c2b4bed81d89bd3abd6",
+    "started_at": "2026-11-09T00:16:59.521817Z",
+    "status": 200,
+    "url": "https://reservationsteps.ru/rooms/index/64a67259-6aba-4f1a-80e9-7787eb269be1?adults=1\u0026dfrom=17-11-2026\u0026dto=18-11-2026\u0026lang=ru"
+  },
+  {
+    "bytes": 328471,
+    "completed_at": "2026-11-09T00:17:05.315809Z",
+    "error": "",
+    "raw_local_file": "64a67259-6aba-4f1a-80e9-7787eb269be1-04-12-2026-a1.html",
+    "sha256": "862deeb762961abf2641348a3e5a67aaf036aa7850a4e067371657c65f30edce",
+    "started_at": "2026-11-09T00:17:03.132608Z",
+    "status": 200,
+    "url": "https://reservationsteps.ru/rooms/index/64a67259-6aba-4f1a-80e9-7787eb269be1?adults=1\u0026dfrom=04-12-2026\u0026dto=05-12-2026\u0026lang=ru"
+  },
+  {
+    "bytes": 329215,
+    "completed_at": "2026-11-09T00:17:08.262977Z",
+    "error": "",
+    "raw_local_file": "64a67259-6aba-4f1a-80e9-7787eb269be1-15-01-2027-a1.html",
+    "sha256": "a56cb09f7920a6f7d0ad1cca1d1728c6d525f207ca8b2e47dddc637cd2c98d24",
+    "started_at": "2026-11-09T00:17:06.372004Z",
+    "status": 200,
+    "url": "https://reservationsteps.ru/rooms/index/64a67259-6aba-4f1a-80e9-7787eb269be1?adults=1\u0026dfrom=15-01-2027\u0026dto=16-01-2027\u0026lang=ru"
+  },
+  {
+    "bytes": 479892,
+    "completed_at": "2026-11-09T00:17:11.464565Z",
+    "error": "",
+    "raw_local_file": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9-17-11-2026-a1.html",
+    "sha256": "698be6d4f8ceeba10e382d1904f1f0b9b85deb81b027d2917aba6ab64f8a5f52",
+    "started_at": "2026-11-09T00:17:09.319716Z",
+    "status": 200,
+    "url": "https://reservationsteps.ru/rooms/index/5b94117e-e3ec-4aaf-84cc-c8797ea3cee9?adults=1\u0026dfrom=17-11-2026\u0026dto=18-11-2026\u0026lang=ru"
+  },
+  {
+    "bytes": 481044,
+    "completed_at": "2026-11-09T00:17:14.282437Z",
+    "error": "",
+    "raw_local_file": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9-04-12-2026-a1.html",
+    "sha256": "34886853033fea60092c5ee75950fb416abde19885efd186a106f8059a943219",
+    "started_at": "2026-11-09T00:17:12.543067Z",
+    "status": 200,
+    "url": "https://reservationsteps.ru/rooms/index/5b94117e-e3ec-4aaf-84cc-c8797ea3cee9?adults=1\u0026dfrom=04-12-2026\u0026dto=05-12-2026\u0026lang=ru"
+  },
+  {
+    "bytes": 481474,
+    "completed_at": "2026-11-09T00:17:17.48424Z",
+    "error": "",
+    "raw_local_file": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9-15-01-2027-a1.html",
+    "sha256": "17d3e2e052c3f5fa8a0db1db9c3fb598cc1de4c12edc003fa0585f23a224819e",
+    "started_at": "2026-11-09T00:17:15.347749Z",
+    "status": 200,
+    "url": "https://reservationsteps.ru/rooms/index/5b94117e-e3ec-4aaf-84cc-c8797ea3cee9?adults=1\u0026dfrom=15-01-2027\u0026dto=16-01-2027\u0026lang=ru"
+  }
+]

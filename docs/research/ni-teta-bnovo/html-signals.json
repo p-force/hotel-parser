@@ -1,0 +1,3066 @@
+[
+  {
+    "source_sha256": "7a9cf3ef727a08b80ddb36bdf8b4589e57dc9a4eaeba7c2b4bed81d89bd3abd6",
+    "source_file": "64a67259-6aba-4f1a-80e9-7787eb269be1-17-11-2026-a1.html",
+    "identity": {"uid": "64a67259-6aba-4f1a-80e9-7787eb269be1", "name": "Измайлово Тета", "website": "https://hoteltetaizm.ru/", "address": "Москва, Окружной проезд 10Б"},
+    "currency": "RUB",
+    "categories": [
+      {
+        "category_id": "547086",
+        "title": "Teta Premium",
+        "description": "24 м2, до 2-х человек Большой комфортный номер с собственной кухней и всем необходимым для длительного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "547086", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777965",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777965", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777965", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4010"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "10", "data-minprice": "4010", "data-maxprice": "4010", "data-plan-id": "777965", "data-select-id": "2", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751387",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751387", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751387", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4320"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "10", "data-minprice": "4320", "data-maxprice": "4320", "data-plan-id": "751387", "data-select-id": "4", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761740",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761740", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761740", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5220"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "10", "data-minprice": "5220", "data-maxprice": "5220", "data-plan-id": "761740", "data-select-id": "6", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "777998",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777998", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777998", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4450"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "10", "data-minprice": "4450", "data-maxprice": "4450", "data-plan-id": "777998", "data-select-id": "8", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "547087",
+        "title": "Teta Comfort",
+        "description": "18 м2, до 2-х человек Уютный номер со всем необходимым для постоянного проживания, даже с собственной кухней.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "547087", "data-geo-key": "", "data-room-last": "1", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777965",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777965", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777965", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3560"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "15", "data-minprice": "3560", "data-maxprice": "3560", "data-plan-id": "777965", "data-select-id": "10", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751387",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751387", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751387", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3830"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "15", "data-minprice": "3830", "data-maxprice": "3830", "data-plan-id": "751387", "data-select-id": "12", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761740",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761740", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761740", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4730"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "15", "data-minprice": "4730", "data-maxprice": "4730", "data-plan-id": "761740", "data-select-id": "14", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "777998",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777998", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777998", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3950"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "15", "data-minprice": "3950", "data-maxprice": "3950", "data-plan-id": "777998", "data-select-id": "16", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_sha256": "862deeb762961abf2641348a3e5a67aaf036aa7850a4e067371657c65f30edce",
+    "source_file": "64a67259-6aba-4f1a-80e9-7787eb269be1-04-12-2026-a1.html",
+    "identity": {"uid": "64a67259-6aba-4f1a-80e9-7787eb269be1", "name": "Измайлово Тета", "website": "https://hoteltetaizm.ru/", "address": "Москва, Окружной проезд 10Б"},
+    "currency": "RUB",
+    "categories": [
+      {
+        "category_id": "547086",
+        "title": "Teta Premium",
+        "description": "24 м2, до 2-х человек Большой комфортный номер с собственной кухней и всем необходимым для длительного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "547086", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777965",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777965", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777965", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4460"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "13", "data-minprice": "4460", "data-maxprice": "4460", "data-plan-id": "777965", "data-select-id": "2", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751387",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751387", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751387", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4800"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "13", "data-minprice": "4800", "data-maxprice": "4800", "data-plan-id": "751387", "data-select-id": "4", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761740",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761740", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761740", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5700"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "13", "data-minprice": "5700", "data-maxprice": "5700", "data-plan-id": "761740", "data-select-id": "6", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "777998",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777998", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777998", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4950"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "13", "data-minprice": "4950", "data-maxprice": "4950", "data-plan-id": "777998", "data-select-id": "8", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "547087",
+        "title": "Teta Comfort",
+        "description": "18 м2, до 2-х человек Уютный номер со всем необходимым для постоянного проживания, даже с собственной кухней.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "547087", "data-geo-key": "", "data-room-last": "1", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777965",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777965", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777965", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4010"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "18", "data-minprice": "4010", "data-maxprice": "4010", "data-plan-id": "777965", "data-select-id": "10", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751387",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751387", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751387", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4320"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "18", "data-minprice": "4320", "data-maxprice": "4320", "data-plan-id": "751387", "data-select-id": "12", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761740",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761740", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761740", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5220"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "18", "data-minprice": "5220", "data-maxprice": "5220", "data-plan-id": "761740", "data-select-id": "14", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "777998",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777998", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777998", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4450"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "18", "data-minprice": "4450", "data-maxprice": "4450", "data-plan-id": "777998", "data-select-id": "16", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_sha256": "a56cb09f7920a6f7d0ad1cca1d1728c6d525f207ca8b2e47dddc637cd2c98d24",
+    "source_file": "64a67259-6aba-4f1a-80e9-7787eb269be1-15-01-2027-a1.html",
+    "identity": {"uid": "64a67259-6aba-4f1a-80e9-7787eb269be1", "name": "Измайлово Тета", "website": "https://hoteltetaizm.ru/", "address": "Москва, Окружной проезд 10Б"},
+    "currency": "RUB",
+    "categories": [
+      {
+        "category_id": "547086",
+        "title": "Teta Premium",
+        "description": "24 м2, до 2-х человек Большой комфортный номер с собственной кухней и всем необходимым для длительного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "547086", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777965",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777965", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777965", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5180"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "16", "data-minprice": "5180", "data-maxprice": "5180", "data-plan-id": "777965", "data-select-id": "2", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751387",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751387", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751387", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5580"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "16", "data-minprice": "5580", "data-maxprice": "5580", "data-plan-id": "751387", "data-select-id": "4", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761740",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761740", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761740", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "6480"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "16", "data-minprice": "6480", "data-maxprice": "6480", "data-plan-id": "761740", "data-select-id": "6", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "777998",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777998", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777998", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5750"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547086", "data-room-id": "547086", "data-room-type-title": "Teta Premium", "data-table-id": "2", "data-available": "16", "data-minprice": "5750", "data-maxprice": "5750", "data-plan-id": "777998", "data-select-id": "8", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "547087",
+        "title": "Teta Comfort",
+        "description": "18 м2, до 2-х человек Уютный номер со всем необходимым для постоянного проживания, даже с собственной кухней.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "547087", "data-geo-key": "", "data-room-last": "1", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777965",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777965", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777965", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4730"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "19", "data-minprice": "4730", "data-maxprice": "4730", "data-plan-id": "777965", "data-select-id": "10", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false},
+                      {"value": "19", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751387",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751387", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751387", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5090"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "19", "data-minprice": "5090", "data-maxprice": "5090", "data-plan-id": "751387", "data-select-id": "12", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false},
+                      {"value": "19", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761740",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761740", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761740", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5990"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "19", "data-minprice": "5990", "data-maxprice": "5990", "data-plan-id": "761740", "data-select-id": "14", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false},
+                      {"value": "19", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "777998",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777998", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777998", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5250"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "547087", "data-room-id": "547087", "data-room-type-title": "Teta Comfort", "data-table-id": "2", "data-available": "19", "data-minprice": "5250", "data-maxprice": "5250", "data-plan-id": "777998", "data-select-id": "16", "data-accommodation-type": "0", "data-plans-count": "4", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false},
+                      {"value": "19", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_sha256": "698be6d4f8ceeba10e382d1904f1f0b9b85deb81b027d2917aba6ab64f8a5f52",
+    "source_file": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9-17-11-2026-a1.html",
+    "identity": {"uid": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9", "name": "Новое Измайлово", "website": "https://hotelnewizm.ru/", "address": "Москва, Окружной проезд, 10Б"},
+    "currency": "RUB",
+    "categories": [
+      {
+        "category_id": "497998",
+        "title": "Комфорт+ 24м кровать",
+        "description": "24 м2, до 2-х человек Двуспальная кровать. Просторный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "497998", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3830"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "497998", "data-room-id": "497998", "data-room-type-title": "Комфорт+ 24м кровать", "data-table-id": "6", "data-available": "17", "data-minprice": "3830", "data-maxprice": "3830", "data-plan-id": "777964", "data-select-id": "2", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4120"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497998", "data-room-id": "497998", "data-room-type-title": "Комфорт+ 24м кровать", "data-table-id": "6", "data-available": "17", "data-minprice": "4120", "data-maxprice": "4120", "data-plan-id": "751390", "data-select-id": "4", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5020"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497998", "data-room-id": "497998", "data-room-type-title": "Комфорт+ 24м кровать", "data-table-id": "6", "data-available": "17", "data-minprice": "5020", "data-maxprice": "5020", "data-plan-id": "761743", "data-select-id": "6", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "506402",
+        "title": "Комфорт 18м кровать",
+        "description": "18 м2, до 2-х человек Двуспальная кровать. Уютный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "506402", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3560"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "506402", "data-room-id": "506402", "data-room-type-title": "Комфорт 18м кровать", "data-table-id": "6", "data-available": "7", "data-minprice": "3560", "data-maxprice": "3560", "data-plan-id": "777964", "data-select-id": "8", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3830"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "506402", "data-room-id": "506402", "data-room-type-title": "Комфорт 18м кровать", "data-table-id": "6", "data-available": "7", "data-minprice": "3830", "data-maxprice": "3830", "data-plan-id": "751390", "data-select-id": "10", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4730"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "506402", "data-room-id": "506402", "data-room-type-title": "Комфорт 18м кровать", "data-table-id": "6", "data-available": "7", "data-minprice": "4730", "data-maxprice": "4730", "data-plan-id": "761743", "data-select-id": "12", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "505325",
+        "title": "Стандарт+ 24м диван",
+        "description": "24 м2, до 2-х человек Двуспальный диван. Увеличенный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "505325", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3560"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "505325", "data-room-id": "505325", "data-room-type-title": "Стандарт+ 24м диван", "data-table-id": "6", "data-available": "1", "data-minprice": "3560", "data-maxprice": "3560", "data-plan-id": "777964", "data-select-id": "14", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3830"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "505325", "data-room-id": "505325", "data-room-type-title": "Стандарт+ 24м диван", "data-table-id": "6", "data-available": "1", "data-minprice": "3830", "data-maxprice": "3830", "data-plan-id": "751390", "data-select-id": "16", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4730"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "505325", "data-room-id": "505325", "data-room-type-title": "Стандарт+ 24м диван", "data-table-id": "6", "data-available": "1", "data-minprice": "4730", "data-maxprice": "4730", "data-plan-id": "761743", "data-select-id": "18", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "497999",
+        "title": "Стандарт 18м диван",
+        "description": "18 м2, до 2-х человек Двуспальный диван. Уютный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "497999", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3380"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "497999", "data-room-id": "497999", "data-room-type-title": "Стандарт 18м диван", "data-table-id": "6", "data-available": "11", "data-minprice": "3380", "data-maxprice": "3380", "data-plan-id": "777964", "data-select-id": "20", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3640"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497999", "data-room-id": "497999", "data-room-type-title": "Стандарт 18м диван", "data-table-id": "6", "data-available": "11", "data-minprice": "3640", "data-maxprice": "3640", "data-plan-id": "751390", "data-select-id": "22", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4540"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497999", "data-room-id": "497999", "data-room-type-title": "Стандарт 18м диван", "data-table-id": "6", "data-available": "11", "data-minprice": "4540", "data-maxprice": "4540", "data-plan-id": "761743", "data-select-id": "24", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "512526",
+        "title": "Комфорт+ 24м кровать и кресло",
+        "description": "24 м2, до 3-х человек Двуспальная кровать + кресло-кровать Просторный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room d-none", "data-roomtype-id": "512526", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4010"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "512526", "data-room-id": "512526", "data-room-type-title": "Комфорт+ 24м кровать и кресло", "data-table-id": "6", "data-available": "6", "data-minprice": "4010", "data-maxprice": "4010", "data-plan-id": "777964", "data-select-id": "26", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4320"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "512526", "data-room-id": "512526", "data-room-type-title": "Комфорт+ 24м кровать и кресло", "data-table-id": "6", "data-available": "6", "data-minprice": "4320", "data-maxprice": "4320", "data-plan-id": "751390", "data-select-id": "28", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5220"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "512526", "data-room-id": "512526", "data-room-type-title": "Комфорт+ 24м кровать и кресло", "data-table-id": "6", "data-available": "6", "data-minprice": "5220", "data-maxprice": "5220", "data-plan-id": "761743", "data-select-id": "30", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "540625",
+        "title": "Семейный 30м кровать и диван",
+        "description": "30 м2, до 4-х человек Двуспальная кровать + двухместный диван. Просторный семейный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room d-none", "data-roomtype-id": "540625", "data-geo-key": "", "data-room-last": "1", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> <span class=\"guest-list__counter\"> x4 </span> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5810"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "540625", "data-room-id": "540625", "data-room-type-title": "Семейный 30м кровать и диван", "data-table-id": "6", "data-available": "5", "data-minprice": "5810", "data-maxprice": "5810", "data-plan-id": "777964", "data-select-id": "32", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> <span class=\"guest-list__counter\"> x4 </span> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "6260"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "540625", "data-room-id": "540625", "data-room-type-title": "Семейный 30м кровать и диван", "data-table-id": "6", "data-available": "5", "data-minprice": "6260", "data-maxprice": "6260", "data-plan-id": "751390", "data-select-id": "34", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> <span class=\"guest-list__counter\"> x4 </span> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "8060"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "540625", "data-room-id": "540625", "data-room-type-title": "Семейный 30м кровать и диван", "data-table-id": "6", "data-available": "5", "data-minprice": "8060", "data-maxprice": "8060", "data-plan-id": "761743", "data-select-id": "36", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_sha256": "34886853033fea60092c5ee75950fb416abde19885efd186a106f8059a943219",
+    "source_file": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9-04-12-2026-a1.html",
+    "identity": {"uid": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9", "name": "Новое Измайлово", "website": "https://hotelnewizm.ru/", "address": "Москва, Окружной проезд, 10Б"},
+    "currency": "RUB",
+    "categories": [
+      {
+        "category_id": "497998",
+        "title": "Комфорт+ 24м кровать",
+        "description": "24 м2, до 2-х человек Двуспальная кровать. Просторный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "497998", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4010"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "497998", "data-room-id": "497998", "data-room-type-title": "Комфорт+ 24м кровать", "data-table-id": "6", "data-available": "20", "data-minprice": "4010", "data-maxprice": "4010", "data-plan-id": "777964", "data-select-id": "2", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false},
+                      {"value": "19", "disabled": false},
+                      {"value": "20", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4320"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497998", "data-room-id": "497998", "data-room-type-title": "Комфорт+ 24м кровать", "data-table-id": "6", "data-available": "20", "data-minprice": "4320", "data-maxprice": "4320", "data-plan-id": "751390", "data-select-id": "4", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false},
+                      {"value": "19", "disabled": false},
+                      {"value": "20", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5220"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497998", "data-room-id": "497998", "data-room-type-title": "Комфорт+ 24м кровать", "data-table-id": "6", "data-available": "20", "data-minprice": "5220", "data-maxprice": "5220", "data-plan-id": "761743", "data-select-id": "6", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false},
+                      {"value": "19", "disabled": false},
+                      {"value": "20", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "506402",
+        "title": "Комфорт 18м кровать",
+        "description": "18 м2, до 2-х человек Двуспальная кровать. Уютный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "506402", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3830"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "506402", "data-room-id": "506402", "data-room-type-title": "Комфорт 18м кровать", "data-table-id": "6", "data-available": "10", "data-minprice": "3830", "data-maxprice": "3830", "data-plan-id": "777964", "data-select-id": "8", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4120"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "506402", "data-room-id": "506402", "data-room-type-title": "Комфорт 18м кровать", "data-table-id": "6", "data-available": "10", "data-minprice": "4120", "data-maxprice": "4120", "data-plan-id": "751390", "data-select-id": "10", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5020"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "506402", "data-room-id": "506402", "data-room-type-title": "Комфорт 18м кровать", "data-table-id": "6", "data-available": "10", "data-minprice": "5020", "data-maxprice": "5020", "data-plan-id": "761743", "data-select-id": "12", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "505325",
+        "title": "Стандарт+ 24м диван",
+        "description": "24 м2, до 2-х человек Двуспальный диван. Увеличенный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "505325", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3830"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "505325", "data-room-id": "505325", "data-room-type-title": "Стандарт+ 24м диван", "data-table-id": "6", "data-available": "3", "data-minprice": "3830", "data-maxprice": "3830", "data-plan-id": "777964", "data-select-id": "14", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4120"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "505325", "data-room-id": "505325", "data-room-type-title": "Стандарт+ 24м диван", "data-table-id": "6", "data-available": "3", "data-minprice": "4120", "data-maxprice": "4120", "data-plan-id": "751390", "data-select-id": "16", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5020"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "505325", "data-room-id": "505325", "data-room-type-title": "Стандарт+ 24м диван", "data-table-id": "6", "data-available": "3", "data-minprice": "5020", "data-maxprice": "5020", "data-plan-id": "761743", "data-select-id": "18", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "497999",
+        "title": "Стандарт 18м диван",
+        "description": "18 м2, до 2-х человек Двуспальный диван. Уютный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "497999", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3560"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "497999", "data-room-id": "497999", "data-room-type-title": "Стандарт 18м диван", "data-table-id": "6", "data-available": "10", "data-minprice": "3560", "data-maxprice": "3560", "data-plan-id": "777964", "data-select-id": "20", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "3830"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497999", "data-room-id": "497999", "data-room-type-title": "Стандарт 18м диван", "data-table-id": "6", "data-available": "10", "data-minprice": "3830", "data-maxprice": "3830", "data-plan-id": "751390", "data-select-id": "22", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4730"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497999", "data-room-id": "497999", "data-room-type-title": "Стандарт 18м диван", "data-table-id": "6", "data-available": "10", "data-minprice": "4730", "data-maxprice": "4730", "data-plan-id": "761743", "data-select-id": "24", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "512526",
+        "title": "Комфорт+ 24м кровать и кресло",
+        "description": "24 м2, до 3-х человек Двуспальная кровать + кресло-кровать Просторный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room d-none", "data-roomtype-id": "512526", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4280"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "512526", "data-room-id": "512526", "data-room-type-title": "Комфорт+ 24м кровать и кресло", "data-table-id": "6", "data-available": "6", "data-minprice": "4280", "data-maxprice": "4280", "data-plan-id": "777964", "data-select-id": "26", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4610"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "512526", "data-room-id": "512526", "data-room-type-title": "Комфорт+ 24м кровать и кресло", "data-table-id": "6", "data-available": "6", "data-minprice": "4610", "data-maxprice": "4610", "data-plan-id": "751390", "data-select-id": "28", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5510"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "512526", "data-room-id": "512526", "data-room-type-title": "Комфорт+ 24м кровать и кресло", "data-table-id": "6", "data-available": "6", "data-minprice": "5510", "data-maxprice": "5510", "data-plan-id": "761743", "data-select-id": "30", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "540625",
+        "title": "Семейный 30м кровать и диван",
+        "description": "30 м2, до 4-х человек Двуспальная кровать + двухместный диван. Просторный семейный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room d-none", "data-roomtype-id": "540625", "data-geo-key": "", "data-room-last": "1", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> <span class=\"guest-list__counter\"> x4 </span> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5180"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "540625", "data-room-id": "540625", "data-room-type-title": "Семейный 30м кровать и диван", "data-table-id": "6", "data-available": "7", "data-minprice": "5180", "data-maxprice": "5180", "data-plan-id": "777964", "data-select-id": "32", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> <span class=\"guest-list__counter\"> x4 </span> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5580"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "540625", "data-room-id": "540625", "data-room-type-title": "Семейный 30м кровать и диван", "data-table-id": "6", "data-available": "7", "data-minprice": "5580", "data-maxprice": "5580", "data-plan-id": "751390", "data-select-id": "34", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> <span class=\"guest-list__counter\"> x4 </span> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "7380"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "540625", "data-room-id": "540625", "data-room-type-title": "Семейный 30м кровать и диван", "data-table-id": "6", "data-available": "7", "data-minprice": "7380", "data-maxprice": "7380", "data-plan-id": "761743", "data-select-id": "36", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_sha256": "17d3e2e052c3f5fa8a0db1db9c3fb598cc1de4c12edc003fa0585f23a224819e",
+    "source_file": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9-15-01-2027-a1.html",
+    "identity": {"uid": "5b94117e-e3ec-4aaf-84cc-c8797ea3cee9", "name": "Новое Измайлово", "website": "https://hotelnewizm.ru/", "address": "Москва, Окружной проезд, 10Б"},
+    "currency": "RUB",
+    "categories": [
+      {
+        "category_id": "497998",
+        "title": "Комфорт+ 24м кровать",
+        "description": "24 м2, до 2-х человек Двуспальная кровать. Просторный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "497998", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4460"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "497998", "data-room-id": "497998", "data-room-type-title": "Комфорт+ 24м кровать", "data-table-id": "6", "data-available": "21", "data-minprice": "4460", "data-maxprice": "4460", "data-plan-id": "777964", "data-select-id": "2", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false},
+                      {"value": "19", "disabled": false},
+                      {"value": "20", "disabled": false},
+                      {"value": "21", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4800"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497998", "data-room-id": "497998", "data-room-type-title": "Комфорт+ 24м кровать", "data-table-id": "6", "data-available": "21", "data-minprice": "4800", "data-maxprice": "4800", "data-plan-id": "751390", "data-select-id": "4", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false},
+                      {"value": "19", "disabled": false},
+                      {"value": "20", "disabled": false},
+                      {"value": "21", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5700"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497998", "data-room-id": "497998", "data-room-type-title": "Комфорт+ 24м кровать", "data-table-id": "6", "data-available": "21", "data-minprice": "5700", "data-maxprice": "5700", "data-plan-id": "761743", "data-select-id": "6", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false},
+                      {"value": "13", "disabled": false},
+                      {"value": "14", "disabled": false},
+                      {"value": "15", "disabled": false},
+                      {"value": "16", "disabled": false},
+                      {"value": "17", "disabled": false},
+                      {"value": "18", "disabled": false},
+                      {"value": "19", "disabled": false},
+                      {"value": "20", "disabled": false},
+                      {"value": "21", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "506402",
+        "title": "Комфорт 18м кровать",
+        "description": "18 м2, до 2-х человек Двуспальная кровать. Уютный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "506402", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4280"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "506402", "data-room-id": "506402", "data-room-type-title": "Комфорт 18м кровать", "data-table-id": "6", "data-available": "10", "data-minprice": "4280", "data-maxprice": "4280", "data-plan-id": "777964", "data-select-id": "8", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4610"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "506402", "data-room-id": "506402", "data-room-type-title": "Комфорт 18м кровать", "data-table-id": "6", "data-available": "10", "data-minprice": "4610", "data-maxprice": "4610", "data-plan-id": "751390", "data-select-id": "10", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5510"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "506402", "data-room-id": "506402", "data-room-type-title": "Комфорт 18м кровать", "data-table-id": "6", "data-available": "10", "data-minprice": "5510", "data-maxprice": "5510", "data-plan-id": "761743", "data-select-id": "12", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "505325",
+        "title": "Стандарт+ 24м диван",
+        "description": "24 м2, до 2-х человек Двуспальный диван. Увеличенный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "505325", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4280"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "505325", "data-room-id": "505325", "data-room-type-title": "Стандарт+ 24м диван", "data-table-id": "6", "data-available": "3", "data-minprice": "4280", "data-maxprice": "4280", "data-plan-id": "777964", "data-select-id": "14", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4610"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "505325", "data-room-id": "505325", "data-room-type-title": "Стандарт+ 24м диван", "data-table-id": "6", "data-available": "3", "data-minprice": "4610", "data-maxprice": "4610", "data-plan-id": "751390", "data-select-id": "16", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5510"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "505325", "data-room-id": "505325", "data-room-type-title": "Стандарт+ 24м диван", "data-table-id": "6", "data-available": "3", "data-minprice": "5510", "data-maxprice": "5510", "data-plan-id": "761743", "data-select-id": "18", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "497999",
+        "title": "Стандарт 18м диван",
+        "description": "18 м2, до 2-х человек Двуспальный диван. Уютный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room room-shown", "data-roomtype-id": "497999", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4010"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "497999", "data-room-id": "497999", "data-room-type-title": "Стандарт 18м диван", "data-table-id": "6", "data-available": "12", "data-minprice": "4010", "data-maxprice": "4010", "data-plan-id": "777964", "data-select-id": "20", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4320"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497999", "data-room-id": "497999", "data-room-type-title": "Стандарт 18м диван", "data-table-id": "6", "data-available": "12", "data-minprice": "4320", "data-maxprice": "4320", "data-plan-id": "751390", "data-select-id": "22", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5220"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "497999", "data-room-id": "497999", "data-room-type-title": "Стандарт 18м диван", "data-table-id": "6", "data-available": "12", "data-minprice": "5220", "data-maxprice": "5220", "data-plan-id": "761743", "data-select-id": "24", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false},
+                      {"value": "8", "disabled": false},
+                      {"value": "9", "disabled": false},
+                      {"value": "10", "disabled": false},
+                      {"value": "11", "disabled": false},
+                      {"value": "12", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "512526",
+        "title": "Комфорт+ 24м кровать и кресло",
+        "description": "24 м2, до 3-х человек Двуспальная кровать + кресло-кровать Просторный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room d-none", "data-roomtype-id": "512526", "data-geo-key": "", "data-room-last": "0", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "4730"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "512526", "data-room-id": "512526", "data-room-type-title": "Комфорт+ 24м кровать и кресло", "data-table-id": "6", "data-available": "7", "data-minprice": "4730", "data-maxprice": "4730", "data-plan-id": "777964", "data-select-id": "26", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5090"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "512526", "data-room-id": "512526", "data-room-type-title": "Комфорт+ 24м кровать и кресло", "data-table-id": "6", "data-available": "7", "data-minprice": "5090", "data-maxprice": "5090", "data-plan-id": "751390", "data-select-id": "28", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div> <div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5990"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "512526", "data-room-id": "512526", "data-room-type-title": "Комфорт+ 24м кровать и кресло", "data-table-id": "6", "data-available": "7", "data-minprice": "5990", "data-maxprice": "5990", "data-plan-id": "761743", "data-select-id": "30", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false},
+                      {"value": "7", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "category_id": "540625",
+        "title": "Семейный 30м кровать и диван",
+        "description": "30 м2, до 4-х человек Двуспальная кровать + двухместный диван. Просторный семейный номер-студия со всем необходимым для постоянного проживания.",
+        "availability_attributes": {"class": "room d-none", "data-roomtype-id": "540625", "data-geo-key": "", "data-room-last": "1", "data-available-bed-variant": "0"},
+        "rates": [
+          {
+            "rate_id": "777964",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "777964", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "777964", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> <span class=\"guest-list__counter\"> x4 </span> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "5630"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "1", "data-real-room-id": "540625", "data-room-id": "540625", "data-room-type-title": "Семейный 30м кровать и диван", "data-table-id": "6", "data-available": "6", "data-minprice": "5630", "data-maxprice": "5630", "data-plan-id": "777964", "data-select-id": "32", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "751390",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "751390", "data-always-visible": "true"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "751390", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> <span class=\"guest-list__counter\"> x4 </span> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "6060"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "540625", "data-room-id": "540625", "data-room-type-title": "Семейный 30м кровать и диван", "data-table-id": "6", "data-available": "6", "data-minprice": "6060", "data-maxprice": "6060", "data-plan-id": "751390", "data-select-id": "34", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "rate_id": "761743",
+            "attributes": {"data-available-for-guests": "1", "class": "tariff plan_row", "data-plan-id": "761743", "style": "display: none;"},
+            "hidden_ancestors": [
+              {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+              {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+            ],
+            "rows": [
+              {
+                "row_attributes": {"data-plan-id": "761743", "data-available": "1", "class": "\n        no--bb            "},
+                "guest_list_html": "<div class=\"guest-list__item\"> <i class=\"guest-list__icon bnovobook-icon bnovobook-icon--adult\"></i> <span class=\"guest-list__counter\"> x4 </span> </div>",
+                "price_attributes": [
+                  {"data-tariff-price": "7860"}
+                ],
+                "selects": [
+                  {
+                    "attributes": {"class": "select selectAvailable", "data-minimal-price": "0", "data-real-room-id": "540625", "data-room-id": "540625", "data-room-type-title": "Семейный 30м кровать и диван", "data-table-id": "6", "data-available": "6", "data-minprice": "7860", "data-maxprice": "7860", "data-plan-id": "761743", "data-select-id": "36", "data-accommodation-type": "0", "data-plans-count": "3", "data-promo-code-applied": "0"},
+                    "hidden_ancestors": [
+                      {"tag": "DIV", "class": "tariff plan_row", "style": "display: none;", "hidden": false},
+                      {"tag": "DIV", "class": "room d-none", "style": "", "hidden": false}
+                    ],
+                    "options": [
+                      {"value": "0", "disabled": false},
+                      {"value": "1", "disabled": false},
+                      {"value": "2", "disabled": false},
+                      {"value": "3", "disabled": false},
+                      {"value": "4", "disabled": false},
+                      {"value": "5", "disabled": false},
+                      {"value": "6", "disabled": false}
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
