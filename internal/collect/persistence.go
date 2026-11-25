@@ -33,7 +33,7 @@ func storageAttemptContext(ctx context.Context, result bnovo.SearchResult, jobID
 	if err := ctx.Err(); err != nil {
 		return storage.AttemptInput{}, err
 	}
-	input := storage.AttemptInput{JobID: jobID, Number: number, StartedAt: started, FinishedAt: finished, DurationMS: duration, QueueWaitMS: queue, Outcome: storage.Outcome(result.Status), HTTPStatus: result.HTTPStatus, Warnings: storedWarnings(result.Warnings), NextRetryAt: next, Observations: make([]storage.Observation, 0, len(result.Categories))}
+	input := storage.AttemptInput{RoomTypeQuotas: storedRoomTypeQuotas(result.RoomTypeQuotas), JobID: jobID, Number: number, StartedAt: started, FinishedAt: finished, DurationMS: duration, QueueWaitMS: queue, Outcome: storage.Outcome(result.Status), HTTPStatus: result.HTTPStatus, Warnings: storedWarnings(result.Warnings), NextRetryAt: next, Observations: make([]storage.Observation, 0, len(result.Categories))}
 	if !result.CollectedAt.IsZero() {
 		at := result.CollectedAt
 		input.CollectedAt = &at

@@ -87,7 +87,12 @@ type AttemptError struct {
 }
 
 type AttemptInput struct {
-	Lease                 *Lease `json:",omitempty"`
+	// omitempty сохраняет hash исторических payload без исходных квот.
+	RoomTypeQuotas *RoomTypeQuotaSet `json:",omitempty"`
+	// SelectionPolicy фиксирует применённую тарифную политику. nil у старой истории
+	// не позволяет подтвердить сопоставимость отсутствующих предложений между LOS.
+	SelectionPolicy       *SelectionPolicy `json:",omitempty"`
+	Lease                 *Lease           `json:",omitempty"`
 	JobID                 string
 	Number                int
 	StartedAt, FinishedAt time.Time
@@ -100,6 +105,11 @@ type AttemptInput struct {
 	Warnings              []Warning
 	NextRetryAt           *time.Time // Только если следующая попытка действительно запланирована.
 	Observations          []Observation
+}
+
+type SelectionPolicy struct {
+	Mode    string
+	RateIDs []string
 }
 type Attempt struct {
 	ID string

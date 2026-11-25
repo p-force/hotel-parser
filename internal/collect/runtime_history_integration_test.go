@@ -59,7 +59,7 @@ func TestPostgresRuntimeHistoryRetriesAndMultipleHotels(t *testing.T) {
 	properties := propertyInputs(t, client)
 	// Fixture Arena33 содержит одну физическую категорию; ожидаем именно её.
 	properties[0].Hotel.Inventory.Categories = properties[0].Hotel.Inventory.Categories[:1]
-	properties[0].Hotel.Inventory.TotalRooms = properties[0].Hotel.Inventory.Categories[0].TotalRooms
+	properties[0].Hotel.Inventory.PublicObservedMax = properties[0].Hotel.Inventory.Categories[0].PublicObservedMax
 	for i := range properties {
 		properties[i].CheckIn = lindsayRequest(2).CheckIn
 		properties[i].Hotel.Source.BaseURL = server.URL

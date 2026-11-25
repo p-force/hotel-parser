@@ -154,6 +154,9 @@ type ParseWarning struct {
 // SearchResult описывает ОДИН поисковый запрос и сохраняет диагностику, даже если
 // предложения не получены. Будущий слой хранения может сохранять каждую попытку.
 type SearchResult struct {
+	// RoomTypeQuotas — полное типизированное evidence TravelLine, до фильтрации.
+	// nil: массив отсутствовал; непустая оболочка с Items=[]: передан пустой массив.
+	RoomTypeQuotas *RoomTypeQuotaSet `json:",omitempty"`
 	// Source выбирает интерпретацию API-признаков; пустое значение сохраняет Bnovo.
 	Source string `json:",omitempty"`
 
@@ -180,6 +183,24 @@ type SearchResult struct {
 
 	CategoryAvailability []CategoryAvailability
 }
+
+// RoomTypeQuota не является оценкой физического фонда или нормализованным остатком.
+type RoomTypeQuota struct {
+	Ordinal       int
+	RPH           string
+	Quantity      *int
+	SourceRoomID  *string
+	MappingStatus QuotaMappingStatus
+}
+type QuotaMappingStatus string
+
+const (
+	QuotaMapped   QuotaMappingStatus = "mapped"
+	QuotaUnmapped QuotaMappingStatus = "unmapped"
+	QuotaConflict QuotaMappingStatus = "conflict"
+)
+
+type RoomTypeQuotaSet struct{ Items []RoomTypeQuota }
 
 // CategoryAvailability описывает доступность категории
 // для конкретного поискового сценария.

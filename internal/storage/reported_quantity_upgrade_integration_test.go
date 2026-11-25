@@ -124,7 +124,7 @@ func TestPostgresReportedQuantityUpgrade(t *testing.T) {
 		t.Fatal("new quota lost after upgrade", err)
 	}
 	var versions int
-	if err := db.QueryRow(`SELECT count(*) FROM ` + quoted + `.schema_migrations`).Scan(&versions); err != nil || versions != 5 {
+	if err := db.QueryRow(`SELECT count(*) FROM ` + quoted + `.schema_migrations`).Scan(&versions); err != nil || versions != 8 {
 		t.Fatal(versions, err)
 	}
 	for table, want := range map[string]int{"collection_attempts": 2, "observations": 2, "observation_offers": 3} {

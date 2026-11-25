@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"slices"
 	"strings"
 
 	"github.com/p-force/hotel-parser/internal/config"
@@ -22,7 +23,8 @@ type Group struct {
 	Properties []Property `json:"properties"`
 }
 type Property struct {
-	Config       string        `json:"config"`
+	Config string `json:"config"`
+	// LOS — устаревший явный single-LOS override; 0 использует collection.nights.
 	LOS          int           `json:"los,omitempty"`
 	LOS2Evidence string        `json:"los2_evidence,omitempty"`
 	Hotel        config.Config `json:"-"`
@@ -79,11 +81,11 @@ func (r Registry) Validate() error {
 				return fmt.Errorf("duplicate property in group")
 			}
 			properties[p.Hotel.ID] = true
-			if p.LOS != 0 && p.LOS != 1 && p.LOS != 2 {
-				return fmt.Errorf("scheduled LOS must be 1 or confirmed 2")
+			if p.LOS < 0 || p.LOS > 3 {
+				return fmt.Errorf("scheduled LOS must be 1, 2 or 3")
 			}
-			if p.LOS == 2 && strings.TrimSpace(p.LOS2Evidence) == "" {
-				return fmt.Errorf("LOS=2 requires documented los2_evidence")
+			if p.LOS != 0 && !slices.Contains(p.Hotel.Collection.Nights, p.LOS) {
+				return fmt.Errorf("legacy los must be enabled in collection.nights")
 			}
 			if p.LOS != 2 && p.LOS2Evidence != "" {
 				return fmt.Errorf("los2_evidence requires LOS=2")

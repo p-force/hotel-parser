@@ -13,7 +13,7 @@ import (
 	"github.com/p-force/hotel-parser/internal/storage/storagetest"
 )
 
-func TestPostgresProductionRegistryDaily468Jobs(t *testing.T) {
+func TestPostgresProductionRegistryDaily768Jobs(t *testing.T) {
 	registry, err := LoadRegistry("../../configs/groups.json")
 	if err != nil {
 		t.Fatal(err)
@@ -32,12 +32,14 @@ func TestPostgresProductionRegistryDaily468Jobs(t *testing.T) {
 	}
 	total := 0
 	perHotel := map[string]int{}
+	perSlot := map[int]int{}
 	for _, g := range s.groups {
 		progress, err := g.Store.RunProgress(context.Background())
 		if err != nil {
 			t.Fatal(err)
 		}
 		for _, p := range progress {
+			perSlot[p.Run.StartedAt.In(slot(8).Location()).Hour()] += p.Queued
 			perHotel[p.Run.PropertyID] += p.Queued
 			total += p.Queued
 			if p.Succeeded != 0 || p.Run.FinishedAt != nil {
@@ -45,11 +47,16 @@ func TestPostgresProductionRegistryDaily468Jobs(t *testing.T) {
 			}
 		}
 	}
-	if total != 468 || len(perHotel) != 6 {
+	for hour, want := range map[int]int{8: 462, 12: 144, 16: 144, 20: 18} {
+		if perSlot[hour] != want {
+			t.Fatal(hour, perSlot)
+		}
+	}
+	if total != 768 || len(perHotel) != 6 {
 		t.Fatal(total, perHotel)
 	}
 	for id, n := range perHotel {
-		if n != 78 {
+		if n != 128 {
 			t.Fatal(id, n)
 		}
 	}

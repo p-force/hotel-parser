@@ -236,12 +236,14 @@ func TestPostgresAutomaticCSVSourceAndGroupIsolation(t *testing.T) {
 		t.Fatal(err)
 	}
 	a.Collection.Enabled = true
+	a.Collection.Nights = []int{1} // Explicit LOS of this saved HTTP fixture.
 	b.Collection.Enabled = true
+	b.Collection.Nights = []int{1}
 	a.ID = "same_hotel"
 	b.ID = "same_hotel"
 	a.Inventory.Categories = a.Inventory.Categories[:1]
 	a.Inventory.Categories[0].SourceRoomID = "1"
-	a.Inventory.TotalRooms = a.Inventory.Categories[0].TotalRooms
+	a.Inventory.PublicObservedMax = a.Inventory.Categories[0].PublicObservedMax
 	info, body := travelLineRegressionFixture(t)
 	var calls atomic.Int32
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -290,12 +292,15 @@ func TestPostgresAutomaticCSVSourceAndGroupIsolation(t *testing.T) {
 		if artifact.GroupID == "travelline_group" {
 			wantSource, wantSchema, wantRows = "travelline", bSchema, 42
 		}
+		if artifact.Schema != wantSchema {
+			t.Fatal("artifact schema isolation", artifact)
+		}
 		if len(records)-1 != wantRows {
 			t.Fatal("offerless categories lost", len(records)-1, wantRows)
 		}
 		empty, native := 0, 0
 		for _, row := range records[1:] {
-			for key, want := range map[string]string{"group_id": artifact.GroupID, "schema": wantSchema, "source": wantSource, "run_id": artifact.RunID, "property_id": "same_hotel"} {
+			for key, want := range map[string]string{"group_id": artifact.GroupID, "source": wantSource, "run_id": artifact.RunID, "property_id": "same_hotel"} {
 				if row[columns[key]] != want {
 					t.Fatal("mixed CSV", key, row)
 				}

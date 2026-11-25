@@ -17,7 +17,6 @@ func (c Config) Validate() error {
 		"source.type":        c.Source.Type,
 		"source.base_url":    c.Source.BaseURL,
 		"source.property_id": c.Source.PropertyID,
-		"inventory.source":   c.Inventory.Source,
 	}
 
 	for field, value := range required {
@@ -93,8 +92,14 @@ func (c Config) Validate() error {
 }
 
 func (i InventoryConfig) Validate() error {
-	if i.TotalRooms != nil && *i.TotalRooms <= 0 {
-		return fmt.Errorf("total_rooms: must be positive")
+	if err := validateInventoryMetrics(i.PhysicalTotalRooms, i.PublicObservedMax); err != nil {
+		return err
+	}
+	if i.PhysicalTotalRooms != nil && strings.TrimSpace(i.PhysicalSource) == "" {
+		return fmt.Errorf("physical_source: required for known physical_total_rooms")
+	}
+	if i.PublicObservedMax != nil && strings.TrimSpace(i.PublicSource) == "" {
+		return fmt.Errorf("public_source: required for known public_observed_max")
 	}
 
 	if len(i.Categories) == 0 {
@@ -119,8 +124,14 @@ func (i InventoryConfig) Validate() error {
 		if strings.TrimSpace(category.SourceRoomID) == "" {
 			return fmt.Errorf("%s.source_room_id: required field", field)
 		}
-		if category.TotalRooms != nil && *category.TotalRooms <= 0 {
-			return fmt.Errorf("%s.total_rooms: must be positive", field)
+		if err := validateInventoryMetrics(category.PhysicalTotalRooms, category.PublicObservedMax); err != nil {
+			return fmt.Errorf("%s.%w", field, err)
+		}
+		if category.PhysicalTotalRooms != nil && strings.TrimSpace(i.PhysicalSource) == "" {
+			return fmt.Errorf("physical_source: required for known category physical_total_rooms")
+		}
+		if category.PublicObservedMax != nil && strings.TrimSpace(i.PublicSource) == "" {
+			return fmt.Errorf("public_source: required for known category public_observed_max")
 		}
 
 		if _, exists := ids[category.ID]; exists {
@@ -136,20 +147,33 @@ func (i InventoryConfig) Validate() error {
 		}
 		sourceIDs[category.SourceRoomID] = struct{}{}
 
-		if category.TotalRooms == nil {
+		if category.PhysicalTotalRooms == nil {
 			allKnown = false
 		} else {
-			total += int64(*category.TotalRooms)
+			total += int64(*category.PhysicalTotalRooms)
 		}
 	}
 
-	if i.TotalRooms != nil && allKnown && total != int64(*i.TotalRooms) {
+	if i.CategoriesFormCompletePartition && i.PhysicalTotalRooms != nil && allKnown && total != int64(*i.PhysicalTotalRooms) {
 		return fmt.Errorf(
-			"total_rooms: expected %d, sum of categories is %d",
-			*i.TotalRooms, total,
+			"physical_total_rooms: expected %d, sum of categories is %d",
+			*i.PhysicalTotalRooms, total,
 		)
 	}
 
+	return nil
+}
+
+func validateInventoryMetrics(physical, public *int) error {
+	if physical != nil && *physical <= 0 {
+		return fmt.Errorf("physical_total_rooms: must be positive")
+	}
+	if public != nil && *public <= 0 {
+		return fmt.Errorf("public_observed_max: must be positive")
+	}
+	if physical != nil && public != nil && *public > *physical {
+		return fmt.Errorf("public_observed_max: must not exceed physical_total_rooms")
+	}
 	return nil
 }
 

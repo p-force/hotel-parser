@@ -34,7 +34,7 @@ func runtimeFixture(t *testing.T, store *storage.Store, count int, handler http.
 	hotel.Source.BaseURL = server.URL
 	hotel.Inventory.Categories = hotel.Inventory.Categories[:1]
 	hotel.Inventory.Categories[0].SourceRoomID = "1"
-	hotel.Inventory.TotalRooms = hotel.Inventory.Categories[0].TotalRooms
+	hotel.Inventory.PublicObservedMax = hotel.Inventory.Categories[0].PublicObservedMax
 	if err := hotel.Validate(); err != nil {
 		t.Fatal(err)
 	}

@@ -21,12 +21,13 @@ func TestConfigValidate(t *testing.T) {
 				PropertyID: "7f3f84ae-1f13-419f-af60-ae782d454666",
 			},
 			Inventory: InventoryConfig{
-				Source:     "manager_confirmed",
-				TotalRooms: roomsPtr(19),
+				PhysicalSource:                  "manager_confirmed",
+				CategoriesFormCompletePartition: true,
+				PhysicalTotalRooms:              roomsPtr(19),
 				Categories: []RoomCategory{
-					{ID: "stadium", Name: "Stadium", SourceRoomID: "561429", TotalRooms: roomsPtr(10)},
-					{ID: "garden", Name: "Garden", SourceRoomID: "459946", TotalRooms: roomsPtr(4)},
-					{ID: "premium", Name: "Premium", SourceRoomID: "639687", TotalRooms: roomsPtr(5)},
+					{ID: "stadium", Name: "Stadium", SourceRoomID: "561429", PhysicalTotalRooms: roomsPtr(10)},
+					{ID: "garden", Name: "Garden", SourceRoomID: "459946", PhysicalTotalRooms: roomsPtr(4)},
+					{ID: "premium", Name: "Premium", SourceRoomID: "639687", PhysicalTotalRooms: roomsPtr(5)},
 				},
 			},
 			Collection: CollectionConfig{
@@ -80,14 +81,14 @@ func TestConfigValidate(t *testing.T) {
 		{
 			name: "incorrect room total",
 			mutate: func(c *Config) {
-				c.Inventory.TotalRooms = roomsPtr(20)
+				c.Inventory.PhysicalTotalRooms = roomsPtr(20)
 			},
 			wantErr: "sum of categories",
 		},
 		{
 			name: "negative category stock",
 			mutate: func(c *Config) {
-				c.Inventory.Categories[0].TotalRooms = roomsPtr(-1)
+				c.Inventory.Categories[0].PhysicalTotalRooms = roomsPtr(-1)
 			},
 			wantErr: "must be positive",
 		},

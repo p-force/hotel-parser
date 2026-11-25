@@ -17,10 +17,10 @@ func TestLoadArena33(t *testing.T) {
 		t.Errorf("ID = %q, want arena33", cfg.ID)
 	}
 
-	if cfg.Inventory.TotalRooms == nil || *cfg.Inventory.TotalRooms != 19 {
+	if cfg.Inventory.PhysicalTotalRooms == nil || *cfg.Inventory.PhysicalTotalRooms != 19 {
 		t.Errorf(
-			"TotalRooms = %v, want 19",
-			cfg.Inventory.TotalRooms,
+			"PhysicalTotalRooms = %v, want 19",
+			cfg.Inventory.PhysicalTotalRooms,
 		)
 	}
 

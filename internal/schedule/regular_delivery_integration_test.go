@@ -49,6 +49,7 @@ func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
 	}
 	hotel.Source.BaseURL = server.URL
 	hotel.Collection.Enabled = true
+	hotel.Collection.Nights = []int{1} // Saved TravelLine response covers one night.
 	registry.Groups[0].Properties = append(registry.Groups[0].Properties, Property{Hotel: hotel})
 	options := collect.RuntimeOptions{MaxJobs: 1, Batch: collect.BatchOptions{Workers: 2}}
 	mock := &deliveryMock{files: map[string][]byte{}, status: 503}
@@ -110,7 +111,7 @@ func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
 		t.Fatal(ds, mock.puts, calls.Load())
 	}
 	for _, d := range ds {
-		if d.State != "delivered" || d.Attempts != 2 || !strings.HasPrefix(d.RemotePath, "/hotel-parser-test/arena33/") || !strings.HasSuffix(d.RemotePath, "/2026-11-17_20-00.csv") {
+		if d.State != "delivered" || d.Attempts != 2 || !strings.HasPrefix(d.RemotePath, "/hotel-parser-test/arena33/") || !strings.HasSuffix(d.RemotePath, "/2026-11-17_20-00.v3.csv") {
 			t.Fatal(d)
 		}
 		var expected bytes.Buffer

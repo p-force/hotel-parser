@@ -83,10 +83,13 @@ func Parse(info, body []byte, req source.SearchRequest, publicRates []string) (s
 	result := source.SearchResult{Source: "travelline", Request: req, Status: source.Failed}
 	var meta metadata
 	var data availability
-	if err := json.Unmarshal(info, &meta); err != nil {
+	metaErr := json.Unmarshal(info, &meta)
+	dataErr := json.Unmarshal(body, &data)
+	result.RoomTypeQuotas = rawRoomTypeQuotas(body, req.PropertyID)
+	if metaErr != nil {
 		return result, fmt.Errorf("invalid TravelLine hotel metadata")
 	}
-	if err := json.Unmarshal(body, &data); err != nil {
+	if dataErr != nil {
 		return result, fmt.Errorf("invalid TravelLine availability")
 	}
 	if len(meta.Errors) > 0 || len(data.Errors) > 0 {
