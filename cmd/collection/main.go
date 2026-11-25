@@ -29,7 +29,7 @@ func main() {
 }
 func run(ctx context.Context, args []string) error {
 	if len(args) == 0 {
-		return fmt.Errorf("usage: collection migrate|plan|resume|tick|start|serve [flags]")
+		return fmt.Errorf("usage: collection migrate|plan|resume|tick|start|serve|diagnostics [flags]")
 	}
 	defaults, err := optionsFromEnv()
 	if err != nil {
@@ -45,11 +45,20 @@ func run(ctx context.Context, args []string) error {
 	maxJobs := flags.Int("max-jobs", defaults.MaxJobs, "maximum claimed jobs per invocation")
 	workers := flags.Int("workers", defaults.Batch.Workers, "shared worker count")
 	listen := flags.String("listen", "127.0.0.1:8080", "HTTP listen address")
+	groupID := flags.String("group-id", "", "diagnostic report group")
+	runID := flags.String("run-id", "", "diagnostic report completed run UUID")
 	if err := flags.Parse(args[1:]); err != nil {
 		return err
 	}
 	if flags.NArg() != 0 {
 		return fmt.Errorf("unexpected arguments")
+	}
+	if action == "diagnostics" {
+		if *groupID == "" || *runID == "" || *due || *slotText != "" {
+			return fmt.Errorf("diagnostics requires --group-id and --run-id without planning flags")
+		}
+	} else if *groupID != "" || *runID != "" {
+		return fmt.Errorf("--group-id and --run-id require diagnostics")
 	}
 	if *due && (action != "plan" || *slotText != "") {
 		return fmt.Errorf("--due requires plan without --slot")
@@ -61,7 +70,7 @@ func run(ctx context.Context, args []string) error {
 			return fmt.Errorf("invalid slot timestamp")
 		}
 	}
-	if action != "serve" && action != "migrate" && !*due {
+	if action != "serve" && action != "migrate" && action != "diagnostics" && !*due {
 		if err := schedule.ValidateRequest(schedule.Request{Action: action, Slot: slot}); err != nil {
 			return err
 		}
@@ -93,6 +102,11 @@ func run(ctx context.Context, args []string) error {
 		return err
 	}
 	defer service.Close()
+	if action == "diagnostics" {
+		reportCtx, end := context.WithTimeout(ctx, *execution)
+		defer end()
+		return service.WriteRunDiagnostics(reportCtx, *groupID, *runID, os.Stdout)
+	}
 	if *due {
 		slots, err := schedule.DueSlots(time.Now())
 		if err != nil {

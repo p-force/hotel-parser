@@ -55,10 +55,7 @@ func (u *YandexDiskUploader) Deliver(ctx context.Context, store *storage.Store, 
 		}
 		// Защищаем lease даже при использовании Deliver вне Service.
 		attemptCtx, cancel := context.WithTimeout(ctx, 20*time.Second)
-		err = u.upload(attemptCtx, d.RemotePath, func(ctx context.Context, w io.Writer) error {
-			_, err := store.WriteRunCSV(ctx, groupID, d.RunID, w)
-			return err
-		})
+		err = u.uploadRun(attemptCtx, store, groupID, d)
 		cancel()
 		code := ""
 		delay := time.Duration(0)
@@ -98,4 +95,41 @@ func (u *YandexDiskUploader) Deliver(ctx context.Context, store *storage.Store, 
 		slog.Log(ctx, level, "collection.delivery.completed", attrs...)
 	}
 	return result
+}
+
+// Версия новых delivery зафиксирована суффиксом пути, без изменения SQL ledger.
+// Старые unversioned пути не переписываются. Если PUT уже состоялся до смены
+// бинарника, подтверждаем точный старый формат по checksum, никогда не делая
+// fallback PUT другим форматом поверх существующего файла.
+func (u *YandexDiskUploader) uploadRun(ctx context.Context, store *storage.Store, groupID string, d storage.Delivery) error {
+	writer := func(format string) func(context.Context, io.Writer) error {
+		return func(ctx context.Context, w io.Writer) error {
+			_, err := store.WriteRunCSVFormat(ctx, groupID, d.RunID, format, w)
+			return err
+		}
+	}
+	if strings.HasSuffix(d.RemotePath, ".v3.csv") {
+		return u.upload(ctx, d.RemotePath, writer("v3"))
+	}
+	// Unversioned pending rows without a remote file keep the latest legacy contract.
+	err := u.upload(ctx, d.RemotePath, writer("v2"))
+	var conflict *diskError
+	if !errors.As(err, &conflict) || (conflict.code != "disk_remote_conflict" && conflict.code != "disk_checksum_unconfirmed") {
+		return err
+	}
+	for _, format := range []string{"v1", "v2-inventory"} {
+		want, e := hashCSV(ctx, writer(format))
+		if e != nil {
+			return e
+		}
+		ok, e := u.confirmed(ctx, d.RemotePath, want)
+		if ok {
+			return nil
+		}
+		var mismatch *diskError
+		if e != nil && (!errors.As(e, &mismatch) || (mismatch.code != "disk_remote_conflict" && mismatch.code != "disk_checksum_unconfirmed")) {
+			return e
+		}
+	}
+	return err
 }

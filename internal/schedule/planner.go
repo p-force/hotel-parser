@@ -4,9 +4,11 @@ import (
 	"crypto/sha256"
 	"encoding/json"
 	"fmt"
+	"slices"
 	"time"
 
 	"github.com/p-force/hotel-parser/internal/collect"
+	"github.com/p-force/hotel-parser/internal/config"
 	"github.com/p-force/hotel-parser/internal/storage"
 )
 
@@ -15,6 +17,7 @@ type Plan struct {
 	Schema    string
 	Run       storage.RunInput
 	Scenarios []storage.Scenario
+	Inventory config.InventoryConfig
 }
 
 // DueSlots возвращает наступившие слоты текущего московского дня.
@@ -62,6 +65,9 @@ func SlotHorizon(slot time.Time) (int, error) {
 	return 0, fmt.Errorf("unsupported Moscow slot")
 }
 
+// extendedLOSDaysAhead ограничивает горизонт LOS=2/3 (включительно: сегодня +7).
+const extendedLOSDaysAhead = 7
+
 // BuildPlans не обращается к HTTP/БД. Slot — логическое время cron, а не delivery.
 func BuildPlans(registry Registry, slot time.Time) ([]Plan, error) {
 	if err := registry.Validate(); err != nil {
@@ -84,27 +90,55 @@ func BuildPlans(registry Registry, slot time.Time) ([]Plan, error) {
 			}
 			local := slot.In(loc)
 			today := time.Date(local.Year(), local.Month(), local.Day(), 0, 0, 0, 0, loc)
-			if property.LOS > 1 {
-				return nil, fmt.Errorf("regular collection requires LOS=1")
+			nights := append([]int(nil), hotel.Collection.Nights...)
+			if property.LOS != 0 {
+				nights = []int{property.LOS}
 			}
-			const los = 1
+			slices.Sort(nights)
 			// UUID включает слот/group/property; не зависит от времени доставки trigger.
 			identity, _ := json.Marshal([]string{"hotel-parser/schedule/v1", group.ID, hotel.ID, slot.UTC().Format(time.RFC3339)})
 			hash := sha256.Sum256(identity)
 			hash[6] = (hash[6] & 0x0f) | 0x50
 			hash[8] = (hash[8] & 0x3f) | 0x80
 			id := fmt.Sprintf("%x-%x-%x-%x-%x", hash[:4], hash[4:6], hash[6:8], hash[8:10], hash[10:16])
-			plan := Plan{GroupID: group.ID, Schema: group.Schema, Run: storage.RunInput{ID: id, PropertyID: hotel.ID, PeriodStart: today, PeriodEnd: today.AddDate(0, 0, horizon+los), StartedAt: slot.UTC()}}
+			plan := Plan{GroupID: group.ID, Schema: group.Schema, Inventory: hotel.Inventory, Run: storage.RunInput{ID: id, PropertyID: hotel.ID, PeriodStart: today, PeriodEnd: today.AddDate(0, 0, 1), StartedAt: slot.UTC()}}
 			origin, err := collect.SourceKey(hotel.Source.BaseURL)
 			if err != nil {
 				return nil, err
 			}
-			for day := 0; day <= horizon; day++ {
-				in := today.AddDate(0, 0, day)
-				plan.Scenarios = append(plan.Scenarios, storage.Scenario{PropertyID: hotel.ID, Source: hotel.Source.Type, SourceOrigin: origin, SourcePropertyID: hotel.Source.PropertyID, CheckIn: in, CheckOut: in.AddDate(0, 0, los), LOS: los, Adults: 1, Rooms: 1, ChildrenAges: []int{}, Language: "ru"})
+			for _, los := range nights {
+				daysAhead := horizon
+				if los > 1 {
+					daysAhead = min(daysAhead, extendedLOSDaysAhead)
+				}
+				for day := 0; day <= daysAhead; day++ {
+					in := today.AddDate(0, 0, day)
+					out := in.AddDate(0, 0, los)
+					if out.After(plan.Run.PeriodEnd) {
+						plan.Run.PeriodEnd = out
+					}
+					plan.Scenarios = append(plan.Scenarios, storage.Scenario{PropertyID: hotel.ID, Source: hotel.Source.Type, SourceOrigin: origin, SourcePropertyID: hotel.Source.PropertyID, CheckIn: in, CheckOut: out, LOS: los, Adults: 1, Rooms: 1, ChildrenAges: []int{}, Language: "ru"})
+				}
 			}
 			plans = append(plans, plan)
 		}
 	}
 	return plans, nil
+}
+
+// legacyPlans воспроизводит точный прежний регулярный план, только для проверки
+// уже опубликованного слота. Не используется для публикации новых слотов.
+func legacyPlans(registry Registry, slot time.Time) ([]Plan, error) {
+	registry.Groups = append([]Group(nil), registry.Groups...)
+	for i := range registry.Groups {
+		g := &registry.Groups[i]
+		g.Properties = append([]Property(nil), g.Properties...)
+		for j := range g.Properties {
+			p := &g.Properties[j]
+			p.LOS = 0
+			p.LOS2Evidence = ""
+			p.Hotel.Collection.Nights = []int{1}
+		}
+	}
+	return BuildPlans(registry, slot)
 }

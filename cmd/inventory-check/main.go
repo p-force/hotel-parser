@@ -166,7 +166,7 @@ func writeSummary(out io.Writer, hotel config.Config, req bnovo.SearchRequest, r
 		increased[increase.CategoryID] = true
 	}
 	table := tabwriter.NewWriter(&buf, 0, 4, 3, ' ', 0)
-	fmt.Fprintln(table, "CATEGORY\tCONFIGURED\tOBSERVED\tSTOCK\tRESULT")
+	fmt.Fprintln(table, "CATEGORY\tPUBLIC_MAX\tOBSERVED\tSTOCK\tRESULT")
 	for _, category := range hotel.Inventory.Categories {
 		stock := byID[category.SourceRoomID]
 		observed, outcome := "unknown", "unknown"
@@ -175,7 +175,7 @@ func writeSummary(out io.Writer, hotel config.Config, req bnovo.SearchRequest, r
 		}
 		if stock.Status == collect.StockKnown && stock.Available != nil {
 			observed = strconv.Itoa(*stock.Available)
-			if category.TotalRooms != nil {
+			if category.PublicObservedMax != nil {
 				outcome = "unchanged"
 				if increased[category.SourceRoomID] {
 					outcome = "increase"
@@ -183,8 +183,8 @@ func writeSummary(out io.Writer, hotel config.Config, req bnovo.SearchRequest, r
 			}
 		}
 		configured := "unknown"
-		if category.TotalRooms != nil {
-			configured = strconv.Itoa(*category.TotalRooms)
+		if category.PublicObservedMax != nil {
+			configured = strconv.Itoa(*category.PublicObservedMax)
 		}
 		fmt.Fprintf(table, "%s\t%s\t%s\t%s\t%s\n", category.Name, configured, observed, stockStatus(stock), outcome)
 	}

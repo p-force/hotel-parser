@@ -10,56 +10,66 @@
     "property_id": "61"
   },
   "inventory": {
-    "total_rooms": 49,
-    "source": "public_observed_max",
+    "physical_total_rooms": 160,
+    "public_observed_max": 49,
+    "physical_source": "fsa_registry",
+    "public_source": "travelline",
     "categories": [
       {
         "id": "tl_560",
         "name": "Стандартный",
         "source_room_id": "560",
-        "total_rooms": 10
+        "physical_total_rooms": null,
+        "public_observed_max": 10
       },
       {
         "id": "tl_561",
         "name": "Стандартный с видом на Ипподром",
         "source_room_id": "561",
-        "total_rooms": 10
+        "physical_total_rooms": null,
+        "public_observed_max": 10
       },
       {
         "id": "tl_342440",
         "name": "SMART Стандарт",
         "source_room_id": "342440",
-        "total_rooms": 10
+        "physical_total_rooms": null,
+        "public_observed_max": 10
       },
       {
         "id": "tl_415406",
         "name": "SMART Стандарт ИППОДРОМ",
         "source_room_id": "415406",
-        "total_rooms": 3
+        "physical_total_rooms": null,
+        "public_observed_max": 3
       },
       {
         "id": "tl_342441",
         "name": "SMART Люкс",
         "source_room_id": "342441",
-        "total_rooms": 1
+        "physical_total_rooms": null,
+        "public_observed_max": 1
       },
       {
         "id": "tl_562",
         "name": "Люкс",
         "source_room_id": "562",
-        "total_rooms": 9
+        "physical_total_rooms": null,
+        "public_observed_max": 9
       },
       {
         "id": "tl_563",
         "name": "Люкс с видом на Ипподром",
         "source_room_id": "563",
-        "total_rooms": 5
+        "physical_total_rooms": null,
+        "public_observed_max": 5
       },
       {
         "id": "tl_415436",
         "name": "SMART Люкс ИППОДРОМ",
         "source_room_id": "415436",
-        "total_rooms": 1
+        "physical_total_rooms": null,
+        "public_observed_max": 1
       }
     ]
   },
@@ -118,9 +128,15 @@
   "collection": {
     "enabled": true,
     "days_ahead": 60,
-    "adults": [1],
+    "adults": [
+      1
+    ],
     "children_ages": [],
     "rooms": 1,
-    "nights": [1]
+    "nights": [
+      1,
+      2,
+      3
+    ]
   }
 }

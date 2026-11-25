@@ -18,19 +18,24 @@ type SourceConfig struct {
 	PropertyID string `json:"property_id"`
 }
 
+// InventoryConfig хранит независимые физический фонд и наблюдаемый публичный максимум.
+// nil означает неизвестное значение; один показатель не подменяет другой.
 type InventoryConfig struct {
-	// TotalRooms обязателен в JSON; nil означает неизвестный максимум, а не ноль.
-	TotalRooms *int           `json:"total_rooms"`
-	Source     string         `json:"source"`
-	Categories []RoomCategory `json:"categories"`
+	PhysicalTotalRooms *int   `json:"physical_total_rooms"`
+	PublicObservedMax  *int   `json:"public_observed_max"`
+	PhysicalSource     string `json:"physical_source"`
+	PublicSource       string `json:"public_source"`
+	// Проверка суммы физических категорий разрешена только для подтверждённого разбиения.
+	CategoriesFormCompletePartition bool           `json:"categories_form_complete_partition,omitempty"`
+	Categories                      []RoomCategory `json:"categories"`
 }
 
 type RoomCategory struct {
-	ID           string `json:"id"`
-	Name         string `json:"name"`
-	SourceRoomID string `json:"source_room_id"`
-	// nil означает неизвестный максимум категории; JSON-поле обязательно.
-	TotalRooms *int `json:"total_rooms"`
+	ID                 string `json:"id"`
+	Name               string `json:"name"`
+	SourceRoomID       string `json:"source_room_id"`
+	PhysicalTotalRooms *int   `json:"physical_total_rooms"`
+	PublicObservedMax  *int   `json:"public_observed_max"`
 }
 
 type CollectionConfig struct {

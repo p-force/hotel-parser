@@ -39,7 +39,7 @@ func TestPostgresScheduleConcurrentStartResumeCancelAndRecovery(t *testing.T) {
 	p.Hotel.Source.BaseURL = server.URL
 	p.Hotel.Inventory.Categories = p.Hotel.Inventory.Categories[:1]
 	p.Hotel.Inventory.Categories[0].SourceRoomID = "1"
-	p.Hotel.Inventory.TotalRooms = p.Hotel.Inventory.Categories[0].TotalRooms
+	p.Hotel.Inventory.PublicObservedMax = p.Hotel.Inventory.Categories[0].PublicObservedMax
 	competitor := *p
 	competitor.Hotel.ID = "competitor"
 	registry.Groups[0].Properties = append(registry.Groups[0].Properties, competitor)

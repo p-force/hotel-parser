@@ -1,0 +1,27 @@
+# Изменённые файлы
+
+- `CHANGELOG.md`
+- `README.md`
+- `cmd/collection/diagnostics_test.go`
+- `cmd/collection/main.go`
+- `docs/verification/inventory-diagnostics-2026-11-25/README.md`
+- `docs/verification/inventory-diagnostics-2026-11-25/categories.csv`
+- `docs/verification/inventory-diagnostics-2026-11-25/categories.md`
+- `docs/verification/inventory-diagnostics-2026-11-25/changed-files.md`
+- `docs/verification/inventory-diagnostics-2026-11-25/checks.md`
+- `internal/collect/diagnostics.go`
+- `internal/collect/diagnostics_integration_test.go`
+- `internal/collect/diagnostics_test.go`
+- `internal/collect/runtime.go`
+- `internal/schedule/diagnostics.go`
+- `internal/storage/attempts.go`
+- `internal/storage/diagnostics.go`
+- `internal/storage/inventory_upgrade_integration_test.go`
+- `internal/storage/migrations/0007_attempt_selection_policy.sql`
+- `internal/storage/models.go`
+- `internal/storage/read.go`
+- `internal/storage/reported_quantity_upgrade_integration_test.go`
+- `internal/storage/selection_policy_integration_test.go`
+- `internal/storage/selection_policy_test.go`
+- `internal/storage/store_integration_test.go`
+- `internal/storage/validate.go`

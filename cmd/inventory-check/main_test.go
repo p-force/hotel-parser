@@ -42,11 +42,11 @@ func writeConfig(t *testing.T, hotel config.Config) string {
 func observedResult(req bnovo.SearchRequest, hotel config.Config) bnovo.SearchResult {
 	result := bnovo.SearchResult{Request: req, HTTPStatus: 200, Status: bnovo.SearchStatusSuccess}
 	for _, category := range hotel.Inventory.Categories {
-		if category.TotalRooms == nil {
+		if category.PublicObservedMax == nil {
 			result.Categories = append(result.Categories, bnovo.RoomCategory{ID: category.SourceRoomID, Name: category.Name})
 			continue
 		}
-		count := *category.TotalRooms
+		count := *category.PublicObservedMax
 		result.Categories = append(result.Categories, bnovo.RoomCategory{ID: category.SourceRoomID, Name: category.Name})
 		result.Variants = append(result.Variants, bnovo.AccommodationVariant{ID: category.SourceRoomID, CategoryID: category.SourceRoomID, Adults: 2})
 		result.Offers = append(result.Offers, bnovo.RateOffer{CategoryID: category.SourceRoomID, VariantID: category.SourceRoomID, RateID: "1", Visible: true, Price: "100.00", Currency: "RUB", Availability: bnovo.AvailabilityEvidence{DataAvailable: &count, SelectableQuantities: []int{1, count}}})
@@ -348,8 +348,8 @@ func TestInventoryCheckUnknownConfiguredMaximum(t *testing.T) {
 	baseline := hotelFixture(t)
 	hotel := baseline
 	hotel.Inventory.Categories = append([]config.RoomCategory(nil), baseline.Inventory.Categories...)
-	hotel.Inventory.TotalRooms = nil
-	hotel.Inventory.Categories[0].TotalRooms = nil
+	hotel.Inventory.PublicObservedMax = nil
+	hotel.Inventory.Categories[0].PublicObservedMax = nil
 	path := writeConfig(t, hotel)
 	var out, diagnostics, logs bytes.Buffer
 	code := run(context.Background(), []string{"--config=" + path}, &out, &diagnostics, slog.New(slog.NewJSONHandler(&logs, nil)), time.Date(2026, 10, 26, 0, 0, 0, 0, time.UTC), func(ctx context.Context, req bnovo.SearchRequest) bnovo.SearchResult {

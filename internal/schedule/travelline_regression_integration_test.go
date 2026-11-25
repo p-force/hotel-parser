@@ -92,6 +92,7 @@ func TestPostgresTravelLineClientPolicyIsolation(t *testing.T) {
 				b.Source.BaseURL = server.URL
 				a.Collection.Enabled = !disabled
 				b.Collection.Enabled = true
+				b.Collection.Nights = []int{1}
 				a.Rates = []config.RateConfig{{ID: "128299", Name: "Public A", Enabled: true}}
 				b.Rates = []config.RateConfig{{ID: "128301", Name: "Public B", Enabled: true}}
 				r := Registry{Groups: []Group{{ID: "first", Schema: sa, Properties: []Property{{Hotel: a}}}, {ID: "second", Schema: sb, Properties: []Property{{Hotel: b}}}}}
@@ -159,10 +160,12 @@ func TestPostgresMixedSourcesInvalidCurrency(t *testing.T) {
 		t.Fatal(err)
 	}
 	a.Collection.Enabled = true
+	a.Collection.Nights = []int{1} // Explicit LOS of this saved HTTP fixture.
 	b.Collection.Enabled = true
+	b.Collection.Nights = []int{1}
 	a.Inventory.Categories = a.Inventory.Categories[:1]
 	a.Inventory.Categories[0].SourceRoomID = "1"
-	a.Inventory.TotalRooms = a.Inventory.Categories[0].TotalRooms
+	a.Inventory.PublicObservedMax = a.Inventory.Categories[0].PublicObservedMax
 	info, body := travelLineRegressionFixture(t)
 	info = []byte(strings.ReplaceAll(string(info), "RUB", "rub"))
 	body = []byte(strings.ReplaceAll(string(body), "RUB", "rub"))
@@ -297,9 +300,10 @@ func TestPostgresTravelLineConflictingQuantitiesRoundTrip(t *testing.T) {
 		t.Fatal(err)
 	}
 	cfg.Collection.Enabled = true
+	cfg.Collection.Nights = []int{1} // Fixture covers one night.
 	cfg.Source.BaseURL = server.URL
 	cfg.Inventory.Categories = cfg.Inventory.Categories[:1]
-	cfg.Inventory.TotalRooms = cfg.Inventory.Categories[0].TotalRooms
+	cfg.Inventory.PublicObservedMax = cfg.Inventory.Categories[0].PublicObservedMax
 	cfg.Rates = []config.RateConfig{{ID: "128299", Name: "Public A", Enabled: true}, {ID: "128301", Name: "Public B", Enabled: true}}
 	registry := Registry{Groups: []Group{{ID: "aerostar", Schema: schema, Properties: []Property{{Hotel: cfg}}}}}
 	s := testService(t, registry, nil, collect.RuntimeOptions{MaxJobs: 1})

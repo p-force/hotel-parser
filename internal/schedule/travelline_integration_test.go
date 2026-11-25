@@ -74,6 +74,7 @@ func travelLineQueued(t *testing.T, live bool) {
 		t.Fatal(err)
 	}
 	hotel.Collection.Enabled = true
+	hotel.Collection.Nights = []int{1} // The bounded smoke/fixture covers one night.
 	_, admin, schema := storagetest.Open(t)
 	var mock *httptest.Server
 	if !live {

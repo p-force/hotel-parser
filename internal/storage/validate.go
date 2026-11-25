@@ -95,6 +95,20 @@ func normalizeWarnings(input []Warning) ([]Warning, error) {
 }
 func normalizeAttempt(in AttemptInput) (AttemptInput, []byte, error) {
 	fail := func() (AttemptInput, []byte, error) { return in, nil, fmt.Errorf("invalid attempt") }
+	if in.SelectionPolicy != nil {
+		p := *in.SelectionPolicy
+		p.RateIDs = append([]string{}, p.RateIDs...)
+		sort.Strings(p.RateIDs)
+		if (p.Mode != "all_visible" && p.Mode != "allowlist") || (p.Mode == "all_visible" && len(p.RateIDs) != 0) || (p.Mode == "allowlist" && len(p.RateIDs) == 0) {
+			return fail()
+		}
+		for i, id := range p.RateIDs {
+			if !validID(id) || (i > 0 && id == p.RateIDs[i-1]) {
+				return fail()
+			}
+		}
+		in.SelectionPolicy = &p
+	}
 	if in.JobID == "" || in.Number < 1 || in.StartedAt.IsZero() || in.FinishedAt.Before(in.StartedAt) || in.DurationMS < 0 || (in.QueueWaitMS != nil && *in.QueueWaitMS < 0) || (in.HTTPStatus != 0 && (in.HTTPStatus < 100 || in.HTTPStatus > 599)) {
 		return fail()
 	}
@@ -172,6 +186,10 @@ func normalizeAttempt(in AttemptInput) (AttemptInput, []byte, error) {
 				}
 			}
 		}
+	}
+	in.RoomTypeQuotas, err = normalizedRoomTypeQuotas(in.RoomTypeQuotas)
+	if err != nil {
+		return in, nil, err
 	}
 	hash, err := digest(in)
 	return in, hash, err

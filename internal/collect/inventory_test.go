@@ -83,7 +83,7 @@ func TestDetectInventoryIncreases(t *testing.T) {
 			if !bytes.Equal(configBefore, inventorySnapshot(t, hotel)) || !bytes.Equal(stocksBefore, inventorySnapshot(t, tc.stocks)) {
 				t.Error("входные структуры изменены")
 			}
-			if hotel.Inventory.TotalRooms == nil || *hotel.Inventory.TotalRooms != 19 {
+			if hotel.Inventory.PublicObservedMax == nil || *hotel.Inventory.PublicObservedMax != 19 {
 				t.Error("изменён общий фонд")
 			}
 		})
@@ -199,15 +199,15 @@ func TestInventoryComparisonConcurrentReadOnly(t *testing.T) {
 		}()
 	}
 	wg.Wait()
-	if hotel.Inventory.Categories[0].TotalRooms == nil || *hotel.Inventory.Categories[0].TotalRooms != 10 || *stocks[0].Available != 12 {
+	if hotel.Inventory.Categories[0].PublicObservedMax == nil || *hotel.Inventory.Categories[0].PublicObservedMax != 10 || *stocks[0].Available != 12 {
 		t.Error("входные данные изменены")
 	}
 }
 
 func TestInventoryUnknownConfiguredMaximum(t *testing.T) {
 	hotel := arenaInventoryConfig(t)
-	hotel.Inventory.TotalRooms = nil
-	hotel.Inventory.Categories[0].TotalRooms = nil
+	hotel.Inventory.PublicObservedMax = nil
+	hotel.Inventory.Categories[0].PublicObservedMax = nil
 	stocks := []CategoryStock{knownInventoryStock("561429", 12)}
 	increases, warnings := DetectInventoryIncreases(stocks, hotel.Inventory)
 	if len(increases) != 0 || len(warnings) != 1 || warnings[0].Code != "inventory_max_unknown" || warnings[0].Context != "561429" {
@@ -218,7 +218,23 @@ func TestInventoryUnknownConfiguredMaximum(t *testing.T) {
 	if output.Len() != 0 {
 		t.Error("увеличение неизвестного максимума не должно логироваться")
 	}
-	if hotel.Inventory.TotalRooms != nil || hotel.Inventory.Categories[0].TotalRooms != nil {
+	if hotel.Inventory.PublicObservedMax != nil || hotel.Inventory.Categories[0].PublicObservedMax != nil {
 		t.Error("неизвестный максимум автоматически заполнен")
+	}
+}
+
+func TestInventoryComparisonUsesOnlyPublicMaximum(t *testing.T) {
+	hotel := arenaInventoryConfig(t)
+	hotel.Inventory.PhysicalTotalRooms = stockInt(410)
+	hotel.Inventory.Categories[0].PhysicalTotalRooms = stockInt(100)
+	stocks := []CategoryStock{knownInventoryStock("561429", 12)}
+	got, warnings := DetectInventoryIncreases(stocks, hotel.Inventory)
+	if len(got) != 1 || got[0].PreviousMax != 10 || got[0].NewMax != 12 || len(warnings) != 0 {
+		t.Fatal(got, warnings)
+	}
+	hotel.Inventory.Categories[0].PublicObservedMax = nil
+	got, warnings = DetectInventoryIncreases(stocks, hotel.Inventory)
+	if len(got) != 0 || len(warnings) != 1 || warnings[0].Code != "inventory_max_unknown" {
+		t.Fatal("physical inventory substituted for public maximum", got, warnings)
 	}
 }

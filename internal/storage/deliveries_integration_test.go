@@ -156,9 +156,9 @@ func TestPostgresDeliverySlotPaths(t *testing.T) {
 			t.Fatal(err)
 		}
 		for _, d := range ds {
-			want := "/reports/" + tc.group + "/same-hotel/2026-11-02_08-00.csv"
+			want := "/reports/" + tc.group + "/same-hotel/2026-11-02_08-00.v3.csv"
 			if d.RunID == second.ID {
-				want = "/reports/group-a/same-hotel/2026-11-02_12-00.csv"
+				want = "/reports/group-a/same-hotel/2026-11-02_12-00.v3.csv"
 			}
 			if d.RunID == legacy.ID {
 				want = old
