@@ -28,6 +28,17 @@ func (s *Store) GetAttempt(ctx context.Context, jobID string, number int) (Attem
 	if err = json.Unmarshal(warnings, &a.Warnings); err != nil {
 		return a, dbError("decode attempt warnings", err)
 	}
+	var policy []byte
+	err = s.db.QueryRowContext(ctx, `SELECT policy FROM `+s.table("attempt_selection_policy")+` WHERE attempt_id=$1::uuid`, a.ID).Scan(&policy)
+	if err != nil && err != sql.ErrNoRows {
+		return a, dbError("read selection policy", err)
+	}
+	if err == nil {
+		a.SelectionPolicy = &SelectionPolicy{}
+		if err = json.Unmarshal(policy, a.SelectionPolicy); err != nil {
+			return a, dbError("decode selection policy", err)
+		}
+	}
 	a.Observations = make([]Observation, 0)
 	rows, err := s.db.QueryContext(ctx, `SELECT id::text,category_id,category_name,area_m2,available,stock_status,has_offers,confirmed_unavailable,warnings FROM `+s.table("observations")+` WHERE attempt_id=$1::uuid ORDER BY category_id`, a.ID)
 	if err != nil {

@@ -335,6 +335,7 @@ func runLeasedJobs(ctx, flush context.Context, stopExecution context.CancelCause
 			if err != nil {
 				return err
 			}
+			attempt.SelectionPolicy = selectionPolicy(state.property.Hotel)
 			attempt.Lease = ptrLease(state.job.Lease())
 			state.mu.Lock()
 			defer state.mu.Unlock()

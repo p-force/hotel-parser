@@ -107,6 +107,9 @@ CSV v3 содержит 35 аналитических колонок, включ
 [Колонки, восстановление и потоковый API](docs/csv/README.md),
 [пример CSV](docs/csv/example.csv).
 
+Отдельная диагностика причин и сравнение LOS: `collection diagnostics --group-id arena33 --run-id <UUID>`.
+Читает завершённый run из БД без HTTP. [Контракт, аудит фонда и ограничения](docs/verification/inventory-diagnostics-2026-11-25/README.md).
+
 ## Логирование
 
 Логи пишутся в stderr через `log/slog`: локально — исходный `PrettyHandler`, в Docker — JSON.

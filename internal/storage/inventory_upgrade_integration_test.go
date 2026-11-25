@@ -107,7 +107,7 @@ func TestPostgresInventoryUpgradePreservesHistory(t *testing.T) {
 		t.Fatal(inventory, err)
 	}
 	var versions int
-	if err := db.QueryRow(`SELECT count(*) FROM ` + q + `.schema_migrations`).Scan(&versions); err != nil || versions != 6 {
+	if err := db.QueryRow(`SELECT count(*) FROM ` + q + `.schema_migrations`).Scan(&versions); err != nil || versions != 7 {
 		t.Fatal(versions, err)
 	}
 	// Original ledger checksums and provenance remain intact after the forward migration.

@@ -99,6 +99,12 @@ func (s *Store) saveAttempt(ctx context.Context, input AttemptInput, policy *Fai
 	if err != nil {
 		return "", dbError("insert attempt", err)
 	}
+	if input.SelectionPolicy != nil {
+		payload, _ := json.Marshal(input.SelectionPolicy)
+		if _, err = tx.ExecContext(ctx, `INSERT INTO `+s.table("attempt_selection_policy")+`(attempt_id,policy) VALUES($1::uuid,$2::jsonb)`, id, string(payload)); err != nil {
+			return "", dbError("insert selection policy", err)
+		}
+	}
 	for _, observation := range input.Observations {
 		if err = s.insertObservation(ctx, tx, id, observation); err != nil {
 			return "", err
