@@ -253,7 +253,7 @@ func TestPostgresMigrationsAndIndexes(t *testing.T) {
 		t.Fatalf("migration replay failed: %v", err)
 	}
 	var count int
-	if err := db.QueryRow(`SELECT count(*) FROM "` + schema + `".schema_migrations`).Scan(&count); err != nil || count != 7 {
+	if err := db.QueryRow(`SELECT count(*) FROM "` + schema + `".schema_migrations`).Scan(&count); err != nil || count != 8 {
 		t.Fatal("migration version missing or duplicated")
 	}
 	rows, err := db.Query(`SELECT indexname FROM pg_indexes WHERE schemaname=$1`, schema)

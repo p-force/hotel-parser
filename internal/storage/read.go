@@ -39,6 +39,10 @@ func (s *Store) GetAttempt(ctx context.Context, jobID string, number int) (Attem
 			return a, dbError("decode selection policy", err)
 		}
 	}
+	a.RoomTypeQuotas, err = s.readRoomTypeQuotas(ctx, a.ID)
+	if err != nil {
+		return a, err
+	}
 	a.Observations = make([]Observation, 0)
 	rows, err := s.db.QueryContext(ctx, `SELECT id::text,category_id,category_name,area_m2,available,stock_status,has_offers,confirmed_unavailable,warnings FROM `+s.table("observations")+` WHERE attempt_id=$1::uuid ORDER BY category_id`, a.ID)
 	if err != nil {

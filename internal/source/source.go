@@ -17,6 +17,15 @@ type AvailabilityEvidence = bnovo.AvailabilityEvidence
 type ParseWarning = bnovo.ParseWarning
 type CategoryAvailability = bnovo.CategoryAvailability
 type CollectionError = bnovo.CollectionError
+type RoomTypeQuota = bnovo.RoomTypeQuota
+type RoomTypeQuotaSet = bnovo.RoomTypeQuotaSet
+type QuotaMappingStatus = bnovo.QuotaMappingStatus
+
+const (
+	QuotaMapped   = bnovo.QuotaMapped
+	QuotaUnmapped = bnovo.QuotaUnmapped
+	QuotaConflict = bnovo.QuotaConflict
+)
 
 const (
 	Success  = bnovo.SearchStatusSuccess

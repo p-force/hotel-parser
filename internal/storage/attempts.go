@@ -105,6 +105,9 @@ func (s *Store) saveAttempt(ctx context.Context, input AttemptInput, policy *Fai
 			return "", dbError("insert selection policy", err)
 		}
 	}
+	if err = s.insertRoomTypeQuotas(ctx, tx, id, input.RoomTypeQuotas); err != nil {
+		return "", err
+	}
 	for _, observation := range input.Observations {
 		if err = s.insertObservation(ctx, tx, id, observation); err != nil {
 			return "", err

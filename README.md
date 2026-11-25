@@ -107,6 +107,9 @@ CSV v3 содержит 35 аналитических колонок, включ
 [Колонки, восстановление и потоковый API](docs/csv/README.md),
 [пример CSV](docs/csv/example.csv).
 
+[Исходные room_type_quotas TravelLine](docs/travelline-room-type-quotas.md) сохраняются
+отдельно от offers (миграция 0008) и доступны в JSON-диагностике; CSV не расширяется.
+
 Отдельная диагностика причин и сравнение LOS: `collection diagnostics --group-id arena33 --run-id <UUID>`.
 Читает завершённый run из БД без HTTP. [Контракт, аудит фонда и ограничения](docs/verification/inventory-diagnostics-2026-11-25/README.md).
 

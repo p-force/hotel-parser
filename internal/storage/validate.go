@@ -187,6 +187,10 @@ func normalizeAttempt(in AttemptInput) (AttemptInput, []byte, error) {
 			}
 		}
 	}
+	in.RoomTypeQuotas, err = normalizedRoomTypeQuotas(in.RoomTypeQuotas)
+	if err != nil {
+		return in, nil, err
+	}
 	hash, err := digest(in)
 	return in, hash, err
 }

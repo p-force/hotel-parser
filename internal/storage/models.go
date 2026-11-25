@@ -87,6 +87,8 @@ type AttemptError struct {
 }
 
 type AttemptInput struct {
+	// omitempty сохраняет hash исторических payload без исходных квот.
+	RoomTypeQuotas *RoomTypeQuotaSet `json:",omitempty"`
 	// SelectionPolicy фиксирует применённую тарифную политику. nil у старой истории
 	// не позволяет подтвердить сопоставимость отсутствующих предложений между LOS.
 	SelectionPolicy       *SelectionPolicy `json:",omitempty"`
