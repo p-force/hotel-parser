@@ -84,12 +84,12 @@ jobs восстанавливаются по lease с fencing. Просроче�
 
 ## CSV и Диск
 
-Run становится terminal только после всех jobs. CSV v2 содержит прежние 35 колонок, 6 показателей фонда/источников и 4 поля диагностики,
+Run становится terminal только после всех jobs. CSV v3 содержит 35 аналитических колонок, включая фонд и диагностику,
 категории без offers и NULL. Источник — committed PostgreSQL, локальный файл можно
 удалить и восстановить следующим вызовом без HTTP к отелям. Атомарная публикация
 и детерминированный run ID исключают частичный готовый файл.
 
-Путь Диска: `/hotel-parser/<group_id>/<property_id>/<YYYY-MM-DD_HH-mm>.csv`,
+Путь Диска: `/hotel-parser/<group_id>/<property_id>/<YYYY-MM-DD_HH-mm>.v3.csv`,
 время — логический слот МСК. Для теста задайте отдельный root, не production-каталог.
 Старые remote_path не меняются. Ledger в PostgreSQL хранит lease, retry time,
 state, error code; повтор delivered не делает PUT. После потери локального диска

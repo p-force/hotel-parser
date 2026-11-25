@@ -90,9 +90,9 @@ func TestPostgresRunCSVDiagnostics(t *testing.T) {
 	}
 	seen := map[string]int{}
 	for _, row := range rows {
-		seen[row["job_id"]]++
-		switch row["job_id"] {
-		case jobs[0].ID:
+		seen[row["check_in"]]++
+		switch row["check_in"] {
+		case jobs[0].Scenario.CheckIn.Format("2006-01-02"):
 			if row["job_status"] != "partial" || row["stock_status"] != "unknown" || row["http_status"] != "200" || row["error_code"] != "" || row["confirmed_unavailable"] != "false" || row["available"] != "" {
 				t.Fatal(row)
 			}
@@ -123,26 +123,26 @@ func TestPostgresRunCSVDiagnostics(t *testing.T) {
 					t.Fatal(row)
 				}
 			}
-		case jobs[1].ID:
+		case jobs[1].Scenario.CheckIn.Format("2006-01-02"):
 			if row["job_status"] != "no_offers" || row["stock_status"] != "known" || row["available"] != "0" || row["has_offers"] != "false" || row["confirmed_unavailable"] != "true" || row["rate_id"] != "" {
 				t.Fatal(row)
 			}
 			assertWarnings(row["attempt_warning_codes"], none.Warnings)
 			assertWarnings(row["category_warning_codes"], none.Observations[0].Warnings)
-		case jobs[2].ID:
+		case jobs[2].Scenario.CheckIn.Format("2006-01-02"):
 			if row["error_code"] != "timeout" || row["http_status"] != "0" || row["job_status"] != "failed" || row["category_id"] != "" || row["stock_status"] != "" || row["has_offers"] != "" || row["confirmed_unavailable"] != "" || row["category_warning_codes"] != "" {
 				t.Fatal(row)
 			}
 			assertWarnings(row["attempt_warning_codes"], failed.Warnings)
-		case jobs[3].ID:
-			if row["error_code"] != "lease_exhausted" || row["job_status"] != "failed" || row["http_status"] != "" || row["attempt_id"] != "" || row["attempt_warning_codes"] != "" || row["category_warning_codes"] != "" || row["has_offers"] != "" || row["confirmed_unavailable"] != "" {
+		case jobs[3].Scenario.CheckIn.Format("2006-01-02"):
+			if row["error_code"] != "lease_exhausted" || row["job_status"] != "failed" || row["http_status"] != "" || row["collected_at"] != "" || row["attempt_warning_codes"] != "" || row["category_warning_codes"] != "" || row["has_offers"] != "" || row["confirmed_unavailable"] != "" {
 				t.Fatal(row)
 			}
 		default:
 			t.Fatal(row)
 		}
 	}
-	if seen[jobs[0].ID] != 3 || seen[jobs[1].ID] != 1 || seen[jobs[2].ID] != 1 || seen[jobs[3].ID] != 1 {
+	if seen[jobs[0].Scenario.CheckIn.Format("2006-01-02")] != 3 || seen[jobs[1].Scenario.CheckIn.Format("2006-01-02")] != 1 || seen[jobs[2].Scenario.CheckIn.Format("2006-01-02")] != 1 || seen[jobs[3].Scenario.CheckIn.Format("2006-01-02")] != 1 {
 		t.Fatal(seen)
 	}
 }

@@ -139,7 +139,7 @@ func TestPostgresInventoryNullsAndFailedCSV(t *testing.T) {
 		t.Fatal(err)
 	}
 	rows := readCSVRows(t, b.Bytes())
-	if len(rows) != 1 || rows[0]["category_id"] != "" || rows[0]["attempt_outcome"] != "failed" {
+	if len(rows) != 1 || rows[0]["category_id"] != "" || rows[0]["job_status"] != "failed" {
 		t.Fatal(rows)
 	}
 	for _, key := range inventoryCSVColumns {

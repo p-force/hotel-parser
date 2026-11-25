@@ -110,7 +110,7 @@ func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
 		t.Fatal(ds, mock.puts, calls.Load())
 	}
 	for _, d := range ds {
-		if d.State != "delivered" || d.Attempts != 2 || !strings.HasPrefix(d.RemotePath, "/hotel-parser-test/arena33/") || !strings.HasSuffix(d.RemotePath, "/2026-11-17_20-00.csv") {
+		if d.State != "delivered" || d.Attempts != 2 || !strings.HasPrefix(d.RemotePath, "/hotel-parser-test/arena33/") || !strings.HasSuffix(d.RemotePath, "/2026-11-17_20-00.v3.csv") {
 			t.Fatal(d)
 		}
 		var expected bytes.Buffer
@@ -121,7 +121,7 @@ func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
 			t.Fatal("upload differs from committed PostgreSQL CSV")
 		}
 		rows, err := csv.NewReader(bytes.NewReader(expected.Bytes())).ReadAll()
-		if err != nil || len(rows) < 2 || len(rows[0]) != 45 {
+		if err != nil || len(rows) < 2 || len(rows[0]) != 35 {
 			t.Fatal(len(rows), err)
 		}
 	}

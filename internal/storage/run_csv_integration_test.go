@@ -153,10 +153,10 @@ func TestPostgresRunCSVSemantics(t *testing.T) {
 			}
 			byKey := map[string]map[string]string{}
 			for _, row := range rows {
-				if row["run_id"] != run.ID || row["schema"] != schema || row["property_id"] != "hotel" || row["source"] != provider || row["los"] != "1" || row["adults"] != "2" || row["rooms"] != "1" {
+				if row["run_id"] != run.ID || row["property_id"] != "hotel" || row["source"] != provider || row["los"] != "1" || row["adults"] != "2" || row["rooms"] != "1" {
 					t.Fatal(row)
 				}
-				for _, k := range []string{"run_started_at", "run_finished_at", "collected_at", "attempt_started_at", "attempt_finished_at"} {
+				for _, k := range []string{"run_started_at", "collected_at"} {
 					if row[k] != "" {
 						if _, err := time.Parse(time.RFC3339Nano, row[k]); err != nil || !strings.HasSuffix(row[k], "Z") {
 							t.Fatal(k, row[k], err)
@@ -166,12 +166,12 @@ func TestPostgresRunCSVSemantics(t *testing.T) {
 				if row["category_id"] != "" && (row["category_name"] != "Категория, \"A\"\nстрока" || row["area_m2"] != "21.5") {
 					t.Fatal("CSV escaping/number", row)
 				}
-				if row["job_id"] == jobs[0].ID && row["attempt_no"] != "2" {
+				if row["check_in"] == jobs[0].Scenario.CheckIn.Format("2006-01-02") && (row["http_status"] != "200" || row["error_code"] != "") {
 					t.Fatal("retry history included", row)
 				}
 				byKey[row["category_id"]+"/"+row["rate_id"]] = row
 			}
-			if byKey["unknown/"]["available"] != "" || byKey["unavailable/"]["available"] != "0" || byKey["unavailable/"]["attempt_outcome"] != "no_offers" {
+			if byKey["unknown/"]["available"] != "" || byKey["unavailable/"]["available"] != "0" || byKey["unavailable/"]["job_status"] != "no_offers" {
 				t.Fatal("NULL/zero/no_offers changed", byKey)
 			}
 			for _, rid := range []string{"r1", "r2"} {
@@ -193,11 +193,11 @@ func TestPostgresRunCSVSemantics(t *testing.T) {
 			}
 			exhausted, failedRow := false, false
 			for _, row := range rows {
-				if row["job_id"] == jobs[4].ID {
-					exhausted = row["job_status"] == "failed" && row["error_code"] == "lease_exhausted" && row["attempt_id"] == "" && row["attempt_outcome"] == ""
+				if row["check_in"] == jobs[4].Scenario.CheckIn.Format("2006-01-02") {
+					exhausted = row["job_status"] == "failed" && row["error_code"] == "lease_exhausted" && row["collected_at"] == "" && row["http_status"] == ""
 				}
-				if row["job_id"] == jobs[3].ID {
-					failedRow = row["attempt_outcome"] == "failed" && row["http_status"] == "403" && row["error_code"] == "http_error"
+				if row["check_in"] == jobs[3].Scenario.CheckIn.Format("2006-01-02") {
+					failedRow = row["job_status"] == "failed" && row["http_status"] == "403" && row["error_code"] == "http_error"
 				}
 			}
 			if !exhausted || !failedRow {

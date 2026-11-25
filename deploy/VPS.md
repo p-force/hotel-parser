@@ -103,7 +103,7 @@ cache; сбой записи повторяется в следующем выз
 оба работают без HTTP к отелям, включая delivered run.
 
 Uploader сам воспроизводит CSV из БД, не требует постоянного локального диска.
-Путь `/root/<group_id>/<property_id>/<YYYY-MM-DD_HH-mm>.csv` использует логический
+Путь `/root/<group_id>/<property_id>/<YYYY-MM-DD_HH-mm>.v3.csv` использует логический
 слот МСК. Старые remote_path не меняются. Доставка имеет отдельные lease/retry
 в PostgreSQL; API outage/timeout не меняет результат сбора. После успешного PUT и
 потери commit проверяются размер/checksum существующего файла; overwrite запрещён.

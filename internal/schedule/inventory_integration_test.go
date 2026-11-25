@@ -41,17 +41,28 @@ func TestPostgresPlanInventorySnapshotAndCSVVersion(t *testing.T) {
 	if err := os.WriteFile(legacy, []byte("legacy-header\nlegacy-data\n"), 0600); err != nil {
 		t.Fatal(err)
 	}
+	legacyV2 := strings.Replace(legacy, string(filepath.Separator)+"v1"+string(filepath.Separator), string(filepath.Separator)+"v2"+string(filepath.Separator), 1)
+	if err := os.MkdirAll(filepath.Dir(legacyV2), 0750); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(legacyV2, []byte("legacy-v2-header\nlegacy-v2-data\n"), 0600); err != nil {
+		t.Fatal(err)
+	}
 	response, err := s.Execute(context.Background(), Request{Action: "resume"})
 	if err != nil || len(response.Exports) != 1 || !response.Exports[0].Generated || calls.Load() != 1 {
 		t.Fatal(response, err)
 	}
 	artifact := response.Exports[0]
-	if !strings.Contains(artifact.Path, string(filepath.Separator)+"v2"+string(filepath.Separator)) {
+	if !strings.Contains(artifact.Path, string(filepath.Separator)+"v3"+string(filepath.Separator)) {
 		t.Fatal(artifact)
 	}
 	body, err := os.ReadFile(artifact.Path)
 	if err != nil || !strings.Contains(string(body), "property_physical_total_rooms") || strings.Contains(string(body), "legacy-header") {
 		t.Fatal(err, string(body))
+	}
+	v2, err := os.ReadFile(legacyV2)
+	if err != nil || string(v2) != "legacy-v2-header\nlegacy-v2-data\n" {
+		t.Fatal("legacy v2 changed", err)
 	}
 	old, err := os.ReadFile(legacy)
 	if err != nil || string(old) != "legacy-header\nlegacy-data\n" {

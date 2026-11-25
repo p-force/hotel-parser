@@ -1,156 +1,120 @@
-# CSV конкретного завершённого run, формат v2
+# Аналитический CSV завершённого run — v3
 
-`collection plan/tick/resume` и HTTP-trigger автоматически проверяют CSV после
-commit `FinishRun`. Экспорт выполняется после завершения workers и освобождения
-runner lock. Незавершённые runs пропускаются, даже если часть jobs уже успешна.
-Расписание, LOS и запросы к отелям экспорт не меняет.
+`collection` экспортирует committed результаты завершённого run после остановки
+workers и освобождения runner lock. Незавершённые runs пропускаются. Экспорт не
+делает HTTP к отелям; ошибка файла не меняет результат сбора. Доставка на Диск
+использует тот же потоковый экспорт из PostgreSQL и отдельный delivery ledger.
 
-## Файл и восстановление
+## Контракт: ровно 35 колонок
 
-`HOTEL_PARSER_CSV_DIR` задаёт каталог; по умолчанию —
-`<os.TempDir()>/hotel-parser-csv`. Пример запуска:
-
-```bash
-HOTEL_PARSER_CSV_DIR=/tmp/hotel-parser-csv go run ./cmd/collection resume
-```
-
-Путь: `<root>/v2/<schema>/<group>/<property>/<slot_UTC>/<run_id>.csv`.
-Slot — `run.started_at` в UTC (`20060102T150405Z`). Для небезопасного имени
-компонента пути используется детерминированный SHA-256 вместо исходной строки.
-Schema предотвращает смешивание независимых групп; run ID различает сборы.
-
-Сначала создаётся `.tmp` в каталоге конечного файла, затем выполняются запись,
-проверка ошибок, sync/close и атомарный rename на том же filesystem.
-Ошибка или отмена до публикации не оставляют готовый частичный CSV. После crash
-возможен оставшийся скрытый `.tmp`; он не считается готовым артефактом.
-
-Отдельного durable-флага «экспортировано» нет: завершённый неизменяемый run в
-PostgreSQL — основание для генерации, наличие опубликованного файла в выделенном
-каталоге — локальный кеш. На каждом последующем вызове проверяются terminal runs
-(в каждой группе сначала свежие). Недоставленные отсутствующие файлы создаются снова; существующие
-готовые файлы переиспользуются. Delivered runs пропускаются автоматическим
-экспортом; явный report.Generate по-прежнему доступен. Это восстанавливает экспорт после restart,
-ошибки диска или потери ephemeral filesystem без повторного hotel HTTP.
-
-Готовый путь возвращается в `Response.exports` вместе с `group_id`, `schema`,
-`property_id`, `run_id`, `ready`, `generated`, `error_code` и `retry_pending`.
-Ошибки CSV логируются как `collection.csv.failed` безопасным кодом; результат
-collection и состояния jobs/runs не меняются. Следующий вызов повторяет генерацию.
-Время экспорта ограничено оставшимся execution context; фоновые задачи после
-возврата запроса не используются. Восстановление требует следующего вызова
-plan/tick/resume либо явного вызова экспорта, самостоятельного cron для этого нет.
-
-`ready=true` означает наличие полного локального файла, а не доставку на Диск.
-Выделенный каталог принадлежит приложению: внешнее редактирование готовых файлов
-не поддерживается. Локальный диск может быть полностью утрачен без потери данных.
-
-## Строки и колонки
-
-UTF-8, разделитель — запятая, escaping — стандартный `encoding/csv`, без BOM.
-Пустая ячейка означает отсутствующее значение/SQL NULL; явный ноль — `0`.
-В v2 первые 35 столбцов сохранены в прежнем порядке; далее идут шесть полей
-фонда/источников и четыре поля диагностики — всего 45 столбцов.
-Цены и площади читаются как точные PostgreSQL NUMERIC text, без float-конверсии.
-Timestamp — UTC ISO8601. `run_started_at` — логический слот; фактическое время
-HTTP-попытки хранится отдельно в `collected_at` и `attempt_*`.
-
-В CSV включена **только последняя committed attempt каждого job данного run**.
-Промежуточные retry остаются в БД и не дублируют итоговые цены/остатки в отчёте.
-Порядок: даты, adults, rooms, job ID, category ID, variant ID, rate ID.
-
-Одна строка соответствует одному offer. Категория без offers получает одну строку
-с пустыми тарифными полями. Job без observation тоже получает строку. Если job
-завершён без сохранённой attempt (например, `lease_exhausted`), поля попытки пусты,
-а `job_status` и `error_code` объясняют исход; фиктивная attempt не создаётся.
-
-`available` — атрибут категории, повторяемый в её тарифных строках. Его нельзя
-суммировать по строкам. Ключ категории — `(job_id, category_id)`, ключ предложения —
-`(job_id, category_id, variant_id, rate_id)`. Агрегированные counts/occupancy не
-вычисляются. Пустые offers не становятся подтверждённым нулевым остатком.
+UTF-8, запятая, стандартный escaping `encoding/csv`, без BOM. Цены и площади —
+точные PostgreSQL NUMERIC text. Timestamp — UTC ISO8601. Пустая ячейка — SQL NULL,
+`false` — известный boolean, `0` — известный ноль. Публичные квоты не суммируются.
 
 | Колонки | Значение |
 |---|---|
-| `group_id`, `schema` | Группа вызывающего сервиса и изолированная PostgreSQL-схема |
-| `property_id`, `source`, `source_property_id` | ID отеля, тип источника, его публичный ID из сохранённого job |
-| `run_id`, `run_started_at`, `run_finished_at`, `run_status` | Идентификатор, времена и итог логического сбора |
-| `job_id`, `job_status` | Сценарий и его terminal status |
-| `check_in`, `check_out`, `los`, `adults`, `rooms` | Точные параметры проживания |
-| `attempt_id`, `attempt_no` | Последняя committed attempt; пусто, если её нет |
-| `collected_at`, `attempt_started_at`, `attempt_finished_at` | Времена запроса/попытки; nullable |
-| `attempt_outcome`, `http_status`, `error_code` | success/partial/no_offers/failed, HTTP и безопасный код; без исходных ошибок |
-| `category_id`, `category_name`, `area_m2` | Категория и её площадь; nullable при отсутствии observation |
+| `group_id`, `property_id`, `source` | Группа, внутренний ID отеля, источник |
+| `run_id`, `run_started_at` | ID логического сбора и слот, не время upload |
+| `job_status` | Итог конкретного сценария, не агрегированный статус отеля |
+| `check_in`, `check_out`, `los`, `adults`, `rooms` | Параметры проживания |
+| `collected_at` | Фактическое начало последней сохранённой HTTP-попытки; nullable |
+| `http_status`, `error_code` | HTTP и безопасный код ошибки; без исходных сообщений |
+| `category_id`, `category_name`, `area_m2` | ID категории источника, название, площадь |
 | `stock_status`, `available` | known/unknown/conflict и nullable публичный остаток |
-| `variant_id`, `rate_id`, `rate_name` | Вариант и тариф; пусто при отсутствии offer |
-| `price`, `currency` | Цена за весь период и валюта; nullable |
-| `reported_quantity` | Нативная квота конкретного offer; NULL и 0 различаются |
-| `property_physical_total_rooms`, `property_public_observed_max` | Независимые показатели **отеля** из неизменяемого снимка конфигурации run |
-| `property_physical_source`, `property_public_source` | Источники показателей **отеля**, сохранённые при создании run |
-| `category_physical_total_rooms`, `category_public_observed_max` | Показатели **категории**, связанной с observation по source_room_id; без подстановки значений отеля |
-| `attempt_warning_codes` | JSON-массив сохранённых предупреждений последней попытки: объекты `Code`/`Context`; повторяется в её строках |
-| `category_warning_codes` | JSON-массив предупреждений именно текущей observation; без подстановки предупреждений попытки |
-| `has_offers`, `confirmed_unavailable` | Сохранённые признаки категории: `true`/`false`, либо пусто при отсутствии observation |
+| `variant_id`, `rate_id`, `rate_name`, `price`, `currency` | Вариант, тариф и цена за весь период |
+| `reported_quantity` | Нативная квота offer; NULL и 0 различаются |
+| `property_physical_total_rooms`, `property_public_observed_max` | Независимые показатели отеля из снимка run |
+| `property_physical_source`, `property_public_source` | Источники показателей отеля |
+| `category_physical_total_rooms`, `category_public_observed_max` | Показатели категории; без подстановки общего фонда |
+| `attempt_warning_codes`, `category_warning_codes` | Раздельные JSON-массивы сохранённых объектов Code/Context |
+| `has_offers`, `confirmed_unavailable` | Признаки observation: true/false, пусто без observation |
 
-### Диагностика отсутствия предложений
+В v3 удалены `schema`, `source_property_id`, `run_finished_at`, `run_status`,
+`job_id`, `attempt_id`, `attempt_no`, `attempt_started_at`, `attempt_finished_at`,
+`attempt_outcome`. Все они остаются в PostgreSQL; схема и миграция 0006 не меняются.
 
-`error_code`, `http_status`, `job_status` и `stock_status` сохраняют существующее
-значение. Без attempt error_code может прийти из job (например, `lease_exhausted`),
-а HTTP-статус пуст. HTTP=0 сохранённой попытки остаётся `0`.
+Одна строка — offer. Категория без offers получает одну строку с пустыми тарифными
+полями. Job без observation тоже получает строку. После `lease_exhausted` без
+attempt сохраняются job_status/error_code, HTTP/время попытки пусты. Используется
+только последняя committed attempt: промежуточные retry остаются в БД.
 
-Предупреждения читаются непосредственно из JSONB `collection_attempts.warnings` и
-`observations.warnings` без преобразования кодов, удаления Context, сортировки или
-объединения уровней. Например: `[{"Code":"category_availability_unknown","Context":"4347"}]`.
-`[]` означает существующую attempt/observation без предупреждений, пустая ячейка —
-отсутствующую attempt/observation. Без offers диагностика observation сохраняется;
-без observation сохраняются предупреждения attempt и ошибка. JSON-array не
-разворачивается в JOIN: число строк по-прежнему определяется jobs/observations/offers.
+### Идентичность при объединении файлов
 
-Boolean `false` отличается от отсутствующего значения (пусто); known available=0
-и reported_quantity=0 остаются `0`. Неизвестный остаток/цена остаётся пустым.
+Ключ регулярного сценария:
+`(group_id, run_id, property_id, source, check_in, check_out, los, adults, rooms)`.
+Ключ строки предложения дополняется `(category_id, variant_id, rate_id)`.
+Одинаковые даты и тарифы разных runs не объединяются без run_id. Один сценарий с
+двумя тарифами сохраняет две строки; available нельзя суммировать по этим строкам.
+Порядок строк прежний: даты, adults/rooms, внутренний job ID, категория, вариант, тариф.
 
-Заказчику можно показать сохранённую техническую ошибку/HTTP-статус, диагностические
-коды с контекстом категории, наличие извлечённых предложений и факт подтверждённой
-источником недоступности **для данного сценария**. `confirmed_unavailable=true`
-не доказывает, что весь физический фонд продан. Из no_offers, unknown, has_offers=false
-или отсутствующей цены нельзя вывести sold_out, minimum_stay, sales_closed или
-no_rate. Такие бизнес-причины этим CSV не классифицируются: без отдельного
-достоверного evidence источник ограничения остаётся неизвестным.
+Это контракт штатного scheduler (язык ru, без детей). Для произвольных ручных jobs,
+отличающихся только скрытыми language/children/source_property_id, или разных БД с
+одинаковыми логическими ID нужна исходная PostgreSQL-идентичность; CSV не заменяет
+полный audit dump. Разные версии CSV объединяются по именам столбцов, не позициям.
 
-Показатели отеля повторяются в его строках, в том числе при failed без observation.
-Показатели категории не заполняются без observation или если source_room_id отсутствует
-в снимке. NULL — пустая ячейка, не 0 и не строка `null`. Общий физический фонд не
-является количеством доступных номеров; физический фонд минус публичная квота не
-является числом занятых номеров. Публичные максимумы не суммируются по тарифам.
+### Диагностика и достоверность
 
-Снимки появились в миграции `0006_inventory_metrics.sql`. Для старых run, где
-конфигурация не сохранялась, все шесть колонок пусты. Текущий конфиг не подставляется
-в прошлые сборы. Повторное планирование сохраняет исходный снимок.
+Предупреждения читаются непосредственно из JSONB attempt и текущей observation,
+без удаления Context и без разворачивания массивов в JOIN. `[]` — существующая
+attempt/observation без предупреждений; пустая ячейка — отсутствующая сущность.
+Без offer сохраняется диагностика категории, без observation — диагностика attempt.
+HTTP=0 отличается от отсутствующего HTTP. Ошибка job может сохраниться без attempt.
 
-Локальный кеш v2 отделён от v1, старые файлы не удаляются. Уже доставленные файлы
-на Диске не переписываются и остаются в прежнем формате; remote_path/state не меняются.
-Если старый PUT был выполнен, но commit доставки потерян, v1-файл по тому же пути
-может отличаться от нового v2. Существующая проверка checksum безопасно остановит
-перезапись; такой случай требует отдельного решения оператора, не удаления evidence.
+confirmed_unavailable означает подтверждённую недоступность выбранного сценария,
+а не доказанную полную продажу физического фонда. no_offers, unknown, отсутствие
+цены и has_offers=false сами по себе не доказывают sold_out, minimum_stay,
+sales_closed или no_rate. Новая классификация причин не добавляется.
 
-У Bnovo `reported_quantity` остаётся пустым: HTML `DataAvailable` не подменяется
-API-квотой. `no_offers` присутствует в job/attempt; агрегированный run при этом
-может быть `succeeded`. `unknown`/`conflict` имеют пустое available, подтверждённый
-`known=0` сохраняет ноль.
+Физический фонд и публичный максимум берутся из неизменяемого снимка run (0006).
+Для старых run без снимка шесть показателей фонда/источников пусты. Общий фонд не
+подставляется категории; разность физического фонда и квоты не является занятостью.
 
-[example.csv](example.csv) — иллюстративные данные, не live evidence: две
-противоречивые квоты 9/10, unknown без offers, known=0/no_offers и failed без category.
+[example.csv](example.csv) — иллюстративные данные, не live evidence. TravelLine:
+два положительных значения quota 9/10 дают conflict; категории без offers остаются
+unknown с confirmed_unavailable=false, весь сценарий — partial. Пример проверяется
+настоящими Parse/NormalizeCategoryStock в unit-тесте без сети. В частности, текущий
+TravelLine-парсер не объявляет известный ноль и no_offers по пустому room_stays.
+Bnovo может сохранять known=0/no_offers при точном подтверждении недоступности.
 
-## Следующий этап: доставка
+## Локальный кеш и восстановление
 
-Готовый артефакт возвращает `report.Generate(ctx, store, groupID, directory, runID)`.
-Для передачи без постоянного диска можно заново сформировать тот же CSV прямо
-в writer загрузчика:
+`HOTEL_PARSER_CSV_DIR` задаёт корень; default — `<os.TempDir()>/hotel-parser-csv`.
+Новый путь: `<root>/v3/<schema>/<group>/<property>/<slot_UTC>/<run_id>.csv`.
+Старые v1/v2 файлы не переиспользуются как v3, не удаляются и не перезаписываются.
+Публикация — временный файл, sync/close и атомарный rename. Незавершённый `.tmp`
+не считается готовым файлом. Одинаковый готовый v3 переиспользуется после restart.
+Delivered runs пропускаются автоматическим локальным экспортом.
+
+При потере кеша данные воспроизводятся из PostgreSQL без hotel HTTP:
 
 ```go
-rows, err := store.WriteRunCSV(ctx, groupID, runID, writer)
+artifact, err := report.Generate(ctx, store, groupID, directory, runID)
+rows, err := store.WriteRunCSV(ctx, groupID, runID, writer) // аналитический v3
 ```
 
-Чтение ограничено SQL `WHERE j.run_id = $1`; terminal run и его результаты
-неизменяемы. `sql.Rows.Next` и `csv.Writer` держат одну строку и небольшой буфер,
-память O(максимальной строки), а не O(истории/run). Частичный вывод writer при
-ошибке нельзя считать доставленным. Доставка использует существующий PostgreSQL ledger и YandexDiskUploader;
-OAuth и механизм подтверждения не меняются.
+Память WriteRunCSV ограничена одной строкой и буфером csv.Writer. Служебные поля
+могут читаться внутри для воспроизведения legacy delivery, но в v3 не публикуются.
+
+## Яндекс Диск: формат фиксируется для доставки
+
+Новые записи ledger получают `/root/<group>/<property>/<YYYY-MM-DD_HH-mm>.v3.csv`.
+Минимальный суффикс версии отличает формат без новых каталогов. Старый remote_path
+никогда не обновляется (ON CONFLICT DO NOTHING), delivered не получает новый PUT.
+Структура таблицы csv_deliveries не меняется.
+
+Для существующих unversioned записей:
+
+- Уже загруженные v1 (35), первоначальный v2 (41) и полный v2 (45) подтверждаются
+  по точному размеру/checksum. При потерянном commit следующая invocation отмечает
+  delivered без PUT, без переименования и без перехода на v3.
+- Если файл ещё отсутствует, pending legacy delivery использует прежний полный v2
+  (45 колонок), а не v3. Это детерминированный выбор для старых записей без версии.
+- После несовпадения формата fallback только проверяет metadata других legacy
+  форматов; fallback PUT запрещён. Посторонние/изменённые bytes остаются конфликтом,
+  файл не перезаписывается. Ошибка сети/авторизации не подменяется сменой формата.
+
+`WriteRunCSVFormat` сохраняет старые контракты исключительно для такого recovery.
+Новые аналитические экспорты используют WriteRunCSV/v3. Uploader строит байты из
+БД, не зависит от сохранности локального кеша, использует leases/backoff и
+`overwrite=false`. Парсеры, availability, формат хранимых warnings и миграция 0006
+этим изменением не затронуты.

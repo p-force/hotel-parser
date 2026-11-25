@@ -69,7 +69,7 @@ Lindsay остаётся выключенным; все остальные по�
 Если отдельно будут предоставлены исторические подтверждённые конфиги, их импорт
 нужно решать отдельно; эта миграция не угадывает неоднозначную семантику.
 
-CSV v2: [колонки и совместимость](csv/README.md), [пример](csv/example.csv).
+CSV v3: [колонки и совместимость](csv/README.md), [пример](csv/example.csv).
 Production не мигрируется автоматически в рамках реализации; Migrate запускает
 оператор штатным механизмом после ревью. Проверки выполняются в изолированных
 тестовых схемах локального PostgreSQL Docker, без запросов к отелям/Диску.
@@ -143,9 +143,9 @@ internal/storage/store_integration_test.go
 
 ## Дополнение: диагностика отсутствия предложений
 
-CSV v2 расширен до 45 колонок: после показателей фонда добавлены
+CSV v3 содержит 35 аналитических колонок, включая показатели фонда и
 `attempt_warning_codes`, `category_warning_codes`, `has_offers`,
-`confirmed_unavailable`. Существующие `error_code`, `http_status`, `job_status`,
+`confirmed_unavailable`. Служебные ID и тайминги удалены из аналитического формата; существующие `error_code`, `http_status`, `job_status`,
 `stock_status` сохранены. JSONB предупреждений выгружается без преобразования,
 включая Code/Context. Отсутствующая строка — пустая ячейка; существующий пустой
 массив — `[]`; booleans — `true`/`false`, не 0 и не NULL.
@@ -164,3 +164,36 @@ reported_quantity=0/available=0 и точное совпадение преду�
 сценария. Причины sold_out / minimum_stay / sales_closed / no_rate из этих признаков
 в общем случае установить нельзя: новая классификация не добавлялась. Подтверждённая
 публичная недоступность не равна доказательству полной продажи физического фонда.
+
+## Повторное ревью: компактный CSV v3
+
+Аналитическая выгрузка сокращена с 45 до **35** колонок: удалены только schema,
+source_property_id, run_finished_at, run_status, job_id, attempt_id, attempt_no,
+attempt_started_at, attempt_finished_at, attempt_outcome. Диагностика, фонд,
+цены, квоты, group_id/run_id и параметры сценария сохранены. Точный контракт
+проверяет TestAnalyticalCSVV3Columns, не сравнение с заголовком v1.
+
+Локальный кеш изолирован в v3/. Новые delivery имеют .v3.csv в имени; существующие
+ledger paths не меняются. Воспроизведение legacy v1/v2 (35/41/45) используется
+только для старой доставки. После PUT без commit подтверждается прежний checksum,
+без повторного PUT; fallback не перезаписывает существующий файл другим форматом.
+Если legacy путь ещё пуст, используется прежний полный v2. Детали и ограничения:
+[контракт CSV](csv/README.md).
+
+Тесты подтверждают сохранность восьми offers при объединении двух runs с одинаковыми
+датами и двумя вариантами adults; run_id и параметры сценария остаются различимыми.
+Пример CSV приведён в соответствие с настоящим TravelLine Parse/NormalizeCategoryStock
+и проверяется unit-тестом: отсутствие offers — unknown/partial, без придуманного
+confirmed_unavailable/known=0. Квоты 9/10 сохраняют conflict.
+
+Финальные проверки:
+
+- go fmt, go vet, go test, go test -race и go build ./... — PASS.
+- make test-integration-docker — PASS, 78 top-level PostgreSQL tests.
+- Целевые PostgreSQL tests с race (CSV semantics/diagnostics/identity, cache и
+  legacy delivery recovery) — PASS.
+- git diff --check — PASS.
+
+Модель PostgreSQL и миграция 0006 не изменены. Парсеры, availability, сохранение
+warnings, scheduler, лимиты и production не затронуты. PR, commit, merge и deployment
+не выполнялись. Изменения находятся в рабочем дереве feat/inventory-metrics.

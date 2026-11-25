@@ -282,7 +282,7 @@ func TestPostgresDiskDeliveryCommittedCSVSemantics(t *testing.T) {
 			}
 			rows := records[1:]
 			get := func(i int, k string) string { return rows[i][columns[k]] }
-			if get(0, "stock_status") != "conflict" || get(0, "available") != "" || get(1, "reported_quantity") != "" || get(1, "price") != "100.50" || get(2, "reported_quantity") != "0" || get(3, "available") != "0" || get(3, "rate_id") != "" || get(0, "attempt_outcome") != "partial" {
+			if get(0, "stock_status") != "conflict" || get(0, "available") != "" || get(1, "reported_quantity") != "" || get(1, "price") != "100.50" || get(2, "reported_quantity") != "0" || get(3, "available") != "0" || get(3, "rate_id") != "" || get(0, "job_status") != "partial" {
 				t.Fatal(records)
 			}
 			// Смена процесса после успешного PUT, но до commit delivery: recover по metadata.
@@ -343,7 +343,7 @@ func TestPostgresDiskDeliveryFailedRunsAndBound(t *testing.T) {
 		for i, k := range records[0] {
 			row[k] = records[1][i]
 		}
-		if row["run_status"] != "failed" || row["attempt_outcome"] != "failed" || row["error_code"] != "http_error" || row["available"] != "" || row["price"] != "" {
+		if row["job_status"] != "failed" || row["error_code"] != "http_error" || row["available"] != "" || row["price"] != "" {
 			t.Fatal(row)
 		}
 	}

@@ -3,12 +3,26 @@ package storage
 import (
 	"context"
 	"encoding/csv"
+	"fmt"
 	"io"
 	"time"
 )
 
-// runCSVColumns — контракт CSV v2: первые 35 колонок сохранены из v1. Пустая ячейка обозначает SQL NULL.
+// runCSVColumns — аналитический контракт CSV v3, ровно 35 колонок.
+// Пустая ячейка означает SQL NULL; предупреждения остаются JSON-массивами.
 var runCSVColumns = []string{
+	"group_id", "property_id", "source", "run_id", "run_started_at", "job_status",
+	"check_in", "check_out", "los", "adults", "rooms", "collected_at", "http_status", "error_code",
+	"category_id", "category_name", "area_m2", "stock_status", "available",
+	"variant_id", "rate_id", "rate_name", "price", "currency", "reported_quantity",
+	"property_physical_total_rooms", "property_public_observed_max", "property_physical_source", "property_public_source",
+	"category_physical_total_rooms", "category_public_observed_max",
+	"attempt_warning_codes", "category_warning_codes", "has_offers", "confirmed_unavailable",
+}
+
+// legacyCSVColumns сохраняет точные байты старых доставок. В аналитическом v3
+// эти служебные колонки не публикуются.
+var legacyCSVColumns = []string{
 	"group_id", "schema", "property_id", "source", "source_property_id",
 	"run_id", "run_started_at", "run_finished_at", "run_status", "job_id", "job_status",
 	"check_in", "check_out", "los", "adults", "rooms", "attempt_id", "attempt_no",
@@ -26,6 +40,34 @@ var runCSVColumns = []string{
 // количества jobs/offers. Метод не требует локального диска и не исполняет HTTP.
 // При ошибке writer может содержать префикс CSV: публикация — обязанность вызывающего.
 func (s *Store) WriteRunCSV(ctx context.Context, groupID, runID string, output io.Writer) (int64, error) {
+	return s.WriteRunCSVFormat(ctx, groupID, runID, "v3", output)
+}
+
+// WriteRunCSVFormat воспроизводит неизменяемые старые форматы для delivery recovery.
+// Новая аналитическая выгрузка всегда вызывает WriteRunCSV (v3).
+func (s *Store) WriteRunCSVFormat(ctx context.Context, groupID, runID, format string, output io.Writer) (int64, error) {
+	var columns []string
+	switch format {
+	case "v3":
+		columns = runCSVColumns
+	case "v2":
+		columns = legacyCSVColumns
+	case "v2-inventory":
+		columns = legacyCSVColumns[:41]
+	case "v1":
+		columns = legacyCSVColumns[:35]
+	default:
+		return 0, fmt.Errorf("unsupported CSV format")
+	}
+	indices := make([]int, len(columns))
+	for i, name := range columns {
+		for j, legacy := range legacyCSVColumns {
+			if name == legacy {
+				indices[i] = j
+				break
+			}
+		}
+	}
 	run, err := s.GetRun(ctx, runID)
 	if err != nil {
 		return 0, err
@@ -64,7 +106,7 @@ func (s *Store) WriteRunCSV(ctx context.Context, groupID, runID string, output i
 	}
 	defer rows.Close()
 	writer := csv.NewWriter(output)
-	if err := writer.Write(runCSVColumns); err != nil {
+	if err := writer.Write(columns); err != nil {
 		return 0, err
 	}
 	prefix := []string{groupID, s.schema, run.PropertyID}
@@ -74,7 +116,7 @@ func (s *Store) WriteRunCSV(ctx context.Context, groupID, runID string, output i
 		if err := ctx.Err(); err != nil {
 			return count, err
 		}
-		fields := make([]string, len(runCSVColumns)-7)
+		fields := make([]string, len(legacyCSVColumns)-7)
 		dest := make([]any, len(fields))
 		for i := range fields {
 			dest[i] = &fields[i]
@@ -82,12 +124,16 @@ func (s *Store) WriteRunCSV(ctx context.Context, groupID, runID string, output i
 		if err := rows.Scan(dest...); err != nil {
 			return count, dbError("scan run CSV", err)
 		}
-		record := make([]string, 0, len(runCSVColumns))
+		record := make([]string, 0, len(legacyCSVColumns))
 		record = append(record, prefix...)
 		record = append(record, fields[:2]...)
 		record = append(record, suffix...)
 		record = append(record, fields[2:]...)
-		if err := writer.Write(record); err != nil {
+		projected := make([]string, len(columns))
+		for i, index := range indices {
+			projected[i] = record[index]
+		}
+		if err := writer.Write(projected); err != nil {
 			return count, err
 		}
 		count++

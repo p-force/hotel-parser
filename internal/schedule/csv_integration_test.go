@@ -290,12 +290,15 @@ func TestPostgresAutomaticCSVSourceAndGroupIsolation(t *testing.T) {
 		if artifact.GroupID == "travelline_group" {
 			wantSource, wantSchema, wantRows = "travelline", bSchema, 42
 		}
+		if artifact.Schema != wantSchema {
+			t.Fatal("artifact schema isolation", artifact)
+		}
 		if len(records)-1 != wantRows {
 			t.Fatal("offerless categories lost", len(records)-1, wantRows)
 		}
 		empty, native := 0, 0
 		for _, row := range records[1:] {
-			for key, want := range map[string]string{"group_id": artifact.GroupID, "schema": wantSchema, "source": wantSource, "run_id": artifact.RunID, "property_id": "same_hotel"} {
+			for key, want := range map[string]string{"group_id": artifact.GroupID, "source": wantSource, "run_id": artifact.RunID, "property_id": "same_hotel"} {
 				if row[columns[key]] != want {
 					t.Fatal("mixed CSV", key, row)
 				}
