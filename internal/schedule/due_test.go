@@ -38,7 +38,7 @@ func TestDueSlotsMoscow(t *testing.T) {
 	}
 }
 
-func TestActiveRegistryRegularLOS1(t *testing.T) {
+func TestActiveRegistryConfiguredLOS(t *testing.T) {
 	r, err := LoadRegistry("../../configs/groups.json")
 	if err != nil {
 		t.Fatal(err)
@@ -53,7 +53,7 @@ func TestActiveRegistryRegularLOS1(t *testing.T) {
 				t.Fatal("disabled hotel planned")
 			}
 			for _, sc := range p.Scenarios {
-				if sc.LOS != 1 || sc.Adults != 1 || sc.Rooms != 1 || len(sc.ChildrenAges) > 0 || sc.Language != "ru" {
+				if (sc.LOS < 1 || sc.LOS > 3) || sc.Adults != 1 || sc.Rooms != 1 || len(sc.ChildrenAges) > 0 || sc.Language != "ru" {
 					t.Fatal(sc)
 				}
 			}

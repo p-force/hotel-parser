@@ -232,8 +232,22 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 		for _, g := range s.groups {
 			stores[g.ID] = g.Store
 		}
-		for _, p := range plans {
+		var legacy []Plan
+		for i, p := range plans {
 			run, e := stores[p.GroupID].PlanRun(ctx, p.Run, p.Scenarios, p.Inventory)
+			if errors.Is(e, storage.ErrConflict) {
+				// A published LOS=1 plan must not be expanded in place. The strict
+				// PlanRun hash check must also accept the EXACT legacy candidate.
+				if legacy == nil {
+					var buildErr error
+					legacy, buildErr = legacyPlans(s.registry, req.Slot)
+					if buildErr != nil {
+						return response, buildErr
+					}
+				}
+				old := legacy[i]
+				run, e = stores[old.GroupID].PlanRun(ctx, old.Run, old.Scenarios, old.Inventory)
+			}
 			if e != nil {
 				return response, e
 			}

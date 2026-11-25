@@ -49,6 +49,7 @@ func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
 	}
 	hotel.Source.BaseURL = server.URL
 	hotel.Collection.Enabled = true
+	hotel.Collection.Nights = []int{1} // Saved TravelLine response covers one night.
 	registry.Groups[0].Properties = append(registry.Groups[0].Properties, Property{Hotel: hotel})
 	options := collect.RuntimeOptions{MaxJobs: 1, Batch: collect.BatchOptions{Workers: 2}}
 	mock := &deliveryMock{files: map[string][]byte{}, status: 503}

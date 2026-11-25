@@ -14,6 +14,7 @@ func testRegistry(t *testing.T) Registry {
 	if err != nil {
 		t.Fatal(err)
 	}
+	hotel.Collection.Nights = []int{1} // Explicit legacy fixture; production registry is tested separately.
 	return Registry{Groups: []Group{{ID: "arena33", Schema: "hotel_parser_arena33", Properties: []Property{{Hotel: hotel}}}}}
 }
 func slot(hour int) time.Time {
@@ -71,15 +72,21 @@ func TestTimezoneAndRegularLOS1(t *testing.T) {
 			t.Fatalf("LOS replacement: %+v", sc)
 		}
 	}
-	p.LOS = 2
-	p.LOS2Evidence = "Confirmed diagnostic evidence does not authorize regular LOS2"
-	if _, err := BuildPlans(r, slot(8)); err == nil {
-		t.Fatal("regular LOS=2 accepted despite LOS1-only contract")
+	p.Hotel.Collection.Nights = []int{1, 2, 3}
+	for _, los := range []int{2, 3} {
+		p.LOS = los
+		p.LOS2Evidence = ""
+		plans, err := BuildPlans(r, slot(8))
+		if err != nil || len(plans[0].Scenarios) != 8 {
+			t.Fatal(plans, err)
+		}
+		for _, sc := range plans[0].Scenarios {
+			if sc.LOS != los || !sc.CheckOut.Equal(sc.CheckIn.AddDate(0, 0, los)) {
+				t.Fatal(sc)
+			}
+		}
 	}
-	p.LOS = 3
-	if _, err := BuildPlans(r, slot(8)); err == nil {
-		t.Fatal("scheduled LOS=3 accepted")
-	}
+
 }
 
 func TestRegistryAndSlotValidation(t *testing.T) {
@@ -140,7 +147,7 @@ func TestTravelLineCompetitorRegistry(t *testing.T) {
 		t.Fatal(plans, err)
 	}
 	for _, plan := range plans {
-		if len(plan.Scenarios) != 1 {
+		if len(plan.Scenarios) != 3 {
 			t.Fatal(plan)
 		}
 		s := plan.Scenarios[0]
@@ -157,6 +164,9 @@ func TestFullTravelLineDiagnosticPlan(t *testing.T) {
 	}
 	if len(r.Groups) != 1 || len(r.Groups[0].Properties) != 5 {
 		t.Fatal("diagnostic registry must contain only five hotels")
+	}
+	for i := range r.Groups[0].Properties {
+		r.Groups[0].Properties[i].Hotel.Collection.Nights = []int{1}
 	}
 	for _, p := range r.Groups[0].Properties {
 		if p.Hotel.Source.Type != "travelline" {
@@ -202,7 +212,7 @@ func TestFullTravelLineDiagnosticPlan(t *testing.T) {
 	}
 }
 
-func TestProductionRegistryDaily468Jobs(t *testing.T) {
+func TestProductionRegistryDaily768Jobs(t *testing.T) {
 	r, err := LoadRegistry("../../configs/groups.json")
 	if err != nil {
 		t.Fatal(err)
@@ -219,7 +229,9 @@ func TestProductionRegistryDaily468Jobs(t *testing.T) {
 		if err != nil || !reflect.DeepEqual(plans, replay) {
 			t.Fatal("unstable plan", err)
 		}
+		slotCount := 0
 		for _, p := range plans {
+			slotCount += len(p.Scenarios)
 			if ids[p.Run.ID] {
 				t.Fatal("duplicate run", p.Run.ID)
 			}
@@ -227,12 +239,15 @@ func TestProductionRegistryDaily468Jobs(t *testing.T) {
 			counts[p.Run.PropertyID] += len(p.Scenarios)
 			total += len(p.Scenarios)
 		}
+		if slotCount != map[int]int{8: 462, 12: 144, 16: 144, 20: 18}[hour] {
+			t.Fatal(hour, slotCount)
+		}
 	}
-	if total != 468 || len(counts) != 6 {
+	if total != 768 || len(counts) != 6 {
 		t.Fatal(total, counts)
 	}
 	for id, n := range counts {
-		if n != 78 || id == "lindsay" {
+		if n != 128 || id == "lindsay" {
 			t.Fatal(id, n)
 		}
 	}

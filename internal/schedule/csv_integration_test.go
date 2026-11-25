@@ -236,7 +236,9 @@ func TestPostgresAutomaticCSVSourceAndGroupIsolation(t *testing.T) {
 		t.Fatal(err)
 	}
 	a.Collection.Enabled = true
+	a.Collection.Nights = []int{1} // Explicit LOS of this saved HTTP fixture.
 	b.Collection.Enabled = true
+	b.Collection.Nights = []int{1}
 	a.ID = "same_hotel"
 	b.ID = "same_hotel"
 	a.Inventory.Categories = a.Inventory.Categories[:1]
