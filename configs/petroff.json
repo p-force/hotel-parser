@@ -10,44 +10,52 @@
     "property_id": "5787"
   },
   "inventory": {
-    "total_rooms": 16,
-    "source": "public_observed_max",
+    "physical_total_rooms": 43,
+    "public_observed_max": 16,
+    "physical_source": "fsa_registry",
+    "public_source": "travelline",
     "categories": [
       {
         "id": "tl_34187",
         "name": "Стандартный номер с 1 двуспальной кроватью",
         "source_room_id": "34187",
-        "total_rooms": 3
+        "physical_total_rooms": null,
+        "public_observed_max": 3
       },
       {
         "id": "tl_34493",
         "name": "Стандартный номер с 2 односпальными кроватями",
         "source_room_id": "34493",
-        "total_rooms": 3
+        "physical_total_rooms": null,
+        "public_observed_max": 3
       },
       {
         "id": "tl_34188",
         "name": "Делюкс с 1 двуспальной кроватью",
         "source_room_id": "34188",
-        "total_rooms": 3
+        "physical_total_rooms": null,
+        "public_observed_max": 3
       },
       {
         "id": "tl_34189",
         "name": "Представительский двухкомнатный Люкс с 1 спальней",
         "source_room_id": "34189",
-        "total_rooms": 3
+        "physical_total_rooms": null,
+        "public_observed_max": 3
       },
       {
         "id": "tl_34191",
         "name": "Семейный трехкомнатный Люкс \"Екатерининские Палаты\" с 2 спальнями",
         "source_room_id": "34191",
-        "total_rooms": 2
+        "physical_total_rooms": null,
+        "public_observed_max": 2
       },
       {
         "id": "tl_34190",
         "name": "Императорский трехкомнатный Люкс \"Петровские Палаты\" с 1 спальней",
         "source_room_id": "34190",
-        "total_rooms": 2
+        "physical_total_rooms": null,
+        "public_observed_max": 2
       }
     ]
   },
@@ -81,9 +89,13 @@
   "collection": {
     "enabled": true,
     "days_ahead": 60,
-    "adults": [1],
+    "adults": [
+      1
+    ],
     "children_ages": [],
     "rooms": 1,
-    "nights": [1]
+    "nights": [
+      1
+    ]
   }
 }

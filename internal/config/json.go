@@ -55,9 +55,11 @@ func Parse(data []byte) (Config, error) {
 func validateJSONFields(data []byte) error {
 	var fields struct {
 		Inventory struct {
-			TotalRooms json.RawMessage `json:"total_rooms"`
-			Categories []struct {
-				TotalRooms json.RawMessage `json:"total_rooms"`
+			PhysicalTotalRooms json.RawMessage `json:"physical_total_rooms"`
+			PublicObservedMax  json.RawMessage `json:"public_observed_max"`
+			Categories         []struct {
+				PhysicalTotalRooms json.RawMessage `json:"physical_total_rooms"`
+				PublicObservedMax  json.RawMessage `json:"public_observed_max"`
 			} `json:"categories"`
 		} `json:"inventory"`
 		Rates []struct {
@@ -67,12 +69,12 @@ func validateJSONFields(data []byte) error {
 	if err := json.Unmarshal(data, &fields); err != nil {
 		return fmt.Errorf("decode config fields: %w", err)
 	}
-	if len(fields.Inventory.TotalRooms) == 0 {
-		return fmt.Errorf("inventory.total_rooms: required field (use null for unknown)")
+	if len(fields.Inventory.PhysicalTotalRooms) == 0 || len(fields.Inventory.PublicObservedMax) == 0 {
+		return fmt.Errorf("inventory.physical_total_rooms and public_observed_max: required fields (use null for unknown)")
 	}
 	for index, category := range fields.Inventory.Categories {
-		if len(category.TotalRooms) == 0 {
-			return fmt.Errorf("inventory.categories[%d].total_rooms: required field (use null for unknown)", index)
+		if len(category.PhysicalTotalRooms) == 0 || len(category.PublicObservedMax) == 0 {
+			return fmt.Errorf("inventory.categories[%d].physical_total_rooms and public_observed_max: required fields (use null for unknown)", index)
 		}
 	}
 	// encoding/json принимает null для bool как нулевое значение; тариф требует boolean.

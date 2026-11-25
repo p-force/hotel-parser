@@ -79,7 +79,7 @@ func testGroups(t *testing.T, baseURL string) Registry {
 	p.Hotel.Source.BaseURL = baseURL
 	p.Hotel.Inventory.Categories = p.Hotel.Inventory.Categories[:1]
 	p.Hotel.Inventory.Categories[0].SourceRoomID = "1"
-	p.Hotel.Inventory.TotalRooms = p.Hotel.Inventory.Categories[0].TotalRooms
+	p.Hotel.Inventory.PublicObservedMax = p.Hotel.Inventory.Categories[0].PublicObservedMax
 	r.Groups[0].Schema = a
 	second := r.Groups[0]
 	second.ID = "second"

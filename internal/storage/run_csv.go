@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// runCSVColumns — стабильный контракт CSV v1. Пустая ячейка обозначает SQL NULL.
+// runCSVColumns — контракт CSV v2: первые 35 колонок сохранены из v1. Пустая ячейка обозначает SQL NULL.
 var runCSVColumns = []string{
 	"group_id", "schema", "property_id", "source", "source_property_id",
 	"run_id", "run_started_at", "run_finished_at", "run_status", "job_id", "job_status",
@@ -15,6 +15,9 @@ var runCSVColumns = []string{
 	"collected_at", "attempt_started_at", "attempt_finished_at", "attempt_outcome", "http_status", "error_code",
 	"category_id", "category_name", "area_m2", "stock_status", "available",
 	"variant_id", "rate_id", "rate_name", "price", "currency", "reported_quantity",
+	"property_physical_total_rooms", "property_public_observed_max", "property_physical_source", "property_public_source",
+	"category_physical_total_rooms", "category_public_observed_max",
+	"attempt_warning_codes", "category_warning_codes", "has_offers", "confirmed_unavailable",
 }
 
 // WriteRunCSV пишет только финальную сохранённую попытку каждого job одного
@@ -41,11 +44,18 @@ func (s *Store) WriteRunCSV(ctx context.Context, groupID, runID string, output i
  COALESCE(o.category_id,''),COALESCE(o.category_name,''),COALESCE(o.area_m2::text,''),
  COALESCE(o.stock_status,''),COALESCE(o.available::text,''),
  COALESCE(f.variant_id,''),COALESCE(f.rate_id,''),COALESCE(f.rate_name,''),
- COALESCE(f.price::text,''),COALESCE(f.currency,''),COALESCE(f.reported_quantity::text,'')
+ COALESCE(f.price::text,''),COALESCE(f.currency,''),COALESCE(f.reported_quantity::text,''),
+ COALESCE(ri.physical_total_rooms::text,''),COALESCE(ri.public_observed_max::text,''),
+ COALESCE(ri.physical_source,''),COALESCE(ri.public_source,''),
+ COALESCE(ci.physical_total_rooms::text,''),COALESCE(ci.public_observed_max::text,''),
+ COALESCE(a.warnings::text,''),COALESCE(o.warnings::text,''),
+ COALESCE(o.has_offers::text,''),COALESCE(o.confirmed_unavailable::text,'')
  FROM ` + s.table("scenario_jobs") + ` j
  LEFT JOIN ` + s.table("collection_attempts") + ` a ON a.job_id=j.id AND a.attempt_no=j.attempts
  LEFT JOIN ` + s.table("observations") + ` o ON o.attempt_id=a.id
  LEFT JOIN ` + s.table("observation_offers") + ` f ON f.observation_id=o.id
+ LEFT JOIN ` + s.table("run_inventory") + ` ri ON ri.run_id=j.run_id
+ LEFT JOIN ` + s.table("run_category_inventory") + ` ci ON ci.run_id=j.run_id AND ci.source_room_id=o.category_id
  WHERE j.run_id=$1::uuid
  ORDER BY j.check_in,j.check_out,j.adults,j.rooms,j.id,o.category_id,f.variant_id,f.rate_id`
 	rows, err := s.db.QueryContext(ctx, query, run.ID)
@@ -64,7 +74,7 @@ func (s *Store) WriteRunCSV(ctx context.Context, groupID, runID string, output i
 		if err := ctx.Err(); err != nil {
 			return count, err
 		}
-		fields := make([]string, 28)
+		fields := make([]string, len(runCSVColumns)-7)
 		dest := make([]any, len(fields))
 		for i := range fields {
 			dest[i] = &fields[i]

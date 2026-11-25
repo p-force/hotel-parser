@@ -121,7 +121,7 @@ func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
 			t.Fatal("upload differs from committed PostgreSQL CSV")
 		}
 		rows, err := csv.NewReader(bytes.NewReader(expected.Bytes())).ReadAll()
-		if err != nil || len(rows) < 2 || len(rows[0]) != 35 {
+		if err != nil || len(rows) < 2 || len(rows[0]) != 45 {
 			t.Fatal(len(rows), err)
 		}
 	}

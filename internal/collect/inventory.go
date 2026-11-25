@@ -9,7 +9,7 @@ import (
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
 )
 
-// InventoryIncrease описывает обнаруженное увеличение относительно конфигурации.
+// InventoryIncrease описывает обнаруженное увеличение public_observed_max относительно конфигурации.
 // Не означает, что конфигурация или физический фонд PMS были изменены.
 type InventoryIncrease struct {
 	CategoryID   string
@@ -20,7 +20,7 @@ type InventoryIncrease struct {
 }
 
 // DetectInventoryIncreases сравнивает один нормализованный сценарий с валидированной
-// конфигурацией. Возвращает увеличения и диагностику без изменения входных данных.
+// публичным максимумом конфигурации. Возвращает увеличения и диагностику без изменения входных данных.
 // Неизвестные и повторяющиеся категории исключаются из сравнения с предупреждением.
 // Оба списка упорядочены по CategoryID (Context у предупреждений).
 func DetectInventoryIncreases(stocks []CategoryStock, inventory config.InventoryConfig) ([]InventoryIncrease, []bnovo.ParseWarning) {
@@ -48,15 +48,15 @@ func DetectInventoryIncreases(stocks []CategoryStock, inventory config.Inventory
 			warnings = append(warnings, bnovo.ParseWarning{Code: "inventory_stock_duplicate", Message: "expected one normalized stock per category and scenario", Context: id})
 			continue
 		}
-		if category.TotalRooms == nil {
-			warnings = append(warnings, bnovo.ParseWarning{Code: "inventory_max_unknown", Message: "configured maximum is unknown; comparison skipped", Context: id})
+		if category.PublicObservedMax == nil {
+			warnings = append(warnings, bnovo.ParseWarning{Code: "inventory_max_unknown", Message: "configured public maximum is unknown; comparison skipped", Context: id})
 			continue
 		}
-		if stock.Status != StockKnown || stock.Available == nil || *stock.Available <= *category.TotalRooms {
+		if stock.Status != StockKnown || stock.Available == nil || *stock.Available <= *category.PublicObservedMax {
 			continue
 		}
 		increases = append(increases, InventoryIncrease{
-			CategoryID: id, CategoryName: category.Name, PreviousMax: *category.TotalRooms,
+			CategoryID: id, CategoryName: category.Name, PreviousMax: *category.PublicObservedMax,
 			Observed: *stock.Available, NewMax: *stock.Available,
 		})
 	}

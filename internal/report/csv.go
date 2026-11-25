@@ -61,7 +61,7 @@ func Generate(ctx context.Context, store *storage.Store, groupID, directory, run
 		artifact.ErrorCode = "csv_run_incomplete"
 		return artifact, storage.ErrIncomplete
 	}
-	artifact.Path = filepath.Join(directory, "v1", pathComponent(store.Schema()), pathComponent(groupID), pathComponent(run.PropertyID), run.StartedAt.UTC().Format("20060102T150405Z"), run.ID+".csv")
+	artifact.Path = filepath.Join(directory, "v2", pathComponent(store.Schema()), pathComponent(groupID), pathComponent(run.PropertyID), run.StartedAt.UTC().Format("20060102T150405Z"), run.ID+".csv")
 	if err := ctx.Err(); err != nil {
 		return artifact, err
 	}

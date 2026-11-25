@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"github.com/p-force/hotel-parser/internal/collect"
+	"github.com/p-force/hotel-parser/internal/config"
 	"github.com/p-force/hotel-parser/internal/storage"
 )
 
@@ -15,6 +16,7 @@ type Plan struct {
 	Schema    string
 	Run       storage.RunInput
 	Scenarios []storage.Scenario
+	Inventory config.InventoryConfig
 }
 
 // DueSlots возвращает наступившие слоты текущего московского дня.
@@ -94,7 +96,7 @@ func BuildPlans(registry Registry, slot time.Time) ([]Plan, error) {
 			hash[6] = (hash[6] & 0x0f) | 0x50
 			hash[8] = (hash[8] & 0x3f) | 0x80
 			id := fmt.Sprintf("%x-%x-%x-%x-%x", hash[:4], hash[4:6], hash[6:8], hash[8:10], hash[10:16])
-			plan := Plan{GroupID: group.ID, Schema: group.Schema, Run: storage.RunInput{ID: id, PropertyID: hotel.ID, PeriodStart: today, PeriodEnd: today.AddDate(0, 0, horizon+los), StartedAt: slot.UTC()}}
+			plan := Plan{GroupID: group.ID, Schema: group.Schema, Inventory: hotel.Inventory, Run: storage.RunInput{ID: id, PropertyID: hotel.ID, PeriodStart: today, PeriodEnd: today.AddDate(0, 0, horizon+los), StartedAt: slot.UTC()}}
 			origin, err := collect.SourceKey(hotel.Source.BaseURL)
 			if err != nil {
 				return nil, err

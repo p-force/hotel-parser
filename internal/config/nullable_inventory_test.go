@@ -16,23 +16,35 @@ func TestNullableInventory(t *testing.T) {
 		wantErr      string
 	}{
 		{"known_values", func(map[string]any, []any) {}, roomsPtr(19), roomsPtr(10), ""},
-		{"unknown_total", func(i map[string]any, c []any) { i["total_rooms"] = nil }, nil, roomsPtr(10), ""},
-		{"unknown_category", func(i map[string]any, c []any) { c[0].(map[string]any)["total_rooms"] = nil }, roomsPtr(19), nil, ""},
-		{"unknown_total_and_category", func(i map[string]any, c []any) { i["total_rooms"] = nil; c[0].(map[string]any)["total_rooms"] = nil }, nil, nil, ""},
-		{"partial_known_total_not_compared_to_subtotal", func(i map[string]any, c []any) { i["total_rooms"] = 20; c[0].(map[string]any)["total_rooms"] = nil }, roomsPtr(20), nil, ""},
-		{"known_total_mismatch", func(i map[string]any, c []any) { i["total_rooms"] = 20 }, nil, nil, "sum of categories"},
-		{"zero_total", func(i map[string]any, c []any) { i["total_rooms"] = 0 }, nil, nil, "total_rooms: must be positive"},
-		{"negative_total", func(i map[string]any, c []any) { i["total_rooms"] = -1 }, nil, nil, "total_rooms: must be positive"},
-		{"zero_category", func(i map[string]any, c []any) { c[0].(map[string]any)["total_rooms"] = 0 }, nil, nil, "categories[0].total_rooms: must be positive"},
-		{"negative_category", func(i map[string]any, c []any) { c[0].(map[string]any)["total_rooms"] = -1 }, nil, nil, "categories[0].total_rooms: must be positive"},
-		{"missing_total", func(i map[string]any, c []any) { delete(i, "total_rooms") }, nil, nil, "inventory.total_rooms: required"},
-		{"missing_category_total", func(i map[string]any, c []any) { delete(c[0].(map[string]any), "total_rooms") }, nil, nil, "categories[0].total_rooms: required"},
-		{"missing_category_with_unknown_total", func(i map[string]any, c []any) { i["total_rooms"] = nil; delete(c[0].(map[string]any), "total_rooms") }, nil, nil, "categories[0].total_rooms: required"},
-		{"fractional_total", func(i map[string]any, c []any) { i["total_rooms"] = 19.5 }, nil, nil, "cannot unmarshal"},
-		{"fractional_category", func(i map[string]any, c []any) { c[0].(map[string]any)["total_rooms"] = 1.5 }, nil, nil, "cannot unmarshal"},
+		{"unknown_total", func(i map[string]any, c []any) { i["physical_total_rooms"] = nil }, nil, roomsPtr(10), ""},
+		{"unknown_category", func(i map[string]any, c []any) { c[0].(map[string]any)["physical_total_rooms"] = nil }, roomsPtr(19), nil, ""},
+		{"unknown_total_and_category", func(i map[string]any, c []any) {
+			i["physical_total_rooms"] = nil
+			c[0].(map[string]any)["physical_total_rooms"] = nil
+		}, nil, nil, ""},
+		{"partial_known_total_not_compared_to_subtotal", func(i map[string]any, c []any) {
+			i["physical_total_rooms"] = 20
+			c[0].(map[string]any)["physical_total_rooms"] = nil
+		}, roomsPtr(20), nil, ""},
+		{"known_total_mismatch", func(i map[string]any, c []any) {
+			i["physical_total_rooms"] = 20
+			i["categories_form_complete_partition"] = true
+		}, nil, nil, "sum of categories"},
+		{"zero_total", func(i map[string]any, c []any) { i["physical_total_rooms"] = 0 }, nil, nil, "physical_total_rooms: must be positive"},
+		{"negative_total", func(i map[string]any, c []any) { i["physical_total_rooms"] = -1 }, nil, nil, "physical_total_rooms: must be positive"},
+		{"zero_category", func(i map[string]any, c []any) { c[0].(map[string]any)["physical_total_rooms"] = 0 }, nil, nil, "categories[0].physical_total_rooms: must be positive"},
+		{"negative_category", func(i map[string]any, c []any) { c[0].(map[string]any)["physical_total_rooms"] = -1 }, nil, nil, "categories[0].physical_total_rooms: must be positive"},
+		{"missing_total", func(i map[string]any, c []any) { delete(i, "physical_total_rooms") }, nil, nil, "required fields"},
+		{"missing_category_total", func(i map[string]any, c []any) { delete(c[0].(map[string]any), "physical_total_rooms") }, nil, nil, "required fields"},
+		{"missing_category_with_unknown_total", func(i map[string]any, c []any) {
+			i["physical_total_rooms"] = nil
+			delete(c[0].(map[string]any), "physical_total_rooms")
+		}, nil, nil, "required fields"},
+		{"fractional_total", func(i map[string]any, c []any) { i["physical_total_rooms"] = 19.5 }, nil, nil, "cannot unmarshal"},
+		{"fractional_category", func(i map[string]any, c []any) { c[0].(map[string]any)["physical_total_rooms"] = 1.5 }, nil, nil, "cannot unmarshal"},
 		{"duplicate_ids_with_unknown_max", func(i map[string]any, c []any) {
-			i["total_rooms"] = nil
-			c[0].(map[string]any)["total_rooms"] = nil
+			i["physical_total_rooms"] = nil
+			c[0].(map[string]any)["physical_total_rooms"] = nil
 			c[1].(map[string]any)["id"] = "stadium"
 		}, nil, nil, "id: duplicate"},
 		{"duplicate_source_ids", func(i map[string]any, c []any) { c[1].(map[string]any)["source_room_id"] = "561429" }, nil, nil, "source_room_id: duplicate"},
@@ -54,7 +66,7 @@ func TestNullableInventory(t *testing.T) {
 			if err != nil {
 				t.Fatal(err)
 			}
-			if !reflect.DeepEqual(cfg.Inventory.TotalRooms, tc.total) || !reflect.DeepEqual(cfg.Inventory.Categories[0].TotalRooms, tc.first) {
+			if !reflect.DeepEqual(cfg.Inventory.PhysicalTotalRooms, tc.total) || !reflect.DeepEqual(cfg.Inventory.Categories[0].PhysicalTotalRooms, tc.first) {
 				t.Errorf("не сохранены known/unknown: %+v", cfg.Inventory)
 			}
 			roundTrip, err := json.Marshal(cfg)
@@ -80,7 +92,7 @@ func TestLoadLindsay(t *testing.T) {
 	if cfg.ID != "lindsay" || cfg.Role != "competitor" || cfg.Type != "hotel" || cfg.Source.PropertyID != "5125b29f-f39e-498a-94cf-9e47889ff248" {
 		t.Fatalf("неверные свойства Lindsay: %+v", cfg)
 	}
-	if cfg.Inventory.TotalRooms != nil || cfg.Inventory.Source != "public_observed_max" {
+	if cfg.Inventory.PhysicalTotalRooms != nil || cfg.Inventory.PhysicalSource != "" || cfg.Inventory.PublicObservedMax != nil || cfg.Inventory.PublicSource != "public_observed_max" {
 		t.Error("неизвестный общий фонд заменён суммой")
 	}
 	// Проверяем существующие локальные значения, не переоценивая их сетевыми запросами.
@@ -97,7 +109,7 @@ func TestLoadLindsay(t *testing.T) {
 	}
 	for _, category := range cfg.Inventory.Categories {
 		expected, exists := want[category.SourceRoomID]
-		if !exists || !reflect.DeepEqual(category.TotalRooms, expected) || category.Name != names[category.SourceRoomID] {
+		if !exists || category.PhysicalTotalRooms != nil || !reflect.DeepEqual(category.PublicObservedMax, expected) || category.Name != names[category.SourceRoomID] {
 			t.Errorf("изменены исходные данные категории: %+v", category)
 		}
 		delete(want, category.SourceRoomID)
@@ -119,11 +131,11 @@ func TestLoadArena33KnownInventory(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if cfg.Role != "own" || cfg.Type != "apart_hotel" || len(cfg.Rates) != 0 || cfg.Inventory.TotalRooms == nil || *cfg.Inventory.TotalRooms != 19 {
+	if cfg.Role != "own" || cfg.Type != "apart_hotel" || len(cfg.Rates) != 0 || cfg.Inventory.PhysicalTotalRooms == nil || *cfg.Inventory.PhysicalTotalRooms != 19 {
 		t.Fatalf("сломана совместимость Arena33: %+v", cfg)
 	}
 	for i, want := range []int{10, 4, 5} {
-		if cfg.Inventory.Categories[i].TotalRooms == nil || *cfg.Inventory.Categories[i].TotalRooms != want {
+		if cfg.Inventory.Categories[i].PhysicalTotalRooms == nil || *cfg.Inventory.Categories[i].PhysicalTotalRooms != want {
 			t.Errorf("категория %d потеряла максимум %d", i, want)
 		}
 	}

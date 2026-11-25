@@ -7,6 +7,8 @@ import (
 	"errors"
 	"fmt"
 	"time"
+
+	"github.com/p-force/hotel-parser/internal/config"
 )
 
 type scanner interface{ Scan(...any) error }
@@ -19,13 +21,13 @@ func scanRun(row scanner) (Run, error) {
 	return r, err
 }
 
-func (s *Store) CreateRun(ctx context.Context, input RunInput) (Run, error) {
+func (s *Store) CreateRun(ctx context.Context, input RunInput, inventory ...config.InventoryConfig) (Run, error) {
 	tx, err := s.db.BeginTx(ctx, nil)
 	if err != nil {
 		return Run{}, dbError("begin run", err)
 	}
 	defer tx.Rollback()
-	result, err := s.createRunTx(ctx, tx, input)
+	result, err := s.createRunTx(ctx, tx, input, inventory...)
 	if err != nil {
 		return Run{}, err
 	}
@@ -35,7 +37,10 @@ func (s *Store) CreateRun(ctx context.Context, input RunInput) (Run, error) {
 	return result, nil
 }
 
-func (s *Store) createRunTx(ctx context.Context, tx *sql.Tx, input RunInput) (Run, error) {
+func (s *Store) createRunTx(ctx context.Context, tx *sql.Tx, input RunInput, inventory ...config.InventoryConfig) (Run, error) {
+	if len(inventory) > 1 {
+		return Run{}, fmt.Errorf("expected at most one inventory snapshot")
+	}
 	if !validID(input.PropertyID) || len(input.PropertyID) > 128 || input.PeriodStart.IsZero() || input.PeriodEnd.IsZero() {
 		return Run{}, fmt.Errorf("invalid collection run")
 	}
@@ -51,6 +56,7 @@ func (s *Store) createRunTx(ctx context.Context, tx *sql.Tx, input RunInput) (Ru
 	input.StartedAt = stamp(input.StartedAt)
 	var id string
 	err := tx.QueryRowContext(ctx, `INSERT INTO `+s.table("collection_runs")+`(id,property_id,period_start,period_end,started_at,status) VALUES(COALESCE(NULLIF($1,'')::uuid,gen_random_uuid()),$2,$3::date,$4::date,$5,'running') ON CONFLICT DO NOTHING RETURNING id::text`, input.ID, input.PropertyID, input.PeriodStart.Format("2006-01-02"), input.PeriodEnd.Format("2006-01-02"), input.StartedAt).Scan(&id)
+	created := err == nil
 	if errors.Is(err, sql.ErrNoRows) {
 		id = input.ID
 	} else if err != nil {
@@ -62,6 +68,11 @@ func (s *Store) createRunTx(ctx context.Context, tx *sql.Tx, input RunInput) (Ru
 	}
 	if result.PropertyID != input.PropertyID || !result.PeriodStart.Equal(input.PeriodStart) || !result.PeriodEnd.Equal(input.PeriodEnd) || (explicitStart && !result.StartedAt.Equal(input.StartedAt)) {
 		return Run{}, ErrConflict
+	}
+	if created && len(inventory) == 1 {
+		if err := s.saveRunInventoryTx(ctx, tx, id, inventory[0]); err != nil {
+			return Run{}, err
+		}
 	}
 	return result, nil
 }

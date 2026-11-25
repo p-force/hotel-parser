@@ -162,7 +162,7 @@ func TestPostgresMixedSourcesInvalidCurrency(t *testing.T) {
 	b.Collection.Enabled = true
 	a.Inventory.Categories = a.Inventory.Categories[:1]
 	a.Inventory.Categories[0].SourceRoomID = "1"
-	a.Inventory.TotalRooms = a.Inventory.Categories[0].TotalRooms
+	a.Inventory.PublicObservedMax = a.Inventory.Categories[0].PublicObservedMax
 	info, body := travelLineRegressionFixture(t)
 	info = []byte(strings.ReplaceAll(string(info), "RUB", "rub"))
 	body = []byte(strings.ReplaceAll(string(body), "RUB", "rub"))
@@ -299,7 +299,7 @@ func TestPostgresTravelLineConflictingQuantitiesRoundTrip(t *testing.T) {
 	cfg.Collection.Enabled = true
 	cfg.Source.BaseURL = server.URL
 	cfg.Inventory.Categories = cfg.Inventory.Categories[:1]
-	cfg.Inventory.TotalRooms = cfg.Inventory.Categories[0].TotalRooms
+	cfg.Inventory.PublicObservedMax = cfg.Inventory.Categories[0].PublicObservedMax
 	cfg.Rates = []config.RateConfig{{ID: "128299", Name: "Public A", Enabled: true}, {ID: "128301", Name: "Public B", Enabled: true}}
 	registry := Registry{Groups: []Group{{ID: "aerostar", Schema: schema, Properties: []Property{{Hotel: cfg}}}}}
 	s := testService(t, registry, nil, collect.RuntimeOptions{MaxJobs: 1})

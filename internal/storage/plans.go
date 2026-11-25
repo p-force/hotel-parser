@@ -7,11 +7,13 @@ import (
 	"errors"
 	"fmt"
 	"sort"
+
+	"github.com/p-force/hotel-parser/internal/config"
 )
 
 // PlanRun публикует весь план атомарно: runner не видит частично созданный run.
 // Стабильный ID задаёт planner; изменение сценариев при повторе слота — конфликт.
-func (s *Store) PlanRun(ctx context.Context, input RunInput, scenarios []Scenario) (Run, error) {
+func (s *Store) PlanRun(ctx context.Context, input RunInput, scenarios []Scenario, inventory ...config.InventoryConfig) (Run, error) {
 	if input.ID == "" || len(scenarios) == 0 {
 		return Run{}, fmt.Errorf("plan requires stable run ID and scenarios")
 	}
@@ -37,7 +39,7 @@ func (s *Store) PlanRun(ctx context.Context, input RunInput, scenarios []Scenari
 		return Run{}, dbError("begin plan", err)
 	}
 	defer tx.Rollback()
-	run, err := s.createRunTx(ctx, tx, input)
+	run, err := s.createRunTx(ctx, tx, input, inventory...)
 	if err != nil {
 		return Run{}, err
 	}

@@ -241,7 +241,7 @@ func TestPostgresAutomaticCSVSourceAndGroupIsolation(t *testing.T) {
 	b.ID = "same_hotel"
 	a.Inventory.Categories = a.Inventory.Categories[:1]
 	a.Inventory.Categories[0].SourceRoomID = "1"
-	a.Inventory.TotalRooms = a.Inventory.Categories[0].TotalRooms
+	a.Inventory.PublicObservedMax = a.Inventory.Categories[0].PublicObservedMax
 	info, body := travelLineRegressionFixture(t)
 	var calls atomic.Int32
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

@@ -233,7 +233,7 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 			stores[g.ID] = g.Store
 		}
 		for _, p := range plans {
-			run, e := stores[p.GroupID].PlanRun(ctx, p.Run, p.Scenarios)
+			run, e := stores[p.GroupID].PlanRun(ctx, p.Run, p.Scenarios, p.Inventory)
 			if e != nil {
 				return response, e
 			}
