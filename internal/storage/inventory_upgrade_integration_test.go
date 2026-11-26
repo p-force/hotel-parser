@@ -49,7 +49,7 @@ func TestPostgresInventoryUpgradePreservesHistory(t *testing.T) {
 	defer store.Close()
 	run, job := runJob(t, store, "legacy")
 	input := attempt(job.ID)
-	if _, err := store.SaveAttempt(ctx, input); err != nil {
+	if _, err := storage.SavePreReasonAttemptForTest(ctx, store, input); err != nil {
 		t.Fatal(err)
 	}
 	if _, err := store.FinishRun(ctx, run.ID); err != nil {
@@ -62,7 +62,7 @@ func TestPostgresInventoryUpgradePreservesHistory(t *testing.T) {
 	before := map[string]string{}
 	for _, table := range tables {
 		var data string
-		if err := db.QueryRow(`SELECT COALESCE(jsonb_agg(to_jsonb(t) ORDER BY to_jsonb(t)::text),'[]'::jsonb)::text FROM ` + q + `.` + table + ` t`).Scan(&data); err != nil {
+		if err := db.QueryRow(`SELECT COALESCE(jsonb_agg(to_jsonb(t) - 'unavailability_reason' ORDER BY (to_jsonb(t) - 'unavailability_reason')::text),'[]'::jsonb)::text FROM ` + q + `.` + table + ` t`).Scan(&data); err != nil {
 			t.Fatal(err)
 		}
 		before[table] = data
@@ -74,9 +74,14 @@ func TestPostgresInventoryUpgradePreservesHistory(t *testing.T) {
 	}
 	for _, table := range tables {
 		var data string
-		if err := db.QueryRow(`SELECT COALESCE(jsonb_agg(to_jsonb(t) ORDER BY to_jsonb(t)::text),'[]'::jsonb)::text FROM ` + q + `.` + table + ` t`).Scan(&data); err != nil || data != before[table] {
+		if err := db.QueryRow(`SELECT COALESCE(jsonb_agg(to_jsonb(t) - 'unavailability_reason' ORDER BY (to_jsonb(t) - 'unavailability_reason')::text),'[]'::jsonb)::text FROM ` + q + `.` + table + ` t`).Scan(&data); err != nil || data != before[table] {
 			t.Fatal("history changed", table, err)
 		}
+	}
+	// 0009 adds only NULL metadata; old column values must remain identical.
+	var reasons int
+	if err := db.QueryRow(`SELECT count(*) FROM ` + q + `.observations WHERE unavailability_reason IS NOT NULL`).Scan(&reasons); err != nil || reasons != 0 {
+		t.Fatal("historical reasons backfilled", reasons, err)
 	}
 	inventory, err := store.GetRunInventory(ctx, run.ID)
 	if err != nil || inventory != nil {
@@ -107,7 +112,7 @@ func TestPostgresInventoryUpgradePreservesHistory(t *testing.T) {
 		t.Fatal(inventory, err)
 	}
 	var versions int
-	if err := db.QueryRow(`SELECT count(*) FROM ` + q + `.schema_migrations`).Scan(&versions); err != nil || versions != 8 {
+	if err := db.QueryRow(`SELECT count(*) FROM ` + q + `.schema_migrations`).Scan(&versions); err != nil || versions != 10 {
 		t.Fatal(versions, err)
 	}
 	// Original ledger checksums and provenance remain intact after the forward migration.

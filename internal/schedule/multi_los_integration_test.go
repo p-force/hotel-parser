@@ -242,7 +242,7 @@ func TestPostgresMultiLOSSourcesResumeRecoveryAndDelivery(t *testing.T) {
 	}
 	for _, raw := range mock.files {
 		records, err := csv.NewReader(bytes.NewReader(raw)).ReadAll()
-		if err != nil || len(records) != 4 || len(records[0]) != 35 {
+		if err != nil || len(records) != 4 || len(records[0]) != 36 {
 			t.Fatal(records, err)
 		}
 		index := map[string]int{}
@@ -339,7 +339,7 @@ func TestPostgresMultiLOSMorningMaxJobs64(t *testing.T) {
 	}
 	for _, body := range mock.files {
 		records, err := csv.NewReader(bytes.NewReader(body)).ReadAll()
-		if err != nil || len(records) != 78 || len(records[0]) != 35 {
+		if err != nil || len(records) != 78 || len(records[0]) != 36 {
 			t.Fatal(len(records), err)
 		}
 		column := 0

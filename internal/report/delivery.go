@@ -108,6 +108,9 @@ func (u *YandexDiskUploader) uploadRun(ctx context.Context, store *storage.Store
 			return err
 		}
 	}
+	if strings.HasSuffix(d.RemotePath, ".v4.csv") {
+		return u.upload(ctx, d.RemotePath, writer("v4"))
+	}
 	if strings.HasSuffix(d.RemotePath, ".v3.csv") {
 		return u.upload(ctx, d.RemotePath, writer("v3"))
 	}

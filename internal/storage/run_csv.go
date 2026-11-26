@@ -8,7 +8,10 @@ import (
 	"time"
 )
 
-// runCSVColumns — аналитический контракт CSV v3, ровно 35 колонок.
+// CurrentRunCSVFormat задаёт формат новых экспортов, кеша и delivery.
+const CurrentRunCSVFormat = "v4"
+
+// runCSVColumns — аналитический контракт CSV v4, ровно 36 колонок.
 // Пустая ячейка означает SQL NULL; предупреждения остаются JSON-массивами.
 var runCSVColumns = []string{
 	"group_id", "property_id", "source", "run_id", "run_started_at", "job_status",
@@ -18,9 +21,10 @@ var runCSVColumns = []string{
 	"property_physical_total_rooms", "property_public_observed_max", "property_physical_source", "property_public_source",
 	"category_physical_total_rooms", "category_public_observed_max",
 	"attempt_warning_codes", "category_warning_codes", "has_offers", "confirmed_unavailable",
+	"unavailability_reason",
 }
 
-// legacyCSVColumns сохраняет точные байты старых доставок. В аналитическом v3
+// legacyCSVColumns сохраняет точные байты старых доставок. В аналитическом v3/v4
 // эти служебные колонки не публикуются.
 var legacyCSVColumns = []string{
 	"group_id", "schema", "property_id", "source", "source_property_id",
@@ -40,16 +44,18 @@ var legacyCSVColumns = []string{
 // количества jobs/offers. Метод не требует локального диска и не исполняет HTTP.
 // При ошибке writer может содержать префикс CSV: публикация — обязанность вызывающего.
 func (s *Store) WriteRunCSV(ctx context.Context, groupID, runID string, output io.Writer) (int64, error) {
-	return s.WriteRunCSVFormat(ctx, groupID, runID, "v3", output)
+	return s.WriteRunCSVFormat(ctx, groupID, runID, CurrentRunCSVFormat, output)
 }
 
 // WriteRunCSVFormat воспроизводит неизменяемые старые форматы для delivery recovery.
-// Новая аналитическая выгрузка всегда вызывает WriteRunCSV (v3).
+// Новая аналитическая выгрузка всегда вызывает WriteRunCSV (v4).
 func (s *Store) WriteRunCSVFormat(ctx context.Context, groupID, runID, format string, output io.Writer) (int64, error) {
 	var columns []string
 	switch format {
-	case "v3":
+	case "v4":
 		columns = runCSVColumns
+	case "v3":
+		columns = runCSVColumns[:35]
 	case "v2":
 		columns = legacyCSVColumns
 	case "v2-inventory":
@@ -59,9 +65,10 @@ func (s *Store) WriteRunCSVFormat(ctx context.Context, groupID, runID, format st
 	default:
 		return 0, fmt.Errorf("unsupported CSV format")
 	}
+	projectionColumns := append(append([]string{}, legacyCSVColumns...), "unavailability_reason")
 	indices := make([]int, len(columns))
 	for i, name := range columns {
-		for j, legacy := range legacyCSVColumns {
+		for j, legacy := range projectionColumns {
 			if name == legacy {
 				indices[i] = j
 				break
@@ -76,6 +83,12 @@ func (s *Store) WriteRunCSVFormat(ctx context.Context, groupID, runID, format st
 		return 0, ErrIncomplete
 	}
 	const stamp = `'YYYY-MM-DD"T"HH24:MI:SS.US"Z"'`
+	reasonSQL := ""
+	fieldCount := len(legacyCSVColumns) - 7
+	if format == "v4" {
+		reasonSQL = ",COALESCE(o.unavailability_reason,'')"
+		fieldCount++
+	}
 	query := `SELECT j.source,j.source_property_id,j.id::text,j.status,
  to_char(j.check_in,'YYYY-MM-DD'),to_char(j.check_out,'YYYY-MM-DD'),j.los::text,j.adults::text,j.rooms::text,
  COALESCE(a.id::text,''),COALESCE(a.attempt_no::text,''),
@@ -91,7 +104,7 @@ func (s *Store) WriteRunCSVFormat(ctx context.Context, groupID, runID, format st
  COALESCE(ri.physical_source,''),COALESCE(ri.public_source,''),
  COALESCE(ci.physical_total_rooms::text,''),COALESCE(ci.public_observed_max::text,''),
  COALESCE(a.warnings::text,''),COALESCE(o.warnings::text,''),
- COALESCE(o.has_offers::text,''),COALESCE(o.confirmed_unavailable::text,'')
+ COALESCE(o.has_offers::text,''),COALESCE(o.confirmed_unavailable::text,'')` + reasonSQL + `
  FROM ` + s.table("scenario_jobs") + ` j
  LEFT JOIN ` + s.table("collection_attempts") + ` a ON a.job_id=j.id AND a.attempt_no=j.attempts
  LEFT JOIN ` + s.table("observations") + ` o ON o.attempt_id=a.id
@@ -116,7 +129,7 @@ func (s *Store) WriteRunCSVFormat(ctx context.Context, groupID, runID, format st
 		if err := ctx.Err(); err != nil {
 			return count, err
 		}
-		fields := make([]string, len(legacyCSVColumns)-7)
+		fields := make([]string, fieldCount)
 		dest := make([]any, len(fields))
 		for i := range fields {
 			dest[i] = &fields[i]

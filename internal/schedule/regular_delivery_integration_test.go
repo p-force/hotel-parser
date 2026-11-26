@@ -24,11 +24,16 @@ import (
 )
 
 func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
+	t.Setenv("HOTEL_PARSER_BOOKING_RULES_ENABLED", "true")
 	t.Setenv("HOTEL_PARSER_CSV_DIR", t.TempDir())
 	t.Setenv("YANDEX_DISK_DIR", "/hotel-parser-test")
 	info, body := travelLineRegressionFixture(t)
 	var calls atomic.Int32
+	var bookingCalls atomic.Int32
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if respondEmptyBookingRules(w, r, &bookingCalls) {
+			return
+		}
 		calls.Add(1)
 		switch r.URL.Path {
 		case "/ApiWebDistribution/BookingForm/hotel_info":
@@ -84,7 +89,7 @@ func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
 	if _, err := s.Execute(context.Background(), Request{Action: "resume"}); err != nil {
 		t.Fatal(err)
 	}
-	if calls.Load() != 3 || mock.puts != 2 {
+	if calls.Load() != 3 || bookingCalls.Load() != 1 || mock.puts != 2 {
 		t.Fatal("unexpected collection or failed upload count", calls.Load(), mock.puts)
 	}
 	for _, d := range deliveryState(t, s) {
@@ -107,11 +112,11 @@ func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
 		t.Fatal(err)
 	}
 	ds := deliveryState(t, s)
-	if len(ds) != 2 || mock.puts != 4 || calls.Load() != 3 {
+	if len(ds) != 2 || mock.puts != 4 || calls.Load() != 3 || bookingCalls.Load() != 1 {
 		t.Fatal(ds, mock.puts, calls.Load())
 	}
 	for _, d := range ds {
-		if d.State != "delivered" || d.Attempts != 2 || !strings.HasPrefix(d.RemotePath, "/hotel-parser-test/arena33/") || !strings.HasSuffix(d.RemotePath, "/2026-11-17_20-00.v3.csv") {
+		if d.State != "delivered" || d.Attempts != 2 || !strings.HasPrefix(d.RemotePath, "/hotel-parser-test/arena33/") || !strings.HasSuffix(d.RemotePath, "/2026-11-17_20-00.v4.csv") {
 			t.Fatal(d)
 		}
 		var expected bytes.Buffer
@@ -122,7 +127,7 @@ func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
 			t.Fatal("upload differs from committed PostgreSQL CSV")
 		}
 		rows, err := csv.NewReader(bytes.NewReader(expected.Bytes())).ReadAll()
-		if err != nil || len(rows) < 2 || len(rows[0]) != 35 {
+		if err != nil || len(rows) < 2 || len(rows[0]) != 36 {
 			t.Fatal(len(rows), err)
 		}
 	}
@@ -131,7 +136,7 @@ func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
 			t.Fatal(err)
 		}
 	}
-	if calls.Load() != 3 || mock.puts != 4 {
+	if calls.Load() != 3 || bookingCalls.Load() != 1 || mock.puts != 4 {
 		t.Fatal("resume repeated source or PUT", calls.Load(), mock.puts)
 	}
 }
