@@ -59,7 +59,7 @@ func TestPostgresQuotasUpgradeFrom0007WithoutBackfill(t *testing.T) {
 	defer store.Close()
 	_, job := runJob(t, store, "legacy")
 	input := attempt(job.ID)
-	id, err := store.SaveAttempt(ctx, input)
+	id, err := storage.SavePreReasonAttemptForTest(ctx, store, input)
 	if err != nil {
 		t.Fatal(err)
 	}

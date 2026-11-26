@@ -116,6 +116,11 @@ type Attempt struct {
 	AttemptInput
 }
 
+// UnavailabilityReason — явно установленная причина недоступности категории.
+type UnavailabilityReason string
+
+const UnavailabilityReasonBookingForbidden UnavailabilityReason = "booking_forbidden"
+
 // Observation — один публичный остаток физической категории в одной попытке.
 // Тарифы и варианты — измерения; их количества не складываются.
 type Observation struct {
@@ -124,9 +129,12 @@ type Observation struct {
 	Available                       *int
 	StockStatus                     StockStatus
 	HasOffers, ConfirmedUnavailable bool
-	Warnings                        []Warning
-	Variants                        []Variant
-	Offers                          []Offer
+	// nil сохраняет совместимость с наблюдениями без установленной причины.
+	// omitempty не меняет canonical payload исторических наблюдений.
+	UnavailabilityReason *UnavailabilityReason `json:",omitempty"`
+	Warnings             []Warning
+	Variants             []Variant
+	Offers               []Offer
 }
 type Variant struct {
 	ID     string

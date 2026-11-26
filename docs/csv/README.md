@@ -1,11 +1,11 @@
-# Аналитический CSV завершённого run — v3
+# Аналитический CSV завершённого run — v4
 
 `collection` экспортирует committed результаты завершённого run после остановки
 workers и освобождения runner lock. Незавершённые runs пропускаются. Экспорт не
 делает HTTP к отелям; ошибка файла не меняет результат сбора. Доставка на Диск
 использует тот же потоковый экспорт из PostgreSQL и отдельный delivery ledger.
 
-## Контракт: ровно 35 колонок
+## Контракт: ровно 36 колонок
 
 UTF-8, запятая, стандартный escaping `encoding/csv`, без BOM. Цены и площади —
 точные PostgreSQL NUMERIC text. Timestamp — UTC ISO8601. Пустая ячейка — SQL NULL,
@@ -28,6 +28,7 @@ UTF-8, запятая, стандартный escaping `encoding/csv`, без BO
 | `category_physical_total_rooms`, `category_public_observed_max` | Показатели категории; без подстановки общего фонда |
 | `attempt_warning_codes`, `category_warning_codes` | Раздельные JSON-массивы сохранённых объектов Code/Context |
 | `has_offers`, `confirmed_unavailable` | Признаки observation: true/false, пусто без observation |
+| `unavailability_reason` (36-я) | Сохранённая причина `booking_forbidden`; SQL NULL и отсутствие observation — пустая ячейка |
 
 В v3 удалены `schema`, `source_property_id`, `run_finished_at`, `run_status`,
 `job_id`, `attempt_id`, `attempt_no`, `attempt_started_at`, `attempt_finished_at`,
@@ -63,7 +64,7 @@ HTTP=0 отличается от отсутствующего HTTP. Ошибка
 confirmed_unavailable означает подтверждённую недоступность выбранного сценария,
 а не доказанную полную продажу физического фонда. no_offers, unknown, отсутствие
 цены и has_offers=false сами по себе не доказывают sold_out, minimum_stay,
-sales_closed или no_rate. Новая классификация причин не добавляется.
+sales_closed или no_rate. `unavailability_reason=booking_forbidden` подтверждает явный запрет по всем применимым тарифам для LOS=1; stock_status остаётся unknown и available — NULL. Другие причины не выводятся предположительно.
 
 Физический фонд и публичный максимум берутся из неизменяемого снимка run (0006).
 Для старых run без снимка шесть показателей фонда/источников пусты. Общий фонд не
@@ -71,50 +72,54 @@ sales_closed или no_rate. Новая классификация причин 
 
 [example.csv](example.csv) — иллюстративные данные, не live evidence. TravelLine:
 два положительных значения quota 9/10 дают conflict; категории без offers остаются
-unknown с confirmed_unavailable=false, весь сценарий — partial. Пример проверяется
-настоящими Parse/NormalizeCategoryStock в unit-тесте без сети. В частности, текущий
+unknown; для 4350 отдельные явные booking rules подтверждают booking_forbidden, остальные категории без offers остаются без подтверждения. Весь сценарий — partial. Пример проверяется
+настоящими Parse/NormalizeCategoryStock/ApplyTravelLineBookingRules в unit-тесте без сети. В частности, текущий
 TravelLine-парсер не объявляет известный ноль и no_offers по пустому room_stays.
 Bnovo может сохранять known=0/no_offers при точном подтверждении недоступности.
 
 ## Локальный кеш и восстановление
 
 `HOTEL_PARSER_CSV_DIR` задаёт корень; default — `<os.TempDir()>/hotel-parser-csv`.
-Новый путь: `<root>/v3/<schema>/<group>/<property>/<slot_UTC>/<run_id>.csv`.
-Старые v1/v2 файлы не переиспользуются как v3, не удаляются и не перезаписываются.
+Новый путь: `<root>/v4/<schema>/<group>/<property>/<slot_UTC>/<run_id>.csv`.
+Старые v1–v3 файлы не переиспользуются как v4, не удаляются и не перезаписываются.
 Публикация — временный файл, sync/close и атомарный rename. Незавершённый `.tmp`
-не считается готовым файлом. Одинаковый готовый v3 переиспользуется после restart.
+не считается готовым файлом. Одинаковый готовый v4 переиспользуется после restart.
 Delivered runs пропускаются автоматическим локальным экспортом.
 
 При потере кеша данные воспроизводятся из PostgreSQL без hotel HTTP:
 
 ```go
 artifact, err := report.Generate(ctx, store, groupID, directory, runID)
-rows, err := store.WriteRunCSV(ctx, groupID, runID, writer) // аналитический v3
+rows, err := store.WriteRunCSV(ctx, groupID, runID, writer) // аналитический v4
 ```
 
 Память WriteRunCSV ограничена одной строкой и буфером csv.Writer. Служебные поля
-могут читаться внутри для воспроизведения legacy delivery, но в v3 не публикуются.
+могут читаться внутри для воспроизведения legacy delivery, но в v3/v4 не публикуются.
 
 ## Яндекс Диск: формат фиксируется для доставки
 
-Новые записи ledger получают `/root/<group>/<property>/<YYYY-MM-DD_HH-mm>.v3.csv`.
+Новые записи ledger получают `/root/<group>/<property>/<YYYY-MM-DD_HH-mm>.v4.csv`.
 Минимальный суффикс версии отличает формат без новых каталогов. Старый remote_path
 никогда не обновляется (ON CONFLICT DO NOTHING), delivered не получает новый PUT.
 Структура таблицы csv_deliveries не меняется.
+
+Существующие `.v3.csv` delivery всегда воспроизводят прежние 35 колонок: как для
+проверки checksum загруженного файла, так и при восстановлении отсутствующего.
+Путь и байты не переводятся в v4. Новая причина в legacy-форматы не добавляется.
 
 Для существующих unversioned записей:
 
 - Уже загруженные v1 (35), первоначальный v2 (41) и полный v2 (45) подтверждаются
   по точному размеру/checksum. При потерянном commit следующая invocation отмечает
-  delivered без PUT, без переименования и без перехода на v3.
+  delivered без PUT, без переименования и без перехода на v4.
 - Если файл ещё отсутствует, pending legacy delivery использует прежний полный v2
-  (45 колонок), а не v3. Это детерминированный выбор для старых записей без версии.
+  (45 колонок), а не v4. Это детерминированный выбор для старых записей без версии.
 - После несовпадения формата fallback только проверяет metadata других legacy
   форматов; fallback PUT запрещён. Посторонние/изменённые bytes остаются конфликтом,
   файл не перезаписывается. Ошибка сети/авторизации не подменяется сменой формата.
 
 `WriteRunCSVFormat` сохраняет старые контракты исключительно для такого recovery.
-Новые аналитические экспорты используют WriteRunCSV/v3. Uploader строит байты из
+Новые аналитические экспорты используют WriteRunCSV/v4. Uploader строит байты из
 БД, не зависит от сохранности локального кеша, использует leases/backoff и
 `overwrite=false`. Парсеры, availability, формат хранимых warnings и миграция 0006
 этим изменением не затронуты.

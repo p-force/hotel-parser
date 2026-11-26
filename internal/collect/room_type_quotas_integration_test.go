@@ -88,7 +88,7 @@ func TestPostgresTravelLineRawQuotaPipelineAndDiagnostics(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(rows) != 11 || len(rows[0]) != 35 {
+	if len(rows) != 11 || len(rows[0]) != 36 || rows[0][35] != "unavailability_reason" {
 		t.Fatalf("CSV changed rows=%d cols=%d", len(rows), len(rows[0]))
 	}
 	for _, row := range rows[1:] {

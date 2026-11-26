@@ -224,6 +224,7 @@ func TestPostgresCSVContextDoesNotPublish(t *testing.T) {
 }
 
 func TestPostgresAutomaticCSVSourceAndGroupIsolation(t *testing.T) {
+	t.Setenv("HOTEL_PARSER_BOOKING_RULES_ENABLED", "true")
 	t.Setenv("HOTEL_PARSER_CSV_DIR", t.TempDir())
 	_, _, aSchema := storagetest.Open(t)
 	_, _, bSchema := storagetest.Open(t)
@@ -246,7 +247,11 @@ func TestPostgresAutomaticCSVSourceAndGroupIsolation(t *testing.T) {
 	a.Inventory.PublicObservedMax = a.Inventory.Categories[0].PublicObservedMax
 	info, body := travelLineRegressionFixture(t)
 	var calls atomic.Int32
+	var bookingCalls atomic.Int32
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if respondEmptyBookingRules(w, r, &bookingCalls) {
+			return
+		}
 		calls.Add(1)
 		switch r.URL.Path {
 		case "/ApiWebDistribution/BookingForm/hotel_info":
@@ -267,7 +272,7 @@ func TestPostgresAutomaticCSVSourceAndGroupIsolation(t *testing.T) {
 		t.Fatal(err)
 	}
 	response, err := s.Execute(context.Background(), Request{Action: "resume"})
-	if err != nil || len(response.Exports) != 2 || calls.Load() != 3 {
+	if err != nil || len(response.Exports) != 2 || calls.Load() != 3 || bookingCalls.Load() != 1 {
 		t.Fatal(response, err, calls.Load())
 	}
 	paths := map[string]bool{}
@@ -323,7 +328,7 @@ func TestPostgresAutomaticCSVSourceAndGroupIsolation(t *testing.T) {
 		}
 	}
 	replay, err := s.Execute(context.Background(), Request{Action: "resume"})
-	if err != nil || len(replay.Exports) != 2 || calls.Load() != 3 {
+	if err != nil || len(replay.Exports) != 2 || calls.Load() != 3 || bookingCalls.Load() != 1 {
 		t.Fatal(replay, err)
 	}
 }

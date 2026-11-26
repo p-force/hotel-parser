@@ -13,6 +13,13 @@ import (
 	"github.com/p-force/hotel-parser/internal/storage"
 )
 
+// WorkerHook обрабатывает подготовленную попытку после Collect под тем же
+// admission permit. Не должен приобретать вложенный допуск. Вызывается параллельно
+// с execution context; изменения допустимы только до возврата из hook.
+// Ошибка останавливает runtime без сохранения изменённой попытки; отмена execution
+// отбрасывает изменения hook и оставляет исходный результат для штатного flush.
+type WorkerHook func(context.Context, *storage.Store, source.Client, storage.Job, *storage.AttemptInput) error
+
 type RuntimeOptions struct {
 	MaxJobs             int                 // 0: ограничение только execution deadline.
 	RunnerLock          *storage.RunnerLock // Guard application-service для Bnovo.
@@ -21,6 +28,7 @@ type RuntimeOptions struct {
 	ExecutionTimeout    time.Duration // 0: только родительский context.
 	ShutdownGracePeriod time.Duration // 0: 5 секунд на весь shutdown.
 	RenewInterval       time.Duration // 0: треть срока lease.
+	WorkerHook          WorkerHook    `json:"-"` // nil: прежний путь подготовки и сохранения.
 }
 
 type RuntimeResult struct {
@@ -330,13 +338,10 @@ func runLeasedJobs(ctx, flush context.Context, stopExecution context.CancelCause
 				at := time.Now().Add(retryDelay(options.Batch.Retry, state.job.Attempts+number, done.result.Error.RetryAfter))
 				next = &at
 			}
-			ValidateExpectedCategories(&done.result, state.property.Hotel.Inventory)
-			attempt, err := storageAttemptContext(writeCtx, done.result, state.job.ID, state.job.Attempts+number, done.startedAt, done.finishedAt, done.durationMS, done.queueWaitMS, next)
+			attempt, err := state.attemptInput(writeCtx, done, number, next)
 			if err != nil {
 				return err
 			}
-			attempt.SelectionPolicy = selectionPolicy(state.property.Hotel)
-			attempt.Lease = ptrLease(state.job.Lease())
 			state.mu.Lock()
 			defer state.mu.Unlock()
 			_, err = state.store.SaveAttempt(writeCtx, attempt)
@@ -346,8 +351,64 @@ func runLeasedJobs(ctx, flush context.Context, stopExecution context.CancelCause
 			return err
 		},
 	}
+	observer.worker = runtimeWorkerHook(states, options.WorkerHook, stopExecution)
 	_, err := collectJobsObserved(ctx, input, options.Batch, observer)
 	return errors.Join(err, context.Cause(ctx))
+}
+
+func runtimeWorkerHook(states []runtimeLease, hook WorkerHook, stopExecution context.CancelCauseFunc) func(context.Context, completedAttempt, int) (*storage.AttemptInput, error) {
+	if hook == nil {
+		return nil
+	}
+	return func(ctx context.Context, done completedAttempt, number int) (*storage.AttemptInput, error) {
+		attempt, err := prepareWorkerAttempt(ctx, &states[done.index], done, number, hook)
+		if err != nil {
+			if ctx.Err() != nil {
+				// Основной HTTP уже завершён: сохраняем его исходный результат
+				// через существующий ограниченный flush context в after.
+				return nil, nil
+			}
+			stopExecution(err)
+		}
+		return attempt, err
+	}
+}
+
+func prepareWorkerAttempt(ctx context.Context, state *runtimeLease, done completedAttempt, number int, hook WorkerHook) (*storage.AttemptInput, error) {
+	attempt, err := state.attemptInput(ctx, done, number, nil)
+	if err != nil {
+		return nil, err
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, err
+	}
+	if err := hook(ctx, state.store, state.property.Client, state.job, &attempt); err != nil {
+		return nil, err
+	}
+	if err := ctx.Err(); err != nil {
+		return nil, err
+	}
+	return &attempt, nil
+}
+
+// attemptInput переиспользует подготовленный worker результат. Retry назначается
+// диспетчером после hook; fencing всегда берётся из актуального runtime job.
+func (state *runtimeLease) attemptInput(ctx context.Context, done completedAttempt, number int, next *time.Time) (storage.AttemptInput, error) {
+	var attempt storage.AttemptInput
+	if done.prepared != nil {
+		attempt = *done.prepared
+	} else {
+		ValidateExpectedCategories(&done.result, state.property.Hotel.Inventory)
+		var err error
+		attempt, err = storageAttemptContext(ctx, done.result, state.job.ID, state.job.Attempts+number, done.startedAt, done.finishedAt, done.durationMS, done.queueWaitMS, next)
+		if err != nil {
+			return storage.AttemptInput{}, err
+		}
+		attempt.SelectionPolicy = selectionPolicy(state.property.Hotel)
+	}
+	attempt.NextRetryAt = next
+	attempt.Lease = ptrLease(state.job.Lease())
+	return attempt, nil
 }
 
 func ptrLease(lease storage.Lease) *storage.Lease { return &lease }

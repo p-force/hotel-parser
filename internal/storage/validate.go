@@ -153,6 +153,13 @@ func normalizeAttempt(in AttemptInput) (AttemptInput, []byte, error) {
 		if in.Outcome == OutcomeFailed && o.StockStatus == StockKnown {
 			return fail()
 		}
+		if o.UnavailabilityReason != nil {
+			if *o.UnavailabilityReason != UnavailabilityReasonBookingForbidden || !o.ConfirmedUnavailable || o.HasOffers {
+				return fail()
+			}
+			reason := *o.UnavailabilityReason
+			o.UnavailabilityReason = &reason
+		}
 		o.Warnings, err = normalizeWarnings(o.Warnings)
 		if err != nil {
 			return in, nil, err

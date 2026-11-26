@@ -14,6 +14,7 @@ import (
 	"net/http/httptest"
 	"os"
 	"sync"
+	"sync/atomic"
 	"testing"
 	"time"
 
@@ -60,7 +61,10 @@ func (p *tlTransport) RoundTrip(r *http.Request) (*http.Response, error) {
 	return response, err
 }
 
-func TestPostgresTravelLineQueuedPersistence(t *testing.T) { travelLineQueued(t, false) }
+func TestPostgresTravelLineQueuedPersistence(t *testing.T) {
+	t.Setenv("HOTEL_PARSER_BOOKING_RULES_ENABLED", "true")
+	travelLineQueued(t, false)
+}
 func TestLiveTravelLineSmoke(t *testing.T) {
 	if os.Getenv("HOTEL_PARSER_LIVE_TRAVELLINE") != "1" {
 		t.Skip("explicit single-scenario live smoke only")
@@ -77,6 +81,7 @@ func travelLineQueued(t *testing.T, live bool) {
 	hotel.Collection.Nights = []int{1} // The bounded smoke/fixture covers one night.
 	_, admin, schema := storagetest.Open(t)
 	var mock *httptest.Server
+	var bookingCalls atomic.Int32
 	if !live {
 		info, err := os.ReadFile("../source/travelline/testdata/aerostar-info.json")
 		if err != nil {
@@ -95,6 +100,9 @@ func travelLineQueued(t *testing.T, live bool) {
 		}
 		body, _ = json.Marshal(data)
 		mock = httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			if respondEmptyBookingRules(w, r, &bookingCalls) {
+				return
+			}
 			w.Header().Set("Content-Type", "application/json")
 			if r.URL.Path == "/ApiWebDistribution/BookingForm/hotel_info" {
 				w.Write(info)
@@ -160,11 +168,20 @@ func travelLineQueued(t *testing.T, live bool) {
 	if attempt.Error != nil {
 		t.Fatalf("source failed safely: %s HTTP %d", attempt.Error.Code, attempt.HTTPStatus)
 	}
-	if len(probe.calls) != 2 || attempt.HTTPStatus != 200 || attempt.Lease == nil || attempt.CollectedAt == nil || len(attempt.Observations) != 10 {
+	var primaryCalls []tlCapture
+	var rulesRequests int
+	for _, call := range probe.calls {
+		if call.Path == "/ApiWebDistribution/AvailabilityCalendar/rate_plan_booking_rules" {
+			rulesRequests++
+		} else {
+			primaryCalls = append(primaryCalls, call)
+		}
+	}
+	if len(primaryCalls) != 2 || rulesRequests > 1 || (!live && (rulesRequests != 1 || bookingCalls.Load() != 1)) || attempt.HTTPStatus != 200 || attempt.Lease == nil || attempt.CollectedAt == nil || len(attempt.Observations) != 10 {
 		t.Fatalf("incomplete persistence: calls=%d attempt=%+v", len(probe.calls), attempt)
 	}
 	req := source.SearchRequest{PropertyID: "585", CheckIn: when, CheckOut: when.AddDate(0, 0, 1), Adults: 1, Language: "ru"}
-	parsed, err := travelline.Parse(probe.calls[0].body, probe.calls[1].body, req, rates)
+	parsed, err := travelline.Parse(primaryCalls[0].body, primaryCalls[1].body, req, rates)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -211,7 +228,7 @@ func travelLineQueued(t *testing.T, live bool) {
 			t.Fatalf("%s count=%d expected=%d err=%v", table, count, expectedCount, err)
 		}
 	}
-	if len(probe.calls) != 2 {
+	if len(probe.calls) != len(primaryCalls)+rulesRequests {
 		t.Fatal("replay sent extra HTTP requests")
 	}
 	progress, err := s.groups[0].Store.RunProgress(context.Background())

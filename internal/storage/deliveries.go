@@ -52,7 +52,7 @@ func scanDelivery(row scanner) (d Delivery, err error) {
 // Идентичность пути фиксируется один раз; смена root не дублирует файл.
 func (s *Store) EnsureDeliveries(ctx context.Context, groupID, root string) error {
 	_, err := s.db.ExecContext(ctx, `INSERT INTO `+s.table("csv_deliveries")+`(group_id,run_id,remote_path)
- SELECT $1,id,$2||'/'||CASE WHEN $1 ~ '^[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}$' THEN $1 ELSE 'id-'||encode(convert_to($1,'UTF8'),'hex') END||'/'||CASE WHEN property_id ~ '^[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}$' THEN property_id ELSE 'id-'||encode(convert_to(property_id,'UTF8'),'hex') END||'/'||to_char(started_at AT TIME ZONE 'Europe/Moscow','YYYY-MM-DD_HH24-MI')||'.v3.csv'
+ SELECT $1,id,$2||'/'||CASE WHEN $1 ~ '^[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}$' THEN $1 ELSE 'id-'||encode(convert_to($1,'UTF8'),'hex') END||'/'||CASE WHEN property_id ~ '^[a-zA-Z0-9][a-zA-Z0-9_-]{0,127}$' THEN property_id ELSE 'id-'||encode(convert_to(property_id,'UTF8'),'hex') END||'/'||to_char(started_at AT TIME ZONE 'Europe/Moscow','YYYY-MM-DD_HH24-MI')||'.`+CurrentRunCSVFormat+`.csv'
  FROM `+s.table("collection_runs")+` WHERE status<>'running' AND finished_at IS NOT NULL
  ON CONFLICT(group_id,run_id) DO NOTHING`, groupID, strings.TrimRight(root, "/"))
 	if err != nil {

@@ -44,7 +44,7 @@ func (s *Store) GetAttempt(ctx context.Context, jobID string, number int) (Attem
 		return a, err
 	}
 	a.Observations = make([]Observation, 0)
-	rows, err := s.db.QueryContext(ctx, `SELECT id::text,category_id,category_name,area_m2,available,stock_status,has_offers,confirmed_unavailable,warnings FROM `+s.table("observations")+` WHERE attempt_id=$1::uuid ORDER BY category_id`, a.ID)
+	rows, err := s.db.QueryContext(ctx, `SELECT id::text,category_id,category_name,area_m2,available,stock_status,has_offers,confirmed_unavailable,warnings,unavailability_reason FROM `+s.table("observations")+` WHERE attempt_id=$1::uuid ORDER BY category_id`, a.ID)
 	if err != nil {
 		return a, dbError("read observations", err)
 	}
@@ -53,7 +53,7 @@ func (s *Store) GetAttempt(ctx context.Context, jobID string, number int) (Attem
 		var o Observation
 		var id string
 		var diagnostic []byte
-		if err = rows.Scan(&id, &o.CategoryID, &o.CategoryName, &o.AreaM2, &o.Available, &o.StockStatus, &o.HasOffers, &o.ConfirmedUnavailable, &diagnostic); err != nil {
+		if err = rows.Scan(&id, &o.CategoryID, &o.CategoryName, &o.AreaM2, &o.Available, &o.StockStatus, &o.HasOffers, &o.ConfirmedUnavailable, &diagnostic, &o.UnavailabilityReason); err != nil {
 			rows.Close()
 			return a, dbError("scan observation", err)
 		}
