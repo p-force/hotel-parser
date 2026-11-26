@@ -61,7 +61,10 @@ func (p *tlTransport) RoundTrip(r *http.Request) (*http.Response, error) {
 	return response, err
 }
 
-func TestPostgresTravelLineQueuedPersistence(t *testing.T) { travelLineQueued(t, false) }
+func TestPostgresTravelLineQueuedPersistence(t *testing.T) {
+	t.Setenv("HOTEL_PARSER_BOOKING_RULES_ENABLED", "true")
+	travelLineQueued(t, false)
+}
 func TestLiveTravelLineSmoke(t *testing.T) {
 	if os.Getenv("HOTEL_PARSER_LIVE_TRAVELLINE") != "1" {
 		t.Skip("explicit single-scenario live smoke only")

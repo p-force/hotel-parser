@@ -24,6 +24,7 @@ import (
 )
 
 func TestPostgresRegularMixedSourcesToDeliveryAcrossRestart(t *testing.T) {
+	t.Setenv("HOTEL_PARSER_BOOKING_RULES_ENABLED", "true")
 	t.Setenv("HOTEL_PARSER_CSV_DIR", t.TempDir())
 	t.Setenv("YANDEX_DISK_DIR", "/hotel-parser-test")
 	info, body := travelLineRegressionFixture(t)

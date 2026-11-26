@@ -224,6 +224,7 @@ func TestPostgresCSVContextDoesNotPublish(t *testing.T) {
 }
 
 func TestPostgresAutomaticCSVSourceAndGroupIsolation(t *testing.T) {
+	t.Setenv("HOTEL_PARSER_BOOKING_RULES_ENABLED", "true")
 	t.Setenv("HOTEL_PARSER_CSV_DIR", t.TempDir())
 	_, _, aSchema := storagetest.Open(t)
 	_, _, bSchema := storagetest.Open(t)

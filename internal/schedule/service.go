@@ -8,6 +8,7 @@ import (
 	"log/slog"
 	"os"
 	"path/filepath"
+	"strconv"
 	"time"
 
 	"github.com/p-force/hotel-parser/internal/collect"
@@ -173,16 +174,18 @@ func (s *Service) Execute(parent context.Context, req Request) (response Respons
 		}
 	}()
 	options := s.options
-	coordinator := collect.NewBookingRulesCoordinator()
-	bookingRulesHook := collect.BookingRulesWorkerHook(coordinator)
-	previousHook := options.WorkerHook
-	options.WorkerHook = func(ctx context.Context, store *storage.Store, client source.Client, job storage.Job, attempt *storage.AttemptInput) error {
-		if previousHook != nil {
-			if err := previousHook(ctx, store, client, job, attempt); err != nil {
-				return err
+	if enabled, _ := strconv.ParseBool(os.Getenv("HOTEL_PARSER_BOOKING_RULES_ENABLED")); enabled {
+		coordinator := collect.NewBookingRulesCoordinator()
+		bookingRulesHook := collect.BookingRulesWorkerHook(coordinator)
+		previousHook := options.WorkerHook
+		options.WorkerHook = func(ctx context.Context, store *storage.Store, client source.Client, job storage.Job, attempt *storage.AttemptInput) error {
+			if previousHook != nil {
+				if err := previousHook(ctx, store, client, job, attempt); err != nil {
+					return err
+				}
 			}
+			return bookingRulesHook(ctx, store, client, job, attempt)
 		}
-		return bookingRulesHook(ctx, store, client, job, attempt)
 	}
 	response.Stage = "admission"
 	options.ExecutionTimeout = 0

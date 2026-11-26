@@ -6,11 +6,14 @@ import (
 	"bytes"
 	"context"
 	"database/sql"
+	"encoding/csv"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"log/slog"
 	"net/http"
 	"net/http/httptest"
+	"os"
 	"strings"
 	"sync"
 	"sync/atomic"
@@ -52,6 +55,7 @@ type bookingRulesHTTPMock struct {
 
 func newBookingRulesHTTPMock(t *testing.T, offers bool, status int, parallel bool) *bookingRulesHTTPMock {
 	t.Helper()
+	t.Setenv("HOTEL_PARSER_BOOKING_RULES_ENABLED", "true")
 	m := &bookingRulesHTTPMock{offers: offers, status: status, hotels: map[string]int{}}
 	if parallel {
 		m.parallel = make(chan struct{})
@@ -68,6 +72,56 @@ func newBookingRulesHTTPMock(t *testing.T, offers bool, status int, parallel boo
 		}
 	})
 	return m
+}
+
+func TestPostgresBookingRulesFeatureFlag(t *testing.T) {
+	for _, tc := range []struct {
+		name, value string
+		enabled     bool
+	}{
+		{"unset", "", false},
+		{"disabled", "false", false},
+		{"enabled", "true", true},
+		{"invalid", "invalid", false},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			_, db, schema := storagetest.Open(t)
+			mock := newBookingRulesHTTPMock(t, false, 200, false)
+			t.Setenv("HOTEL_PARSER_BOOKING_RULES_ENABLED", tc.value)
+			if tc.name == "unset" {
+				if err := os.Unsetenv("HOTEL_PARSER_BOOKING_RULES_ENABLED"); err != nil {
+					t.Fatal(err)
+				}
+			}
+			r := bookingRulesRegistry(t, schema, mock.server.URL, 1)
+			s := testService(t, r, nil, collect.RuntimeOptions{MaxJobs: 2, Batch: collect.BatchOptions{Workers: 2}})
+			run := queueBookingRulesRun(t, s, 0, 2)
+			response, err := s.Execute(context.Background(), Request{Action: "resume"})
+			if err != nil || mock.availability.Load() != 2 || len(response.Exports) != 1 || !response.Exports[0].Ready {
+				t.Fatal("flag changed main collection/export", response, err)
+			}
+			want := int32(0)
+			if tc.enabled {
+				want = 1
+			}
+			if mock.rules.Load() != want {
+				t.Fatal("unexpected booking rules HTTP count", mock.rules.Load(), want)
+			}
+			assertBookingRulesAttempts(t, db, schema, s.groups[0].Store, run.ID, 2, tc.enabled, false)
+			if _, err := s.groups[0].Store.GetRunBookingRules(context.Background(), run.ID); (tc.enabled && err != nil) || (!tc.enabled && !errors.Is(err, storage.ErrNotFound)) {
+				t.Fatal("disabled flag changed migrations or saved rules", err)
+			}
+			file, err := os.Open(response.Exports[0].Path)
+			if err != nil {
+				t.Fatal(err)
+			}
+			rows, err := csv.NewReader(file).ReadAll()
+			file.Close()
+			if err != nil || len(rows) != 5 || len(rows[0]) != 36 || rows[0][35] != "unavailability_reason" {
+				t.Fatal("flag disabled CSV v4", rows, err)
+			}
+		})
+	}
 }
 
 func (m *bookingRulesHTTPMock) serve(w http.ResponseWriter, r *http.Request) {

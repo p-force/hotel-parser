@@ -150,6 +150,7 @@ func TestPostgresTravelLineClientPolicyIsolation(t *testing.T) {
 }
 
 func TestPostgresMixedSourcesInvalidCurrency(t *testing.T) {
+	t.Setenv("HOTEL_PARSER_BOOKING_RULES_ENABLED", "true")
 	_, admin, schema := storagetest.Open(t)
 	a, err := config.Load("../../configs/arena33.json")
 	if err != nil {
