@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/p-force/hotel-parser/internal/source/bnovo"
+	"github.com/p-force/hotel-parser/internal/storage"
 )
 
 type scheduledAttempt struct {
@@ -26,6 +27,8 @@ type completedAttempt struct {
 	durationMS            int64
 	queueWaitMS           *int64
 	beforeError           error
+	workerError           error
+	prepared              *storage.AttemptInput
 }
 type pendingJob struct {
 	queuedAt, readyAt, waitingAt time.Time
@@ -35,21 +38,28 @@ type pendingJob struct {
 // executeAttempt освобождает допуски также при панике. Паника не перехватывается.
 type attemptObserver struct {
 	before func(context.Context, int, int, time.Time) error
+	worker func(context.Context, completedAttempt, int) (*storage.AttemptInput, error)
 	after  func(context.Context, completedAttempt, int, *time.Time) error
 }
 
 func executeAttempt(ctx context.Context, job batchJob, permit admission) bnovo.SearchResult {
-	return executeObservedAttempt(ctx, job, permit, 0, 1, nil).result
+	return executeObservedAttempt(ctx, job, permit, 0, 1, nil, nil).result
 }
-func executeObservedAttempt(ctx context.Context, job batchJob, permit admission, index, number int, observer *attemptObserver) (done completedAttempt) {
+func executeObservedAttempt(ctx context.Context, job batchJob, permit admission, index, number int, queueWaitMS *int64, observer *attemptObserver) (done completedAttempt) {
 	defer permit.release()
 	started := time.Now()
 	done.index = index
 	done.startedAt = started.UTC()
-	defer func() {
+	done.queueWaitMS = queueWaitMS
+	finish := func() {
 		elapsed := time.Since(started)
 		done.durationMS = elapsed.Milliseconds()
 		done.finishedAt = started.Add(elapsed).UTC()
+	}
+	defer func() {
+		if done.finishedAt.IsZero() {
+			finish()
+		}
 	}()
 	if ctx.Err() != nil {
 		done.result = canceledAttempt(ctx, job.request)
@@ -75,6 +85,11 @@ func executeObservedAttempt(ctx context.Context, job batchJob, permit admission,
 		return done
 	}
 	done.result = job.client.Collect(ctx, job.request)
+	if observer != nil && observer.worker != nil && ctx.Err() == nil {
+		// Существующие метрики попытки заканчиваются до дополнительной обработки.
+		finish()
+		done.prepared, done.workerError = observer.worker(ctx, done, number)
+	}
 	return done
 }
 
@@ -115,8 +130,7 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 				}
 				release := job.permit.release
 				job.permit.release = func() { active.Add(-1); release() }
-				done := executeObservedAttempt(ctx, input[index], job.permit, index, job.number, observer)
-				done.queueWaitMS = job.queueWaitMS
+				done := executeObservedAttempt(ctx, input[index], job.permit, index, job.number, job.queueWaitMS, observer)
 				completed <- done
 			}
 		}()
@@ -150,8 +164,8 @@ func scheduleJobs(ctx context.Context, input []batchJob, options BatchOptions, p
 		if done.result.HTTPStatus == 429 {
 			run.throttled[i]++
 		}
-		if done.beforeError != nil {
-			run.storageError = errors.Join(run.storageError, done.beforeError)
+		if done.beforeError != nil || done.workerError != nil {
+			run.storageError = errors.Join(run.storageError, done.beforeError, done.workerError)
 			remaining--
 			return
 		}

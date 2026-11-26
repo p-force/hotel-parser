@@ -9,8 +9,10 @@ import (
 	"testing"
 	"time"
 
+	"github.com/p-force/hotel-parser/internal/collect"
 	"github.com/p-force/hotel-parser/internal/source"
 	"github.com/p-force/hotel-parser/internal/source/travelline"
+	"github.com/p-force/hotel-parser/internal/storage"
 )
 
 func TestCSVExampleMatchesTravelLineParser(t *testing.T) {
@@ -20,7 +22,7 @@ func TestCSVExampleMatchesTravelLineParser(t *testing.T) {
 	}
 	defer file.Close()
 	records, err := csv.NewReader(file).ReadAll()
-	if err != nil || len(records) != 6 || len(records[0]) != 35 {
+	if err != nil || len(records) != 6 || len(records[0]) != 36 || records[0][35] != "unavailability_reason" {
 		t.Fatal(records, err)
 	}
 	columns := map[string]int{}
@@ -34,7 +36,7 @@ func TestCSVExampleMatchesTravelLineParser(t *testing.T) {
 	for _, row := range records[1:] {
 		category := value(row, "category_id")
 		if category == "" {
-			if value(row, "job_status") != "failed" || value(row, "has_offers") != "" || value(row, "confirmed_unavailable") != "" {
+			if value(row, "job_status") != "failed" || value(row, "has_offers") != "" || value(row, "confirmed_unavailable") != "" || value(row, "unavailability_reason") != "" {
 				t.Fatal(row)
 			}
 			continue
@@ -80,6 +82,11 @@ func TestCSVExampleMatchesTravelLineParser(t *testing.T) {
 	for _, state := range result.CategoryAvailability {
 		states[state.CategoryID] = state
 	}
+	forbidden := true
+	rules := travelline.BookingRulesResponse{}
+	for _, rate := range allowed {
+		rules.BookingRules = append(rules.BookingRules, travelline.BookingRule{Date: "2026-11-17", RoomTypes: []string{"4350"}, Code: rate, Forbidden: &forbidden})
+	}
 	for _, row := range records[1:] {
 		category := value(row, "category_id")
 		if category == "" {
@@ -87,7 +94,15 @@ func TestCSVExampleMatchesTravelLineParser(t *testing.T) {
 		}
 		stock := stocks[category]
 		state := states[category]
-		if value(row, "job_status") != string(result.Status) || value(row, "stock_status") != string(stock.Status) || value(row, "has_offers") != strconv.FormatBool(state.HasOffers) || value(row, "confirmed_unavailable") != strconv.FormatBool(state.ConfirmedUnavailable) {
+		attempt := storage.AttemptInput{HTTPStatus: 200, Outcome: storage.Outcome(result.Status), Observations: []storage.Observation{{CategoryID: category,
+			StockStatus: storage.StockStatus(stock.Status), Available: stock.Available, HasOffers: state.HasOffers, ConfirmedUnavailable: state.ConfirmedUnavailable}}}
+		collect.ApplyTravelLineBookingRules(storage.Scenario{Source: "travelline", LOS: 1, CheckIn: in}, &attempt, rules.Index(), allowed)
+		observation := attempt.Observations[0]
+		reason := ""
+		if observation.UnavailabilityReason != nil {
+			reason = string(*observation.UnavailabilityReason)
+		}
+		if value(row, "job_status") != string(result.Status) || value(row, "stock_status") != string(stock.Status) || value(row, "has_offers") != strconv.FormatBool(state.HasOffers) || value(row, "confirmed_unavailable") != strconv.FormatBool(observation.ConfirmedUnavailable) || value(row, "unavailability_reason") != reason {
 			t.Fatal("example contradicts real parser", row, result.Status, stock, state)
 		}
 		if stock.Available == nil && value(row, "available") != "" {

@@ -170,7 +170,11 @@ func TestPostgresMixedSourcesInvalidCurrency(t *testing.T) {
 	info = []byte(strings.ReplaceAll(string(info), "RUB", "rub"))
 	body = []byte(strings.ReplaceAll(string(body), "RUB", "rub"))
 	var calls atomic.Int32
+	var bookingCalls atomic.Int32
 	server := httptest.NewTLSServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if respondEmptyBookingRules(w, r, &bookingCalls) {
+			return
+		}
 		calls.Add(1)
 		switch r.URL.Path {
 		case "/ApiWebDistribution/BookingForm/hotel_info":
@@ -192,7 +196,7 @@ func TestPostgresMixedSourcesInvalidCurrency(t *testing.T) {
 			t.Fatal("source response stopped runtime", err)
 		}
 	}
-	if calls.Load() != 3 {
+	if calls.Load() != 3 || bookingCalls.Load() != 1 {
 		t.Fatal("unexpected HTTP retry/replay", calls.Load())
 	}
 	for _, property := range []struct {

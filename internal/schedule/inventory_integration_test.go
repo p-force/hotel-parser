@@ -48,12 +48,19 @@ func TestPostgresPlanInventorySnapshotAndCSVVersion(t *testing.T) {
 	if err := os.WriteFile(legacyV2, []byte("legacy-v2-header\nlegacy-v2-data\n"), 0600); err != nil {
 		t.Fatal(err)
 	}
+	legacyV3 := strings.Replace(legacyV2, string(filepath.Separator)+"v2"+string(filepath.Separator), string(filepath.Separator)+"v3"+string(filepath.Separator), 1)
+	if err := os.MkdirAll(filepath.Dir(legacyV3), 0750); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(legacyV3, []byte("legacy-v3-header\nlegacy-v3-data\n"), 0600); err != nil {
+		t.Fatal(err)
+	}
 	response, err := s.Execute(context.Background(), Request{Action: "resume"})
 	if err != nil || len(response.Exports) != 1 || !response.Exports[0].Generated || calls.Load() != 1 {
 		t.Fatal(response, err)
 	}
 	artifact := response.Exports[0]
-	if !strings.Contains(artifact.Path, string(filepath.Separator)+"v3"+string(filepath.Separator)) {
+	if !strings.Contains(artifact.Path, string(filepath.Separator)+"v4"+string(filepath.Separator)) {
 		t.Fatal(artifact)
 	}
 	body, err := os.ReadFile(artifact.Path)
@@ -63,6 +70,10 @@ func TestPostgresPlanInventorySnapshotAndCSVVersion(t *testing.T) {
 	v2, err := os.ReadFile(legacyV2)
 	if err != nil || string(v2) != "legacy-v2-header\nlegacy-v2-data\n" {
 		t.Fatal("legacy v2 changed", err)
+	}
+	v3, err := os.ReadFile(legacyV3)
+	if err != nil || string(v3) != "legacy-v3-header\nlegacy-v3-data\n" {
+		t.Fatal("legacy v3 changed", err)
 	}
 	old, err := os.ReadFile(legacy)
 	if err != nil || string(old) != "legacy-header\nlegacy-data\n" {

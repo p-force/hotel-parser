@@ -150,7 +150,7 @@ func (s *Store) saveAttempt(ctx context.Context, input AttemptInput, policy *Fai
 func (s *Store) insertObservation(ctx context.Context, tx *sql.Tx, attemptID string, o Observation) error {
 	var id string
 	warnings, _ := json.Marshal(o.Warnings)
-	err := tx.QueryRowContext(ctx, `INSERT INTO `+s.table("observations")+`(attempt_id,category_id,category_name,area_m2,available,stock_status,has_offers,confirmed_unavailable,warnings) VALUES($1::uuid,$2,$3,$4,$5,$6,$7,$8,$9::jsonb) RETURNING id::text`, attemptID, o.CategoryID, o.CategoryName, o.AreaM2, o.Available, o.StockStatus, o.HasOffers, o.ConfirmedUnavailable, string(warnings)).Scan(&id)
+	err := tx.QueryRowContext(ctx, `INSERT INTO `+s.table("observations")+`(attempt_id,category_id,category_name,area_m2,available,stock_status,has_offers,confirmed_unavailable,warnings,unavailability_reason) VALUES($1::uuid,$2,$3,$4,$5,$6,$7,$8,$9::jsonb,$10) RETURNING id::text`, attemptID, o.CategoryID, o.CategoryName, o.AreaM2, o.Available, o.StockStatus, o.HasOffers, o.ConfirmedUnavailable, string(warnings), o.UnavailabilityReason).Scan(&id)
 	if err != nil {
 		return dbError("insert category observation", err)
 	}

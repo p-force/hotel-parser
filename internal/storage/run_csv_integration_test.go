@@ -103,6 +103,10 @@ func TestPostgresRunCSVSemantics(t *testing.T) {
 				observation("unknown", storage.StockUnknown, nil, nil), observation("missing", storage.StockUnknown, nil, []storage.Offer{offer("missing", nil)}),
 				observation("zero_signal", storage.StockUnknown, nil, []storage.Offer{offer("zero", native(0))}),
 			})
+			if provider == "travelline" {
+				partial.Observations[1].ConfirmedUnavailable = true
+				partial.Observations[1].UnavailabilityReason = ptr(storage.UnavailabilityReasonBookingForbidden)
+			}
 			if _, err := store.SaveAttempt(ctx, partial); err != nil {
 				t.Fatal(err)
 			}
@@ -147,12 +151,37 @@ func TestPostgresRunCSVSemantics(t *testing.T) {
 			if count != 10 || len(rows) != 10 {
 				t.Fatal("missing/duplicate CSV rows", count, len(rows))
 			}
+			records, err := csv.NewReader(bytes.NewReader(output.Bytes())).ReadAll()
+			if err != nil || len(records[0]) != 36 || records[0][35] != "unavailability_reason" {
+				t.Fatal("v4 contract changed", records, err)
+			}
+			var v3, projected bytes.Buffer
+			if _, err := store.WriteRunCSVFormat(ctx, "group", run.ID, "v3", &v3); err != nil {
+				t.Fatal(err)
+			}
+			writer := csv.NewWriter(&projected)
+			for _, record := range records {
+				if err := writer.Write(record[:35]); err != nil {
+					t.Fatal(err)
+				}
+			}
+			writer.Flush()
+			if writer.Error() != nil || !bytes.Equal(v3.Bytes(), projected.Bytes()) {
+				t.Fatal("v3 bytes/row order changed")
+			}
 			var sqlCount int
 			if err := db.QueryRow(`SELECT count(*) FROM "`+schema+`".scenario_jobs j LEFT JOIN "`+schema+`".collection_attempts a ON a.job_id=j.id AND a.attempt_no=j.attempts LEFT JOIN "`+schema+`".observations o ON o.attempt_id=a.id LEFT JOIN "`+schema+`".observation_offers f ON f.observation_id=o.id WHERE j.run_id=$1`, run.ID).Scan(&sqlCount); err != nil || sqlCount != len(rows) {
 				t.Fatal(sqlCount, err)
 			}
 			byKey := map[string]map[string]string{}
 			for _, row := range rows {
+				wantReason := ""
+				if provider == "travelline" && row["category_id"] == "unknown" {
+					wantReason = "booking_forbidden"
+				}
+				if row["unavailability_reason"] != wantReason {
+					t.Fatal("reason/NULL lost, including missing observation or attempt", row)
+				}
 				if row["run_id"] != run.ID || row["property_id"] != "hotel" || row["source"] != provider || row["los"] != "1" || row["adults"] != "2" || row["rooms"] != "1" {
 					t.Fatal(row)
 				}
