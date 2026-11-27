@@ -3,6 +3,7 @@ package collect
 import (
 	"encoding/json"
 	"testing"
+	"time"
 
 	"github.com/p-force/hotel-parser/internal/storage"
 )
@@ -19,8 +20,8 @@ func TestNeedsTravelLineBookingRulesConditions(t *testing.T) {
 		{"Bnovo", func(s *storage.Scenario, _ *storage.AttemptInput) { s.Source = "bnovo" }, false},
 		{"other source", func(s *storage.Scenario, _ *storage.AttemptInput) { s.Source = "other" }, false},
 		{"missing source", func(s *storage.Scenario, _ *storage.AttemptInput) { s.Source = "" }, false},
-		{"LOS 2", func(s *storage.Scenario, _ *storage.AttemptInput) { s.LOS = 2 }, false},
-		{"LOS 3", func(s *storage.Scenario, _ *storage.AttemptInput) { s.LOS = 3 }, false},
+		{"LOS 2", func(s *storage.Scenario, _ *storage.AttemptInput) { s.LOS = 2; s.CheckOut = s.CheckIn.AddDate(0, 0, 2) }, true},
+		{"LOS 3", func(s *storage.Scenario, _ *storage.AttemptInput) { s.LOS = 3; s.CheckOut = s.CheckIn.AddDate(0, 0, 3) }, true},
 		{"unset LOS", func(s *storage.Scenario, _ *storage.AttemptInput) { s.LOS = 0 }, false},
 		{"known stock", func(_ *storage.Scenario, a *storage.AttemptInput) { a.Observations[0].StockStatus = storage.StockKnown }, false},
 		{"conflict stock", func(_ *storage.Scenario, a *storage.AttemptInput) {
@@ -57,7 +58,8 @@ func TestNeedsTravelLineBookingRulesConditions(t *testing.T) {
 		{"empty observations", func(_ *storage.Scenario, a *storage.AttemptInput) { a.Observations = []storage.Observation{} }, false},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
-			scenario := storage.Scenario{Source: "travelline", LOS: 1}
+			checkIn := time.Date(2026, 12, 3, 0, 0, 0, 0, time.UTC)
+			scenario := storage.Scenario{Source: "travelline", LOS: 1, CheckIn: checkIn, CheckOut: checkIn.AddDate(0, 0, 1)}
 			attempt := storage.AttemptInput{HTTPStatus: 200, Outcome: storage.OutcomePartial, Observations: []storage.Observation{{CategoryID: "4347", StockStatus: storage.StockUnknown}}}
 			tc.change(&scenario, &attempt)
 			beforeScenario, _ := json.Marshal(scenario)

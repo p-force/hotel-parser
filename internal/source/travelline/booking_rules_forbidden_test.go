@@ -56,8 +56,8 @@ func TestConfirmCategoryBookingForbidden(t *testing.T) {
 		{"empty rates", allForbidden, []string{}, 1, false},
 		{"nil rates", allForbidden, nil, 1, false},
 		{"empty rate ID", allForbidden, []string{"128299", ""}, 1, false},
-		{"LOS 2", allForbidden, []string{"128299", "128301"}, 2, false},
-		{"LOS 3", allForbidden, []string{"128299", "128301"}, 3, false},
+		{"LOS 2", allForbidden, []string{"128299", "128301"}, 2, true},
+		{"LOS 3", allForbidden, []string{"128299", "128301"}, 3, true},
 		{"LOS zero", allForbidden, []string{"128299", "128301"}, 0, false},
 		{"other restrictions do not override explicit forbidden", `[
 			{"room_types":["4347"],"code":"128299","date":"2026-11-25","forbidden":true,"min_los":5,"max_los":0,"min_adv_booking":999}
