@@ -1,0 +1,10 @@
+{
+  "property_id": "333",
+  "room_type_id": "29344",
+  "rate_ids": ["38564", "49218"],
+  "cases": [
+    {"name": "dec03_los2_checkout_excluded", "check_in": "2026-12-03", "check_out": "2026-12-05", "los": 2, "has_offers": true, "confirmed_forbidden": false},
+    {"name": "dec03_los3_third_night_forbidden", "check_in": "2026-12-03", "check_out": "2026-12-06", "los": 3, "has_offers": false, "confirmed_forbidden": true},
+    {"name": "dec04_los2_second_night_forbidden", "check_in": "2026-12-04", "check_out": "2026-12-06", "los": 2, "has_offers": false, "confirmed_forbidden": true}
+  ]
+}
