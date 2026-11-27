@@ -76,11 +76,13 @@ func TestApplyTravelLineBookingRules(t *testing.T) {
 		{name: "different check-in", change: func(s *storage.Scenario, _ *storage.AttemptInput, _ *travelline.BookingRulesIndex, _ *[]string) {
 			s.CheckIn = s.CheckIn.AddDate(0, 0, 1)
 		}},
-		{name: "LOS 2", change: func(s *storage.Scenario, _ *storage.AttemptInput, _ *travelline.BookingRulesIndex, _ *[]string) {
+		{name: "LOS 2", want: 1, change: func(s *storage.Scenario, _ *storage.AttemptInput, _ *travelline.BookingRulesIndex, _ *[]string) {
 			s.LOS = 2
+			s.CheckOut = s.CheckIn.AddDate(0, 0, 2)
 		}},
-		{name: "LOS 3", change: func(s *storage.Scenario, _ *storage.AttemptInput, _ *travelline.BookingRulesIndex, _ *[]string) {
+		{name: "LOS 3", want: 1, change: func(s *storage.Scenario, _ *storage.AttemptInput, _ *travelline.BookingRulesIndex, _ *[]string) {
 			s.LOS = 3
+			s.CheckOut = s.CheckIn.AddDate(0, 0, 3)
 		}},
 		{name: "Bnovo", change: func(s *storage.Scenario, _ *storage.AttemptInput, _ *travelline.BookingRulesIndex, _ *[]string) {
 			s.Source = "bnovo"

@@ -1,0 +1,10 @@
+{
+  "booking_rules": [
+    {"room_types": ["29344"], "code": "38564", "date": "2026-12-03", "forbidden": null},
+    {"room_types": ["29344"], "code": "49218", "date": "2026-12-03", "forbidden": null},
+    {"room_types": ["29344"], "code": "38564", "date": "2026-12-04", "forbidden": null},
+    {"room_types": ["29344"], "code": "49218", "date": "2026-12-04", "forbidden": null},
+    {"room_types": ["29344"], "code": "38564", "date": "2026-12-05", "forbidden": true},
+    {"room_types": ["29344"], "code": "49218", "date": "2026-12-05", "forbidden": true}
+  ]
+}
